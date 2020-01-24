@@ -88,8 +88,8 @@ function create() {
 	game.physics.startSystem(Phaser.Physics.ARCADE);
 	game.physics.arcade.gravity.y = 300;
 
-	good_objects = createGroup(30, game.cache.getBitmapData('good'));
-	bad_objects = createGroup(30, game.cache.getBitmapData('bad'));
+	good_objects = createGroup(16, game.cache.getBitmapData('good'));
+	bad_objects = createGroup(16, game.cache.getBitmapData('bad'));
   //bad_objects.filters=[glowFilter];
   //good_objects.filters=[glowFilter];
 	slashes = game.add.graphics(0, 0);
@@ -218,7 +218,7 @@ function checkIntersects(fruit, callback) {
 		if (Phaser.Point.distance(contactPoint, new Phaser.Point(fruit.x, fruit.y)) > 110) {
 			return;
 		}
-killFruit(fruit);
+		killFruit(fruit);
     /*
 		if (fruit.parent == good_objects) {
 			killFruit(fruit);
@@ -251,6 +251,7 @@ function resetScore() {
 }
 
 function render() {
+	//Nothing here
 }
 
 function killFruit(fruit) {
@@ -270,12 +271,12 @@ if (fruit.parent == good_objects) {
 	emitter.start(true, 2000, null, 4);
 }
  if (fruit.parent == bad_objects) {
-   scorePoints = scorePoints * -punishment
+   scorePoints = parseInt(scorePoints * (-1*(punishment+1)/2))
    punishment++
 let pointsLbl = game.add.text(fruit.x,fruit.y,scorePoints);
      pointsLbl.blendMode = Phaser.blendModes.ADD
 	pointsLbl.fill = 'red';
-  pointsLbl.fontSize = 32
+  pointsLbl.fontSize = 24
   pointsLbl.depth = 10
   
   setTimeout(()=>pointsLbl.destroy(true),500) 
