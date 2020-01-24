@@ -259,7 +259,17 @@ Project Management System</span> (C#.Net, ASP.Net, MsSQL,Bootstrap,AJAX,JavaScri
       <div class="w-100">
         <h2 class="mb-5">Education</h2>
 
-        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+       <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+          <div class="resume-content">
+            <h3 class="mb-0">freeCodeCamp</h3>
+            <div class="subheading mb-3">Certificate</div>
+            <div>Fullstack JavaScript Software Developer</div>
+          </div>
+          <div class="resume-date text-md-right">
+            <span class="text-primary">2016 - 2017</span>
+          </div>
+        </div> 
+		<div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
           <div class="resume-content">
             <h3 class="mb-0">Institute of Advanced Technology Kenya</h3>
             <div class="subheading mb-3">Bachelor of Science</div>
@@ -283,7 +293,7 @@ Project Management System</span> (C#.Net, ASP.Net, MsSQL,Bootstrap,AJAX,JavaScri
           <div class="resume-content">
             <h3 class="mb-0">Digital Age Institute</h3>
             <div class="subheading mb-3">Diploma</div>
-            <div>Web Development, Software Development</div>
+            <div>Web and Mobile Development</div>
           </div>
           <div class="resume-date text-md-right">
             <span class="text-primary">2005 - 2006</span>
