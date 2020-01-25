@@ -55,16 +55,30 @@ var game = new Phaser.Game(w, h, Phaser.AUTO, 'game',
 var glowFilter=new Phaser.Filter.Glow(game);
 function preload() {
 
+  
+
+  
 	var bmd = game.add.bitmapData(100,100);
-	bmd.ctx.fillStyle = '#00ffff';
-	bmd.ctx.arc(50,50,250, 0, Math.PI * 2);
-	bmd.ctx.fill();
+  
+    var grd = bmd.ctx.createLinearGradient(0, 0, 100, 100); 
+
+grd.addColorStop(0, '#00FFFF');
+grd.addColorStop(1, '#00CCCC');
+  
+	bmd.ctx.fillStyle = grd; //'#00ffff88';
+  bmd.ctx.strokeStyle = '#00ffff';
+  bmd.ctx.fillRect(0, 0,100,100)
+  bmd.ctx.strokeRect(0, 0,100,100);
+	//bmd.ctx.fill();
 	game.cache.addBitmapData('good', bmd);
 
 	var bmd = game.add.bitmapData(50,50);
-	bmd.ctx.fillStyle = '#ff00ff';
-	bmd.ctx.arc(32,32,64, 0, Math.PI * 2);
-	bmd.ctx.fill();
+      var grd = bmd.ctx.createLinearGradient(0, 0, 50, 50);  
+grd.addColorStop(0, '#FF00FF');
+grd.addColorStop(1, '#AA00AA');
+	bmd.ctx.fillStyle = grd; //'#ff00ff';
+  bmd.ctx.strokeStyle = '#ff00ff';
+  bmd.ctx.fillRect(0, 0,50,50)
 	game.cache.addBitmapData('bad', bmd);
   //game.stage
 }
@@ -75,6 +89,9 @@ var good_objects,
 		line,
 		scoreLabel,
 		score = 0,
+    maxScore=0,
+    comboTimeout=0,
+    comboMultiplier =1,
     punishment = 1,
     isGameOver=false,
 		points = [];	
@@ -88,8 +105,8 @@ function create() {
 	game.physics.startSystem(Phaser.Physics.ARCADE);
 	game.physics.arcade.gravity.y = 300;
 
-	good_objects = createGroup(16, game.cache.getBitmapData('good'));
-	bad_objects = createGroup(16, game.cache.getBitmapData('bad'));
+	good_objects = createGroup(10, game.cache.getBitmapData('good'));
+	bad_objects = createGroup(20, game.cache.getBitmapData('bad'));
   //bad_objects.filters=[glowFilter];
   //good_objects.filters=[glowFilter];
 	slashes = game.add.graphics(0, 0);
@@ -140,11 +157,11 @@ function createGroup (numItems, sprite) {
 function throwObject() {
   let funModifier = ((5000-score)/5000) < 0?0:((5000-score)/5000)
 	if (!isGameOver && game.time.now > nextFire && good_objects.countDead()>0 && bad_objects.countDead()>0) {
-		nextFire = game.time.now + (fireRate*funModifier);
+		nextFire = game.time.now + parseInt(500*(1-funModifier)) +(fireRate*funModifier);
 		throwGoodObject();
-		if (Math.random()>0.35) {
+		if (Math.random()>0.5) {
 			throwBadObject();
-      if (Math.random()>funModifier) {
+      if (Math.random()> (0.5+(0.5*funModifier))) {
         throwBadObject();
       }
 		}
@@ -153,21 +170,38 @@ function throwObject() {
 
 function throwGoodObject() {
 	var obj = good_objects.getFirstDead();
+  if(obj){
 	obj.reset(game.world.centerX + Math.random()*150-Math.random()*150, 600);
 	obj.anchor.setTo(0.5, 0.5);
 	//obj.body.angularAcceleration = 100;
 	game.physics.arcade.moveToXY(obj, game.world.centerX, game.world.centerY, 530);
 }
-
+}
 function throwBadObject() {
 	var obj = bad_objects.getFirstDead();
-	obj.reset(game.world.centerX + Math.random()*200-Math.random()*200, 400 + parseInt(Math.random()*200));
+	if(obj){
+  obj.reset(game.world.centerX + Math.random()*200-Math.random()*200, 400 + parseInt(Math.random()*200));
 	obj.anchor.setTo(0.5, 0.5);
 	//obj.body.angularAcceleration = 100;
-	game.physics.arcade.moveToXY(obj, game.world.centerX, game.world.centerY, 530);
+	game.physics.arcade.moveToXY(obj, game.world.centerX,     game.world.centerY, 530);
+  }
+}
+
+function render() {
+  comboTimeout = (comboTimeout>0)?comboTimeout-1:0
+  if(comboTimeout <= 0){
+    comboMultiplier = 1
+  }
+  if(score>0){
+    scoreLabel.text = 'Score: ' + score + ' / Current Highest : ' + maxScore + ' Combo : X' + comboMultiplier +" / "+comboTimeout;
+  }
+  //scoreLabel.text = 'Score: ' + score + ' / Current Highest : ' + maxScore + ' Combo : ' + comboTimeout +"/"+game.time.now;
 }
 
 function update() {
+  
+  //comboTimeout = comboTimeout-1
+  //comboTimeout = (comboTimeout>0)?comboTimeout-1:0
   
 	throwObject();
 	points.push({
@@ -207,7 +241,7 @@ var contactPoint = new Phaser.Point(0,0);
 function checkIntersects(fruit, callback) {
 	var l1 = new Phaser.Line(fruit.body.right - fruit.width, fruit.body.bottom - fruit.height, fruit.body.right, fruit.body.bottom);
 	var l2 = new Phaser.Line(fruit.body.right - fruit.width, fruit.body.bottom, fruit.body.right, fruit.body.bottom-fruit.height);
-	l2.angle = 180;
+	l2.angle = 90;
 
 	if(Phaser.Line.intersects(line, l1, true) ||
 		 Phaser.Line.intersects(line, l2, true)) {
@@ -218,7 +252,7 @@ function checkIntersects(fruit, callback) {
 		if (Phaser.Point.distance(contactPoint, new Phaser.Point(fruit.x, fruit.y)) > 110) {
 			return;
 		}
-		killFruit(fruit);
+killFruit(fruit);
     /*
 		if (fruit.parent == good_objects) {
 			killFruit(fruit);
@@ -233,13 +267,8 @@ function resetScore() {
   isGameOver = true
 	var highscore = Math.max(score, localStorage.getItem("highscore"));
 	localStorage.setItem("highscore", highscore);
-
-	good_objects.forEachExists(killFruit);
-	bad_objects.forEachExists(killFruit);
-
-	score = 0;
-  punishment = 1;
-  let pointsLbl = game.add.text(10,50,'GAME OVER!!!\nYour High Score Is: '+highscore+'\nPixel Ninja (by Leo Kamwathi)');
+  
+  let pointsLbl = game.add.text(10,50,'GAME OVER!!!\nYour Max Score was: '+maxScore+'\nHigh Score: '+highscore);
   pointsLbl.blendMode = Phaser.blendModes.ADD
 	pointsLbl.fill = 'cyan';
   pointsLbl.fontSize = 24
@@ -247,49 +276,65 @@ function resetScore() {
   
   setTimeout(()=>{pointsLbl.destroy(true);isGameOver=false},3000) 
 	scoreLabel.text = 'Slash the Cyan boxes not the pink!';
-	// Retrieve
+	
+  //reseting 
+  good_objects.forEachExists(killFruit);
+	bad_objects.forEachExists(killFruit);
+  score = 0;
+  maxScore = 0;
+  comboTimeout = 0
+  punishment = 1;
+  
+  // Retrieve
 }
 
-function render() {
-	//Nothing here
-}
+
 
 function killFruit(fruit) {
-  let scorePoints = parseInt(score/10)+1
-if (fruit.parent == good_objects) {
+  let scorePoints = Math.floor( Math.sqrt((((score/10)*8)+1)/2)-0.5)+1
+  //let scorePoints = parseInt(score/100)+1
+if (!isGameOver && fruit.parent == good_objects) {
   
-  let pointsLbl = game.add.text(fruit.x,fruit.y,"+"+scorePoints);
+  scorePoints = scorePoints * comboMultiplier
+  let combo = comboMultiplier>1?"X"+comboMultiplier:''
+  let pointsLbl = game.add.text(fruit.x,fruit.y,"+"+scorePoints+combo);
   pointsLbl.blendMode = Phaser.blendModes.ADD
 	pointsLbl.fill = 'yellow';
   pointsLbl.fontSize = 32
   pointsLbl.depth = 10
+  comboTimeout = 50
+  comboMultiplier++
   
   setTimeout(()=>pointsLbl.destroy(true),500)  
 
 	emitter.x = fruit.x;
 	emitter.y = fruit.y;
-	emitter.start(true, 2000, null, 4);
+	emitter.start(true, 2500, null, 4);
 }
- if (fruit.parent == bad_objects) {
-   scorePoints = parseInt(scorePoints * (-1*(punishment+1)/2))
+ if (!isGameOver && fruit.parent == bad_objects) {
+   scorePoints = parseInt(scorePoints * (-1*(punishment+1)))
    punishment++
+   comboTimeout = 0
+   comboMultipler = 1
 let pointsLbl = game.add.text(fruit.x,fruit.y,scorePoints);
      pointsLbl.blendMode = Phaser.blendModes.ADD
 	pointsLbl.fill = 'red';
-  pointsLbl.fontSize = 24
+  pointsLbl.fontSize = 32
   pointsLbl.depth = 10
   
   setTimeout(()=>pointsLbl.destroy(true),500) 
 	emitter2.x = fruit.x;
 	emitter2.y = fruit.y;
-	emitter2.start(true, 2000, null, 4);
+	emitter2.start(true, 3000, null, 4);
 } 
 	fruit.kill();
 	points = [];
 	score += scorePoints ;
+  maxScore = Math.max(score,maxScore)
+  scoreLabel.text = 'Score: ' + score + ' / Current Highest : ' + maxScore + ' Combo : X' + comboMultiplier +" / "+comboTimeout;
   if (score<=0){
     resetScore()
   }
-	scoreLabel.text = 'Score: ' + score;
+	
   
 }
