@@ -107,14 +107,14 @@ href="#"
 onclick="loadCode('${f}');"
 >${f}</a>
 <button type="button" class="close dropdown-menu-right"
-data-toggle="tooltip" data-placement="bottom" title="Export Code"
+data-toggle="tooltip" data-placement="bottom" title="Download Code"
 onclick="exportCodeFile('${f}');" aria-label="Close">
-            <span aria-hidden="true">^</span>
+            <i class="fas fa-download fa-xs m-1"></i>
 		  </button>
 <button type="button" class="close dropdown-menu-right text-danger" 
 data-toggle="tooltip" data-placement="bottom" title="Delete Code"
 onclick="deleteCode('${f}');" aria-label="Close">
-            <span aria-hidden="true">&empty;</span>
+            <i class="fas fa-trash-alt fa-xs m-1"></i>
 		  </button>
 		  </div>
 `,
@@ -218,7 +218,7 @@ function newSaveCode() {
 
 function saveCodeMain() {
     const saveName = document.getElementById('codename').innerText;
-    if (saveName && saveName.length > 0 && saveName != 'Unnamed Code') {
+    if (saveName && saveName.length > 0 && saveName != 'New Code') {
         saveCode(saveName);
     } else {
         document.getElementById('saveButton').click();
@@ -227,7 +227,7 @@ function saveCodeMain() {
 
 function saveCode(slot = '') {
     // Put the object into storage
-    if (slot == '' || slot == 'Unnamed Code') {
+    if (slot == '' || slot == 'New Code') {
         alerts('You must Enter a valid save name.');
         return;
     }
@@ -240,6 +240,7 @@ function saveCode(slot = '') {
         //console.log('CODE SAVED');
         alerts('Code Saved ( ' + slot + ' )', 'success');
         document.getElementById('codename').innerText = slot;
+		document.getElementById('downloadcode').removeAttribute('disabled');
         getFileList();
     } catch (error) {
         alerts('Error!!! ' + error.message, 'danger');
@@ -257,6 +258,9 @@ function deleteCode(slot = '') {
             : {};
         delete savedJson[slot];
         localStorage.setItem('jsPadSave', JSON.stringify(savedJson));
+		if (slot==document.getElementById('codename').innerText){
+			document.getElementById('downloadcode').setAttribute('disabled','disabled');
+		}
         getFileList();
         alerts('Code Deleted ( ' + slot + ' )', 'success');
     } catch (error) {
@@ -287,6 +291,7 @@ function loadCode(slot = 'new') {
         //= JSON.stringify(window.editor.getValue())
         alerts('Code Loaded ( ' + slot + ' )', 'success');
         document.getElementById('codename').innerText = slot;
+		document.getElementById('downloadcode').removeAttribute('disabled');
         console.log('CODE LOADED');
     } catch (error) {
         alerts(error.message);
@@ -332,6 +337,105 @@ function runCodeIframe() {
 }
 
 function runCode() {
+    let logHack = `
+let fakeInput = '&#10095;';
+let finalMsg = '';
+if (console) {
+    for (let c in console) {
+        if (typeof console[c] === 'function') {
+            let cx = console[c]
+            console[c] = function (...message) {
+				
+			if(message && message.length>0){	
+				message = message.map((msg)=>{
+					if(msg && typeof msg === 'object' && msg !== null){
+						return JSON.stringify(msg, null, 4)
+					}
+					return msg
+				})
+			}
+				
+				let msg = [...message].join('');
+					if([...message].length!=0 || msg!='' || msg.length!=0 || msg!=undefined || msg!=null){
+						if(c=='log'){
+							msg ='<p class="console '+c+'"><span class="symbol">'+fakeInput+'</span> '+msg+'</p>';
+						}else if(c=='warn'){
+							msg ='<p class="console '+c+'"><span class="symbol">'+fakeInput+'</span> '+msg+'</p>';
+						}else if(c=='error'){
+							msg = '<p class="console '+c+'"><span class="symbol">'+fakeInput+'</span> '+msg+'</p>';
+						}else if(c=='trace'){
+							msg = '<p class="console '+c+'"><span class="symbol">'+fakeInput+'</span> Trace Output<br/>'+msg+'</p>';
+						}else{
+							msg ='<p class="console info"><span class="symbol">'+fakeInput+'</span> '+msg+'</p>';
+						}
+						finalMsg += msg
+						postMessage(finalMsg)
+					}
+                cx.apply(this, [...message])
+            }
+        }
+    }
+}
+
+`;
+
+let _try = `try {`;
+//(x)=>{return ":"+(+x.split(':')[1]+"sdf")+":"+(x.split(':')[2])}
+let _catch = `
+} catch (e) {
+	//console.error(e.stack)
+		console.error(e.stack.replace(/:[0-9]{1,}:[0-9]{1,}/g,(x)=>{return ":"+(+x.split(':')[1]-39)+":"+(x.split(':')[2])}).replace(/ at /g," <br/>&nbsp;&nbsp;&nbsp;at "))
+}`;
+    if (window.Worker) {
+		  //postMessage(finalMsg);`;
+		  
+		const codename = (document.getElementById('codename').innerText||"New Code").replace(/ /g,"_")+".js";
+		/*
+		let cleancode = ''
+		try{
+			Function(`'${window.editor.getValue()}'//# sourceURL=${codename}`)
+			cleancode = window.editor.getValue()
+		}catch (e) {
+			cleancode = "throw new Error(`"+e.stack+"`)"
+		}
+		*/
+		
+	//`+"`      `"+`
+		let escapedCode = window.editor.getValue().replace(/`(.*)`/g,(s)=>'`+"'+s+'"+`')
+		let myCode = "`"+escapedCode+"//# sourceURL="+codename+"`"
+        let js = `
+		${_try}
+        ${logHack}
+		Function(${myCode})()
+		//# sourceURL=${codename}
+		${_catch}`
+
+        console.log(js);
+        let blob = new Blob([js]);
+        let url = window.URL.createObjectURL(blob);
+        var myWorker = new Worker(url);
+        let notDone = true
+        setTimeout(()=>{
+            if(notDone){
+                myWorker.terminate()
+                alerts('Excution Terminated due to time out or error.');
+				/*myIframe.contentWindow.document.body.innerHTML = e.data;
+				myIframe.contentWindow.document.body.scrollTop =
+				myIframe.contentWindow.document.body.scrollHeight;*/
+            }},5000)
+        myWorker.onmessage = function(e) {
+            notDone = false
+            let myIframe = document.getElementById('console-log');
+            myIframe.contentWindow.document.body.innerHTML = e.data;
+			myIframe.contentWindow.document.body.scrollTop =
+			myIframe.contentWindow.document.body.scrollHeight;
+        };
+    } else {
+        runCodePre();
+    }
+}
+
+function runCodePre() {
     console.log('Running Code...');
     let myIframe = document.getElementById('console-log');
     let script = myIframe.contentWindow.document.getElementById('myScript');

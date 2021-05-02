@@ -53,7 +53,7 @@
         <!-- Font Awesome -->
         <link
             rel="stylesheet"
-            href="./frameworks/fontawesome/css/font-awesome.min.css"
+            href="./frameworks/fontawesome/css/all.min.css"
         />
         <link
             rel="stylesheet"
@@ -71,11 +71,21 @@
             type="text/css"
             href="./frameworks/jspad/css/style.css"
         />
-        <link
+       
+		<link
             rel="stylesheet"
             type="text/css"
             href="./frameworks/split_styles/css/split-styles.css"
         />
+	
+		<!-- 
+		  <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
+		-->
+		
         <!-- <link rel="stylesheet" type="text/css" href="./frameworks/bootstrap/css/bootstrap.css"> -->
         <script src="./frameworks/codemirror/js/codemirror.js"></script>
         <script src="./frameworks/jspad/js/jspad.js"></script>
@@ -83,8 +93,9 @@
         <script src="./frameworks/split_styles/js/split.min.js"></script>
     </head>
     <body>
-                    <nav class="navbar navbar-expand-lg navbar-dark bg-dark small">
-                        <a class="navbar-brand" href="#">JSPad</a>
+	<div class=" d-flex min-vh-100 flex-column h-100">
+                    <nav class="navbar navbar-expand-sm navbar-dark bg-dark small">
+                        <a class="btn navbar-brand btn-primary text-white font-italic font-weight-bold" href="#">JSPad&#10095;</a>
                         <button
                             class="navbar-toggler"
                             type="button"
@@ -102,32 +113,7 @@
                             id="navbarSupportedContent"
                         >
                             <ul class="navbar-nav mr-auto">
-                                <li class="nav-item" id="btnRun">
-                                    <a
-                                        class="nav-link"
-                                        href="#"
-                                        onclick="runCode();"
-                                        >run&#10095;</a
-                                    >
-                                </li>
-                                <li class="nav-item">
-                                    <a
-                                        href="#"
-                                        class="nav-link"
-                                        onclick="clearConsole();"
-                                        >clear console</a
-                                    >
-                                </li>
-                                <li class="nav-item">
-                                    <a
-                                        href="#"
-                                        class="nav-link"
-                                        onclick="refreshWindow();"
-                                        >Refresh</a
-                                    >
-                                </li>
-
-                                <li class="nav-item dropdown">
+							 <li class="nav-item dropdown">
                                     <a
                                         class="nav-link dropdown-toggle"
                                         href="#"
@@ -148,46 +134,44 @@
 										</div>
                                         <div class="dropdown-divider"></div>
                                         <a
-                                            class="dropdown-item"
+                                            class="dropdown-item small"
 											href="#"
 											id="saveButton"
 											data-toggle="modal"
 											data-target="#newSaveName"
-											onclick="document.getElementById('savename').value = ''"                                            
-                                            >&plus;New Save</a>
-                                    </div>
-                                </li>
-                                
-                                <li class="nav-item">
-                                    <a
-                                        class="nav-link"
-                                        href="#"
-                                        onclick="exportCode();"
-                                        >export</a
-                                    >
-                                </li>
-                                <li class="nav-item">
-                                    <a
-                                        class="nav-link"
+											onclick="document.getElementById('savename').value = ''"><i class="fas fa-plus fa-lg m-1"></i>New Code</a>
+											<div class="dropdown-divider"></div>
+											   <a
+                                        class="dropdown-item small"
                                         href="#"
                                         data-toggle="modal"
 										data-target="#exampleModalLive"
 										onclick="document.getElementById('importedFile').value = ''" 
-                                        >import</a
+                                        ><i class="fas fa-upload fa-lg m-1"></i>Upload Code</a
+                                    >
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a
+                                        href="#"
+                                        class="nav-link"
+                                        onclick="clearConsole();"
+                                        >clear console</a
+                                    >
+                                </li>
+                                <li class="nav-item">
+                                    <a
+                                        href="#"
+                                        class="nav-link"
+                                        onclick="refreshWindow();"
+                                        ><i class="fas fa-redo m-1"></i>Refresh</a
                                     >
                                 </li>
                             </ul>
                         </div>
                     </nav>
 
-                    <div
-                        id="exampleModalLive"
-                        class="modal fade"
-                        tabindex="-1"
-                        role="dialog"
-                        aria-labelledby="exampleModalLiveLabel"
-                        aria-hidden="true"
-                    >
+<div id="exampleModalLive" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLiveLabel" aria-hidden="true" >
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -207,7 +191,7 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <p>Select JavaScript file to imoprt.</p>
+                                    <p>Select JavaScript file to upload.</p>
                                     <input type="file" id="importedFile" />
                                 </div>
                                 <div class="modal-footer">
@@ -224,7 +208,7 @@
                                         data-dismiss="modal"
                                         onclick="importCode()"
                                     >
-                                        Import
+                                        Upload
                                     </button>
                                 </div>
                             </div>
@@ -281,29 +265,40 @@
                             </div>
                         </div>
                     </div>
-        <div class="container-fluid small">
-            <div class="row">
-                <div class="col-lg-12">
 					
-                    <div class="content maxHeight" >
-                        <div class="split code-editor">
-							<div class="title jspad-menu-item m-1">
-								<button type="button" class="btn btn-primary" 
+        <div class="container-fluid small d-flex flex-column h-100">
+            <div class="row flex-fill d-flex justify-content-start  h-100">
+                <div class="col-lg-12  h-100">
+                    <div class="content  h-100" >
+					    <div class="split code-editor">
+							<div class="title jspad-menu-item p-1 border-bottom border-left-1 border-primary">
+							<button type="button" class="btn btn-success p-0 m-0 mr-1" 
+data-toggle="tooltip" data-placement="bottom" title="Run Code"
+onclick="runCode();" aria-label="Close">
+            <i class="fas fa-play p-2"></i>
+		  </button> 
+								<button type="button" class="btn btn-primary p-0 m-0 mr-1" 
 data-toggle="tooltip" data-placement="bottom" title="Save Code"
 onclick="saveCodeMain();" aria-label="Close">
-            <span aria-hidden="true">save</span>
+            <i class="fas fa-save fa-lg p-2"></i>
 		  </button>
-								<div class="codeName dropdown-item" id="codename">Unnamed Code</div>
+		  <button id="downloadcode" disabled type="button" class="btn btn-warning text-white p-0 m-0 mr-1" 
+data-toggle="tooltip" data-placement="bottom" title="Download Code"
+onclick="exportCodeFile(document.getElementById('codename').innerText);" aria-label="Close">
+            <i class="fas fa-download fa-lg p-2"></i>
+		  </button>
+								<div class="codeName dropdown-item text-uppercase font-weight-bold pl-2" id="codename">New Code</div>
 </div>
-                            <textarea id="code">
+                            <textarea class="" id="code">
  
-for(i=10;i>0;i--){
-	console.log(i);
+for(let i=10;i>0;i--){
+	(()=>setTimeout(()=>console.log(i),i*100))()
 }
 console.log("I love JSpad!!!");
 							</textarea>
                         </div>
-                        <div class="split code-log">
+				
+                        <div class="split code-log h-100">
 							<div class="alerts"></div>
                             <iframe
                                 onload="iFrameSetup()"
