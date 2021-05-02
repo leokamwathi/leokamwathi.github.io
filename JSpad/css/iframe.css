@@ -3,7 +3,7 @@ body {
 	margin: 0px;
 	width: auto;
 	background-color: #eee;
-	border-left: 10px solid skyblue;
+	border-left: 0.65rem solid #17a2b8;
 	word-wrap: break-word;
 	font-size: 1em;
 	font-family: Consolas,"courier new";
