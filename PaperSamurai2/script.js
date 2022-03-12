@@ -5,7 +5,13 @@
 var w = window.innerWidth,
     h = window.innerHeight;
 
-var intro_music
+var intro_music,
+	music_volume = 0.6,
+	effect_volume = 0.3,
+	master_volume = 0.5,
+	levelCol = 5,
+	levelRow = 3;
+	
 var good_objects,
     bad_objects,
     slashes,
@@ -287,6 +293,10 @@ function createGroup (numItems, sprite) {
 function throwObject() {
   let funModifier = ((5000-(score/10))/5000) < 0?0:((5000-(score/10))/5000)
   let comboModx = (0.1*(comboMultiplier/10))<0.10?(0.1*(comboMultiplier/10)):0.1
+  
+  comboModx = comboModx * (2^currentGameLevel); //(((currentGameLevel-1)*5)+1)
+  funModifier = funModifier * (2^currentGameLevel); //(((currentGameLevel-1)*10)+1)
+  
   if (!isGameOver && game.time.now > nextFire && good_objects.countDead()>0 && bad_objects.countDead()>0) {
     nextFire = game.time.now + parseInt((fireRate/2)*(1-funModifier)) +(fireRate*funModifier);
     if(good_objects.countLiving()<=0){
@@ -750,7 +760,9 @@ function resetScore() {
     current_blades = 6;
     punishment = 1;
     scoreLabel.text = 'Score: ' + score;
-    game.state.start("levelSelect")
+    //game.state.start("levelSelect")
+	game.state.start("difficultySelect")
+	
     //playMusic();
   },10000) 
   scoreLabel.text = 'Slash the papers!';
@@ -1077,7 +1089,7 @@ class BootState extends Phaser.State {
   preload(){
         game.load.crossOrigin = 'anonymous';
         game.pixelArt = true
-        game.antialias = false
+        game.antialias = true
 
         game.canvas.style.cursor = 'url('+ cursor_path +'), default';
         game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -1162,7 +1174,7 @@ class LoadingState extends Phaser.State {
   
   //paper_normal_texture_path.push('https://leokamwathi.github.io/PixelNinja/assets/images/papers/normal/paper_2.png')
   //paper_normal_texture_path.push('https://leokamwathi.github.io/PixelNinja/assets/images/papers/normal/paper_3.png')
-  //paper_normal_texture_path.push('https://leokamwathi.github.io/PixelNinja/assets/images/papers/normal/paper_4.png')
+   paper_normal_texture_path.push('https://leokamwathi.github.io/PixelNinja/assets/images/papers/normal/paper_4.png')
    paper_normal_texture_path.push('https://leokamwathi.github.io/PixelNinja/assets/images/papers/normal/paper_5.png')
    paper_normal_texture_path.push('https://leokamwathi.github.io/PixelNinja/assets/images/papers/normal/paper_6.png')
    paper_normal_texture_path.push('https://leokamwathi.github.io/PixelNinja/assets/images/papers/normal/paper_7.png')
@@ -1207,6 +1219,9 @@ class LoadingState extends Phaser.State {
     
     //UI BUTTONS
     var play_button_path = "https://leokamwathi.github.io/PixelNinja/assets/images/ui/Play_Button_2_a.png"
+	var easy_button_path = "https://leokamwathi.github.io/PixelNinja/assets/images/ui/Easy_Button_a.png"
+	var normal_button_path = "https://leokamwathi.github.io/PixelNinja/assets/images/ui/Normal_Button_a.png"
+	var hard_button_path = "https://leokamwathi.github.io/PixelNinja/assets/images/ui/Hard_Button_a.png"
     var level_button_0_star_path = "https://leokamwathi.github.io/PixelNinja/assets/images/ui/level_button_0_star.png"
     var level_button_1_star_path = "https://leokamwathi.github.io/PixelNinja/assets/images/ui/level_button_1_star.png"
     var level_button_2_star_path = "https://leokamwathi.github.io/PixelNinja/assets/images/ui/level_button_2_star.png"
@@ -1272,6 +1287,9 @@ class LoadingState extends Phaser.State {
   game.load.image("mask_aaa_texture",mask_aaa_texture_path)
     
   game.load.image("play_button",play_button_path)
+  game.load.image("easy_button",easy_button_path)
+  game.load.image("normal_button",normal_button_path)
+  game.load.image("hard_button",hard_button_path)
   game.load.image("level_button_0_star",level_button_0_star_path)
   game.load.image("level_button_1_star",level_button_1_star_path)
   game.load.image("level_button_2_star",level_button_2_star_path)
@@ -1308,30 +1326,60 @@ class LoadingState extends Phaser.State {
 }
   
   playGame(){
-    game.state.start("levelSelect")
+    //game.state.start("levelSelect")
+	game.state.start("difficultySelect")
+  }
+    levelSelect(index){
+    //console.log("You selected level "+index)
+    //console.log("You selected level bind "+this.index)
+    //set level to xxxx
+    if(index == 14){
+      game.state.start("loading")
+      return
+    }
+    currentGameLevel = index
+    game.state.start("mainGame")
   }
   create(){
       this.sound.stopAll();
       this.preloadbar.visible = false
+	  game.state.start("difficultySelect")
+	  /*
       game.stage.backgroundColor = '#182d3b';
-      this.logo = game.add.sprite((w/2),200,"logo")
+      this.logo = game.add.sprite((w/2),h/2,"logo")
       this.logo.scale.x = 0.4
       this.logo.scale.y = 0.4
       this.logo.alpha = 0 
       this.logo.anchor.setTo(0.5)
+	  //this.logo.anchor.x = 0.0
+	  //this.logo.anchor.y = 0.0
       game.add.tween(this.logo).to({ alpha:1  }, 2000, Phaser.Easing.Linear.None, true,100).onComplete.add(()=>{
-        this.playbutton = game.add.button((w/2) - 100, h/2+70, 'play_button', this.playGame)
-        this.playbutton.alpha = 0
-        game.add.tween(this.playbutton).to({ alpha:1 }, 500, Phaser.Easing.Linear.None, true)
-        intro_music.volume = 0.6
+        //this.playbutton = game.add.button((w/2) - 100, h/2+150, 'play_button', this.playGame)
+        //this.playbutton.alpha = 0
+        //game.add.tween(this.playbutton).to({ alpha:1 }, 500, Phaser.Easing.Linear.None, true)
+		
+		this.playEasyButton = game.add.button((w/4) - 100, h/2+170, 'easy_button',this.levelSelect.bind(this, 1))
+		this.playNormalButton = game.add.button((w*2/4) - 100, h/2+170, 'normal_button',this.levelSelect.bind(this, 2))
+		this.playHardButton = game.add.button((w*3/4) - 100, h/2+170, 'hard_button',this.levelSelect.bind(this, 3))
+		
+		this.playEasyButton.alpha = 0
+		this.playNormalButton.alpha = 0
+		this.playHardButton.alpha = 0
+		game.add.tween(this.playEasyButton).to({ alpha:1 }, 500, Phaser.Easing.Linear.None, true)
+		game.add.tween(this.playNormalButton).to({ alpha:1 }, 500, Phaser.Easing.Linear.None, true)
+		game.add.tween(this.playHardButton).to({ alpha:1 }, 500, Phaser.Easing.Linear.None, true)
+		
+        intro_music.volume = music_volume
         intro_music.play()
         this.playingMusic = true
       });
+	  */
     //background = game.add.tileSprite(0, 0, 800, 600, 'background');
 
     
   }
   update(){
+	  intro_music.volume = music_volume
      if(this.sound.context.state === 'suspended') {
       this.sound.context.resume();
     }
@@ -1358,6 +1406,9 @@ class MainGameState extends Phaser.State {
  this.sound.stopAll();
  //game.input.setDefaultCursor('url('+ cursor_path +'), pointer');
 
+  //game.input.onUp.add(onReleased)
+  //game.input.onDown.add(onPressed)
+  
   //game.input.onDown.add(onPressed)
   //game.on('pointermove',onMoved)
    // game.input.on('pointermove', onMoved);
@@ -1390,9 +1441,9 @@ class MainGameState extends Phaser.State {
    lightning_effect = game.sound.add("lightning_effect")
   yoooo_effect = game.sound.add("yoooo_effect")
    
-   wind_effect.volume = 0.4
-   lightning_effect.volume = 0.3
-   paper_throw_effect.volume=0.3
+   wind_effect.volume = effect_volume
+   lightning_effect.volume = effect_volume
+   paper_throw_effect.volume= effect_volume
   
   
   music_paths.forEach((p,index)=>{music.push(game.sound.add('music_'+index))}) 
@@ -1504,7 +1555,7 @@ render() {
     }
   if(comboTimeout <= 0){
     comboLbl.text =''
-    comboMultiplier = 1 
+    comboMultiplier = 1
   }else{
     if(!isMatrixTime){
       comboLbl.fontSize = (15 + 25*(comboTimeout/maxComboTimeout))<48?(15 + 25*(comboTimeout/maxComboTimeout)):48
@@ -1517,19 +1568,20 @@ render() {
   }
 }
 update() {
-
-  
-  
 if(isGameOver || game.pause==true){
   sword_slash.stop() 
   slashes.clear();
   return
 }
   
-  game.debug.text("Mouse\n"+game.input.x + ","+game.input.y+"\n"+game.input.activePointer.leftButton.isDown,w-300,100)
+   wind_effect.volume = effect_volume
+   lightning_effect.volume = effect_volume
+   paper_throw_effect.volume= effect_volume
+   
+  game.debug.text("Mouse\n"+game.input.x + ","+game.input.y+"\n"+(game.input.activePointer.isDown||game.input.activePointer.leftButton.isDown),w-300,100)
   
   
-  
+  game.sound.volume = master_volume;
   if(game.sound.context.state === 'suspended') {
     game.sound.context.resume();
   }
@@ -1544,11 +1596,11 @@ if(isGameOver || game.pause==true){
   //throwObject();
   
   
-  if(!isPressed && game.input.activePointer.leftButton.isDown){
+  if(!isPressed && (game.input.activePointer.leftButton.isDown || game.input.activePointer.isDown)){
     isPressed= true
   }else{
     //sword_slash.stop() 
-     slashes.clear();
+    slashes.clear();
     isPressed = false
   }
   
@@ -1564,9 +1616,6 @@ if(isGameOver || game.pause==true){
     return
   }
   
-
-  
-
   if(inputTimeout <= 0){
     // points = [] ; //points.splice(points.length-1, points.length);
   }
@@ -1664,8 +1713,8 @@ class LeaderboardsState extends Phaser.State {
     
   }
 }
-// LEVEL SELECT
-class levelSelectState extends Phaser.State {
+// Difficulty SELECT
+class DifficultySelectState extends Phaser.State {
   constructor(){
     super()
   }
@@ -1688,13 +1737,158 @@ class levelSelectState extends Phaser.State {
   }
   create(){
     this.sound.stopAll();
+	
+	intro_music.volume = music_volume
+        if(!intro_music.isPlaying){
+		  intro_music.play()
+		}
+		
+        this.playingMusic = true
+	  game.stage.backgroundColor = '#182d3b';
+      this.logo = game.add.sprite((w/2),h/2,"logo")
+      this.logo.scale.x = 0.4
+      this.logo.scale.y = 0.4
+      this.logo.alpha = 0 
+      this.logo.anchor.setTo(0.5)
+	  //this.logo.anchor.x = 0.0
+	  //this.logo.anchor.y = 0.0
+      game.add.tween(this.logo).to({ alpha:1  }, 2000, Phaser.Easing.Linear.None, true,100).onComplete.add(()=>{
+        //this.playbutton = game.add.button((w/2) - 100, h/2+150, 'play_button', this.playGame)
+        //this.playbutton.alpha = 0
+        //game.add.tween(this.playbutton).to({ alpha:1 }, 500, Phaser.Easing.Linear.None, true)
+		
+		this.playEasyButton = game.add.button((w/4) - 100, h/2+170, 'easy_button',this.levelSelect.bind(this, 1))
+		this.playNormalButton = game.add.button((w*2/4) - 100, h/2+170, 'normal_button',this.levelSelect.bind(this, 2))
+		this.playHardButton = game.add.button((w*3/4) - 100, h/2+170, 'hard_button',this.levelSelect.bind(this, 3))
+		
+		this.playEasyButton.alpha = 0
+		this.playNormalButton.alpha = 0
+		this.playHardButton.alpha = 0
+		game.add.tween(this.playEasyButton).to({ alpha:1 }, 500, Phaser.Easing.Linear.None, true)
+		game.add.tween(this.playNormalButton).to({ alpha:1 }, 500, Phaser.Easing.Linear.None, true)
+		game.add.tween(this.playHardButton).to({ alpha:1 }, 500, Phaser.Easing.Linear.None, true)
+		
+        
+      });
+	
+	
+	//this.playbutton[]
+        //make an align grid
+        // (cols,rows)
+		/*
+	this.playEasyButton = game.add.button((w/4) - 100, h/2+70, 'easy_button',this.levelSelect.bind(this, 1))
+	this.playNormalButton = game.add.button((w*2/4) - 100, h/2+70, 'normal_button',this.levelSelect.bind(this, 2))
+	this.playHardButton = game.add.button((w*3/4) - 100, h/2+70, 'hard_button',this.levelSelect.bind(this, 3))
+	
+	this.playEasyButton.alpha = 0
+	this.playNormalButton.alpha = 0
+	this.playHardButton.alpha = 0
+    game.add.tween(this.playEasyButton).to({ alpha:1 }, 500, Phaser.Easing.Linear.None, true)
+	game.add.tween(this.playNormalButton).to({ alpha:1 }, 500, Phaser.Easing.Linear.None, true)
+	game.add.tween(this.playHardButton).to({ alpha:1 }, 500, Phaser.Easing.Linear.None, true)
+		*/
+    //this.playbutton = game.add.button((w/2) - 100, h/2+150, 'play_button', this.playGame)
+ /* 
+        this.sound.stopAll();
+      this.preloadbar.visible = false
+      game.stage.backgroundColor = '#182d3b';
+      this.logo = game.add.sprite((w/2),h/2,"logo")
+      this.logo.scale.x = 0.4
+      this.logo.scale.y = 0.4
+      this.logo.alpha = 0 
+      this.logo.anchor.setTo(0.5)
+	  //this.logo.anchor.x = 0.0
+	  //this.logo.anchor.y = 0.0
+      game.add.tween(this.logo).to({ alpha:1  }, 2000, Phaser.Easing.Linear.None, true,100).onComplete.add(()=>{
+
+        this.playbutton.alpha = 0
+        game.add.tween(this.playbutton).to({ alpha:1 }, 500, Phaser.Easing.Linear.None, true)
+        intro_music.volume = music_volume
+        intro_music.play()
+        this.playingMusic = true
+      });
+  */
+  }
+
+  update(){
+     if(this.sound.context.state === 'suspended') {
+      this.sound.context.resume();
+    }
+    if(!intro_music.isPlaying){
+      intro_music.play()
+    }
+    //glowFilter.update();
+  }
+  render(){
+    
+  }
+}
+
+// LEVEL SELECT
+class levelSelectState extends Phaser.State {
+  constructor(){
+    super()
+  }
+  
+  preload(){
+    //game.width = game.width/2
+    //game.height = game.height/2
+    //game.scale.refresh();
+  }
+  levelSelect(index){
+    //console.log("You selected level "+index)
+    //console.log("You selected level bind "+this.index)
+    //set level to xxxx
+    if(index == 14){
+      game.state.start("loading")
+      return
+    }
+    currentGameLevel = index-(levelCol+1)
+    game.state.start("mainGame")
+  }
+  create(){
+    this.sound.stopAll();
+        //make an align grid
+        // (cols,rows)
+    this.cols = levelCol
+    this.rows = levelRow
+    if(game.width<game.height){
+		this.cols = levelRow //5
+        this.rows = levelCol //7
+    }
+		this.grid = new AlignGrid(this.cols, this.rows,game);
+        //turn on the lines for testing
+        //and layout
+        this.grid.show();
+        this.levelButtons = []
+        this.randButtons = ['level_button_0_star','level_button_1_star','level_button_2_star','level_button_3_star']
+        for(let row=1; row<(this.rows-1);row++){
+            for(let col=1; col<(this.cols-1);col++){
+              //;
+              let index = this.levelButtons.length
+              let rndBtn = parseInt(Math.random() * (this.randButtons.length))
+              this.levelButtons.push(game.add.button(0,0, this.randButtons[rndBtn],this.levelSelect.bind(this, index),this))
+              scaleToGameWidth(this.levelButtons[index],1/14,50)
+              //this.levelButtons[index].scale.x = 0.5
+              //this.levelButtons[index].scale.y = 0.5
+              this.levelButtons[index].anchor.setTo(0.5)
+              if(rndBtn == 3){
+                this.levelButtons[index].filters=[glowFilter];
+              } 
+              this.grid.placeAt(col,row, this.levelButtons[index]);
+            }
+        }
+  }
+  
+  createOld(){
+    this.sound.stopAll();
         //make an align grid
         // (cols,rows)
     this.cols = 7
     this.rows = 5
         if(game.width<game.height){
-          this.cols = 5
-          this.rows = 7
+          this.cols = 5 //5
+          this.rows = 7 //7
        }
         this.grid = new AlignGrid(this.cols, this.rows,game);
        
@@ -1796,7 +1990,8 @@ class Game extends Phaser.Game {
     //game states
     this.state.add('boot', new BootState)
     this.state.add('loading', new LoadingState)
-    this.state.add('levelSelect',new levelSelectState)
+    //this.state.add('levelSelect',new levelSelectState)
+	this.state.add('difficultySelect',new DifficultySelectState)	
     this.state.add('gamesetting',new gameSettingState)
     this.state.add('samuraiStats',new samuraiStatsState)
     this.state.add('mainGame',new MainGameState)
