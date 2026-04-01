@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Arthur's Ascent (YT)</title>
+    <script src="https://www.youtube.com/game_api/v1"></script>
+    <style>
+        :root { --bg-color: #1a1a2e; }
+        body, html {
+            margin: 0; padding: 0; width: 100%; height: 100%;
+            background-color: var(--bg-color);
+            display: flex; justify-content: center; align-items: center;
+            overflow: hidden; touch-action: none;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        #game-container {
+            position: relative; width: 100%; height: 100%; max-width: 600px;
+            background: linear-gradient(180deg, #F9E7E7 0%, #E2C2C6 100%);
+            box-shadow: 0 0 30px rgba(0,0,0,0.8); overflow: hidden;
+        }
+        canvas { display: block; width: 100%; height: 100%; }
+        #ui-layer {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; display: flex; flex-direction: column;
+            justify-content: center; align-items: center;
+        }
+        .hidden { display: none !important; }
+        h1 { color: #2B2D42; font-size: 3rem; margin: 0; text-shadow: 2px 2px 0px #FFF; text-align: center; line-height: 1.1;}
+        p { color: #4A4E69; font-size: 1.2rem; font-weight: bold; background: rgba(255,255,255,0.5); padding: 10px 20px; border-radius: 20px;}
+        #score-display {
+            position: absolute; top: 20px; left: 20px; font-size: 2rem;
+            font-weight: 900; color: #2B2D42; text-shadow: 2px 2px 0px #FFF;
+        }
+    </style>
+</head>
+<body>
+<div id="game-container">
+    <canvas id="gameCanvas"></canvas>
+    <div id="score-display">0</div>
+    <div id="ui-layer">
+        <div id="start-screen">
+            <h1>Arthur's<br>Ascent</h1>
+            <p>Tap & Drag to Dash</p>
+        </div>
+        <div id="game-over-screen" class="hidden">
+            <h1>Game Over</h1>
+            <p id="final-score-text">Score: 0</p>
+            <p>Tap to Restart</p>
+        </div>
+    </div>
+</div>
+<script>
+const YT = {
+    isPaused: false,
+    init: function() {
+        if (typeof ytgame !== 'undefined' && ytgame.system) {
+            ytgame.system.onPause(() => { YT.isPaused = true; });
+            ytgame.system.onResume(() => { YT.isPaused = false; });
+        }
+    },
+    firstFrame: function() {
+        if (typeof ytgame !== 'undefined' && ytgame.game) ytgame.game.firstFrameReady();
+    },
+    ready: function() {
+        if (typeof ytgame !== 'undefined' && ytgame.game) ytgame.game.gameReady();
+    },
+    sendScore: function(score) {
+        if (typeof ytgame !== 'undefined' && ytgame.engagement) ytgame.engagement.sendScore({score: score});
+    }
+};
+YT.init();
+
+const AudioEngine = {
+    ctx: null,
+    init: function() {
+        if (!this.ctx) {
+            const AudioContext = window.AudioContext || window.webkitAudioContext;
+            this.ctx = new AudioContext();
+        }
+        if (this.ctx.state === 'suspended') this.ctx.resume();
+    },
+    playTone: function(freq, type, duration, vol=0.1, slideFreq=null) {
+        if (!this.ctx) return;
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        osc.type = type;
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+        osc.frequency.setValueAtTime(freq, this.ctx.currentTime);
+        if (slideFreq) osc.frequency.exponentialRampToValueAtTime(slideFreq, this.ctx.currentTime + duration);
+        gain.gain.setValueAtTime(vol, this.ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, this.ctx.currentTime + duration);
+        osc.start();
+        osc.stop(this.ctx.currentTime + duration);
+    },
+    playNoise: function(duration, vol=0.2) {
+        if (!this.ctx) return;
+        const bufferSize = this.ctx.sampleRate * duration;
+        const buffer = this.ctx.createBuffer(1, bufferSize, this.ctx.sampleRate);
+        const data = buffer.getChannelData(0);
+        for (let i = 0; i < bufferSize; i++) data[i] = Math.random() * 2 - 1;
+        const noise = this.ctx.createBufferSource();
+        noise.buffer = buffer;
+        const gain = this.ctx.createGain();
+        const filter = this.ctx.createBiquadFilter();
+        filter.type = 'lowpass';
+        filter.frequency.value = 1000;
+        noise.connect(filter);
+        filter.connect(gain);
+        gain.connect(this.ctx.destination);
+        gain.gain.setValueAtTime(vol, this.ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, this.ctx.currentTime + duration);
+        noise.start();
+    },
+    sfx: {
+        bounce: () => AudioEngine.playTone(300, 'sine', 0.3, 0.15, 600),
+        dash: () => AudioEngine.playNoise(0.4, 0.3),
+        collect: () => AudioEngine.playTone(880, 'sine', 0.5, 0.1, 1200),
+        die: () => AudioEngine.playTone(150, 'sawtooth', 0.8, 0.2, 50)
+    }
+};
+
+const canvas = document.getElementById('gameCanvas');
+const ctx = canvas.getContext('2d', { alpha: false });
+const uiStart = document.getElementById('start-screen');
+const uiGameOver = document.getElementById('game-over-screen');
+const scoreDisplay = document.getElementById('score-display');
+const finalScoreText = document.getElementById('final-score-text');
+
+let GAME_STATE = 'MENU';
+let width, height;
+let timeScale = 1.0;
+let cameraY = 0;
+let score = 0;
+let highestY = 0;
+let screenShake = 0;
+
+let player;
+let platforms = [];
+let portals = [];
+let seeds = [];
+let particles = [];
+
+const input = { isDown: false, startX: 0, startY: 0, currentX: 0, currentY: 0 };
+
+const C = {
+    player: '#FF6B6B', platform: '#4ECDC4', platformDark: '#2980B9',
+    seed: '#FFE66D', portalA: '#1A535C', portalB: '#FF9F1C'
+};
+
+function resize() {
+    const container = document.getElementById('game-container');
+    width = container.clientWidth;
+    height = container.clientHeight;
+    canvas.width = width;
+    canvas.height = height;
+}
+window.addEventListener('resize', resize);
+resize();
+
+class Player {
+    constructor() {
+        this.w = 30; this.h = 30;
+        this.x = width / 2; this.y = height - 150;
+        this.vx = 0; this.vy = 0;
+        this.gravity = 18; this.bounceForce = -800; this.dashForce = 1200;
+        this.canDash = false; this.portalCooldown = 0;
+    }
+    update(dt) {
+        if (this.portalCooldown > 0) this.portalCooldown -= dt;
+        this.vy += this.gravity * dt * 60;
+        if (this.vy > 1000) this.vy = 1000;
+        this.x += this.vx * dt;
+        this.y += this.vy * dt;
+
+        if (this.x > width + this.w/2) this.x = -this.w/2;
+        if (this.x < -this.w/2) this.x = width + this.w/2;
+
+        if (this.vy > 0) {
+            for (let p of platforms) {
+                if (this.x + this.w/2 > p.x && this.x - this.w/2 < p.x + p.w &&
+                    this.y + this.h/2 > p.y && this.y + this.h/2 < p.y + p.h + this.vy * dt) {
+                    this.y = p.y - this.h/2;
+                    this.vy = this.bounceForce;
+                    this.canDash = true;
+                    AudioEngine.sfx.bounce();
+                    spawnParticles(this.x, this.y + this.h/2, 10, C.platform);
+                    if (p.type === 'breakable') {
+                        p.broken = true;
+                        spawnParticles(p.x + p.w/2, p.y + p.h/2, 15, C.platformDark);
+                    }
+                    break;
+                }
+            }
+        }
+
+        if (this.portalCooldown <= 0) {
+            for (let i = 0; i < portals.length; i++) {
+                let p = portals[i];
+                let dx = this.x - p.x; let dy = this.y - p.y;
+                if (Math.sqrt(dx*dx + dy*dy) < p.r + this.w/2) {
+                    let sibling = portals.find(sp => sp.id === p.id && sp !== p);
+                    if (sibling) {
+                        this.x = sibling.x; this.y = sibling.y;
+                        this.portalCooldown = 0.5;
+                        spawnParticles(p.x, p.y, 15, p.color);
+                        spawnParticles(sibling.x, sibling.y, 15, sibling.color);
+                        AudioEngine.sfx.collect();
+                    }
+                }
+            }
+        }
+
+        for (let i = seeds.length - 1; i >= 0; i--) {
+            let s = seeds[i];
+            let dx = this.x - s.x; let dy = this.y - s.y;
+            if (Math.sqrt(dx*dx + dy*dy) < s.r + this.w/2) {
+                score += 50;
+                AudioEngine.sfx.collect();
+                spawnParticles(s.x, s.y, 8, C.seed);
+                seeds.splice(i, 1);
+            }
+        }
+    }
+    draw(ctx) {
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        let stretch = Math.max(0.6, Math.min(1.4, 1 + Math.abs(this.vy) * 0.0005));
+        let squash = 1 / stretch;
+        if (Math.abs(this.vx) > Math.abs(this.vy)) {
+            ctx.scale(stretch, squash);
+            ctx.rotate(Math.atan2(this.vy, this.vx));
+        } else {
+            ctx.scale(squash, stretch);
+        }
+        ctx.fillStyle = C.player;
+        ctx.shadowColor = 'rgba(255, 107, 107, 0.5)';
+        ctx.shadowBlur = 15;
+        ctx.beginPath();
+        ctx.roundRect(-this.w/2, -this.h/2, this.w, this.h, 10);
+        ctx.fill();
+        ctx.shadowBlur = 0;
+
+        let eyeOffsetX = (this.vx / 1000) * 4;
+        let eyeOffsetY = (this.vy / 1000) * 4;
+        ctx.fillStyle = 'white';
+        ctx.beginPath(); ctx.arc(-6 + eyeOffsetX, -4 + eyeOffsetY, 5, 0, Math.PI*2); ctx.fill();
+        ctx.beginPath(); ctx.arc(6 + eyeOffsetX, -4 + eyeOffsetY, 5, 0, Math.PI*2); ctx.fill();
+        ctx.fillStyle = '#2B2D42';
+        ctx.beginPath(); ctx.arc(-6 + eyeOffsetX*1.5, -4 + eyeOffsetY*1.5, 2.5, 0, Math.PI*2); ctx.fill();
+        ctx.beginPath(); ctx.arc(6 + eyeOffsetX*1.5, -4 + eyeOffsetY*1.5, 2.5, 0, Math.PI*2); ctx.fill();
+
+        if (this.canDash) {
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.8)';
+            ctx.lineWidth = 2;
+            ctx.setLineDash([4, 4]);
+            ctx.beginPath();
+            ctx.arc(0, 0, this.w, 0, Math.PI*2);
+            ctx.stroke();
+            ctx.setLineDash([]);
+        }
+        ctx.restore();
+    }
+}
+
+class Particle {
+    constructor(x, y, color) {
+        this.x = x; this.y = y; this.color = color;
+        let angle = Math.random() * Math.PI * 2;
+        let speed = Math.random() * 200 + 50;
+        this.vx = Math.cos(angle) * speed; this.vy = Math.sin(angle) * speed;
+        this.life = 1.0; this.decay = Math.random() * 1.5 + 1.0;
+        this.size = Math.random() * 6 + 2;
+    }
+    update(dt) {
+        this.x += this.vx * dt; this.y += this.vy * dt;
+        this.life -= this.decay * dt;
+    }
+    draw(ctx) {
+        ctx.globalAlpha = Math.max(0, this.life);
+        ctx.fillStyle = this.color;
+        ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI*2); ctx.fill();
+        ctx.globalAlpha = 1.0;
+    }
+}
+
+function spawnParticles(x, y, count, color) {
+    for (let i = 0; i < count; i++) particles.push(new Particle(x, y, color));
+}
+
+let nextPlatformY = 0;
+let portalIdCounter = 0;
+
+function generateLevel(targetY) {
+    while (nextPlatformY > targetY) {
+        let pw = Math.random() * 60 + 60;
+        let px = Math.random() * (width - pw);
+        let type = Math.random() > 0.8 ? 'breakable' : 'normal';
+        platforms.push({ x: px, y: nextPlatformY, w: pw, h: 15, type: type, broken: false });
+
+        if (Math.random() > 0.5) {
+            seeds.push({ x: px + pw/2, y: nextPlatformY - 40, r: 8, floatOffset: Math.random()*Math.PI*2 });
+        }
+
+        if (Math.random() > 0.95) {
+            let p1x = Math.random() * (width - 40) + 20;
+            let p2x = Math.random() * (width - 40) + 20;
+            portals.push({ id: portalIdCounter, x: p1x, y: nextPlatformY - 20, r: 20, color: C.portalA });
+            portals.push({ id: portalIdCounter, x: p2x, y: nextPlatformY - 300, r: 20, color: C.portalB });
+            portalIdCounter++;
+        }
+        nextPlatformY -= Math.random() * 80 + 80;
+    }
+}
+
+function initGame() {
+    player = new Player();
+    platforms = []; portals = []; seeds = []; particles = [];
+    score = 0; cameraY = 0; highestY = player.y;
+    nextPlatformY = height - 50;
+    
+    platforms.push({ x: 0, y: height - 20, w: width, h: 20, type: 'normal', broken: false });
+    generateLevel(-height);
+    
+    GAME_STATE = 'PLAYING';
+    uiStart.classList.add('hidden');
+    uiGameOver.classList.add('hidden');
+    scoreDisplay.innerText = '0';
+    
+    AudioEngine.init();
+    YT.ready();
+}
+
+function gameOver() {
+    GAME_STATE = 'GAMEOVER';
+    uiGameOver.classList.remove('hidden');
+    finalScoreText.innerText = `Score: ${Math.floor(score)}`;
+    AudioEngine.sfx.die();
+    screenShake = 20;
+    YT.sendScore(Math.floor(score));
+}
+
+function handlePointerDown(e) {
+    if (GAME_STATE === 'MENU' || GAME_STATE === 'GAMEOVER') {
+        initGame(); return;
+    }
+    if (GAME_STATE === 'PLAYING' && player.canDash) {
+        input.isDown = true;
+        input.startX = e.clientX || (e.touches ? e.touches[0].clientX : 0);
+        input.startY = e.clientY || (e.touches ? e.touches[0].clientY : 0);
+        input.currentX = input.startX; input.currentY = input.startY;
+        timeScale = 0.1;
+    }
+}
+
+function handlePointerMove(e) {
+    if (input.isDown) {
+        input.currentX = e.clientX || (e.touches ? e.touches[0].clientX : input.currentX);
+        input.currentY = e.clientY || (e.touches ? e.touches[0].clientY : input.currentY);
+    }
+}
+
+function handlePointerUp(e) {
+    if (input.isDown && GAME_STATE === 'PLAYING') {
+        input.isDown = false;
+        timeScale = 1.0;
+        let dx = input.startX - input.currentX;
+        let dy = input.startY - input.currentY;
+        let dist = Math.sqrt(dx*dx + dy*dy);
+        
+        if (dist > 10) {
+            player.vx = (dx / dist) * player.dashForce;
+            player.vy = (dy / dist) * player.dashForce;
+            player.canDash = false;
+            AudioEngine.sfx.dash();
+            spawnParticles(player.x, player.y, 20, '#FFF');
+        }
+    }
+}
+
+window.addEventListener('mousedown', handlePointerDown);
+window.addEventListener('mousemove', handlePointerMove);
+window.addEventListener('mouseup', handlePointerUp);
+window.addEventListener('touchstart', handlePointerDown, {passive: false});
+window.addEventListener('touchmove', handlePointerMove, {passive: false});
+window.addEventListener('touchend', handlePointerUp, {passive: false});
+
+let lastTime = performance.now();
+let firstFrameRendered = false;
+
+function loop(currentTime) {
+    requestAnimationFrame(loop);
+    if (YT.isPaused) { lastTime = currentTime; return; }
+
+    let dt = (currentTime - lastTime) / 1000;
+    lastTime = currentTime;
+    if (dt > 0.1) dt = 0.1;
+
+    update(dt);
+    draw();
+
+    if (!firstFrameRendered) {
+        firstFrameRendered = true;
+        YT.firstFrame();
+    }
+}
+
+function update(realDt) {
+    if (GAME_STATE !== 'PLAYING') return;
+    let dt = realDt * timeScale;
+    player.update(dt);
+
+    let targetCameraY = player.y - height / 2;
+    if (targetCameraY < cameraY) cameraY += (targetCameraY - cameraY) * 10 * realDt;
+
+    if (player.y < highestY) {
+        score += (highestY - player.y) * 0.1;
+        highestY = player.y;
+        scoreDisplay.innerText = Math.floor(score);
+    }
+
+    generateLevel(cameraY - height);
+
+    platforms = platforms.filter(p => !p.broken && p.y < cameraY + height + 100);
+    portals = portals.filter(p => p.y < cameraY + height + 100);
+    seeds = seeds.filter(s => s.y < cameraY + height + 100);
+    
+    for (let i = particles.length - 1; i >= 0; i--) {
+        particles[i].update(realDt);
+        if (particles[i].life <= 0) particles.splice(i, 1);
+    }
+
+    if (screenShake > 0) {
+        screenShake -= realDt * 60;
+        if (screenShake < 0) screenShake = 0;
+    }
+
+    if (player.y > cameraY + height + 50) gameOver();
+}
+
+function draw() {
+    let bgProgress = Math.min(1, Math.max(0, -cameraY / 20000));
+    let r1 = Math.floor(249 - bgProgress * (249 - 26));
+    let g1 = Math.floor(231 - bgProgress * (231 - 26));
+    let b1 = Math.floor(231 - bgProgress * (231 - 46));
+    let r2 = Math.floor(226 - bgProgress * (226 - 22));
+    let g2 = Math.floor(194 - bgProgress * (194 - 33));
+    let b2 = Math.floor(198 - bgProgress * (198 - 62));
+
+    let grad = ctx.createLinearGradient(0, 0, 0, height);
+    grad.addColorStop(0, `rgb(${r1},${g1},${b1})`);
+    grad.addColorStop(1, `rgb(${r2},${g2},${b2})`);
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, width, height);
+
+    ctx.save();
+    if (screenShake > 0) ctx.translate((Math.random()-0.5)*screenShake, (Math.random()-0.5)*screenShake);
+    ctx.translate(0, -cameraY);
+
+    for (let p of portals) {
+        ctx.fillStyle = p.color; ctx.shadowColor = p.color; ctx.shadowBlur = 20;
+        ctx.beginPath();
+        let pulse = Math.sin(performance.now() * 0.005) * 3;
+        ctx.ellipse(p.x, p.y, p.r + pulse, p.r * 1.5 + pulse, 0, 0, Math.PI*2);
+        ctx.fill();
+        ctx.fillStyle = '#FFF'; ctx.beginPath();
+        ctx.ellipse(p.x, p.y, p.r*0.5, p.r * 0.8, 0, 0, Math.PI*2);
+        ctx.fill(); ctx.shadowBlur = 0;
+    }
+
+    for (let p of platforms) {
+        ctx.fillStyle = p.type === 'breakable' ? C.platformDark : C.platform;
+        ctx.shadowColor = 'rgba(0,0,0,0.2)'; ctx.shadowBlur = 10; ctx.shadowOffsetY = 5;
+        ctx.beginPath(); ctx.roundRect(p.x, p.y, p.w, p.h, 8); ctx.fill();
+        ctx.shadowBlur = 0; ctx.shadowOffsetY = 0;
+        ctx.fillStyle = 'rgba(255,255,255,0.3)'; ctx.beginPath();
+        ctx.roundRect(p.x, p.y, p.w, p.h/3, [8, 8, 0, 0]); ctx.fill();
+    }
+
+    let time = performance.now() * 0.003;
+    for (let s of seeds) {
+        let floatY = Math.sin(time + s.floatOffset) * 5;
+        ctx.fillStyle = C.seed; ctx.shadowColor = C.seed; ctx.shadowBlur = 15;
+        ctx.beginPath(); ctx.arc(s.x, s.y + floatY, s.r, 0, Math.PI*2); ctx.fill();
+        ctx.shadowBlur = 0;
+        ctx.fillStyle = '#FFF'; ctx.beginPath();
+        ctx.arc(s.x - 2, s.y + floatY - 2, s.r/3, 0, Math.PI*2); ctx.fill();
+    }
+
+    for (let p of particles) p.draw(ctx);
+
+    if (GAME_STATE === 'PLAYING' || GAME_STATE === 'GAMEOVER') player.draw(ctx);
+
+    if (input.isDown && GAME_STATE === 'PLAYING') {
+        let dx = input.startX - input.currentX; let dy = input.startY - input.currentY;
+        let dist = Math.sqrt(dx*dx + dy*dy);
+        if (dist > 10) {
+            let dirX = dx / dist; let dirY = dy / dist;
+            let power = Math.min(dist, 150);
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.5)'; ctx.lineWidth = 4;
+            ctx.setLineDash([10, 10]); ctx.lineDashOffset = -performance.now() * 0.05;
+            ctx.beginPath(); ctx.moveTo(player.x, player.y);
+            ctx.lineTo(player.x + dirX * power * 2, player.y + dirY * power * 2);
+            ctx.stroke(); ctx.setLineDash([]);
+            
+            ctx.restore(); ctx.save();
+            let grad = ctx.createRadialGradient(width/2, height/2, height/4, width/2, height/2, height);
+            grad.addColorStop(0, 'rgba(0,0,0,0)'); grad.addColorStop(1, 'rgba(0,0,0,0.4)');
+            ctx.fillStyle = grad; ctx.fillRect(0, 0, width, height);
+        }
+    }
+    ctx.restore();
+}
+
+requestAnimationFrame(loop);
+</script>
+</body>
+</html>

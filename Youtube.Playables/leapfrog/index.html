@@ -1,0 +1,774 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Leapfrog (YT)</title>
+    <!-- YouTube Playables SDK -->
+    <script src="https://www.youtube.com/game_api/v1"></script>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #0a192f;
+            overflow: hidden;
+            touch-action: none; /* Prevent pull-to-refresh on mobile */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        #gameCanvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        #uiLayer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .screen {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(10, 25, 47, 0.85);
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            pointer-events: auto;
+            text-align: center;
+            backdrop-filter: blur(5px);
+            border: 2px solid rgba(255,255,255,0.1);
+        }
+        .screen.active {
+            display: flex;
+        }
+        h1 {
+            color: #64ffda;
+            margin: 0 0 20px 0;
+            font-size: 36px;
+            text-shadow: 0 4px 10px rgba(100, 255, 218, 0.4);
+            letter-spacing: 1px;
+        }
+        h2 {
+            color: #ccd6f6;
+            margin: 0 0 10px 0;
+            font-size: 24px;
+        }
+        p {
+            color: #8892b0;
+            margin: 0 0 30px 0;
+            font-size: 18px;
+        }
+        .score-display {
+            color: #fff;
+            font-size: 48px;
+            font-weight: bold;
+            margin: 10px 0 30px 0;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+        }
+        button {
+            background: linear-gradient(135deg, #ff6b6b, #ff4757);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 22px;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 6px 15px rgba(255, 71, 87, 0.4);
+            transition: transform 0.1s;
+            animation: pulse 2s infinite;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        button:active {
+            transform: scale(0.95);
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 6px 15px rgba(255, 71, 87, 0.4); }
+            50% { transform: scale(1.05); box-shadow: 0 10px 25px rgba(255, 71, 87, 0.6); }
+            100% { transform: scale(1); box-shadow: 0 6px 15px rgba(255, 71, 87, 0.4); }
+        }
+        #hud {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            pointer-events: none;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="gameCanvas"></canvas>
+    
+    <div id="hud">Score: <span id="scoreVal">0</span></div>
+
+    <div id="uiLayer">
+        <!-- Start Screen -->
+        <div id="startScreen" class="screen active">
+            <h1>Leapfrog</h1>
+            <p>Drag to aim. Release to leap.<br>Don't fall in the water!</p>
+            <button id="startBtn">Play Now</button>
+        </div>
+
+        <!-- End Screen -->
+        <div id="endScreen" class="screen">
+            <h2>Nice Try!</h2>
+            <div class="score-display" id="finalScore">0</div>
+            <p>High Score: <span id="highScoreVal">0</span></p>
+            <button id="restartBtn">Play Again</button>
+        </div>
+    </div>
+
+    <script>
+        // ==========================================
+        // YouTube Playables SDK Mock/Integration
+        // ==========================================
+        let isYouTubeEnvironment = typeof ytgame !== 'undefined';
+        
+        const yt = {
+            firstFrameReady: () => {
+                if (isYouTubeEnvironment && ytgame.game && ytgame.game.firstFrameReady) {
+                    ytgame.game.firstFrameReady();
+                }
+            },
+            gameReady: () => {
+                if (isYouTubeEnvironment && ytgame.game && ytgame.game.gameReady) {
+                    ytgame.game.gameReady();
+                }
+            },
+            sendScore: (score) => {
+                if (isYouTubeEnvironment && ytgame.engagement && ytgame.engagement.sendScore) {
+                    ytgame.engagement.sendScore({ score: score });
+                }
+            }
+        };
+
+        // Handle Pause/Resume
+        if (isYouTubeEnvironment && ytgame.system) {
+            ytgame.system.onPause(() => {
+                game.isPaused = true;
+            });
+            ytgame.system.onResume(() => {
+                game.isPaused = false;
+                game.lastTime = performance.now();
+                requestAnimationFrame(gameLoop);
+            });
+        }
+
+        // ==========================================
+        // Audio Synthesizer
+        // ==========================================
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        
+        const sfx = {
+            playTone: (freq, type, duration, vol) => {
+                if (audioCtx.state === 'suspended') audioCtx.resume();
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.type = type;
+                osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+                
+                gain.gain.setValueAtTime(vol, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + duration);
+                
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.start();
+                osc.stop(audioCtx.currentTime + duration);
+            },
+            jump: () => {
+                sfx.playTone(300, 'sine', 0.3, 0.5);
+                setTimeout(() => sfx.playTone(400, 'sine', 0.2, 0.3), 50);
+            },
+            land: () => {
+                sfx.playTone(150, 'triangle', 0.2, 0.6);
+            },
+            splash: () => {
+                // Noise burst for splash
+                if (audioCtx.state === 'suspended') audioCtx.resume();
+                const bufferSize = audioCtx.sampleRate * 0.5;
+                const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+                const data = buffer.getChannelData(0);
+                for (let i = 0; i < bufferSize; i++) {
+                    data[i] = Math.random() * 2 - 1;
+                }
+                const noise = audioCtx.createBufferSource();
+                noise.buffer = buffer;
+                
+                const filter = audioCtx.createBiquadFilter();
+                filter.type = 'lowpass';
+                filter.frequency.value = 1000;
+                
+                const gain = audioCtx.createGain();
+                gain.gain.setValueAtTime(0.8, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.5);
+                
+                noise.connect(filter);
+                filter.connect(gain);
+                gain.connect(audioCtx.destination);
+                noise.start();
+            },
+            score: (multiplier) => {
+                // Pentatonic scale: C4, D4, E4, G4, A4, C5
+                const scale = [261.63, 293.66, 329.63, 392.00, 440.00, 523.25, 587.33, 659.25];
+                const note = scale[Math.min(multiplier, scale.length - 1)];
+                sfx.playTone(note, 'sine', 0.4, 0.3);
+                sfx.playTone(note * 1.5, 'triangle', 0.3, 0.1);
+            }
+        };
+
+        // ==========================================
+        // Game Engine & State
+        // ==========================================
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d', { alpha: false });
+        
+        const ui = {
+            startScreen: document.getElementById('startScreen'),
+            endScreen: document.getElementById('endScreen'),
+            hud: document.getElementById('hud'),
+            scoreVal: document.getElementById('scoreVal'),
+            finalScore: document.getElementById('finalScore'),
+            highScoreVal: document.getElementById('highScoreVal'),
+            startBtn: document.getElementById('startBtn'),
+            restartBtn: document.getElementById('restartBtn')
+        };
+
+        let width, height;
+        
+        function resize() {
+            width = window.innerWidth;
+            height = window.innerHeight;
+            canvas.width = width;
+            canvas.height = height;
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        let savedHighScore = 0;
+        try {
+            if (window.localStorage) {
+                savedHighScore = window.localStorage.getItem('leapfrog_highscore') || 0;
+            }
+        } catch (e) {
+            console.warn('localStorage not available');
+        }
+
+        const game = {
+            state: 'START', // START, PLAYING, GAMEOVER
+            isPaused: false,
+            lastTime: 0,
+            score: 0,
+            highScore: savedHighScore,
+            cameraY: 0,
+            waterY: 0,
+            waterSpeed: 50, // pixels per second
+            gravity: 1200,
+            combo: 0
+        };
+
+        const frog = {
+            x: 0, y: 0,
+            vx: 0, vy: 0,
+            radius: 15,
+            isAiming: false,
+            aimStartX: 0, aimStartY: 0,
+            aimCurrX: 0, aimCurrY: 0,
+            isAirborne: false,
+            currentPad: null
+        };
+
+        let pads = [];
+        let particles = [];
+        let fireflies = [];
+
+        // ==========================================
+        // Entities & Logic
+        // ==========================================
+        
+        function initGame() {
+            game.score = 0;
+            game.combo = 0;
+            game.cameraY = 0;
+            game.waterY = height;
+            game.waterSpeed = 60;
+            
+            pads = [];
+            particles = [];
+            fireflies = [];
+            
+            // Initial pad
+            const startPad = { x: width / 2, y: height - 150, radius: 40, type: 'normal' };
+            pads.push(startPad);
+            
+            frog.x = startPad.x;
+            frog.y = startPad.y - frog.radius;
+            frog.vx = 0;
+            frog.vy = 0;
+            frog.isAirborne = false;
+            frog.currentPad = startPad;
+            frog.isAiming = false;
+            
+            generatePads(height * 2);
+            
+            ui.scoreVal.innerText = game.score;
+            ui.startScreen.classList.remove('active');
+            ui.endScreen.classList.remove('active');
+            ui.hud.style.display = 'block';
+            
+            game.state = 'PLAYING';
+            game.lastTime = performance.now();
+            
+            if (audioCtx.state === 'suspended') audioCtx.resume();
+        }
+
+        function generatePads(upToY) {
+            let highestPadY = pads.length > 0 ? pads[pads.length - 1].y : height;
+            
+            while (highestPadY > -upToY + game.cameraY) {
+                highestPadY -= (120 + Math.random() * 80); // Vertical spacing
+                
+                const pad = {
+                    x: 50 + Math.random() * (width - 100),
+                    y: highestPadY,
+                    radius: 30 + Math.random() * 20,
+                    type: Math.random() > 0.8 ? 'moving' : 'normal',
+                    moveOffset: Math.random() * Math.PI * 2,
+                    baseX: 0
+                };
+                pad.baseX = pad.x;
+                pads.push(pad);
+
+                // Spawn firefly occasionally
+                if (Math.random() > 0.6) {
+                    fireflies.push({
+                        x: pad.x + (Math.random() * 60 - 30),
+                        y: pad.y - 60 - Math.random() * 40,
+                        radius: 5,
+                        collected: false,
+                        phase: Math.random() * Math.PI * 2
+                    });
+                }
+            }
+        }
+
+        function spawnParticles(x, y, color, count, speed) {
+            for (let i = 0; i < count; i++) {
+                const angle = Math.random() * Math.PI * 2;
+                const s = Math.random() * speed;
+                particles.push({
+                    x: x, y: y,
+                    vx: Math.cos(angle) * s,
+                    vy: Math.sin(angle) * s,
+                    life: 1.0,
+                    color: color,
+                    size: 2 + Math.random() * 4
+                });
+            }
+        }
+
+        function gameOver() {
+            game.state = 'GAMEOVER';
+            sfx.splash();
+            spawnParticles(frog.x, game.waterY, '#48cae4', 30, 200);
+            
+            if (game.score > game.highScore) {
+                game.highScore = game.score;
+                try {
+                    if (window.localStorage) {
+                        window.localStorage.setItem('leapfrog_highscore', game.highScore);
+                    }
+                } catch (e) {
+                    console.warn('localStorage not available');
+                }
+            }
+            
+            ui.finalScore.innerText = game.score;
+            ui.highScoreVal.innerText = game.highScore;
+            ui.hud.style.display = 'none';
+            
+            setTimeout(() => {
+                ui.endScreen.classList.add('active');
+                yt.sendScore(game.score);
+            }, 1000);
+        }
+
+        // ==========================================
+        // Input Handling
+        // ==========================================
+        
+        function handlePointerDown(e) {
+            if (game.state !== 'PLAYING' || frog.isAirborne) return;
+            frog.isAiming = true;
+            frog.aimStartX = e.clientX || e.touches[0].clientX;
+            frog.aimStartY = e.clientY || e.touches[0].clientY;
+            frog.aimCurrX = frog.aimStartX;
+            frog.aimCurrY = frog.aimStartY;
+        }
+
+        function handlePointerMove(e) {
+            if (!frog.isAiming) return;
+            frog.aimCurrX = e.clientX || (e.touches ? e.touches[0].clientX : frog.aimCurrX);
+            frog.aimCurrY = e.clientY || (e.touches ? e.touches[0].clientY : frog.aimCurrY);
+        }
+
+        function handlePointerUp(e) {
+            if (!frog.isAiming) return;
+            frog.isAiming = false;
+            
+            const dx = frog.aimStartX - frog.aimCurrX;
+            const dy = frog.aimStartY - frog.aimCurrY;
+            
+            // Only jump if dragged enough
+            if (Math.hypot(dx, dy) > 20) {
+                // Cap power
+                const maxDrag = 200;
+                const dragDist = Math.min(Math.hypot(dx, dy), maxDrag);
+                const angle = Math.atan2(dy, dx);
+                
+                const powerMultiplier = 4.5;
+                frog.vx = Math.cos(angle) * dragDist * powerMultiplier;
+                frog.vy = Math.sin(angle) * dragDist * powerMultiplier;
+                
+                // Prevent shooting downwards
+                if (frog.vy > 0) frog.vy = -frog.vy;
+                
+                frog.isAirborne = true;
+                frog.currentPad = null;
+                sfx.jump();
+            }
+        }
+
+        window.addEventListener('mousedown', handlePointerDown);
+        window.addEventListener('mousemove', handlePointerMove);
+        window.addEventListener('mouseup', handlePointerUp);
+        
+        window.addEventListener('touchstart', handlePointerDown, {passive: false});
+        window.addEventListener('touchmove', (e) => { e.preventDefault(); handlePointerMove(e); }, {passive: false});
+        window.addEventListener('touchend', handlePointerUp);
+
+        ui.startBtn.addEventListener('click', initGame);
+        ui.restartBtn.addEventListener('click', initGame);
+
+        // ==========================================
+        // Update Loop
+        // ==========================================
+        
+        function update(dt) {
+            if (game.state !== 'PLAYING') return;
+
+            // Update Water
+            game.waterY -= game.waterSpeed * dt;
+            game.waterSpeed += dt * 0.5; // Slowly increase difficulty
+
+            // Update Pads
+            const time = performance.now() / 1000;
+            pads.forEach(pad => {
+                if (pad.type === 'moving') {
+                    pad.x = pad.baseX + Math.sin(time * 2 + pad.moveOffset) * 40;
+                }
+            });
+
+            // Update Frog
+            if (frog.isAirborne) {
+                frog.vy += game.gravity * dt;
+                frog.x += frog.vx * dt;
+                frog.y += frog.vy * dt;
+
+                // Wall bounce
+                if (frog.x - frog.radius < 0) {
+                    frog.x = frog.radius;
+                    frog.vx *= -0.8;
+                } else if (frog.x + frog.radius > width) {
+                    frog.x = width - frog.radius;
+                    frog.vx *= -0.8;
+                }
+
+                // Collision with pads (only when falling)
+                if (frog.vy > 0) {
+                    for (let i = 0; i < pads.length; i++) {
+                        const pad = pads[i];
+                        // Check if frog is above pad and falling through it
+                        if (frog.y + frog.radius >= pad.y - 10 && frog.y - frog.radius <= pad.y + 10) {
+                            const dist = Math.abs(frog.x - pad.x);
+                            if (dist < pad.radius + frog.radius) {
+                                // Landed!
+                                frog.isAirborne = false;
+                                frog.y = pad.y - frog.radius;
+                                frog.vx = 0;
+                                frog.vy = 0;
+                                frog.currentPad = pad;
+                                
+                                sfx.land();
+                                spawnParticles(frog.x, pad.y, '#fff', 10, 50);
+                                
+                                // Score logic
+                                if (dist < 10) {
+                                    game.combo++;
+                                    game.score += 5 * game.combo;
+                                    sfx.score(game.combo);
+                                    spawnParticles(frog.x, pad.y, '#ffd166', 20, 100);
+                                } else {
+                                    game.combo = 0;
+                                    game.score += 1;
+                                }
+                                ui.scoreVal.innerText = game.score;
+                                
+                                // Clean up old pads
+                                pads = pads.filter(p => p.y < game.waterY + 200);
+                                generatePads(height * 2);
+                                break;
+                            }
+                        }
+                    }
+                }
+            } else if (frog.currentPad) {
+                // Move with pad
+                frog.x = frog.currentPad.x;
+                frog.y = frog.currentPad.y - frog.radius;
+            }
+
+            // Check Fireflies
+            fireflies.forEach(ff => {
+                if (!ff.collected) {
+                    ff.y += Math.sin(time * 5 + ff.phase) * 0.5;
+                    const dist = Math.hypot(frog.x - ff.x, frog.y - ff.y);
+                    if (dist < frog.radius + ff.radius + 10) {
+                        ff.collected = true;
+                        game.score += 10;
+                        ui.scoreVal.innerText = game.score;
+                        sfx.score(3);
+                        spawnParticles(ff.x, ff.y, '#06d6a0', 15, 80);
+                    }
+                }
+            });
+
+            // Camera follow
+            const targetCameraY = frog.y - height * 0.6;
+            if (targetCameraY < game.cameraY) {
+                game.cameraY += (targetCameraY - game.cameraY) * 5 * dt;
+            }
+
+            // Game Over Check
+            if (frog.y + frog.radius > game.waterY) {
+                gameOver();
+            }
+
+            // Update Particles
+            for (let i = particles.length - 1; i >= 0; i--) {
+                let p = particles[i];
+                p.x += p.vx * dt;
+                p.y += p.vy * dt;
+                p.vy += game.gravity * 0.5 * dt;
+                p.life -= dt * 2;
+                if (p.life <= 0) particles.splice(i, 1);
+            }
+        }
+
+        // ==========================================
+        // Rendering
+        // ==========================================
+        
+        function draw() {
+            // Background
+            const bgGrad = ctx.createLinearGradient(0, 0, 0, height);
+            bgGrad.addColorStop(0, '#0a192f');
+            bgGrad.addColorStop(1, '#112240');
+            ctx.fillStyle = bgGrad;
+            ctx.fillRect(0, 0, width, height);
+
+            ctx.save();
+            ctx.translate(0, -game.cameraY);
+
+            // Draw Fireflies
+            fireflies.forEach(ff => {
+                if (!ff.collected) {
+                    ctx.beginPath();
+                    ctx.arc(ff.x, ff.y, ff.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = '#06d6a0';
+                    ctx.shadowColor = '#06d6a0';
+                    ctx.shadowBlur = 15;
+                    ctx.fill();
+                    ctx.shadowBlur = 0;
+                }
+            });
+
+            // Draw Pads
+            pads.forEach(pad => {
+                // Shadow
+                ctx.beginPath();
+                ctx.ellipse(pad.x, pad.y + 15, pad.radius, pad.radius * 0.3, 0, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(0,0,0,0.2)';
+                ctx.fill();
+
+                // Pad
+                ctx.beginPath();
+                ctx.ellipse(pad.x, pad.y, pad.radius, pad.radius * 0.3, 0, 0, Math.PI * 2);
+                const padGrad = ctx.createRadialGradient(pad.x, pad.y - 5, 0, pad.x, pad.y, pad.radius);
+                padGrad.addColorStop(0, '#a7c957');
+                padGrad.addColorStop(1, '#386641');
+                ctx.fillStyle = padGrad;
+                ctx.fill();
+                
+                // Highlight
+                ctx.beginPath();
+                ctx.ellipse(pad.x - pad.radius*0.3, pad.y - pad.radius*0.1, pad.radius*0.4, pad.radius*0.1, 0, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(255,255,255,0.2)';
+                ctx.fill();
+            });
+
+            // Draw Trajectory Line
+            if (frog.isAiming) {
+                const dx = frog.aimStartX - frog.aimCurrX;
+                const dy = frog.aimStartY - frog.aimCurrY;
+                const dragDist = Math.min(Math.hypot(dx, dy), 200);
+                
+                if (dragDist > 20) {
+                    const angle = Math.atan2(dy, dx);
+                    let simVx = Math.cos(angle) * dragDist * 4.5;
+                    let simVy = Math.sin(angle) * dragDist * 4.5;
+                    if (simVy > 0) simVy = -simVy;
+
+                    ctx.beginPath();
+                    let simX = frog.x;
+                    let simY = frog.y;
+                    ctx.moveTo(simX, simY);
+                    
+                    for (let i = 0; i < 15; i++) {
+                        simVy += game.gravity * 0.03;
+                        simX += simVx * 0.03;
+                        simY += simVy * 0.03;
+                        
+                        // Bounce sim
+                        if (simX < 0 || simX > width) simVx *= -0.8;
+                        
+                        if (i % 2 === 0) {
+                            ctx.lineTo(simX, simY);
+                        } else {
+                            ctx.moveTo(simX, simY);
+                        }
+                    }
+                    ctx.strokeStyle = 'rgba(255, 255, 255, 0.5)';
+                    ctx.lineWidth = 3;
+                    ctx.lineCap = 'round';
+                    ctx.setLineDash([5, 10]);
+                    ctx.stroke();
+                    ctx.setLineDash([]);
+                }
+            }
+
+            // Draw Frog
+            ctx.save();
+            ctx.translate(frog.x, frog.y);
+            
+            // Squash and stretch
+            let scaleX = 1;
+            let scaleY = 1;
+            let rotation = 0;
+
+            if (frog.isAiming) {
+                const dx = frog.aimStartX - frog.aimCurrX;
+                const dy = frog.aimStartY - frog.aimCurrY;
+                const dist = Math.min(Math.hypot(dx, dy), 200);
+                scaleY = 1 - (dist / 200) * 0.4;
+                scaleX = 1 + (dist / 200) * 0.4;
+                rotation = Math.atan2(dy, dx) + Math.PI/2;
+            } else if (frog.isAirborne) {
+                const speed = Math.hypot(frog.vx, frog.vy);
+                scaleY = 1 + Math.min(speed / 1000, 0.5);
+                scaleX = 1 / scaleY;
+                rotation = Math.atan2(frog.vy, frog.vx) + Math.PI/2;
+            }
+
+            ctx.rotate(rotation);
+            ctx.scale(scaleX, scaleY);
+
+            // Frog Body
+            ctx.beginPath();
+            ctx.arc(0, 0, frog.radius, 0, Math.PI * 2);
+            const frogGrad = ctx.createRadialGradient(-5, -5, 2, 0, 0, frog.radius);
+            frogGrad.addColorStop(0, '#ff9f1c');
+            frogGrad.addColorStop(1, '#e71d36');
+            ctx.fillStyle = frogGrad;
+            ctx.fill();
+
+            // Eyes
+            ctx.fillStyle = 'white';
+            ctx.beginPath(); ctx.arc(-6, -8, 4, 0, Math.PI*2); ctx.fill();
+            ctx.beginPath(); ctx.arc(6, -8, 4, 0, Math.PI*2); ctx.fill();
+            
+            ctx.fillStyle = 'black';
+            ctx.beginPath(); ctx.arc(-6, -9, 2, 0, Math.PI*2); ctx.fill();
+            ctx.beginPath(); ctx.arc(6, -9, 2, 0, Math.PI*2); ctx.fill();
+
+            ctx.restore();
+
+            // Draw Particles
+            particles.forEach(p => {
+                ctx.globalAlpha = p.life;
+                ctx.fillStyle = p.color;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                ctx.fill();
+            });
+            ctx.globalAlpha = 1.0;
+
+            // Draw Water
+            ctx.fillStyle = 'rgba(72, 202, 228, 0.8)';
+            ctx.fillRect(0, game.waterY, width, height * 2);
+            
+            // Water surface wave
+            ctx.beginPath();
+            ctx.moveTo(0, game.waterY);
+            const time = performance.now() / 1000;
+            for (let x = 0; x <= width; x += 20) {
+                const y = game.waterY + Math.sin(x * 0.05 + time * 3) * 5;
+                ctx.lineTo(x, y);
+            }
+            ctx.lineTo(width, game.waterY + height);
+            ctx.lineTo(0, game.waterY + height);
+            ctx.fillStyle = 'rgba(0, 119, 182, 0.9)';
+            ctx.fill();
+
+            ctx.restore();
+        }
+
+        // ==========================================
+        // Main Loop
+        // ==========================================
+        
+        function gameLoop(timestamp) {
+            if (!game.isPaused) {
+                let dt = (timestamp - game.lastTime) / 1000;
+                if (dt > 0.1) dt = 0.1; // Cap dt to prevent huge jumps
+                game.lastTime = timestamp;
+
+                update(dt);
+                draw();
+            }
+            requestAnimationFrame(gameLoop);
+        }
+
+        // Initialize
+        yt.firstFrameReady();
+        yt.gameReady();
+        game.lastTime = performance.now();
+        requestAnimationFrame(gameLoop);
+        draw(); // Initial draw for start screen background
+
+    </script>
+</body>
+</html>

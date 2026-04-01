@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>The Gardener's Ascent (YT)</title>
+    <!-- YouTube Playables SDK -->
+    <script src="https://www.youtube.com/game_api/v1"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+        :root {
+            --bg-top: #2d1b4e;
+            --bg-bottom: #1a0b2e;
+            --accent: #ff7eb3;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: var(--bg-bottom);
+            font-family: 'Inter', sans-serif;
+            color: white;
+            touch-action: none;
+        }
+
+        #game-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        canvas {
+            display: block;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        #ui-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+        }
+
+        .menu-screen {
+            pointer-events: auto;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            display: none;
+        }
+
+        .menu-screen.active {
+            display: block;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to bottom, #fff, #ff7eb3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -1px;
+        }
+
+        .score-display {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 1rem 2.5rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 100px;
+            cursor: pointer;
+            transition: transform 0.2s;
+            animation: pulsate 2s infinite ease-in-out;
+            box-shadow: 0 0 20px rgba(255, 126, 179, 0.4);
+        }
+
+        @keyframes pulsate {
+            0% { transform: scale(1); box-shadow: 0 0 20px rgba(255, 126, 179, 0.4); }
+            50% { transform: scale(1.1); box-shadow: 0 0 40px rgba(255, 126, 179, 0.6); }
+            100% { transform: scale(1); box-shadow: 0 0 20px rgba(255, 126, 179, 0.4); }
+        }
+
+        #hud {
+            position: absolute;
+            top: 40px;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            box-sizing: border-box;
+            font-weight: bold;
+            font-size: 1.5rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+    </style>
+</head>
+<body>
+
+<div id="game-container">
+    <canvas id="gameCanvas"></canvas>
+    
+    <div id="ui-overlay">
+        <!-- Start Screen -->
+        <div id="start-screen" class="menu-screen active">
+            <h1>Gardener's Ascent</h1>
+            <p class="score-display">Ascend the Celestial Trellis</p>
+            <button id="start-btn" class="btn">START ASCENT</button>
+        </div>
+
+        <!-- End Screen -->
+        <div id="end-screen" class="menu-screen">
+            <h1>Lovely Garden!</h1>
+            <p id="final-score" class="score-display">Height: 0m</p>
+            <p id="best-score" style="font-size: 0.9rem; margin-top: -1.5rem; margin-bottom: 1.5rem; opacity: 0.6;">Best: 0m</p>
+            <button id="restart-btn" class="btn">GROW AGAIN</button>
+        </div>
+
+        <!-- HUD -->
+        <div id="hud" style="display: none;">
+            <div id="current-score">0m</div>
+            <div id="color-indicator" style="width: 20px; height: 20px; border-radius: 50%; border: 2px solid white;"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    /**
+     * THE GARDENER'S ASCENT (YT)
+     * A Hyper-Casual YouTube Playable
+     */
+
+    // --- YouTube SDK Integration ---
+    let ytgame = window.ytgame || null;
+    
+    function initSDK() {
+        if (window.ytgame) {
+            ytgame = window.ytgame;
+            try {
+                ytgame.game.firstFrameReady();
+                ytgame.game.gameReady();
+                console.log("YouTube SDK Initialized");
+            } catch (e) {
+                console.error("SDK Init Error:", e);
+            }
+            
+            window.addEventListener('pause', () => {
+                game.isPaused = true;
+            });
+            
+            window.addEventListener('resume', () => {
+                game.isPaused = false;
+            });
+        } else {
+            setTimeout(initSDK, 100);
+        }
+    }
+
+    // --- Audio System (Synthesizer) ---
+    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    
+    function playNote(freq, type = 'sine', duration = 0.3) {
+        if (audioCtx.state === 'suspended') audioCtx.resume();
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        
+        osc.type = type;
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(freq * 0.5, audioCtx.currentTime + duration);
+        
+        gain.gain.setValueAtTime(0.1, audioCtx.currentTime);
+        gain.gain.linearRampToValueAtTime(0, audioCtx.currentTime + duration);
+        
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        
+        osc.start();
+        osc.stop(audioCtx.currentTime + duration);
+    }
+
+    const COLORS = [
+        { name: 'Rose', hex: '#ff4d6d', freq: 440 },
+        { name: 'Azure', hex: '#00b4d8', freq: 523.25 },
+        { name: 'Gold', hex: '#ffb703', freq: 659.25 }
+    ];
+
+    // --- Safe Storage Helper ---
+    const safeStorage = {
+        getItem: (key) => {
+            try {
+                return window.localStorage ? window.localStorage.getItem(key) : null;
+            } catch (e) {
+                return null;
+            }
+        },
+        setItem: (key, value) => {
+            try {
+                if (window.localStorage) window.localStorage.setItem(key, value);
+            } catch (e) {
+                // Fallback to no-op if storage is restricted
+            }
+        }
+    };
+
+    // --- Game Engine ---
+    const canvas = document.getElementById('gameCanvas');
+    const ctx = canvas.getContext('2d');
+    const startScreen = document.getElementById('start-screen');
+    const endScreen = document.getElementById('end-screen');
+    const hud = document.getElementById('hud');
+    const currentScoreEl = document.getElementById('current-score');
+    const finalScoreEl = document.getElementById('final-score');
+    const bestScoreEl = document.getElementById('best-score');
+    const colorIndicator = document.getElementById('color-indicator');
+
+    const game = {
+        state: 'MENU',
+        width: 0,
+        height: 0,
+        score: 0,
+        highScore: parseInt(safeStorage.getItem('garden_high_score')) || 0,
+        isPaused: false,
+        cameraY: 0,
+        trellisRotation: 0,
+        shake: 0,
+        particles: [],
+        platforms: [],
+        player: {
+            x: 0,
+            y: 0,
+            radius: 15,
+            vy: 0,
+            vx: 0,
+            colorIndex: 0,
+            isJumping: false,
+            targetPlatform: null,
+            squash: 1
+        }
+    };
+
+    function resize() {
+        game.width = window.innerWidth;
+        game.height = window.innerHeight;
+        canvas.width = game.width;
+        canvas.height = game.height;
+    }
+
+    window.addEventListener('resize', resize);
+    resize();
+
+    class Particle {
+        constructor(x, y, color) {
+            this.x = x;
+            this.y = y;
+            this.color = color;
+            this.vx = (Math.random() - 0.5) * 10;
+            this.vy = (Math.random() - 0.5) * 10;
+            this.life = 1.0;
+            this.size = Math.random() * 5 + 2;
+        }
+        update() {
+            this.x += this.vx;
+            this.y += this.vy;
+            this.life -= 0.02;
+        }
+        draw() {
+            ctx.globalAlpha = this.life;
+            ctx.fillStyle = this.color;
+            ctx.beginPath();
+            ctx.arc(this.x, this.y - game.cameraY, this.size, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.globalAlpha = 1;
+        }
+    }
+
+    class Platform {
+        constructor(y, angle) {
+            this.y = y;
+            this.angle = angle;
+            this.radius = 120;
+            this.colorIndex = Math.floor(Math.random() * COLORS.length);
+            this.width = 60;
+            this.height = 20;
+            this.bloomScale = 1;
+        }
+        update() {
+            this.x = game.width / 2 + Math.cos(game.trellisRotation + this.angle) * this.radius;
+            if (this.bloomScale > 1) this.bloomScale -= 0.05;
+        }
+        draw() {
+            const screenY = this.y - game.cameraY;
+            if (screenY < -100 || screenY > game.height + 100) return;
+
+            ctx.save();
+            ctx.translate(this.x, screenY);
+            
+            // Petals
+            const color = COLORS[this.colorIndex].hex;
+            ctx.fillStyle = color;
+            ctx.shadowBlur = 15;
+            ctx.shadowColor = color;
+            
+            for (let i = 0; i < 6; i++) {
+                ctx.rotate(Math.PI / 3);
+                ctx.beginPath();
+                ctx.ellipse(0, 15 * this.bloomScale, 10 * this.bloomScale, 20 * this.bloomScale, 0, 0, Math.PI * 2);
+                ctx.fill();
+            }
+            
+            // Center
+            ctx.fillStyle = '#fff';
+            ctx.beginPath();
+            ctx.arc(0, 0, 8 * this.bloomScale, 0, Math.PI * 2);
+            ctx.fill();
+            
+            ctx.restore();
+        }
+    }
+
+    function initGame() {
+        game.score = 0;
+        game.cameraY = 0;
+        game.trellisRotation = 0;
+        game.platforms = [];
+        game.particles = [];
+        
+        // Initial platforms
+        for (let i = 0; i < 10; i++) {
+            addPlatform(game.height - 100 - i * 180);
+        }
+        
+        game.player.x = game.platforms[0].x;
+        game.player.y = game.platforms[0].y - 30;
+        game.player.vy = 0;
+        game.player.colorIndex = game.platforms[0].colorIndex;
+        game.player.isJumping = false;
+        game.player.targetPlatform = game.platforms[0];
+        
+        updateHUD();
+    }
+
+    function addPlatform(y) {
+        const lastAngle = game.platforms.length > 0 ? game.platforms[game.platforms.length - 1].angle : 0;
+        const angle = lastAngle + Math.PI / 2 + Math.random() * Math.PI / 2;
+        game.platforms.push(new Platform(y, angle));
+    }
+
+    function updateHUD() {
+        currentScoreEl.innerText = `${game.score}m`;
+        colorIndicator.style.backgroundColor = COLORS[game.player.colorIndex].hex;
+    }
+
+    function jump() {
+        if (game.player.isJumping) return;
+        
+        const currentIndex = game.platforms.indexOf(game.player.targetPlatform);
+        const nextPlatform = game.platforms[currentIndex + 1];
+        
+        if (nextPlatform) {
+            game.player.isJumping = true;
+            game.player.targetPlatform = nextPlatform;
+            game.player.vy = -15;
+            game.player.squash = 1.5;
+            playNote(200 + game.score * 5, 'triangle', 0.1);
+        }
+    }
+
+    function gameOver() {
+        game.state = 'END';
+        hud.style.display = 'none';
+        endScreen.classList.add('active');
+        finalScoreEl.innerText = `Height: ${game.score}m`;
+        
+        if (game.score > game.highScore) {
+            game.highScore = game.score;
+            safeStorage.setItem('garden_high_score', game.highScore);
+        }
+        bestScoreEl.innerText = `Best: ${game.highScore}m`;
+        
+        if (ytgame && ytgame.engagement) {
+            try {
+                ytgame.engagement.sendScore(game.score);
+            } catch (e) {
+                console.error("Score Send Error:", e);
+            }
+        }
+    }
+
+    function update() {
+        if (game.state !== 'PLAYING' || game.isPaused) return;
+
+        game.trellisRotation += 0.02;
+        
+        // Update platforms
+        game.platforms.forEach(p => p.update());
+        
+        // Player Logic
+        if (game.player.isJumping) {
+            const target = game.player.targetPlatform;
+            
+            // Move towards target platform
+            const dx = target.x - game.player.x;
+            const dy = target.y - 30 - game.player.y;
+            
+            game.player.x += dx * 0.15;
+            game.player.y += dy * 0.15;
+            
+            if (Math.abs(dx) < 5 && Math.abs(dy) < 5) {
+                game.player.isJumping = false;
+                game.player.x = target.x;
+                game.player.y = target.y - 30;
+                game.player.squash = 0.7;
+                game.shake = 10;
+                
+                // Bloom Check
+                if (game.player.colorIndex === target.colorIndex) {
+                    game.score += 5;
+                    target.bloomScale = 2;
+                    playNote(COLORS[target.colorIndex].freq, 'sine', 0.4);
+                    // Particles
+                    for(let i=0; i<15; i++) game.particles.push(new Particle(target.x, target.y, COLORS[target.colorIndex].hex));
+                } else {
+                    game.score += 1;
+                    playNote(300, 'sine', 0.1);
+                }
+                
+                // Update player color to next platform eventually or keep it?
+                // Let's change color every 3 jumps
+                if (game.score % 3 === 0) {
+                    game.player.colorIndex = Math.floor(Math.random() * COLORS.length);
+                }
+                
+                updateHUD();
+                
+                // Infinite Trellis
+                if (game.platforms.indexOf(target) > game.platforms.length - 5) {
+                    addPlatform(game.platforms[game.platforms.length - 1].y - 180);
+                }
+            }
+        } else {
+            // Stick to platform
+            game.player.x = game.player.targetPlatform.x;
+            game.player.y = game.player.targetPlatform.y - 30;
+        }
+
+        // Camera follow
+        const targetCamY = game.player.y - game.height * 0.6;
+        game.cameraY += (targetCamY - game.cameraY) * 0.1;
+
+        // Death check
+        if (game.player.y - game.cameraY > game.height + 100) {
+            gameOver();
+        }
+
+        // Squash/Stretch recovery
+        game.player.squash += (1 - game.player.squash) * 0.1;
+
+        // Particles
+        game.particles.forEach((p, i) => {
+            p.update();
+            if (p.life <= 0) game.particles.splice(i, 1);
+        });
+    }
+
+    function draw() {
+        ctx.save();
+        if (game.shake > 0) {
+            ctx.translate((Math.random() - 0.5) * game.shake, (Math.random() - 0.5) * game.shake);
+            game.shake *= 0.9;
+        }
+
+        // Background Gradient
+        const grad = ctx.createLinearGradient(0, 0, 0, game.height);
+        grad.addColorStop(0, '#1a0b2e');
+        grad.addColorStop(1, '#2d1b4e');
+        ctx.fillStyle = grad;
+        ctx.fillRect(0, 0, game.width, game.height);
+
+        // Trellis Vine (Background)
+        ctx.strokeStyle = 'rgba(40, 80, 40, 0.3)';
+        ctx.lineWidth = 10;
+        ctx.beginPath();
+        for (let i = -5; i < 15; i++) {
+            const y = game.cameraY + i * 100;
+            const x = game.width / 2 + Math.sin(game.trellisRotation + i * 0.5) * 20;
+            if (i === -5) ctx.moveTo(x, y - game.cameraY);
+            else ctx.lineTo(x, y - game.cameraY);
+        }
+        ctx.stroke();
+
+        // Draw Platforms
+        game.platforms.forEach(p => p.draw());
+
+        // Draw Particles
+        game.particles.forEach(p => p.draw());
+
+        // Draw Player
+        ctx.save();
+        ctx.translate(game.player.x, game.player.y - game.cameraY);
+        ctx.scale(2 - game.player.squash, game.player.squash);
+        
+        const pColor = COLORS[game.player.colorIndex].hex;
+        ctx.fillStyle = '#fff';
+        ctx.shadowBlur = 20;
+        ctx.shadowColor = pColor;
+        ctx.beginPath();
+        ctx.arc(0, 0, game.player.radius, 0, Math.PI * 2);
+        ctx.fill();
+        
+        // Inner Glow
+        ctx.fillStyle = pColor;
+        ctx.beginPath();
+        ctx.arc(0, 0, game.player.radius * 0.6, 0, Math.PI * 2);
+        ctx.fill();
+        
+        ctx.restore(); // Player restore
+        ctx.restore(); // Global shake restore
+
+        requestAnimationFrame(() => {
+            update();
+            draw();
+        });
+    }
+
+    // --- Input Handling ---
+    function handleInput(e) {
+        if (game.state === 'PLAYING') {
+            jump();
+        }
+    }
+
+    window.addEventListener('mousedown', handleInput);
+    window.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        handleInput();
+    }, { passive: false });
+
+    document.getElementById('start-btn').onclick = () => {
+        game.state = 'PLAYING';
+        startScreen.classList.remove('active');
+        hud.style.display = 'flex';
+        initGame();
+    };
+
+    document.getElementById('restart-btn').onclick = () => {
+        game.state = 'PLAYING';
+        endScreen.classList.remove('active');
+        hud.style.display = 'flex';
+        initGame();
+    };
+
+    // --- Start ---
+    initSDK();
+    draw();
+
+</script>
+</body>
+</html>
+

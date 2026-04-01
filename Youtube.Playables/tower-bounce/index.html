@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Oliver's Ascent (YT)</title>
+    
+    <!-- YouTube Playables SDK -->
+    <script src="https://www.youtube.com/game_api/v1"></script>
+
+    <style>
+        /* CSS Reset & Fullscreen */
+        * { box-sizing: border-box; user-select: none; -webkit-user-select: none; }
+        body, html { 
+            margin: 0; padding: 0; width: 100%; height: 100%; 
+            background-color: #0f172a; overflow: hidden; 
+            touch-action: none; /* Prevents pull-to-refresh and scrolling */
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+        
+        #gameCanvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* UI Overlays */
+        .ui-layer {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            pointer-events: none; /* Let clicks pass through to buttons */
+            background: radial-gradient(circle, rgba(15,23,42,0.6) 0%, rgba(15,23,42,0.9) 100%);
+            transition: opacity 0.3s ease;
+            z-index: 10;
+        }
+
+        .hidden { opacity: 0; pointer-events: none !important; display: none !important; }
+
+        .title {
+            font-size: 48px; font-weight: 900; color: #fff;
+            text-shadow: 0 0 20px rgba(56, 189, 248, 0.8);
+            margin-bottom: 10px; text-align: center;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            font-size: 18px; color: #cbd5e1; margin-bottom: 50px;
+            text-align: center; font-weight: 500;
+        }
+
+        .score-board {
+            font-size: 24px; color: #fff; margin-bottom: 40px;
+            text-align: center; background: rgba(255,255,255,0.1);
+            padding: 20px 40px; border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.2);
+            backdrop-filter: blur(5px);
+        }
+        .score-board span { font-weight: 900; color: #38bdf8; font-size: 32px; display: block; margin-top: 5px;}
+
+        /* Animated Action Buttons */
+        .action-btn {
+            pointer-events: auto;
+            background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+            border: none; border-radius: 50px;
+            padding: 18px 50px; font-size: 22px; font-weight: bold; color: white;
+            box-shadow: 0 10px 25px rgba(56, 189, 248, 0.5);
+            cursor: pointer; outline: none;
+            animation: pulse 2s infinite cubic-bezier(0.4, 0, 0.2, 1);
+            transition: transform 0.1s, filter 0.2s;
+        }
+        .action-btn:active { transform: scale(0.95); filter: brightness(1.2); }
+
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 10px 25px rgba(56, 189, 248, 0.5); }
+            50% { transform: scale(1.08); box-shadow: 0 15px 35px rgba(56, 189, 248, 0.8); }
+            100% { transform: scale(1); box-shadow: 0 10px 25px rgba(56, 189, 248, 0.5); }
+        }
+
+        /* In-Game HUD */
+        #hud {
+            position: absolute; top: 30px; left: 30px;
+            font-size: 36px; font-weight: 900; color: white;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            pointer-events: none; z-index: 5;
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="gameCanvas"></canvas>
+
+    <div id="hud">0</div>
+
+    <!-- Start Screen -->
+    <div id="ui-start" class="ui-layer">
+        <div class="title">Oliver's Ascent</div>
+        <div class="subtitle">Drag to guide Oliver.<br>Hit the center for a Perfect Bounce!</div>
+        <button id="btn-start" class="action-btn">Play Now</button>
+    </div>
+
+    <!-- Friendly End Screen (No "Game Over") -->
+    <div id="ui-end" class="ui-layer hidden">
+        <div id="end-message" class="title">Nice Try!</div>
+        <div class="score-board">
+            Score <span id="end-score">0</span>
+            Best <span id="end-best">0</span>
+        </div>
+        <button id="btn-restart" class="action-btn">Play Again</button>
+    </div>
+
+    <script>
+        /**
+         * OLIVER'S ASCENT (YT)
+         * A Hyper-Casual Vertical Jumper
+         */
+
+        // --- YouTube SDK Integration ---
+        const YT_STORAGE_KEY = 'olivers_ascent_highscore_yt';
+        let ytReadyFired = false;
+
+        function initYouTubeSDK() {
+            if (window.ytgame) {
+                // Inform YouTube the first frame is ready to be shown
+                if(ytgame.game && typeof ytgame.game.firstFrameReady === 'function') {
+                    ytgame.game.firstFrameReady();
+                }
+                // Inform YouTube the game is fully loaded and interactive
+                if(ytgame.game && typeof ytgame.game.gameReady === 'function') {
+                    ytgame.game.gameReady();
+                }
+                // Handle lifecycle events
+                if(ytgame.system) {
+                    ytgame.system.onPause(() => { Engine.paused = true; });
+                    ytgame.system.onResume(() => { Engine.paused = false; });
+                }
+            }
+        }
+
+        function sendScoreToYouTube(score) {
+            if (window.ytgame && window.ytgame.engagement && typeof ytgame.engagement.sendScore === 'function') {
+                ytgame.engagement.sendScore({ score: score });
+            }
+        }
+
+        // --- Engine & Globals ---
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d', { alpha: false }); // Optimize rendering
+        
+        const UI = {
+            start: document.getElementById('ui-start'),
+            end: document.getElementById('ui-end'),
+            hud: document.getElementById('hud'),
+            endMessage: document.getElementById('end-message'),
+            endScore: document.getElementById('end-score'),
+            endBest: document.getElementById('end-best'),
+            btnStart: document.getElementById('btn-start'),
+            btnRestart: document.getElementById('btn-restart')
+        };
+
+        const Engine = {
+            width: 0, height: 0,
+            pixelRatio: window.devicePixelRatio || 1,
+            lastTime: 0,
+            paused: false,
+            state: 'START', // START, PLAYING, END
+            cameraY: 0,
+            score: 0,
+            highScore: (function() {
+                try {
+                    return window.localStorage ? (parseInt(window.localStorage.getItem(YT_STORAGE_KEY)) || 0) : 0;
+                } catch(e) {
+                    return 0;
+                }
+            })(),
+            bgHue: 220,
+            shakeTime: 0
+        };
+
+        const Input = {
+            x: 0, isDragging: false
+        };
+
+        // --- Game Entities ---
+        let Oliver = {};
+        let Platforms = [];
+        let Particles = [];
+        let FloatingTexts = [];
+
+        // --- Constants & Config ---
+        const GRAVITY = 0.55;
+        const BOUNCE_VELOCITY = -13;
+        const PERFECT_BOUNCE_VELOCITY = -18;
+        const PLATFORM_WIDTH = 100;
+        const PLATFORM_HEIGHT = 16;
+        const OLIVER_RADIUS = 20;
+
+        // --- Initialization ---
+        function resize() {
+            Engine.width = window.innerWidth;
+            Engine.height = window.innerHeight;
+            canvas.width = Engine.width * Engine.pixelRatio;
+            canvas.height = Engine.height * Engine.pixelRatio;
+            ctx.scale(Engine.pixelRatio, Engine.pixelRatio);
+            if(Engine.state === 'START') Input.x = Engine.width / 2;
+        }
+
+        window.addEventListener('resize', resize);
+        
+        // Input Handling
+        function handlePointerMove(e) {
+            if (Engine.state !== 'PLAYING') return;
+            let clientX = e.touches ? e.touches[0].clientX : e.clientX;
+            Input.x = clientX;
+            Input.isDragging = true;
+        }
+        window.addEventListener('mousemove', handlePointerMove);
+        window.addEventListener('touchmove', handlePointerMove, {passive: false});
+        window.addEventListener('touchstart', (e) => {
+            if(e.target === canvas) handlePointerMove(e);
+        }, {passive: false});
+
+        // UI Listeners
+        UI.btnStart.addEventListener('click', startGame);
+        UI.btnRestart.addEventListener('click', startGame);
+
+        // --- Game Logic ---
+        function resetGame() {
+            Engine.cameraY = 0;
+            Engine.score = 0;
+            Engine.bgHue = 220;
+            Engine.shakeTime = 0;
+            UI.hud.innerText = "0";
+            
+            Oliver = {
+                x: Engine.width / 2,
+                y: Engine.height - 150,
+                vx: 0, vy: 0,
+                radius: OLIVER_RADIUS,
+                scaleX: 1, scaleY: 1,
+                combo: 0
+            };
+            Input.x = Oliver.x;
+
+            Platforms = [];
+            Particles = [];
+            FloatingTexts = [];
+
+            // Initial platform under Oliver
+            Platforms.push({
+                x: Engine.width / 2,
+                y: Engine.height - 50,
+                width: PLATFORM_WIDTH * 1.5,
+                type: 'normal'
+            });
+
+            // Pre-generate platforms
+            let currentY = Engine.height - 200;
+            while (currentY > -Engine.height) {
+                spawnPlatform(currentY);
+                currentY -= Math.random() * 80 + 80;
+            }
+        }
+
+        function spawnPlatform(yPos) {
+            let width = PLATFORM_WIDTH - Math.min(40, Engine.score * 0.5); // Gets slightly smaller
+            if (width < 40) width = 40;
+            
+            let xPos = Math.random() * (Engine.width - width - 40) + (width/2 + 20);
+            
+            Platforms.push({
+                x: xPos,
+                y: yPos,
+                width: width,
+                type: 'normal'
+            });
+        }
+
+        function startGame() {
+            UI.start.classList.add('hidden');
+            UI.end.classList.add('hidden');
+            Engine.state = 'PLAYING';
+            resetGame();
+            
+            if(!ytReadyFired) {
+                initYouTubeSDK();
+                ytReadyFired = true;
+            }
+        }
+
+        function endGame() {
+            Engine.state = 'END';
+            UI.end.classList.remove('hidden');
+            
+            if (Engine.score > Engine.highScore) {
+                Engine.highScore = Engine.score;
+                try {
+                    if (window.localStorage) {
+                        window.localStorage.setItem(YT_STORAGE_KEY, Engine.highScore);
+                    }
+                } catch(e) {}
+            }
+            
+            UI.endScore.innerText = Engine.score;
+            UI.endBest.innerText = Engine.highScore;
+
+            // Friendly messaging based on performance
+            if (Engine.score === 0) UI.endMessage.innerText = "Oops!";
+            else if (Engine.score < 50) UI.endMessage.innerText = "Nice Try!";
+            else if (Engine.score < 150) UI.endMessage.innerText = "Great Run!";
+            else UI.endMessage.innerText = "Stellar Job!";
+
+            sendScoreToYouTube(Engine.score);
+        }
+
+        function spawnParticles(x, y, color, count, speed) {
+            for(let i=0; i<count; i++) {
+                let angle = Math.random() * Math.PI * 2;
+                let vel = Math.random() * speed;
+                Particles.push({
+                    x: x, y: y,
+                    vx: Math.cos(angle) * vel,
+                    vy: Math.sin(angle) * vel,
+                    life: 1.0,
+                    decay: Math.random() * 0.02 + 0.02,
+                    color: color,
+                    size: Math.random() * 4 + 2
+                });
+            }
+        }
+
+        function spawnFloatingText(x, y, text, color, size) {
+            FloatingTexts.push({
+                x: x, y: y,
+                text: text, color: color, size: size,
+                life: 1.0, vy: -2
+            });
+        }
+
+        // --- Update Loop ---
+        function update(dt) {
+            if (Engine.paused || Engine.state !== 'PLAYING') return;
+
+            // Time scale for consistent physics regardless of framerate
+            let timeScale = dt / (1000 / 60); 
+            if (timeScale > 3) timeScale = 3; // Cap to prevent clipping on heavy lag
+
+            // Screen Shake
+            if (Engine.shakeTime > 0) Engine.shakeTime -= dt;
+
+            // Oliver Physics
+            Oliver.vy += GRAVITY * timeScale;
+            Oliver.y += Oliver.vy * timeScale;
+            
+            // Smooth horizontal follow (Lerp)
+            Oliver.x += (Input.x - Oliver.x) * 0.15 * timeScale;
+            
+            // Keep in bounds horizontally
+            if (Oliver.x < Oliver.radius) Oliver.x = Oliver.radius;
+            if (Oliver.x > Engine.width - Oliver.radius) Oliver.x = Engine.width - Oliver.radius;
+
+            // Dynamic Squash and Stretch based on velocity
+            let targetScaleY = 1 + (Oliver.vy * 0.015);
+            if (targetScaleY < 0.5) targetScaleY = 0.5;
+            if (targetScaleY > 1.5) targetScaleY = 1.5;
+            let targetScaleX = 1 / targetScaleY;
+
+            Oliver.scaleX += (targetScaleX - Oliver.scaleX) * 0.2 * timeScale;
+            Oliver.scaleY += (targetScaleY - Oliver.scaleY) * 0.2 * timeScale;
+
+            // Collision Detection (Falling only)
+            if (Oliver.vy > 0) {
+                for (let i = 0; i < Platforms.length; i++) {
+                    let p = Platforms[i];
+                    // Check if Oliver's bottom crosses the platform top
+                    let bottomY = Oliver.y + Oliver.radius;
+                    let nextBottomY = bottomY + Oliver.vy * timeScale;
+                    
+                    if (bottomY <= p.y + 10 && nextBottomY >= p.y - 5) {
+                        // Check horizontal bounds
+                        if (Oliver.x > p.x - p.width/2 - Oliver.radius/2 && 
+                            Oliver.x < p.x + p.width/2 + Oliver.radius/2) {
+                            
+                            // Hit!
+                            let distFromCenter = Math.abs(Oliver.x - p.x);
+                            let isPerfect = distFromCenter < 15;
+
+                            if (isPerfect) {
+                                Oliver.vy = PERFECT_BOUNCE_VELOCITY;
+                                Oliver.combo++;
+                                Engine.shakeTime = 150;
+                                spawnParticles(Oliver.x, p.y, '#38bdf8', 20, 5);
+                                spawnFloatingText(Oliver.x, p.y - 20, "PERFECT!", "#38bdf8", 24);
+                                if(Oliver.combo > 1) {
+                                    spawnFloatingText(Oliver.x, p.y - 50, `Combo x${Oliver.combo}`, "#fcd34d", 20);
+                                    Engine.score += Oliver.combo;
+                                }
+                            } else {
+                                Oliver.vy = BOUNCE_VELOCITY;
+                                Oliver.combo = 0;
+                                spawnParticles(Oliver.x, p.y, '#fff', 5, 2);
+                            }
+
+                            // Extreme squash on impact
+                            Oliver.scaleX = 1.6;
+                            Oliver.scaleY = 0.4;
+                            
+                            // Score increment based on height
+                            let heightScore = Math.floor(Math.abs(Engine.cameraY) / 100);
+                            if (heightScore > Engine.score) {
+                                Engine.score = heightScore;
+                                UI.hud.innerText = Engine.score;
+                                Engine.bgHue = (220 + Engine.score) % 360; // Shift background color
+                            }
+                            break; // Only bounce once per frame
+                        }
+                    }
+                }
+            }
+
+            // Camera Follow (Scrolls up, never down)
+            let targetCameraY = Oliver.y - Engine.height * 0.6;
+            if (targetCameraY < Engine.cameraY) {
+                Engine.cameraY = targetCameraY;
+            }
+
+            // Platform Management
+            for (let i = Platforms.length - 1; i >= 0; i--) {
+                let p = Platforms[i];
+                // Remove platforms that fall off screen
+                if (p.y > Engine.cameraY + Engine.height + 100) {
+                    Platforms.splice(i, 1);
+                }
+            }
+
+            // Spawn new platforms as we go up
+            let highestPlatform = Platforms[Platforms.length - 1];
+            if (highestPlatform && highestPlatform.y > Engine.cameraY - 200) {
+                let gap = Math.random() * 60 + 80 + Math.min(Engine.score * 0.2, 50); // Gap increases slightly with score
+                spawnPlatform(highestPlatform.y - gap);
+            }
+
+            // Update Particles
+            for (let i = Particles.length - 1; i >= 0; i--) {
+                let p = Particles[i];
+                p.x += p.vx * timeScale;
+                p.y += p.vy * timeScale;
+                p.life -= p.decay * timeScale;
+                if (p.life <= 0) Particles.splice(i, 1);
+            }
+
+            // Update Floating Text
+            for (let i = FloatingTexts.length - 1; i >= 0; i--) {
+                let ft = FloatingTexts[i];
+                ft.y += ft.vy * timeScale;
+                ft.life -= 0.02 * timeScale;
+                if (ft.life <= 0) FloatingTexts.splice(i, 1);
+            }
+
+            // Death Condition (Fell off screen)
+            if (Oliver.y > Engine.cameraY + Engine.height + Oliver.radius) {
+                endGame();
+            }
+        }
+
+        // --- Render Loop ---
+        function draw() {
+            // Background Gradient (Dynamic)
+            let bgGradient = ctx.createLinearGradient(0, 0, 0, Engine.height);
+            bgGradient.addColorStop(0, `hsl(${Engine.bgHue}, 60%, 15%)`);
+            bgGradient.addColorStop(1, `hsl(${Engine.bgHue + 20}, 70%, 5%)`);
+            ctx.fillStyle = bgGradient;
+            ctx.fillRect(0, 0, Engine.width, Engine.height);
+
+            // Draw Parallax Stars/Dots
+            ctx.fillStyle = 'rgba(255,255,255,0.3)';
+            for(let i=0; i<20; i++) {
+                // Pseudo-random based on index and camera
+                let sx = (i * 87) % Engine.width;
+                let sy = (i * 123 - Engine.cameraY * 0.2) % Engine.height;
+                if (sy < 0) sy += Engine.height;
+                ctx.beginPath();
+                ctx.arc(sx, sy, (i%3)+1, 0, Math.PI*2);
+                ctx.fill();
+            }
+
+            ctx.save();
+            
+            // Apply Screen Shake
+            if (Engine.shakeTime > 0) {
+                let mag = (Engine.shakeTime / 150) * 5;
+                let dx = (Math.random() - 0.5) * mag;
+                let dy = (Math.random() - 0.5) * mag;
+                ctx.translate(dx, dy);
+            }
+
+            // Apply Camera Transform
+            ctx.translate(0, -Engine.cameraY);
+
+            // Draw Platforms
+            for (let i = 0; i < Platforms.length; i++) {
+                let p = Platforms[i];
+                
+                // Glow effect
+                ctx.shadowBlur = 15;
+                ctx.shadowColor = '#38bdf8';
+                ctx.fillStyle = '#e0f2fe';
+                
+                // Rounded Rectangle
+                ctx.beginPath();
+                ctx.roundRect(p.x - p.width/2, p.y, p.width, PLATFORM_HEIGHT, 8);
+                ctx.fill();
+                
+                // Inner highlight
+                ctx.shadowBlur = 0;
+                ctx.fillStyle = '#ffffff';
+                ctx.beginPath();
+                ctx.roundRect(p.x - p.width/2 + 2, p.y + 2, p.width - 4, 4, 2);
+                ctx.fill();
+
+                // Center "Perfect" Marker
+                ctx.fillStyle = 'rgba(56, 189, 248, 0.8)';
+                ctx.beginPath();
+                ctx.arc(p.x, p.y + PLATFORM_HEIGHT/2, 4, 0, Math.PI*2);
+                ctx.fill();
+            }
+
+            // Draw Particles
+            ctx.globalCompositeOperation = 'lighter';
+            for (let i = 0; i < Particles.length; i++) {
+                let p = Particles[i];
+                ctx.fillStyle = p.color;
+                ctx.globalAlpha = p.life;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI*2);
+                ctx.fill();
+            }
+            ctx.globalAlpha = 1.0;
+            ctx.globalCompositeOperation = 'source-over';
+
+            // Draw Oliver
+            if (Engine.state === 'PLAYING' || Engine.state === 'START') {
+                ctx.save();
+                ctx.translate(Oliver.x, Oliver.y);
+                ctx.scale(Oliver.scaleX, Oliver.scaleY);
+
+                // Body glow
+                ctx.shadowBlur = 20;
+                ctx.shadowColor = '#f472b6';
+
+                // Body Gradient
+                let jellyGrad = ctx.createRadialGradient(0, -5, 0, 0, 0, Oliver.radius);
+                jellyGrad.addColorStop(0, '#fbcfe8');
+                jellyGrad.addColorStop(1, '#ec4899');
+                
+                ctx.fillStyle = jellyGrad;
+                ctx.beginPath();
+                // Slightly flattened bottom
+                ctx.arc(0, 0, Oliver.radius, 0, Math.PI*2);
+                ctx.fill();
+
+                ctx.shadowBlur = 0;
+
+                // Eyes
+                ctx.fillStyle = '#4c1d95';
+                // Look direction based on velocity
+                let eyeOffsetX = (Oliver.vx || (Input.x - Oliver.x)*0.05);
+                if(eyeOffsetX > 5) eyeOffsetX = 5;
+                if(eyeOffsetX < -5) eyeOffsetX = -5;
+                
+                let eyeOffsetY = Oliver.vy * 0.2;
+                if(eyeOffsetY > 4) eyeOffsetY = 4;
+                if(eyeOffsetY < -4) eyeOffsetY = -4;
+
+                ctx.beginPath();
+                ctx.ellipse(-6 + eyeOffsetX, -2 + eyeOffsetY, 3, 5, 0, 0, Math.PI*2);
+                ctx.ellipse(6 + eyeOffsetX, -2 + eyeOffsetY, 3, 5, 0, 0, Math.PI*2);
+                ctx.fill();
+
+                // Highlight
+                ctx.fillStyle = 'rgba(255,255,255,0.6)';
+                ctx.beginPath();
+                ctx.ellipse(8, -8, 4, 2, Math.PI/4, 0, Math.PI*2);
+                ctx.fill();
+
+                ctx.restore();
+            }
+
+            // Draw Floating Text
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            for (let i = 0; i < FloatingTexts.length; i++) {
+                let ft = FloatingTexts[i];
+                ctx.globalAlpha = ft.life;
+                ctx.font = `900 ${ft.size}px 'Segoe UI', sans-serif`;
+                ctx.fillStyle = ft.color;
+                ctx.shadowBlur = 5;
+                ctx.shadowColor = 'rgba(0,0,0,0.8)';
+                ctx.fillText(ft.text, ft.x, ft.y);
+            }
+            ctx.globalAlpha = 1.0;
+            ctx.shadowBlur = 0;
+
+            ctx.restore();
+        }
+
+        // --- Main Loop ---
+        function loop(timestamp) {
+            let dt = timestamp - Engine.lastTime;
+            Engine.lastTime = timestamp;
+
+            // Prevent massive delta times on tab switch
+            if (dt > 100) dt = 16; 
+
+            update(dt);
+            draw();
+
+            requestAnimationFrame(loop);
+        }
+
+        // --- Boot ---
+        resize();
+        resetGame();
+        requestAnimationFrame((t) => {
+            Engine.lastTime = t;
+            loop(t);
+        });
+
+    </script>
+</body>
+</html>
+

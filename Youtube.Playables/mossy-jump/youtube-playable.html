@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Mossy Jump (YT)</title>
+    <script src="https://www.youtube.com/game_api/v1"></script>
+    <style>
+        body, html { 
+            margin: 0; padding: 0; width: 100%; height: 100%; 
+            background-color: #2c3e50; overflow: hidden; 
+            touch-action: none; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+        }
+        canvas { display: block; width: 100%; height: 100%; }
+        #ui { 
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+            pointer-events: none; display: flex; flex-direction: column; 
+            justify-content: space-between; padding: 20px; box-sizing: border-box; 
+        }
+        #score { 
+            color: #ecf0f1; font-size: 48px; font-weight: 900; 
+            text-shadow: 0px 4px 10px rgba(0,0,0,0.5); 
+            text-align: center; margin-top: 20px;
+        }
+        #gameover { 
+            display: none; position: absolute; top: 50%; left: 50%; 
+            transform: translate(-50%, -50%); background: rgba(20, 30, 40, 0.95); 
+            padding: 40px 60px; border-radius: 24px; text-align: center; 
+            pointer-events: auto; color: white; box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            border: 2px solid #8e44ad;
+        }
+        h1 { margin-top: 0; color: #e74c3c; font-size: 36px; text-transform: uppercase; letter-spacing: 2px; }
+        p { font-size: 24px; color: #bdc3c7; }
+        #finalScore { color: #f1c40f; font-weight: bold; font-size: 32px; }
+        button { 
+            background: #2ecc71; color: white; border: none; 
+            padding: 15px 40px; font-size: 22px; border-radius: 12px; 
+            cursor: pointer; margin-top: 30px; font-weight: bold; 
+            box-shadow: 0 6px 0 #27ae60; transition: all 0.1s;
+            text-transform: uppercase; letter-spacing: 1px;
+        }
+        button:active { 
+            box-shadow: 0 0px 0 #27ae60; transform: translateY(6px); 
+        }
+        #instructions {
+            position: absolute; bottom: 40px; width: 100%; text-align: center;
+            color: rgba(255,255,255,0.6); font-size: 18px; pointer-events: none;
+            transition: opacity 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="gameCanvas"></canvas>
+    <div id="ui">
+        <div id="score">0</div>
+        <div id="instructions">Drag to Jump • Tap in air to Dash</div>
+    </div>
+    <div id="gameover">
+        <h1>Game Over</h1>
+        <p>Height Reached<br><span id="finalScore">0</span>m</p>
+        <button id="restartBtn">Play Again</button>
+    </div>
+
+    <script>
+        // --- YouTube SDK Integration (Early Init) ---
+        let ytReady = false;
+        if (window.ytgame) {
+            window.ytgame.game.firstFrameReady();
+            window.ytgame.game.gameReady();
+            ytReady = true;
+        }
+
+        // --- Game Setup ---
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+        const scoreEl = document.getElementById('score');
+        const gameOverEl = document.getElementById('gameover');
+        const finalScoreEl = document.getElementById('finalScore');
+        const restartBtn = document.getElementById('restartBtn');
+        const instructionsEl = document.getElementById('instructions');
+
+        let width, height;
+        function resize() {
+            width = window.innerWidth;
+            height = window.innerHeight;
+            canvas.width = width;
+            canvas.height = height;
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        // --- Procedural Audio Engine (Web Audio API) ---
+        // No external assets needed, perfectly self-contained for YT Playables
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        let actx = null;
+
+        function initAudio() {
+            if (!actx) actx = new AudioContext();
+            if (actx.state === 'suspended') actx.resume();
+        }
+
+        function playSound(type) {
+            if (!actx) return;
+            const osc = actx.createOscillator();
+            const gain = actx.createGain();
+            osc.connect(gain);
+            gain.connect(actx.destination);
+
+            const now = actx.currentTime;
+            if (type === 'jump') {
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(300, now);
+                osc.frequency.exponentialRampToValueAtTime(600, now + 0.15);
+                gain.gain.setValueAtTime(0.3, now);
+                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.15);
+                osc.start(now);
+                osc.stop(now + 0.15);
+            } else if (type === 'dash') {
+                osc.type = 'square';
+                osc.frequency.setValueAtTime(150, now);
+                osc.frequency.exponentialRampToValueAtTime(400, now + 0.1);
+                gain.gain.setValueAtTime(0.15, now);
+                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.1);
+                osc.start(now);
+                osc.stop(now + 0.1);
+            } else if (type === 'land') {
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(120, now);
+                osc.frequency.exponentialRampToValueAtTime(40, now + 0.1);
+                gain.gain.setValueAtTime(0.4, now);
+                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.1);
+                osc.start(now);
+                osc.stop(now + 0.1);
+            } else if (type === 'die') {
+                osc.type = 'sawtooth';
+                osc.frequency.setValueAtTime(200, now);
+                osc.frequency.exponentialRampToValueAtTime(30, now + 0.6);
+                gain.gain.setValueAtTime(0.4, now);
+                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.6);
+                osc.start(now);
+                osc.stop(now + 0.6);
+            }
+        }
+
+        // --- Game State ---
+        let state = 'playing'; // playing, gameover
+        let isPaused = false;
+        let cameraY = 0;
+        let score = 0;
+        let maxAltitude = 0;
+        let hasStartedMoving = false;
+
+        const player = {
+            x: width / 2,
+            y: height - 150,
+            vx: 0,
+            vy: 0,
+            radius: 18,
+            canDash: true,
+            isDragging: false,
+            dragStartX: 0,
+            dragStartY: 0,
+            dragCurrentX: 0,
+            dragCurrentY: 0,
+            squash: 1,
+            stretch: 1,
+            rotation: 0
+        };
+
+        let platforms = [];
+        let particles = [];
+        let floatingLeaves = [];
+
+        // --- Initialization ---
+        function initGame() {
+            player.x = width / 2;
+            player.y = height - 150;
+            player.vx = 0;
+            player.vy = 0;
+            player.canDash = true;
+            player.isDragging = false;
+            player.squash = 1;
+            player.stretch = 1;
+            player.rotation = 0;
+            
+            cameraY = 0;
+            score = 0;
+            maxAltitude = 0;
+            state = 'playing';
+            hasStartedMoving = false;
+            
+            gameOverEl.style.display = 'none';
+            scoreEl.innerText = '0';
+            instructionsEl.style.opacity = '1';
+            
+            platforms = [];
+            particles = [];
+            floatingLeaves = [];
+
+            // Base platform
+            platforms.push({ x: width / 2, y: height - 50, w: width, h: 100, type: 'base' });
+
+            // Generate initial platforms
+            let currentY = height - 250;
+            for (let i = 0; i < 15; i++) {
+                generatePlatform(currentY);
+                currentY -= 120 + Math.random() * 60;
+            }
+
+            // Init ambient leaves
+            for(let i=0; i<20; i++) {
+                floatingLeaves.push({
+                    x: Math.random() * width,
+                    y: Math.random() * height,
+                    vx: (Math.random() - 0.5) * 0.5,
+                    vy: Math.random() * 1 + 0.5,
+                    size: Math.random() * 4 + 2,
+                    angle: Math.random() * Math.PI * 2,
+                    spin: (Math.random() - 0.5) * 0.1
+                });
+            }
+        }
+
+        function generatePlatform(y) {
+            // Make platforms smaller as you go higher
+            const difficulty = Math.min(1, Math.max(0, -y / 10000));
+            const minW = 60 - (difficulty * 20);
+            const maxW = 120 - (difficulty * 40);
+            const w = minW + Math.random() * (maxW - minW);
+            
+            // Keep platforms mostly within screen bounds
+            const margin = w/2 + 20;
+            const x = margin + Math.random() * (width - margin * 2);
+            
+            // Occasional moving platforms
+            const isMoving = Math.random() < (0.1 + difficulty * 0.3);
+            
+            platforms.push({ 
+                x, y, w, h: 24, 
+                type: 'normal',
+                isMoving,
+                moveSpeed: isMoving ? (Math.random() > 0.5 ? 1 : -1) * (1 + difficulty * 2) : 0,
+                startX: x
+            });
+        }
+
+        function createParticles(x, y, color, count, speed, isDash = false) {
+            for (let i = 0; i < count; i++) {
+                particles.push({
+                    x, y,
+                    vx: (Math.random() - 0.5) * speed * (isDash ? 0.5 : 1),
+                    vy: (Math.random() - 0.5) * speed + (isDash ? 2 : 0), // Dash particles trail downwards
+                    life: 1,
+                    decay: 0.02 + Math.random() * 0.03,
+                    color,
+                    size: Math.random() * 6 + 2
+                });
+            }
+        }
+
+        // --- Input Handling ---
+        function handleDown(e) {
+            if (state !== 'playing') return;
+            initAudio();
+            
+            const touch = e.touches ? e.touches[0] : e;
+            
+            // If on ground or moving very slowly, start drag to jump
+            if (Math.abs(player.vy) < 0.5 && Math.abs(player.vx) < 0.5) {
+                player.isDragging = true;
+                player.dragStartX = touch.clientX;
+                player.dragStartY = touch.clientY;
+                player.dragCurrentX = touch.clientX;
+                player.dragCurrentY = touch.clientY;
+                player.squash = 0.7;
+                player.stretch = 1.2;
+            } else if (player.canDash && hasStartedMoving) {
+                // Mid-air dash
+                player.canDash = false;
+                
+                // Dash upwards and slightly in current horizontal direction
+                player.vy = -16;
+                player.vx = player.vx * 1.2; 
+                
+                playSound('dash');
+                createParticles(player.x, player.y, '#3498db', 25, 12, true);
+                
+                player.squash = 0.4;
+                player.stretch = 2.5;
+            }
+        }
+
+        function handleMove(e) {
+            if (!player.isDragging) return;
+            e.preventDefault(); // Prevent scrolling
+            const touch = e.touches ? e.touches[0] : e;
+            player.dragCurrentX = touch.clientX;
+            player.dragCurrentY = touch.clientY;
+            
+            // Dynamic squash based on drag distance
+            const dx = player.dragStartX - player.dragCurrentX;
+            const dy = player.dragStartY - player.dragCurrentY;
+            const dist = Math.min(200, Math.sqrt(dx*dx + dy*dy));
+            player.squash = 1 - (dist / 200) * 0.4;
+            player.stretch = 1 + (dist / 200) * 0.4;
+            
+            // Rotate character to face drag direction
+            if (dist > 10) {
+                player.rotation = Math.atan2(dy, dx) + Math.PI/2;
+            }
+        }
+
+        function handleUp(e) {
+            if (player.isDragging) {
+                player.isDragging = false;
+                hasStartedMoving = true;
+                instructionsEl.style.opacity = '0';
+                
+                const dx = player.dragStartX - player.dragCurrentX;
+                const dy = player.dragStartY - player.dragCurrentY;
+                
+                // Launch power multiplier
+                const power = 0.18;
+                player.vx = dx * power;
+                player.vy = dy * power;
+                
+                // Cap speed
+                const speed = Math.sqrt(player.vx*player.vx + player.vy*player.vy);
+                const maxSpeed = 22;
+                if (speed > maxSpeed) {
+                    player.vx = (player.vx / speed) * maxSpeed;
+                    player.vy = (player.vy / speed) * maxSpeed;
+                }
+
+                // Prevent shooting downwards if on ground
+                if (player.vy > 0) player.vy = -8;
+
+                playSound('jump');
+                createParticles(player.x, player.y + player.radius, '#2ecc71', 20, 6);
+                
+                player.squash = 1.5;
+                player.stretch = 0.5;
+            }
+        }
+
+        canvas.addEventListener('mousedown', handleDown);
+        canvas.addEventListener('mousemove', handleMove);
+        window.addEventListener('mouseup', handleUp);
+        canvas.addEventListener('touchstart', handleDown, {passive: false});
+        canvas.addEventListener('touchmove', handleMove, {passive: false});
+        window.addEventListener('touchend', handleUp);
+
+        restartBtn.addEventListener('click', () => {
+            initAudio();
+            initGame();
+        });
+
+        // --- YouTube SDK Pause/Resume ---
+        if (window.ytgame) {
+            window.ytgame.system.onPause(() => { isPaused = true; });
+            window.ytgame.system.onResume(() => { isPaused = false; });
+        }
+
+        // --- Main Loop ---
+        let lastTime = performance.now();
+        
+        function update(time) {
+            requestAnimationFrame(update);
+            
+            const dt = Math.min((time - lastTime) / 1000, 0.1); // Cap dt to prevent huge jumps
+            lastTime = time;
+
+            if (isPaused || state !== 'playing') return;
+
+            // --- Physics ---
+            if (!player.isDragging) {
+                player.vy += 0.6; // Gravity
+                player.x += player.vx;
+                player.y += player.vy;
+                
+                // Air friction
+                player.vx *= 0.99;
+                
+                // Rotate based on velocity when airborne
+                if (Math.abs(player.vy) > 1 || Math.abs(player.vx) > 1) {
+                    player.rotation = Math.atan2(player.vy, player.vx) + Math.PI/2;
+                } else {
+                    // Return to upright
+                    player.rotation += (0 - player.rotation) * 0.2;
+                }
+            }
+
+            // Wall bounce
+            if (player.x - player.radius < 0) {
+                player.x = player.radius;
+                player.vx *= -0.7;
+                createParticles(player.x, player.y, '#ecf0f1', 5, 3);
+            } else if (player.x + player.radius > width) {
+                player.x = width - player.radius;
+                player.vx *= -0.7;
+                createParticles(player.x, player.y, '#ecf0f1', 5, 3);
+            }
+
+            // Platform updates & collision
+            let onGround = false;
+            
+            for (let p of platforms) {
+                // Move platforms
+                if (p.isMoving) {
+                    p.x += p.moveSpeed;
+                    if (p.x > width - p.w/2 || p.x < p.w/2) {
+                        p.moveSpeed *= -1;
+                    }
+                }
+
+                // Collision (only falling down)
+                if (player.vy > 0 && !player.isDragging) {
+                    // Check if player bottom crossed platform top
+                    const playerBottom = player.y + player.radius;
+                    const prevPlayerBottom = playerBottom - player.vy;
+                    const platTop = p.y - p.h/2;
+                    
+                    if (player.x > p.x - p.w/2 - player.radius*0.5 && 
+                        player.x < p.x + p.w/2 + player.radius*0.5 &&
+                        playerBottom >= platTop && 
+                        prevPlayerBottom <= platTop + 5) { // Small buffer for fast falls
+                        
+                        player.y = platTop - player.radius;
+                        player.vy = 0;
+                        player.vx *= 0.7; // Ground friction
+                        
+                        if (p.isMoving) {
+                            player.x += p.moveSpeed; // Ride the platform
+                        }
+                        
+                        onGround = true;
+                        
+                        if (!player.canDash || player.stretch > 1.2) {
+                            player.canDash = true;
+                            playSound('land');
+                            createParticles(player.x, player.y + player.radius, '#ecf0f1', 12, 4);
+                            player.squash = 1.6;
+                            player.stretch = 0.4;
+                            player.rotation = 0;
+                        }
+                    }
+                }
+            }
+
+            // Squash and stretch recovery (spring physics)
+            player.squash += (1 - player.squash) * 0.15;
+            player.stretch += (1 - player.stretch) * 0.15;
+
+            // --- Camera & Scoring ---
+            const targetCameraY = player.y - height * 0.6;
+            if (targetCameraY < cameraY) {
+                // Smooth follow upwards
+                cameraY += (targetCameraY - cameraY) * 0.15;
+            }
+
+            const currentAltitude = Math.max(0, (height - 150) - player.y);
+            if (currentAltitude > maxAltitude) {
+                maxAltitude = currentAltitude;
+                score = Math.floor(maxAltitude / 40);
+                scoreEl.innerText = score;
+
+                // Generate new platforms ahead
+                const highestPlatform = platforms[platforms.length - 1];
+                if (highestPlatform.y > cameraY - height) {
+                    generatePlatform(highestPlatform.y - 100 - Math.random() * 60);
+                }
+            }
+
+            // Cleanup old platforms
+            platforms = platforms.filter(p => p.y < cameraY + height + 200);
+
+            // --- Ambient Leaves ---
+            for (let l of floatingLeaves) {
+                l.x += l.vx;
+                l.y += l.vy;
+                l.angle += l.spin;
+                
+                // Wrap around screen relative to camera
+                if (l.y > cameraY + height + 50) {
+                    l.y = cameraY - 50;
+                    l.x = Math.random() * width;
+                }
+                if (l.x > width + 20) l.x = -20;
+                if (l.x < -20) l.x = width + 20;
+            }
+
+            // --- Particles ---
+            for (let i = particles.length - 1; i >= 0; i--) {
+                let p = particles[i];
+                p.x += p.vx;
+                p.y += p.vy;
+                p.vy += 0.1; // Gravity for particles
+                p.life -= p.decay;
+                if (p.life <= 0) particles.splice(i, 1);
+            }
+
+            // --- Death Check ---
+            // Die if fall below camera view
+            if (hasStartedMoving && player.y > cameraY + height + 50) {
+                state = 'gameover';
+                playSound('die');
+                finalScoreEl.innerText = score;
+                gameOverEl.style.display = 'block';
+                
+                // YT SDK Score Reporting
+                if (window.ytgame && window.ytgame.engagement) {
+                    window.ytgame.engagement.sendScore({ value: score });
+                }
+            }
+
+            draw();
+        }
+
+        function draw() {
+            // Background Gradient
+            const gradient = ctx.createLinearGradient(0, 0, 0, height);
+            // Colors shift slightly based on altitude
+            const altFactor = Math.min(1, score / 500);
+            
+            const r1 = Math.floor(44 - altFactor * 20);
+            const g1 = Math.floor(62 - altFactor * 40);
+            const b1 = Math.floor(80 + altFactor * 40);
+            
+            const r2 = Math.floor(52 - altFactor * 30);
+            const g2 = Math.floor(73 - altFactor * 50);
+            const b2 = Math.floor(94 + altFactor * 50);
+
+            gradient.addColorStop(0, `rgb(${r1}, ${g1}, ${b1})`);
+            gradient.addColorStop(1, `rgb(${r2}, ${g2}, ${b2})`);
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, width, height);
+
+            ctx.save();
+            ctx.translate(0, -cameraY);
+
+            // Draw Ambient Leaves
+            ctx.fillStyle = 'rgba(46, 204, 113, 0.3)';
+            for (let l of floatingLeaves) {
+                ctx.save();
+                ctx.translate(l.x, l.y);
+                ctx.rotate(l.angle);
+                ctx.beginPath();
+                ctx.ellipse(0, 0, l.size, l.size/2, 0, 0, Math.PI*2);
+                ctx.fill();
+                ctx.restore();
+            }
+
+            // Draw Platforms
+            for (let p of platforms) {
+                if (p.type === 'base') {
+                    ctx.fillStyle = '#27ae60';
+                    ctx.fillRect(0, p.y - p.h/2, width, p.h);
+                    continue;
+                }
+
+                // Shadow
+                ctx.fillStyle = 'rgba(0,0,0,0.2)';
+                ctx.beginPath();
+                ctx.roundRect(p.x - p.w/2 + 4, p.y - p.h/2 + 8, p.w, p.h, 12);
+                ctx.fill();
+
+                // Wood base
+                ctx.fillStyle = '#8e44ad';
+                if (p.isMoving) ctx.fillStyle = '#9b59b6'; // Lighter if moving
+                ctx.beginPath();
+                ctx.roundRect(p.x - p.w/2, p.y - p.h/2, p.w, p.h, 12);
+                ctx.fill();
+                
+                // Moss top
+                ctx.fillStyle = '#2ecc71';
+                ctx.beginPath();
+                ctx.roundRect(p.x - p.w/2, p.y - p.h/2, p.w, p.h * 0.6, [12, 12, 4, 4]);
+                ctx.fill();
+                
+                // Moss drips
+                ctx.beginPath();
+                ctx.arc(p.x - p.w/4, p.y + 2, 6, 0, Math.PI);
+                ctx.arc(p.x + p.w/3, p.y + 4, 8, 0, Math.PI);
+                ctx.fill();
+            }
+
+            // Draw Particles
+            for (let p of particles) {
+                ctx.fillStyle = p.color;
+                ctx.globalAlpha = p.life;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size * p.life, 0, Math.PI * 2);
+                ctx.fill();
+            }
+            ctx.globalAlpha = 1.0;
+
+            // Draw Drag Aim Line
+            if (player.isDragging) {
+                const dx = player.dragStartX - player.dragCurrentX;
+                const dy = player.dragStartY - player.dragCurrentY;
+                
+                ctx.beginPath();
+                ctx.moveTo(player.x, player.y);
+                
+                // Calculate trajectory preview
+                let simX = player.x;
+                let simY = player.y;
+                let simVx = dx * 0.18;
+                let simVy = dy * 0.18;
+                
+                // Cap sim speed
+                const speed = Math.sqrt(simVx*simVx + simVy*simVy);
+                if (speed > 22) {
+                    simVx = (simVx / speed) * 22;
+                    simVy = (simVy / speed) * 22;
+                }
+                if (simVy > 0) simVy = -8;
+
+                ctx.strokeStyle = 'rgba(255, 255, 255, 0.4)';
+                ctx.lineWidth = 6;
+                ctx.lineCap = 'round';
+                ctx.setLineDash([12, 16]);
+                
+                // Draw arc
+                for(let i=0; i<15; i++) {
+                    simVy += 0.6; // gravity
+                    simX += simVx;
+                    simY += simVy;
+                    ctx.lineTo(simX, simY);
+                }
+                
+                ctx.stroke();
+                ctx.setLineDash([]);
+            }
+
+            // Draw Player
+            ctx.save();
+            ctx.translate(player.x, player.y);
+            ctx.rotate(player.rotation);
+            ctx.scale(player.stretch, player.squash);
+            
+            // Glow if can dash
+            if (player.canDash && hasStartedMoving) {
+                ctx.shadowColor = '#f1c40f';
+                ctx.shadowBlur = 15;
+            }
+
+            // Body
+            ctx.fillStyle = player.canDash ? '#f1c40f' : '#bdc3c7';
+            ctx.beginPath();
+            ctx.arc(0, 0, player.radius, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.shadowBlur = 0; // Reset shadow
+            
+            // Eyes (looking forward)
+            ctx.fillStyle = 'white';
+            ctx.beginPath();
+            ctx.arc(player.radius * 0.3, -player.radius * 0.2, player.radius * 0.4, 0, Math.PI * 2);
+            ctx.fill();
+            
+            ctx.fillStyle = '#2c3e50';
+            ctx.beginPath();
+            ctx.arc(player.radius * 0.4, -player.radius * 0.2, player.radius * 0.15, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.restore();
+            ctx.restore();
+        }
+
+        // Start
+        initGame();
+        requestAnimationFrame(update);
+    </script>
+</body>
+</html>
