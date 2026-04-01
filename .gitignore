@@ -64,3 +64,11 @@ typings/
 
 # next.js build output
 .next
+
+# youtube playables ignores
+node_modules/
+build/
+coverage/
+.DS_Store
+*.log
+.env*
