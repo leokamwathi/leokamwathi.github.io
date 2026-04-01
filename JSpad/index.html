@@ -91,6 +91,7 @@
         <script src="./frameworks/jspad/js/jspad.js"></script>
         <script src="./frameworks/codemirror/js/mode/javascript/javascript.js"></script>
         <script src="./frameworks/split_styles/js/split.min.js"></script>
+	<script src="https://togetherjs.com/togetherjs-min.js"></script>
     </head>
     <body>
 	<div class=" d-flex min-vh-100 flex-column h-100">
@@ -164,8 +165,14 @@
                                         href="#"
                                         class="nav-link"
                                         onclick="refreshWindow();"
-                                        ><i class="fas fa-redo m-1"></i>Refresh</a
-                                    >
+                                        ><i class="fas fa-redo m-1"></i>Refresh</a>
+                                </li>
+				<li class="nav-item">
+                                    <a
+                                        href="#"
+                                        class="nav-link"
+                                        onclick="TogetherJS(this); return false;"
+                                        ><i class="fas fa-users m-1"  style="color:green"></i>Collaborate</a>
                                 </li>
                             </ul>
                         </div>
@@ -276,6 +283,11 @@
 data-toggle="tooltip" data-placement="bottom" title="Run Code"
 onclick="runCode();" aria-label="Close">
             <i class="fas fa-play p-2"></i>
+		  </button> 
+	<button type="button" class="btn btn-danger p-0 m-0 mr-1" 
+data-toggle="tooltip" data-placement="bottom" title="Terminate Code Execution"
+onclick="terminate();" aria-label="Close">
+            <i class="fas fa-stop p-2"></i>
 		  </button> 
 								<button type="button" class="btn btn-primary p-0 m-0 mr-1" 
 data-toggle="tooltip" data-placement="bottom" title="Save Code"
