@@ -18,20 +18,21 @@
             justify-content: space-between; padding: 20px; box-sizing: border-box; 
         }
         #score { 
-            color: #ecf0f1; font-size: 48px; font-weight: 900; 
-            text-shadow: 0px 4px 10px rgba(0,0,0,0.5); 
+            color: #ecf0f1; font-size: 56px; font-weight: 900; 
+            text-shadow: 0px 4px 15px rgba(0,0,0,0.6); 
             text-align: center; margin-top: 20px;
+            transition: transform 0.1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         #gameover { 
             display: none; position: absolute; top: 50%; left: 50%; 
             transform: translate(-50%, -50%); background: rgba(20, 30, 40, 0.95); 
             padding: 40px 60px; border-radius: 24px; text-align: center; 
-            pointer-events: auto; color: white; box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            pointer-events: auto; color: white; box-shadow: 0 20px 50px rgba(0,0,0,0.8);
             border: 2px solid #8e44ad;
         }
         h1 { margin-top: 0; color: #e74c3c; font-size: 36px; text-transform: uppercase; letter-spacing: 2px; }
         p { font-size: 24px; color: #bdc3c7; }
-        #finalScore { color: #f1c40f; font-weight: bold; font-size: 32px; }
+        #finalScore { color: #f1c40f; font-weight: bold; font-size: 36px; text-shadow: 0 0 10px rgba(241, 196, 15, 0.5); }
         button { 
             background: #2ecc71; color: white; border: none; 
             padding: 15px 40px; font-size: 22px; border-radius: 12px; 
@@ -44,8 +45,8 @@
         }
         #instructions {
             position: absolute; bottom: 40px; width: 100%; text-align: center;
-            color: rgba(255,255,255,0.6); font-size: 18px; pointer-events: none;
-            transition: opacity 0.5s;
+            color: rgba(255,255,255,0.8); font-size: 20px; pointer-events: none;
+            transition: opacity 0.5s; font-weight: bold; text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
     </style>
 </head>
@@ -90,55 +91,109 @@
         resize();
 
         // --- Procedural Audio Engine (Web Audio API) ---
-        // No external assets needed, perfectly self-contained for YT Playables
         const AudioContext = window.AudioContext || window.webkitAudioContext;
         let actx = null;
+        let noiseBuffer = null;
 
         function initAudio() {
-            if (!actx) actx = new AudioContext();
+            if (!actx) {
+                actx = new AudioContext();
+                // Create white noise buffer for impacts
+                noiseBuffer = actx.createBuffer(1, actx.sampleRate * 0.5, actx.sampleRate);
+                let output = noiseBuffer.getChannelData(0);
+                for (let i = 0; i < actx.sampleRate * 0.5; i++) {
+                    output[i] = Math.random() * 2 - 1;
+                }
+            }
             if (actx.state === 'suspended') actx.resume();
         }
 
         function playSound(type) {
             if (!actx) return;
-            const osc = actx.createOscillator();
+            const now = actx.currentTime;
             const gain = actx.createGain();
-            osc.connect(gain);
             gain.connect(actx.destination);
 
-            const now = actx.currentTime;
             if (type === 'jump') {
+                const osc = actx.createOscillator();
                 osc.type = 'sine';
                 osc.frequency.setValueAtTime(300, now);
+                osc.frequency.exponentialRampToValueAtTime(800, now + 0.2);
+                gain.gain.setValueAtTime(0.4, now);
+                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.2);
+                osc.connect(gain);
+                osc.start(now);
+                osc.stop(now + 0.2);
+            } else if (type === 'dash') {
+                const osc = actx.createOscillator();
+                osc.type = 'square';
+                osc.frequency.setValueAtTime(200, now);
                 osc.frequency.exponentialRampToValueAtTime(600, now + 0.15);
                 gain.gain.setValueAtTime(0.3, now);
                 gain.gain.exponentialRampToValueAtTime(0.01, now + 0.15);
+                osc.connect(gain);
                 osc.start(now);
                 osc.stop(now + 0.15);
-            } else if (type === 'dash') {
-                osc.type = 'square';
-                osc.frequency.setValueAtTime(150, now);
-                osc.frequency.exponentialRampToValueAtTime(400, now + 0.1);
-                gain.gain.setValueAtTime(0.15, now);
-                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.1);
-                osc.start(now);
-                osc.stop(now + 0.1);
+                
+                if (noiseBuffer) {
+                    const noiseSrc = actx.createBufferSource();
+                    noiseSrc.buffer = noiseBuffer;
+                    const noiseFilter = actx.createBiquadFilter();
+                    noiseFilter.type = 'highpass';
+                    noiseFilter.frequency.value = 1000;
+                    const noiseGain = actx.createGain();
+                    noiseGain.gain.setValueAtTime(0.2, now);
+                    noiseGain.gain.exponentialRampToValueAtTime(0.01, now + 0.1);
+                    noiseSrc.connect(noiseFilter).connect(noiseGain).connect(actx.destination);
+                    noiseSrc.start(now);
+                }
             } else if (type === 'land') {
+                const osc = actx.createOscillator();
                 osc.type = 'triangle';
-                osc.frequency.setValueAtTime(120, now);
-                osc.frequency.exponentialRampToValueAtTime(40, now + 0.1);
-                gain.gain.setValueAtTime(0.4, now);
-                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.1);
+                osc.frequency.setValueAtTime(150, now);
+                osc.frequency.exponentialRampToValueAtTime(40, now + 0.15);
+                gain.gain.setValueAtTime(0.6, now);
+                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.15);
+                osc.connect(gain);
                 osc.start(now);
-                osc.stop(now + 0.1);
+                osc.stop(now + 0.15);
+
+                if (noiseBuffer) {
+                    const noiseSrc = actx.createBufferSource();
+                    noiseSrc.buffer = noiseBuffer;
+                    const noiseFilter = actx.createBiquadFilter();
+                    noiseFilter.type = 'lowpass';
+                    noiseFilter.frequency.value = 300;
+                    const noiseGain = actx.createGain();
+                    noiseGain.gain.setValueAtTime(0.4, now);
+                    noiseGain.gain.exponentialRampToValueAtTime(0.01, now + 0.15);
+                    noiseSrc.connect(noiseFilter).connect(noiseGain).connect(actx.destination);
+                    noiseSrc.start(now);
+                }
             } else if (type === 'die') {
+                const osc = actx.createOscillator();
                 osc.type = 'sawtooth';
                 osc.frequency.setValueAtTime(200, now);
-                osc.frequency.exponentialRampToValueAtTime(30, now + 0.6);
-                gain.gain.setValueAtTime(0.4, now);
-                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.6);
+                osc.frequency.exponentialRampToValueAtTime(20, now + 0.8);
+                gain.gain.setValueAtTime(0.5, now);
+                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.8);
+                osc.connect(gain);
                 osc.start(now);
-                osc.stop(now + 0.6);
+                osc.stop(now + 0.8);
+                
+                if (noiseBuffer) {
+                    const noiseSrc = actx.createBufferSource();
+                    noiseSrc.buffer = noiseBuffer;
+                    const noiseFilter = actx.createBiquadFilter();
+                    noiseFilter.type = 'lowpass';
+                    noiseFilter.frequency.setValueAtTime(1000, now);
+                    noiseFilter.frequency.exponentialRampToValueAtTime(100, now + 0.8);
+                    const noiseGain = actx.createGain();
+                    noiseGain.gain.setValueAtTime(0.5, now);
+                    noiseGain.gain.exponentialRampToValueAtTime(0.01, now + 0.8);
+                    noiseSrc.connect(noiseFilter).connect(noiseGain).connect(actx.destination);
+                    noiseSrc.start(now);
+                }
             }
         }
 
@@ -149,6 +204,10 @@
         let score = 0;
         let maxAltitude = 0;
         let hasStartedMoving = false;
+        
+        // Juice variables
+        let shake = 0;
+        let freezeFrames = 0;
 
         const player = {
             x: width / 2,
@@ -170,6 +229,7 @@
         let platforms = [];
         let particles = [];
         let floatingLeaves = [];
+        let floatingTexts = [];
 
         // --- Initialization ---
         function initGame() {
@@ -188,14 +248,18 @@
             maxAltitude = 0;
             state = 'playing';
             hasStartedMoving = false;
+            shake = 0;
+            freezeFrames = 0;
             
             gameOverEl.style.display = 'none';
             scoreEl.innerText = '0';
+            scoreEl.style.transform = 'scale(1)';
             instructionsEl.style.opacity = '1';
             
             platforms = [];
             particles = [];
             floatingLeaves = [];
+            floatingTexts = [];
 
             // Base platform
             platforms.push({ x: width / 2, y: height - 50, w: width, h: 100, type: 'base' });
@@ -222,24 +286,21 @@
         }
 
         function generatePlatform(y) {
-            // Make platforms smaller as you go higher
             const difficulty = Math.min(1, Math.max(0, -y / 10000));
             const minW = 60 - (difficulty * 20);
             const maxW = 120 - (difficulty * 40);
             const w = minW + Math.random() * (maxW - minW);
             
-            // Keep platforms mostly within screen bounds
             const margin = w/2 + 20;
             const x = margin + Math.random() * (width - margin * 2);
             
-            // Occasional moving platforms
             const isMoving = Math.random() < (0.1 + difficulty * 0.3);
             
             platforms.push({ 
                 x, y, w, h: 24, 
                 type: 'normal',
                 isMoving,
-                moveSpeed: isMoving ? (Math.random() > 0.5 ? 1 : -1) * (1 + difficulty * 2) : 0,
+                moveSpeed: isMoving ? (Math.random() > 0.5 ? 1 : -1) * (1 + difficulty * 2.5) : 0,
                 startX: x
             });
         }
@@ -249,13 +310,19 @@
                 particles.push({
                     x, y,
                     vx: (Math.random() - 0.5) * speed * (isDash ? 0.5 : 1),
-                    vy: (Math.random() - 0.5) * speed + (isDash ? 2 : 0), // Dash particles trail downwards
+                    vy: (Math.random() - 0.5) * speed + (isDash ? 2 : 0),
                     life: 1,
                     decay: 0.02 + Math.random() * 0.03,
                     color,
                     size: Math.random() * 6 + 2
                 });
             }
+        }
+
+        function spawnFloatingText(x, y, text, color) {
+            floatingTexts.push({
+                x, y, text, color, life: 1.0, vy: -2
+            });
         }
 
         // --- Input Handling ---
@@ -265,7 +332,6 @@
             
             const touch = e.touches ? e.touches[0] : e;
             
-            // If on ground or moving very slowly, start drag to jump
             if (Math.abs(player.vy) < 0.5 && Math.abs(player.vx) < 0.5) {
                 player.isDragging = true;
                 player.dragStartX = touch.clientX;
@@ -275,36 +341,36 @@
                 player.squash = 0.7;
                 player.stretch = 1.2;
             } else if (player.canDash && hasStartedMoving) {
-                // Mid-air dash
                 player.canDash = false;
                 
-                // Dash upwards and slightly in current horizontal direction
-                player.vy = -16;
-                player.vx = player.vx * 1.2; 
+                player.vy = -18;
+                player.vx = player.vx * 1.3; 
                 
                 playSound('dash');
-                createParticles(player.x, player.y, '#3498db', 25, 12, true);
+                createParticles(player.x, player.y, '#3498db', 30, 14, true);
                 
-                player.squash = 0.4;
-                player.stretch = 2.5;
+                player.squash = 0.3;
+                player.stretch = 2.8;
+                
+                // Juice: Screen shake & Hit pause
+                shake = 10;
+                freezeFrames = 3;
             }
         }
 
         function handleMove(e) {
             if (!player.isDragging) return;
-            e.preventDefault(); // Prevent scrolling
+            e.preventDefault();
             const touch = e.touches ? e.touches[0] : e;
             player.dragCurrentX = touch.clientX;
             player.dragCurrentY = touch.clientY;
             
-            // Dynamic squash based on drag distance
             const dx = player.dragStartX - player.dragCurrentX;
             const dy = player.dragStartY - player.dragCurrentY;
             const dist = Math.min(200, Math.sqrt(dx*dx + dy*dy));
             player.squash = 1 - (dist / 200) * 0.4;
             player.stretch = 1 + (dist / 200) * 0.4;
             
-            // Rotate character to face drag direction
             if (dist > 10) {
                 player.rotation = Math.atan2(dy, dx) + Math.PI/2;
             }
@@ -319,27 +385,25 @@
                 const dx = player.dragStartX - player.dragCurrentX;
                 const dy = player.dragStartY - player.dragCurrentY;
                 
-                // Launch power multiplier
-                const power = 0.18;
+                const power = 0.19;
                 player.vx = dx * power;
                 player.vy = dy * power;
                 
-                // Cap speed
                 const speed = Math.sqrt(player.vx*player.vx + player.vy*player.vy);
-                const maxSpeed = 22;
+                const maxSpeed = 24;
                 if (speed > maxSpeed) {
                     player.vx = (player.vx / speed) * maxSpeed;
                     player.vy = (player.vy / speed) * maxSpeed;
                 }
 
-                // Prevent shooting downwards if on ground
                 if (player.vy > 0) player.vy = -8;
 
                 playSound('jump');
-                createParticles(player.x, player.y + player.radius, '#2ecc71', 20, 6);
+                createParticles(player.x, player.y + player.radius, '#2ecc71', 25, 8);
                 
-                player.squash = 1.5;
-                player.stretch = 0.5;
+                player.squash = 1.6;
+                player.stretch = 0.4;
+                shake = 4; // Slight shake on launch
             }
         }
 
@@ -355,7 +419,6 @@
             initGame();
         });
 
-        // --- YouTube SDK Pause/Resume ---
         if (window.ytgame) {
             window.ytgame.system.onPause(() => { isPaused = true; });
             window.ytgame.system.onResume(() => { isPaused = false; });
@@ -367,25 +430,34 @@
         function update(time) {
             requestAnimationFrame(update);
             
-            const dt = Math.min((time - lastTime) / 1000, 0.1); // Cap dt to prevent huge jumps
+            const dt = Math.min((time - lastTime) / 1000, 0.1);
             lastTime = time;
 
             if (isPaused || state !== 'playing') return;
 
+            // Hit Pause (Freeze frames for impact)
+            if (freezeFrames > 0) {
+                freezeFrames--;
+                return;
+            }
+
+            // Screen Shake decay
+            if (shake > 0) {
+                shake *= 0.85;
+                if (shake < 0.5) shake = 0;
+            }
+
             // --- Physics ---
             if (!player.isDragging) {
-                player.vy += 0.6; // Gravity
+                player.vy += 0.65; // Gravity
                 player.x += player.vx;
                 player.y += player.vy;
                 
-                // Air friction
                 player.vx *= 0.99;
                 
-                // Rotate based on velocity when airborne
                 if (Math.abs(player.vy) > 1 || Math.abs(player.vx) > 1) {
                     player.rotation = Math.atan2(player.vy, player.vx) + Math.PI/2;
                 } else {
-                    // Return to upright
                     player.rotation += (0 - player.rotation) * 0.2;
                 }
             }
@@ -394,18 +466,19 @@
             if (player.x - player.radius < 0) {
                 player.x = player.radius;
                 player.vx *= -0.7;
-                createParticles(player.x, player.y, '#ecf0f1', 5, 3);
+                createParticles(player.x, player.y, '#ecf0f1', 8, 4);
+                shake = Math.min(shake + 3, 10);
             } else if (player.x + player.radius > width) {
                 player.x = width - player.radius;
                 player.vx *= -0.7;
-                createParticles(player.x, player.y, '#ecf0f1', 5, 3);
+                createParticles(player.x, player.y, '#ecf0f1', 8, 4);
+                shake = Math.min(shake + 3, 10);
             }
 
             // Platform updates & collision
             let onGround = false;
             
             for (let p of platforms) {
-                // Move platforms
                 if (p.isMoving) {
                     p.x += p.moveSpeed;
                     if (p.x > width - p.w/2 || p.x < p.w/2) {
@@ -413,9 +486,7 @@
                     }
                 }
 
-                // Collision (only falling down)
                 if (player.vy > 0 && !player.isDragging) {
-                    // Check if player bottom crossed platform top
                     const playerBottom = player.y + player.radius;
                     const prevPlayerBottom = playerBottom - player.vy;
                     const platTop = p.y - p.h/2;
@@ -423,14 +494,29 @@
                     if (player.x > p.x - p.w/2 - player.radius*0.5 && 
                         player.x < p.x + p.w/2 + player.radius*0.5 &&
                         playerBottom >= platTop && 
-                        prevPlayerBottom <= platTop + 5) { // Small buffer for fast falls
+                        prevPlayerBottom <= platTop + 8) { 
                         
                         player.y = platTop - player.radius;
+                        
+                        // Juice: Hard landing shake & freeze
+                        if (player.vy > 15) {
+                            shake = player.vy * 0.4;
+                            freezeFrames = 2;
+                            // Horizontal dust particles
+                            for(let i=0; i<10; i++) {
+                                particles.push({
+                                    x: player.x, y: player.y + player.radius,
+                                    vx: (Math.random() - 0.5) * 10, vy: -Math.random() * 2,
+                                    life: 1, decay: 0.03, color: '#bdc3c7', size: Math.random() * 5 + 2
+                                });
+                            }
+                        }
+
                         player.vy = 0;
-                        player.vx *= 0.7; // Ground friction
+                        player.vx *= 0.7;
                         
                         if (p.isMoving) {
-                            player.x += p.moveSpeed; // Ride the platform
+                            player.x += p.moveSpeed;
                         }
                         
                         onGround = true;
@@ -438,40 +524,48 @@
                         if (!player.canDash || player.stretch > 1.2) {
                             player.canDash = true;
                             playSound('land');
-                            createParticles(player.x, player.y + player.radius, '#ecf0f1', 12, 4);
-                            player.squash = 1.6;
-                            player.stretch = 0.4;
+                            createParticles(player.x, player.y + player.radius, '#ecf0f1', 15, 5);
+                            player.squash = 1.7;
+                            player.stretch = 0.3;
                             player.rotation = 0;
                         }
                     }
                 }
             }
 
-            // Squash and stretch recovery (spring physics)
             player.squash += (1 - player.squash) * 0.15;
             player.stretch += (1 - player.stretch) * 0.15;
 
             // --- Camera & Scoring ---
             const targetCameraY = player.y - height * 0.6;
             if (targetCameraY < cameraY) {
-                // Smooth follow upwards
                 cameraY += (targetCameraY - cameraY) * 0.15;
             }
 
             const currentAltitude = Math.max(0, (height - 150) - player.y);
             if (currentAltitude > maxAltitude) {
+                let oldScore = score;
                 maxAltitude = currentAltitude;
                 score = Math.floor(maxAltitude / 40);
-                scoreEl.innerText = score;
+                
+                if (score > oldScore) {
+                    scoreEl.innerText = score;
+                    // Score pulse animation
+                    scoreEl.style.transform = 'scale(1.3)';
+                    setTimeout(() => { scoreEl.style.transform = 'scale(1)'; }, 100);
+                    
+                    // Floating text popup
+                    if (score % 5 === 0) {
+                        spawnFloatingText(player.x, player.y - 40, `+${score - oldScore}`, '#f1c40f');
+                    }
+                }
 
-                // Generate new platforms ahead
                 const highestPlatform = platforms[platforms.length - 1];
                 if (highestPlatform.y > cameraY - height) {
                     generatePlatform(highestPlatform.y - 100 - Math.random() * 60);
                 }
             }
 
-            // Cleanup old platforms
             platforms = platforms.filter(p => p.y < cameraY + height + 200);
 
             // --- Ambient Leaves ---
@@ -479,8 +573,6 @@
                 l.x += l.vx;
                 l.y += l.vy;
                 l.angle += l.spin;
-                
-                // Wrap around screen relative to camera
                 if (l.y > cameraY + height + 50) {
                     l.y = cameraY - 50;
                     l.x = Math.random() * width;
@@ -489,25 +581,32 @@
                 if (l.x < -20) l.x = width + 20;
             }
 
-            // --- Particles ---
+            // --- Particles & Floating Texts ---
             for (let i = particles.length - 1; i >= 0; i--) {
                 let p = particles[i];
                 p.x += p.vx;
                 p.y += p.vy;
-                p.vy += 0.1; // Gravity for particles
+                p.vy += 0.1; 
                 p.life -= p.decay;
                 if (p.life <= 0) particles.splice(i, 1);
             }
 
+            for (let i = floatingTexts.length - 1; i >= 0; i--) {
+                let ft = floatingTexts[i];
+                ft.y += ft.vy;
+                ft.life -= 0.02;
+                if (ft.life <= 0) floatingTexts.splice(i, 1);
+            }
+
             // --- Death Check ---
-            // Die if fall below camera view
             if (hasStartedMoving && player.y > cameraY + height + 50) {
                 state = 'gameover';
+                shake = 20;
+                freezeFrames = 10;
                 playSound('die');
                 finalScoreEl.innerText = score;
                 gameOverEl.style.display = 'block';
                 
-                // YT SDK Score Reporting
                 if (window.ytgame && window.ytgame.engagement) {
                     window.ytgame.engagement.sendScore({ value: score });
                 }
@@ -517,9 +616,7 @@
         }
 
         function draw() {
-            // Background Gradient
             const gradient = ctx.createLinearGradient(0, 0, 0, height);
-            // Colors shift slightly based on altitude
             const altFactor = Math.min(1, score / 500);
             
             const r1 = Math.floor(44 - altFactor * 20);
@@ -536,7 +633,15 @@
             ctx.fillRect(0, 0, width, height);
 
             ctx.save();
-            ctx.translate(0, -cameraY);
+            
+            // Apply Screen Shake
+            if (shake > 0) {
+                const dx = (Math.random() - 0.5) * shake;
+                const dy = (Math.random() - 0.5) * shake;
+                ctx.translate(dx, dy - cameraY);
+            } else {
+                ctx.translate(0, -cameraY);
+            }
 
             // Draw Ambient Leaves
             ctx.fillStyle = 'rgba(46, 204, 113, 0.3)';
@@ -548,6 +653,21 @@
                 ctx.ellipse(0, 0, l.size, l.size/2, 0, 0, Math.PI*2);
                 ctx.fill();
                 ctx.restore();
+            }
+
+            // Speed lines (Juice)
+            if (Math.abs(player.vy) > 12 && !player.isDragging) {
+                ctx.strokeStyle = 'rgba(255, 255, 255, 0.15)';
+                ctx.lineCap = 'round';
+                for(let i=0; i<4; i++) {
+                    ctx.lineWidth = Math.random() * 3 + 1;
+                    ctx.beginPath();
+                    let sx = player.x + (Math.random() - 0.5) * 60;
+                    let sy = player.y + (Math.random() - 0.5) * 60;
+                    ctx.moveTo(sx, sy);
+                    ctx.lineTo(sx, sy - player.vy * 3);
+                    ctx.stroke();
+                }
             }
 
             // Draw Platforms
@@ -566,10 +686,16 @@
 
                 // Wood base
                 ctx.fillStyle = '#8e44ad';
-                if (p.isMoving) ctx.fillStyle = '#9b59b6'; // Lighter if moving
+                if (p.isMoving) ctx.fillStyle = '#9b59b6';
+                
+                // Platform glow/highlight
+                ctx.shadowColor = p.isMoving ? '#9b59b6' : 'transparent';
+                ctx.shadowBlur = p.isMoving ? 10 : 0;
+                
                 ctx.beginPath();
                 ctx.roundRect(p.x - p.w/2, p.y - p.h/2, p.w, p.h, 12);
                 ctx.fill();
+                ctx.shadowBlur = 0;
                 
                 // Moss top
                 ctx.fillStyle = '#2ecc71';
@@ -594,36 +720,51 @@
             }
             ctx.globalAlpha = 1.0;
 
-            // Draw Drag Aim Line
+            // Draw Floating Texts
+            for (let ft of floatingTexts) {
+                ctx.fillStyle = ft.color;
+                ctx.globalAlpha = ft.life;
+                ctx.font = 'bold 32px "Segoe UI", sans-serif';
+                ctx.textAlign = 'center';
+                ctx.shadowColor = 'rgba(0,0,0,0.5)';
+                ctx.shadowBlur = 4;
+                ctx.fillText(ft.text, ft.x, ft.y);
+                ctx.shadowBlur = 0;
+            }
+            ctx.globalAlpha = 1.0;
+
+            // Draw Drag Aim Line (Color-coded by power)
             if (player.isDragging) {
                 const dx = player.dragStartX - player.dragCurrentX;
                 const dy = player.dragStartY - player.dragCurrentY;
+                const dist = Math.min(200, Math.sqrt(dx*dx + dy*dy));
+                const powerRatio = dist / 200;
+                
+                // Color from green (120) to red (0)
+                const hue = (1 - powerRatio) * 120;
                 
                 ctx.beginPath();
                 ctx.moveTo(player.x, player.y);
                 
-                // Calculate trajectory preview
                 let simX = player.x;
                 let simY = player.y;
-                let simVx = dx * 0.18;
-                let simVy = dy * 0.18;
+                let simVx = dx * 0.19;
+                let simVy = dy * 0.19;
                 
-                // Cap sim speed
                 const speed = Math.sqrt(simVx*simVx + simVy*simVy);
-                if (speed > 22) {
-                    simVx = (simVx / speed) * 22;
-                    simVy = (simVy / speed) * 22;
+                if (speed > 24) {
+                    simVx = (simVx / speed) * 24;
+                    simVy = (simVy / speed) * 24;
                 }
                 if (simVy > 0) simVy = -8;
 
-                ctx.strokeStyle = 'rgba(255, 255, 255, 0.4)';
-                ctx.lineWidth = 6;
+                ctx.strokeStyle = `hsla(${hue}, 100%, 60%, 0.8)`;
+                ctx.lineWidth = 6 + (powerRatio * 4);
                 ctx.lineCap = 'round';
                 ctx.setLineDash([12, 16]);
                 
-                // Draw arc
                 for(let i=0; i<15; i++) {
-                    simVy += 0.6; // gravity
+                    simVy += 0.65;
                     simX += simVx;
                     simY += simVy;
                     ctx.lineTo(simX, simY);
@@ -633,16 +774,25 @@
                 ctx.setLineDash([]);
             }
 
+            // Draw Dash Aura Indicator
+            if (player.canDash && hasStartedMoving) {
+                const pulse = 1 + Math.sin(performance.now() / 150) * 0.15;
+                ctx.strokeStyle = `rgba(241, 196, 15, ${0.6 / pulse})`;
+                ctx.lineWidth = 3;
+                ctx.beginPath();
+                ctx.arc(player.x, player.y, player.radius * 1.6 * pulse, 0, Math.PI * 2);
+                ctx.stroke();
+            }
+
             // Draw Player
             ctx.save();
             ctx.translate(player.x, player.y);
             ctx.rotate(player.rotation);
             ctx.scale(player.stretch, player.squash);
             
-            // Glow if can dash
             if (player.canDash && hasStartedMoving) {
                 ctx.shadowColor = '#f1c40f';
-                ctx.shadowBlur = 15;
+                ctx.shadowBlur = 20;
             }
 
             // Body
@@ -650,9 +800,9 @@
             ctx.beginPath();
             ctx.arc(0, 0, player.radius, 0, Math.PI * 2);
             ctx.fill();
-            ctx.shadowBlur = 0; // Reset shadow
+            ctx.shadowBlur = 0;
             
-            // Eyes (looking forward)
+            // Eyes
             ctx.fillStyle = 'white';
             ctx.beginPath();
             ctx.arc(player.radius * 0.3, -player.radius * 0.2, player.radius * 0.4, 0, Math.PI * 2);

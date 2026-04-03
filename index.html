@@ -21,6 +21,200 @@
   <!-- Custom styles for this template -->
   <link href="css/resume.css" rel="stylesheet">
 
+  <!-- Dark theme overrides -->
+  <style>
+    :root{
+      --bg: #0b1220;            /* deep navy */
+      --bg-elev: rgba(255,255,255,.06);
+      --border: rgba(255,255,255,.10);
+      --text: rgba(255,255,255,.90);
+      --text-dim: rgba(255,255,255,.68);
+      --heading: rgba(255,255,255,.92);
+      --primary: #7c3aed;       /* violet */
+      --primary-2: #22d3ee;     /* cyan */
+      --shadow: 0 10px 30px rgba(0,0,0,.45);
+      --gold: #ffd24a;          /* bright gold */
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body{
+      background: radial-gradient(1200px 800px at 20% 0%, rgba(124,58,237,.25), transparent 60%),
+                  radial-gradient(900px 700px at 90% 20%, rgba(34,211,238,.18), transparent 55%),
+                  var(--bg);
+      color: var(--text);
+      font-family: Montserrat, Muli, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    a{ color: var(--primary-2); }
+    a:hover{ color: #a5f3fc; text-decoration: none; }
+
+    .text-primary{ color: var(--primary) !important; }
+
+    /* Typography */
+    h1, h2{ 
+      letter-spacing: .5px;
+      color: var(--gold) !important;
+    }
+    h3, h4, h5, h6{
+      letter-spacing: .5px;
+      color: var(--heading) !important;
+    }
+
+    /* Font Awesome icons: trophies / warnings as gold */
+    .fa-trophy,
+    .fa-award,
+    .fa-certificate,
+    .fa-warning,
+    .fa-exclamation-triangle{
+      color: var(--gold) !important;
+    }
+
+    /* If icons are set via :before, force the pseudo-element too */
+    .fa-trophy:before,
+    .fa-award:before,
+    .fa-certificate:before,
+    .fa-warning:before,
+    .fa-exclamation-triangle:before{
+      color: var(--gold) !important;
+    }
+
+    h2{ margin-bottom: 1.75rem !important; }
+    .subheading{ color: var(--text-dim) !important; }
+    p{ color: var(--text-dim); }
+    .lead{ color: rgba(255,255,255,.78); }
+
+    /* Sidebar */
+    #sideNav{
+      background: rgba(11,18,32,.86) !important;
+      backdrop-filter: blur(12px);
+      border-right: 1px solid var(--border);
+      box-shadow: 0 0 0 1px rgba(0,0,0,.2);
+    }
+
+    #sideNav .nav-link{
+      color: rgba(255,255,255,.78) !important;
+      border-radius: 10px;
+      margin: 2px 0;
+      transition: background .15s ease, color .15s ease;
+    }
+
+    #sideNav .nav-link:hover,
+    #sideNav .nav-link:focus{
+      color: #fff !important;
+      background: rgba(255,255,255,.07);
+    }
+
+    /* Layout: keep content in a readable column and add vertical rhythm */
+    .container-fluid.p-0{
+      max-width: 1120px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    section.resume-section{
+      position: relative;
+      padding-top: 2.25rem !important;
+      padding-bottom: 2.25rem !important;
+    }
+
+    /* Sections as modern “cards” */
+    section.resume-section .w-100{
+      background: var(--bg-elev);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    hr.m-0{
+      border-top: 1px solid rgba(255,255,255,.08);
+    }
+
+    /* Lists */
+    ul{ color: rgba(255,255,255,.75); }
+    li{ margin-bottom: .35rem; }
+
+    /* Social buttons */
+    .social-icons a{
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.10);
+      color: #fff;
+      box-shadow: 0 8px 18px rgba(0,0,0,.35);
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+    }
+
+    .social-icons a:hover{
+      transform: translateY(-2px);
+      background: rgba(124,58,237,.22);
+      border-color: rgba(124,58,237,.40);
+    }
+
+    /* Resume items */
+    .resume-item{
+      padding: 18px 18px 10px;
+      border-radius: 16px;
+      border: 1px solid transparent;
+      margin-bottom: 1.25rem !important;
+    }
+
+    .resume-item:hover{
+      border-color: rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+    }
+
+    .resume-date .text-primary{ color: var(--primary-2) !important; }
+
+    /* Small improvement for image */
+    .img-profile{
+      border: 2px solid rgba(255,255,255,.12);
+      box-shadow: 0 15px 30px rgba(0,0,0,.5);
+    }
+
+    /* YouTube playables: responsive grid cards */
+    #youtube ul{
+      list-style: none;
+      padding-left: 0;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin: 0;
+    }
+
+    @media (min-width: 768px){
+      #youtube ul{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (min-width: 1200px){
+      #youtube ul{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+
+    #youtube li{
+      margin: 0;
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.08);
+      transition: transform .12s ease, border-color .12s ease, background .12s ease;
+    }
+
+    #youtube li:hover{
+      transform: translateY(-2px);
+      border-color: rgba(34,211,238,.35);
+      background: rgba(34,211,238,.06);
+    }
+
+    #youtube a.font-weight-bold{
+      color: #fff;
+    }
+
+    /* Mobile: reduce card padding */
+    @media (max-width: 991px){
+      .container-fluid.p-0{ max-width: 100%; }
+      section.resume-section .w-100{ padding: 18px; border-radius: 14px; }
+    }
+  </style>
+
 </head>
 
 <body id="page-top">
@@ -54,6 +248,9 @@
         </li>
         <li class="nav-item">
           <a class="nav-link js-scroll-trigger" href="#awards">Certificates</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#youtube">YouTube Playables</a>
         </li>
 	 <li class="nav-item">
           <a class="nav-link js-scroll-trigger" href="#personalProjects">Personal Projects</a>
@@ -189,7 +386,7 @@ Geological Information System</span> (GIS, ASP.Net, MsSQL, SMS, USSD)
 </li>
 <li>
 <span class="font-weight-bold">
-Project Management System</span> (C#.Net, ASP.Net, MsSQL,Bootstrap,AJAX,JavaScript,CSS)
+Project Management System</span> (C#.Net, ASP.Net, msSQL,Bootstrap,AJAX,JavaScript,CSS)
 </li>
 			</ul>
           </div>
@@ -469,14 +666,16 @@ Project Management System</span> (C#.Net, ASP.Net, MsSQL,Bootstrap,AJAX,JavaScri
 			<li>
             <i class="fa-li fa fa-trophy text-warning"></i>
             <a href ="https://openclassrooms.com/en/course-certificates/7885574038">Build RESTful API Applications</a>
-			</li>
-			</li>
+          </li>
+          <li>
             <i class="fa-li fa fa-trophy text-warning"></i>
-            <a href="https://github.com/koding/global.hackathon">Finalist - Koding's Global Virtual Hackathon 2014</a></li>
+            <a href="https://github.com/koding/global.hackathon">Finalist - Koding's Global Virtual Hackathon 2014</a>
+          </li>
           <li>
             <i class="fa-li fa fa-trophy text-warning"></i>
             <a href="https://messengerchallenge.splashthat.com/">
-            Finalist - Bots for Messenger Developer Challenge 2017</a></li>
+            Finalist - Bots for Messenger Developer Challenge 2017</a>
+          </li>
         </ul>
       </div>
     </section>
@@ -486,10 +685,23 @@ Project Management System</span> (C#.Net, ASP.Net, MsSQL,Bootstrap,AJAX,JavaScri
 
     <section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="youtube">
       <div class="w-100">
-        <h2 class="mb-5">YouTube Playables</h2>
+        <h2 class="mb-5">YouTube Playable Games</h2>
+        <p class="lead mb-4">Game development has been a lifelong ambition of mine, and the launch of YouTube Playables provided the perfect catalyst to turn that vision into reality. By strategically integrating AI into my workflow, I’ve been able to bypass traditional technical hurdles and focus entirely on creative exploration. This synergy of cutting-edge tech and raw imagination has allowed me to push the boundaries of what’s possible in instant-play gaming.</p>
         <ul>
           <li>
-            <a class="font-weight-bold" href="/Youtube.Playables/arthur's-ascent/index.html" target="_blank">Arthur's Ascent</a> A YouTube Playable endless vertical platformer with time-slowing slingshot mechanics.
+            <a class="font-weight-bold" href="/Youtube.Playables/arthur's-ascent/index.html" target="_blank">Arthur's Ascent</a> A endless vertical platformer with time-slowing slingshot mechanics.
+          </li>
+          <li>
+            <a class="font-weight-bold" href="/Youtube.Playables/atomic-bond/index.html" target="_blank">Atomic Bond</a> A hyper-casual physics-themed merger game for YouTube Playables.
+          </li>
+          <li>
+            <a class="font-weight-bold" href="/Youtube.Playables/atomic-merge/index.html" target="_blank">Atomic Merge</a> A hyper-casual puzzle game where you drop and merge atoms to create heavier elements.
+          </li>
+          <li>
+            <a class="font-weight-bold" href="/Youtube.Playables/atomic-shells/index.html" target="_blank">Atomic Shells</a> A minimalist physics-themed  puzzle game where you stabilize atomic shells.
+          </li>
+          <li>
+            <a class="font-weight-bold" href="/Youtube.Playables/atomic-sorter/index.html" target="_blank">Atomic Sorter</a> A physics-based sorting game where you guide atoms into molecular chambers using magnetic chalk.
           </li>
           <li>
             <a class="font-weight-bold" href="/Youtube.Playables/autumn's-end/index.html" target="_blank">Autumn's End</a> A survival roguelite where you play as a squirrel gathering the last acorns before the eternal frost catches up. Inspired by survival classics and speed runners.
@@ -504,13 +716,25 @@ Project Management System</span> (C#.Net, ASP.Net, MsSQL,Bootstrap,AJAX,JavaScri
             <a class="font-weight-bold" href="/Youtube.Playables/big-pond/index.html" target="_blank">Big Pond</a> A lush physics-based hopping game. Help the frog jump across the Big Pond!
           </li>
           <li>
-            <a class="font-weight-bold" href="/Youtube.Playables/boba/index.html" target="_blank">Boba</a> A hyper-casual physics puzzle game where you merge bobas.
+            <a class="font-weight-bold" href="/Youtube.Playables/boba/index.html" target="_blank">Boba</a> A hyper-casual physics puzzle game where you merge bobas.   
           </li>
           <li>
-            <a class="font-weight-bold" href="/Youtube.Playables/bread-&-brink/index.html" target="_blank">Bread &amp; Brink</a> A cozy-apocalyptic baking runner. Catch ingredients and bake recipes to stay ahead of the crumbling world.
+            <a class="font-weight-bold" href="/Youtube.Playables/bread-and-brink/index.html" target="_blank">Bread &amp; Brink</a> A cozy-apocalyptic baking runner. Catch ingredients and bake recipes to stay ahead of the crumbling world.
           </li>
           <li>
-            <a class="font-weight-bold" href="/Youtube.Playables/bumble's-big-day/index.html" target="_blank">Bumble's Big Day</a> A handcrafted hyper-casual ascent game where you help Bumble gather nectar in the clouds. Dual-tap controls, physics-based movement, and a charming indie aesthetic.
+            <a class="font-weight-bold" href="/Youtube.Playables/bumble's-big-day/index.html" target="_blank">Bumble's Big Day</a> A hyper-casual ascent game where you help Bumble gather nectar in the clouds. Dual-tap controls, physics-based movement, and a charming indie aesthetic.
+          </li>
+          <li>
+            <a class="font-weight-bold" href="/Youtube.Playables/circuit-logic/index.html" target="_blank">Circuit Logic</a> A circuit logic puzzle game where you repair ancient blueprints by weaving energy threads.
+          </li>
+          <li>
+            <a class="font-weight-bold" href="/Youtube.Playables/circuit-snap/index.html" target="_blank">Circuit Snap</a> A minimalist logic puzzle game where you complete electrical circuits on a blueprint grid. STEM-themed and addictive.
+          </li>
+          <li>
+            <a class="font-weight-bold" href="/Youtube.Playables/current-logic/index.html" target="_blank">Current Logic</a> A hyper-casual puzzle game where you route electrical currents through math operations to reach a target value.
+          </li>
+          <li>
+            <a class="font-weight-bold" href="/Youtube.Playables/endless/index.html" target="_blank">Endless</a> A minimalist, puzzle game where you connect paths to keep the flow going. Relaxing infinite puzzles. 
           </li>
           <li>
             <a class="font-weight-bold" href="/Youtube.Playables/leapfrog/index.html" target="_blank">Leapfrog</a> A hyper-casual, juicy physics game where you slingshot a frog up a pond of lily pads before the water rises.
@@ -531,7 +755,7 @@ Project Management System</span> (C#.Net, ASP.Net, MsSQL,Bootstrap,AJAX,JavaScri
             <a class="font-weight-bold" href="/Youtube.Playables/noodle-cat's-soup-shop/index.html" target="_blank">Noodle Cat's Soup Shop</a> A kawaii hyper-casual game where you stretch a noodle cat to catch delicious soup ingredients!
           </li>
           <li>
-            <a class="font-weight-bold" href="/Youtube.Playables/oliver's-ascend/index.html" target="_blank">Oliver's Ascend</a>
+            <a class="font-weight-bold" href="/Youtube.Playables/oliver's-ascend/index.html" target="_blank">Oliver's Ascend</a> Help Oliver ascent to new hights in this hyper-casual, physics-based vertical climber. Tap to jump, hold to glide, and avoid the obstacles on your way up!
           </li>
           <li>
             <a class="font-weight-bold" href="/Youtube.Playables/pal-rescue/index.html" target="_blank">Pal Rescue</a> Rescue the Bubble-Pals! A fragile, addictive arcade adventure where you protect your growing family through a dark geometric gauntlet.
@@ -543,7 +767,16 @@ Project Management System</span> (C#.Net, ASP.Net, MsSQL,Bootstrap,AJAX,JavaScri
             <a class="font-weight-bold" href="/Youtube.Playables/pencil-pusher/index.html" target="_blank">Pencil Pusher</a> A handcrafted hyper-casual gliding game set in a living sketchbook. Tap to dive, release to soar, and avoid the ink blots!
           </li>
           <li>
+            <a class="font-weight-bold" href="/Youtube.Playables/petal-path-(yt)/index.html" target="_blank">Petal Path (yt)</a> A zen-like hyper-casual puzzle game where you draw paths and manipulate garden logic to make flowers bloom.
+          </li>
+          <li>
             <a class="font-weight-bold" href="/Youtube.Playables/petal-press/index.html" target="_blank">Petal Press</a> A serene, indie-style physics puzzle game where you brew the perfect essence by merging colorful petals.
+          </li>
+          <li>
+            <a class="font-weight-bold" href="/Youtube.Playables/rusty-wires/index.html" target="_blank">Rusty Wires</a> A hyper-casual puzzle game where you connect rusty wires to restore power to a forgotten machine.
+          </li>
+          <li>
+            <a class="font-weight-bold" href="/Youtube.Playables/seed-stitch/index.html" target="_blank">Seed Stitch</a> A zen, handcrafted puzzle game where you weave patterns of light through an organic garden. Connect seeds, match colors, and find the flow.
           </li>
           <li>
             <a class="font-weight-bold" href="/Youtube.Playables/squad-arena/index.html" target="_blank">Squad Arena</a> A tactical squad-based action RPG. Lead your squad through waves of enemies, level up, and switch leaders on the fly.
@@ -564,7 +797,7 @@ Project Management System</span> (C#.Net, ASP.Net, MsSQL,Bootstrap,AJAX,JavaScri
             <a class="font-weight-bold" href="/Youtube.Playables/the-memory-clerk/index.html" target="_blank">The Memory Clerk</a> Sort the fragments of the universe before entropy erases everything. A high-speed bureaucratic puzzle game.
           </li>
           <li>
-            <a class="font-weight-bold" href="/Youtube.Playables/tower-bounce/index.html" target="_blank">Tower Bounce</a>
+            <a class="font-weight-bold" href="/Youtube.Playables/tower-bounce/index.html" target="_blank">Tower Bounce</a> A hyper-casual, physics-based vertical climber. Tap to jump up to higher platforms.
           </li>
         </ul>
       </div>

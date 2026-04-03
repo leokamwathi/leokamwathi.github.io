@@ -7,12 +7,16 @@
     <!-- YouTube Playables SDK -->
     <script src="https://www.youtube.com/game_api/v1"></script>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+
         :root {
-            --bg: #0a0a1a;
-            --void: #2d004d;
-            --text: #e0e0ff;
+            --bg: #050510;
+            --void: #1a0033;
+            --text: #d0d0ff;
             --accent: #00f2ff;
             --error: #ff0055;
+            --success: #00ffcc;
+            --ui-bg: rgba(10, 10, 30, 0.8);
         }
 
         body, html {
@@ -22,7 +26,7 @@
             height: 100%;
             overflow: hidden;
             background-color: var(--bg);
-            font-family: 'Courier New', Courier, monospace;
+            font-family: 'Space Mono', monospace;
             color: var(--text);
             user-select: none;
             touch-action: none;
@@ -35,12 +39,13 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            background: radial-gradient(circle at center, var(--void) 0%, var(--bg) 100%);
         }
 
         canvas {
             display: block;
-            background: radial-gradient(circle at center, #1a1a3a 0%, #0a0a1a 100%);
-            box-shadow: 0 0 50px rgba(0,0,0,0.5);
+            background: transparent;
+            image-rendering: pixelated;
         }
 
         #ui-layer {
@@ -51,19 +56,59 @@
             height: 100%;
             pointer-events: none;
             z-index: 10;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hud-top {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            pointer-events: auto;
         }
 
         .hud-text {
-            position: absolute;
-            padding: 10px;
-            font-size: 18px;
+            font-size: 14px;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            text-shadow: 0 0 10px var(--accent);
+            letter-spacing: 1px;
+            text-shadow: 0 0 8px var(--accent);
         }
 
-        #score-display { top: 20px; left: 20px; }
-        #entropy-display { top: 20px; right: 20px; color: var(--error); }
+        #score-display { color: var(--accent); }
+
+        #entropy-display { color: var(--error); }
+
+        .controls-top {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .icon-btn {
+            background: none;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            width: 32px;
+            height: 32px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-size: 18px;
+            transition: all 0.2s;
+            border-radius: 4px;
+        }
+
+        .icon-btn:hover {
+            background: rgba(0, 242, 255, 0.2);
+            box-shadow: 0 0 10px var(--accent);
+        }
+
+        #volume-slider {
+            width: 60px;
+            accent-color: var(--accent);
+            cursor: pointer;
+        }
 
         #overlay {
             position: absolute;
@@ -71,7 +116,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(10, 10, 26, 0.9);
+            background: rgba(5, 5, 16, 0.95);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -79,76 +124,151 @@
             z-index: 20;
             pointer-events: auto;
             text-align: center;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .title-container {
+            margin-bottom: 40px;
+            position: relative;
         }
 
         h1 {
-            font-size: 32px;
-            margin-bottom: 20px;
+            font-size: 28px;
+            margin: 0;
             color: var(--accent);
-            text-shadow: 0 0 20px var(--accent);
+            text-shadow: 0 0 15px var(--accent);
+            letter-spacing: 4px;
+            animation: titleFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes titleFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .instructions {
+            max-width: 300px;
+            font-size: 12px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            opacity: 0.7;
+            color: var(--text);
         }
 
         .btn {
             background: transparent;
-            border: 2px solid var(--accent);
+            border: 1px solid var(--accent);
             color: var(--accent);
-            padding: 15px 40px;
-            font-size: 20px;
+            padding: 12px 30px;
+            font-size: 16px;
             cursor: pointer;
             text-transform: uppercase;
             transition: all 0.3s;
-            margin-top: 20px;
+            font-family: 'Space Mono', monospace;
+            letter-spacing: 2px;
+            position: relative;
+            overflow: hidden;
         }
 
         .btn:hover {
             background: var(--accent);
             color: var(--bg);
-            box-shadow: 0 0 30px var(--accent);
-        }
-
-        .instructions {
-            max-width: 80%;
-            font-size: 14px;
-            line-height: 1.6;
-            margin-bottom: 20px;
-            opacity: 0.8;
+            box-shadow: 0 0 20px var(--accent);
         }
 
         .hidden { display: none !important; }
 
-        /* CRT Effect Overlay */
         #crt-overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
-            background-size: 100% 4px, 3px 100%;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.05) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.02), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.02));
+            background-size: 100% 3px, 2px 100%;
             pointer-events: none;
             z-index: 100;
+            opacity: 0.6;
+        }
+
+        .vignette {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            box-shadow: inset 0 0 150px rgba(0,0,0,0.8);
+            pointer-events: none;
+            z-index: 99;
+        }
+
+        /* Pause Menu */
+
+        #pause-menu {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--ui-bg);
+            border: 1px solid var(--accent);
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            z-index: 30;
+            min-width: 200px;
+            text-align: center;
         }
     </style>
 </head>
 <body>
     <div id="game-container">
         <canvas id="gameCanvas"></canvas>
+        
         <div id="ui-layer">
-            <div id="score-display" class="hud-text">Archived: 0</div>
-            <div id="entropy-display" class="hud-text">Entropy: 0%</div>
+            <div class="hud-top">
+                <div id="score-display" class="hud-text">Archived: 0</div>
+                <div class="controls-top">
+                    <input type="range" id="volume-slider" min="0" max="100" value="50">
+                    <button id="pause-btn" class="icon-btn">II</button>
+                </div>
+                <div id="entropy-display" class="hud-text">Entropy: 0%</div>
+            </div>
         </div>
+
+        <!-- Initial Screen -->
         <div id="overlay">
-            <h1>THE MEMORY CLERK</h1>
+            <div class="title-container">
+                <h1>THE MEMORY CLERK</h1>
+            </div>
             <p class="instructions">
-                The universe is ending. Sort the fragments.<br><br>
-                1. Drag shapes to matching bins (PAST, PRESENT, FUTURE).<br>
-                2. <strong>BEWARE:</strong> If the label doesn't match the shape, it's CORRUPTED.<br>
-                3. <strong>SWIPE</strong> corrupted fragments to incinerate them.<br>
-                4. Don't let the Entropy Wave reach the top!
+                The universe is dissolving into static.<br>
+                Sort the fragments before they vanish.<br><br>
+                <strong>THE RULES:</strong><br>
+                • <strong>CIRCLE</strong> = PAST (Yellow)<br>
+                • <strong>SQUARE</strong> = PRESENT (Cyan)<br>
+                • <strong>TRIANGLE</strong> = FUTURE (Purple)<br><br>
+                <strong>CORRUPTION:</strong><br>
+                If the <strong>LABEL</strong> doesn't match the <strong>SHAPE</strong>, it is corrupted. <strong>DO NOT SORT IT.</strong><br><br>
+                <strong>SWIPE</strong> corrupted fragments to incinerate them!
             </p>
-            <button id="start-btn" class="btn">Begin Shift</button>
+            <button id="start-btn" class="btn">Initialize Shift</button>
         </div>
+
+        <!-- Pause Menu -->
+        <div id="pause-menu" class="hidden">
+            <h2 style="color: var(--accent); margin-top: 0;">PAUSED</h2>
+            <button id="resume-btn" class="btn">Resume</button>
+            <button id="restart-btn" class="btn" style="font-size: 12px; border-color: var(--error); color: var(--error);">Restart</button>
+        </div>
+
         <div id="crt-overlay"></div>
+        <div class="vignette"></div>
     </div>
 
     <script>
@@ -159,11 +279,79 @@
             system: { onPause: (cb) => {}, onResume: (cb) => {} }
         };
 
+        // --- Audio Engine ---
+        class AudioEngine {
+            constructor() {
+                this.ctx = null;
+                this.masterGain = null;
+                this.volume = 0.5;
+                this.muted = false;
+            }
+
+            init() {
+                if (this.ctx) return;
+                this.ctx = new (window.AudioContext || window.webkitAudioContext)();
+                this.masterGain = this.ctx.createGain();
+                this.masterGain.connect(this.ctx.destination);
+                this.updateVolume();
+            }
+
+            updateVolume() {
+                if (!this.masterGain) return;
+                this.masterGain.gain.setTargetAtTime(this.muted ? 0 : this.volume, this.ctx.currentTime, 0.05);
+            }
+
+            setVolume(v) {
+                this.volume = v;
+                this.muted = v < 0.05;
+                this.updateVolume();
+            }
+
+            playTone(freq, type, duration, volume = 0.1) {
+                if (!this.ctx || this.muted) return;
+                const osc = this.ctx.createOscillator();
+                const gain = this.ctx.createGain();
+                
+                osc.type = type;
+                osc.frequency.setValueAtTime(freq, this.ctx.currentTime);
+                
+                gain.gain.setValueAtTime(volume, this.ctx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.0001, this.ctx.currentTime + duration);
+                
+                osc.connect(gain);
+                gain.connect(this.masterGain);
+                
+                osc.start();
+                osc.stop(this.ctx.currentTime + duration);
+            }
+
+            playCorrect() {
+                this.playTone(440, 'sine', 0.2);
+                setTimeout(() => this.playTone(880, 'sine', 0.3), 50);
+            }
+
+            playError() {
+                this.playTone(110, 'sawtooth', 0.4, 0.05);
+            }
+
+            playIncinerate() {
+                this.playTone(1200, 'square', 0.1, 0.02);
+                this.playTone(800, 'square', 0.1, 0.02);
+            }
+            
+            playStart() {
+                this.playTone(220, 'sine', 0.5);
+                setTimeout(() => this.playTone(330, 'sine', 0.5), 100);
+                setTimeout(() => this.playTone(440, 'sine', 0.5), 200);
+            }
+        }
+
+        const audio = new AudioEngine();
+
         // --- Constants & Config ---
         const CANVAS_WIDTH = 360;
         const CANVAS_HEIGHT = 640;
         const ERAS = ['PAST', 'PRESENT', 'FUTURE'];
-        const SHAPES = ['CIRCLE', 'SQUARE', 'TRIANGLE']; // Circle=Past, Square=Present, Triangle=Future
         const COLORS = {
             'PAST': '#ffcc00',
             'PRESENT': '#00ffcc',
@@ -174,9 +362,11 @@
         // --- Game State ---
         let canvas, ctx;
         let score = 0;
+        let combo = 0;
         let entropy = 0;
         let fragments = [];
         let particles = [];
+        let floatingTexts = [];
         let lastTime = 0;
         let spawnTimer = 0;
         let isGameOver = false;
@@ -184,6 +374,30 @@
         let gameStarted = false;
         let touchStartPos = null;
         let activeFragment = null;
+        let shakeAmount = 0;
+
+        class FloatingText {
+            constructor(x, y, text, color) {
+                this.x = x;
+                this.y = y;
+                this.text = text;
+                this.color = color;
+                this.life = 1.0;
+            }
+            update() {
+                this.y -= 1;
+                this.life -= 0.02;
+            }
+            draw() {
+                ctx.save();
+                ctx.globalAlpha = this.life;
+                ctx.fillStyle = this.color;
+                ctx.font = 'bold 14px Space Mono';
+                ctx.textAlign = 'center';
+                ctx.fillText(this.text, this.x, this.y);
+                ctx.restore();
+            }
+        }
 
         // --- Classes ---
         class Fragment {
@@ -192,35 +406,37 @@
             }
 
             reset() {
-                this.x = Math.random() * (CANVAS_WIDTH - 60) + 30;
-                this.y = -50;
-                this.radius = 25;
-                this.eraIndex = Math.floor(Math.random() * 3);
+                this.x = Math.random() * (CANVAS_WIDTH - 80) + 40;
+                this.y = -60;
+                this.radius = 28;
                 this.shapeIndex = Math.floor(Math.random() * 3);
-                
-                // 30% chance of corruption (discrepancy)
                 this.isCorrupted = Math.random() < 0.3;
+                
                 if (this.isCorrupted) {
-                    // Force a mismatch
                     let wrongEra = Math.floor(Math.random() * 3);
-                    while(wrongEra === this.shapeIndex) {
-                        wrongEra = Math.floor(Math.random() * 3);
-                    }
+                    while(wrongEra === this.shapeIndex) wrongEra = Math.floor(Math.random() * 3);
                     this.eraIndex = wrongEra;
                 } else {
-                    // Match shape to era
                     this.eraIndex = this.shapeIndex;
                 }
 
-                this.speed = 1.5 + (score / 50);
+                this.speed = 1.2 + (score / 60);
                 this.isDragging = false;
                 this.isDead = false;
+                this.rotation = Math.random() * Math.PI * 2;
+                this.rotSpeed = (Math.random() - 0.5) * 0.05;
+                this.trail = [];
             }
 
             update(dt) {
                 if (!this.isDragging) {
                     this.y += this.speed;
+                    this.rotation += this.rotSpeed;
                 }
+
+                // Trail logic
+                this.trail.unshift({x: this.x, y: this.y, r: this.rotation});
+                if (this.trail.length > 5) this.trail.pop();
 
                 if (this.y > CANVAS_HEIGHT - 100) {
                     this.checkSort();
@@ -228,25 +444,43 @@
             }
 
             checkSort() {
-                // If it hits the bottom without being sorted/incinerated
                 if (this.isCorrupted) {
                     increaseEntropy(15);
+                    combo = 0;
+                    floatingTexts.push(new FloatingText(this.x, CANVAS_HEIGHT - 20, 'MISSED CORRUPTION!', COLORS.CORRUPT));
+                    audio.playError();
                     createExplosion(this.x, this.y, COLORS.CORRUPT);
                 } else {
                     increaseEntropy(5);
+                    combo = 0;
+                    floatingTexts.push(new FloatingText(this.x, CANVAS_HEIGHT - 20, 'MISSED', '#ffffff'));
                 }
                 this.isDead = true;
             }
 
             draw() {
+                // Draw Trail
+                this.trail.forEach((t, i) => {
+                    ctx.globalAlpha = (1 - i / 5) * 0.3;
+                    this.drawShape(t.x, t.y, t.r, true);
+                });
+                ctx.globalAlpha = 1.0;
+
+                this.drawShape(this.x, this.y, this.rotation);
+            }
+
+            drawShape(x, y, rot, isTrail = false) {
                 ctx.save();
-                ctx.translate(this.x, this.y);
+                ctx.translate(x, y);
+                ctx.rotate(rot);
                 
-                // Draw Shape
-                ctx.strokeStyle = this.isCorrupted ? COLORS.CORRUPT : COLORS[ERAS[this.eraIndex]];
-                ctx.lineWidth = 3;
-                ctx.shadowBlur = 10;
-                ctx.shadowColor = ctx.strokeStyle;
+                const color = this.isCorrupted ? COLORS.CORRUPT : COLORS[ERAS[this.eraIndex]];
+                ctx.strokeStyle = color;
+                ctx.lineWidth = isTrail ? 1 : 3;
+                if (!isTrail) {
+                    ctx.shadowBlur = 15;
+                    ctx.shadowColor = color;
+                }
 
                 ctx.beginPath();
                 if (this.shapeIndex === 0) { // Circle
@@ -261,11 +495,13 @@
                 }
                 ctx.stroke();
 
-                // Draw Label
-                ctx.fillStyle = ctx.strokeStyle;
-                ctx.font = 'bold 10px Courier New';
-                ctx.textAlign = 'center';
-                ctx.fillText(ERAS[this.eraIndex], 0, 4);
+                if (!isTrail) {
+                    ctx.rotate(-rot);
+                    ctx.fillStyle = color;
+                    ctx.font = 'bold 10px Space Mono';
+                    ctx.textAlign = 'center';
+                    ctx.fillText(ERAS[this.eraIndex], 0, 4);
+                }
 
                 ctx.restore();
             }
@@ -275,17 +511,21 @@
             constructor(x, y, color) {
                 this.x = x;
                 this.y = y;
-                this.vx = (Math.random() - 0.5) * 10;
-                this.vy = (Math.random() - 0.5) * 10;
+                const angle = Math.random() * Math.PI * 2;
+                const force = Math.random() * 8 + 2;
+                this.vx = Math.cos(angle) * force;
+                this.vy = Math.sin(angle) * force;
                 this.life = 1.0;
                 this.color = color;
-                this.size = Math.random() * 4 + 2;
+                this.size = Math.random() * 3 + 1;
             }
 
             update() {
                 this.x += this.vx;
                 this.y += this.vy;
-                this.life -= 0.02;
+                this.vx *= 0.95;
+                this.vy *= 0.95;
+                this.life -= 0.03;
             }
 
             draw() {
@@ -307,18 +547,29 @@
             canvas.addEventListener('mousedown', handlePointerDown);
             canvas.addEventListener('mousemove', handlePointerMove);
             canvas.addEventListener('mouseup', handlePointerUp);
-            canvas.addEventListener('touchstart', (e) => handlePointerDown(e.touches[0]));
-            canvas.addEventListener('touchmove', (e) => handlePointerMove(e.touches[0]));
+            canvas.addEventListener('touchstart', (e) => { e.preventDefault(); handlePointerDown(e.touches[0]); }, {passive: false});
+            canvas.addEventListener('touchmove', (e) => { e.preventDefault(); handlePointerMove(e.touches[0]); }, {passive: false});
             canvas.addEventListener('touchend', handlePointerUp);
 
             document.getElementById('start-btn').addEventListener('click', startGame);
+            document.getElementById('pause-btn').addEventListener('click', togglePause);
+            document.getElementById('resume-btn').addEventListener('click', togglePause);
+            document.getElementById('restart-btn').addEventListener('click', () => location.reload());
+            
+            document.getElementById('volume-slider').addEventListener('input', (e) => {
+                audio.setVolume(e.target.value / 100);
+            });
 
             yt.game.firstFrameReady();
             requestAnimationFrame(gameLoop);
         }
 
         function resize() {
-            const scale = Math.min(window.innerWidth / CANVAS_WIDTH, window.innerHeight / CANVAS_HEIGHT);
+            const container = document.getElementById('game-container');
+            const w = container.clientWidth;
+            const h = container.clientHeight;
+            const scale = Math.min(w / CANVAS_WIDTH, h / CANVAS_HEIGHT);
+            
             canvas.width = CANVAS_WIDTH;
             canvas.height = CANVAS_HEIGHT;
             canvas.style.width = (CANVAS_WIDTH * scale) + 'px';
@@ -326,6 +577,8 @@
         }
 
         function startGame() {
+            audio.init();
+            audio.playStart();
             gameStarted = true;
             isGameOver = false;
             score = 0;
@@ -334,6 +587,13 @@
             particles = [];
             document.getElementById('overlay').classList.add('hidden');
             yt.game.gameReady();
+        }
+
+        function togglePause() {
+            if (!gameStarted || isGameOver) return;
+            isPaused = !isPaused;
+            document.getElementById('pause-menu').classList.toggle('hidden', !isPaused);
+            document.getElementById('pause-btn').innerText = isPaused ? '▶' : 'II';
         }
 
         function gameLoop(time) {
@@ -368,65 +628,79 @@
                 if (p.life <= 0) particles.splice(index, 1);
             });
 
-            // Entropy Wave Rising
-            entropy += 0.02 + (score / 1000);
+            // Update Floating Texts
+            floatingTexts.forEach((t, index) => {
+                t.update();
+                if (t.life <= 0) floatingTexts.splice(index, 1);
+            });
+
+            // Entropy Wave Rising (Slower passive rise)
+            entropy += 0.015 + (score / 2000);
             if (entropy >= 100) gameOver();
+
+            if (shakeAmount > 0) shakeAmount -= 0.5;
 
             document.getElementById('score-display').innerText = `Archived: ${score}`;
             document.getElementById('entropy-display').innerText = `Entropy: ${Math.floor(entropy)}%`;
         }
 
         function draw() {
+            ctx.save();
+            if (shakeAmount > 0) {
+                ctx.translate((Math.random()-0.5)*shakeAmount, (Math.random()-0.5)*shakeAmount);
+            }
+
             ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 
-            // Draw Parallax Stars (Simple)
+            // Draw Parallax Stars
             ctx.fillStyle = '#ffffff';
-            for(let i=0; i<20; i++) {
-                let x = (Math.sin(i + lastTime/2000) * 0.5 + 0.5) * CANVAS_WIDTH;
-                let y = (Math.cos(i * 1.5 + lastTime/3000) * 0.5 + 0.5) * CANVAS_HEIGHT;
-                ctx.globalAlpha = 0.2;
-                ctx.fillRect(x, y, 2, 2);
+            for(let i=0; i<30; i++) {
+                let x = (Math.sin(i * 133.7 + lastTime/5000) * 0.5 + 0.5) * CANVAS_WIDTH;
+                let y = (Math.cos(i * 42.1 + lastTime/4000) * 0.5 + 0.5) * CANVAS_HEIGHT;
+                ctx.globalAlpha = 0.15;
+                ctx.fillRect(x, y, 1.5, 1.5);
             }
             ctx.globalAlpha = 1.0;
 
             // Draw Bins
             ERAS.forEach((era, i) => {
                 const x = (CANVAS_WIDTH / 3) * i;
-                ctx.strokeStyle = COLORS[era];
+                const color = COLORS[era];
+                ctx.strokeStyle = color;
                 ctx.lineWidth = 2;
-                ctx.strokeRect(x + 5, CANVAS_HEIGHT - 80, (CANVAS_WIDTH/3) - 10, 70);
+                ctx.setLineDash([5, 3]);
+                ctx.strokeRect(x + 8, CANVAS_HEIGHT - 90, (CANVAS_WIDTH/3) - 16, 80);
+                ctx.setLineDash([]);
                 
-                ctx.fillStyle = COLORS[era];
-                ctx.font = '10px Courier New';
+                ctx.fillStyle = color;
+                ctx.font = '12px Space Mono';
                 ctx.textAlign = 'center';
-                ctx.fillText(era, x + CANVAS_WIDTH/6, CANVAS_HEIGHT - 40);
+                ctx.fillText(era, x + CANVAS_WIDTH/6, CANVAS_HEIGHT - 45);
             });
 
             // Draw Entropy Wave
             const waveY = CANVAS_HEIGHT - (CANVAS_HEIGHT * (entropy / 100));
-            ctx.fillStyle = 'rgba(120, 0, 255, 0.3)';
+            ctx.fillStyle = 'rgba(120, 0, 255, 0.25)';
             ctx.beginPath();
             ctx.moveTo(0, CANVAS_HEIGHT);
             ctx.lineTo(0, waveY);
-            for(let x=0; x<=CANVAS_WIDTH; x+=20) {
-                ctx.lineTo(x, waveY + Math.sin(x/30 + lastTime/200) * 10);
+            for(let x=0; x<=CANVAS_WIDTH; x+=15) {
+                ctx.lineTo(x, waveY + Math.sin(x/25 + lastTime/150) * 8);
             }
             ctx.lineTo(CANVAS_WIDTH, CANVAS_HEIGHT);
             ctx.fill();
 
-            // Draw Fragments & Particles
+            // Draw Fragments, Particles, and Floating Texts
             fragments.forEach(f => f.draw());
             particles.forEach(p => p.draw());
+            floatingTexts.forEach(t => t.draw());
 
-            if (isGameOver) {
-                ctx.fillStyle = 'rgba(255, 0, 85, 0.2)';
-                ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-            }
+            ctx.restore();
         }
 
         // --- Input Handling ---
         function handlePointerDown(e) {
-            if (!gameStarted || isGameOver) return;
+            if (!gameStarted || isGameOver || isPaused) return;
             const rect = canvas.getBoundingClientRect();
             const scale = CANVAS_WIDTH / rect.width;
             const x = (e.clientX - rect.left) * scale;
@@ -434,7 +708,6 @@
 
             touchStartPos = { x, y };
 
-            // Check if clicking a fragment
             fragments.forEach(f => {
                 const dist = Math.hypot(f.x - x, f.y - y);
                 if (dist < f.radius * 2) {
@@ -445,15 +718,14 @@
         }
 
         function handlePointerMove(e) {
-            if (!activeFragment || !touchStartPos) return;
+            if (!activeFragment || !touchStartPos || isPaused) return;
             const rect = canvas.getBoundingClientRect();
             const scale = CANVAS_WIDTH / rect.width;
             const x = (e.clientX - rect.left) * scale;
             const y = (e.clientY - rect.top) * scale;
 
-            // Check for Swipe (Incinerate)
             const swipeDist = Math.hypot(x - touchStartPos.x, y - touchStartPos.y);
-            if (swipeDist > 50 && activeFragment.isCorrupted) {
+            if (swipeDist > 60 && activeFragment.isCorrupted) {
                 incinerate(activeFragment);
                 activeFragment = null;
                 return;
@@ -466,9 +738,8 @@
         function handlePointerUp(e) {
             if (!activeFragment) return;
 
-            // Check if dropped in a bin
             const binIndex = Math.floor(activeFragment.x / (CANVAS_WIDTH / 3));
-            if (activeFragment.y > CANVAS_HEIGHT - 100 && binIndex >= 0 && binIndex < 3) {
+            if (activeFragment.y > CANVAS_HEIGHT - 120 && binIndex >= 0 && binIndex < 3) {
                 sortFragment(activeFragment, binIndex);
             } else {
                 activeFragment.isDragging = false;
@@ -480,17 +751,24 @@
 
         function sortFragment(f, binIndex) {
             if (f.isCorrupted) {
-                // Sorting corrupted data is bad
                 increaseEntropy(20);
+                combo = 0;
+                floatingTexts.push(new FloatingText(f.x, f.y, 'CORRUPTED!', COLORS.CORRUPT));
+                audio.playError();
                 createExplosion(f.x, f.y, COLORS.CORRUPT);
             } else if (f.shapeIndex === binIndex) {
-                // Correct sort
                 score++;
-                entropy = Math.max(0, entropy - 5);
+                combo++;
+                const comboBonus = Math.min(5, Math.floor(combo / 5));
+                entropy = Math.max(0, entropy - (8 + comboBonus));
+                floatingTexts.push(new FloatingText(f.x, f.y, combo > 1 ? `CORRECT x${combo}` : 'CORRECT', COLORS[ERAS[binIndex]]));
+                audio.playCorrect();
                 createExplosion(f.x, f.y, COLORS[ERAS[binIndex]]);
             } else {
-                // Wrong bin
-                increaseEntropy(10);
+                increaseEntropy(12);
+                combo = 0;
+                floatingTexts.push(new FloatingText(f.x, f.y, 'WRONG BIN', '#ffffff'));
+                audio.playError();
                 createExplosion(f.x, f.y, '#ffffff');
             }
             f.isDead = true;
@@ -498,20 +776,21 @@
 
         function incinerate(f) {
             score += 2;
-            entropy = Math.max(0, entropy - 8);
+            combo++;
+            entropy = Math.max(0, entropy - 12);
+            floatingTexts.push(new FloatingText(f.x, f.y, 'CLEANSED', COLORS.CORRUPT));
+            audio.playIncinerate();
             createExplosion(f.x, f.y, COLORS.CORRUPT);
             f.isDead = true;
         }
 
         function increaseEntropy(amt) {
             entropy += amt;
-            // Screen Shake effect via CSS
-            canvas.style.transform = `translate(${(Math.random()-0.5)*10}px, ${(Math.random()-0.5)*10}px)`;
-            setTimeout(() => canvas.style.transform = 'translate(0,0)', 50);
+            shakeAmount = Math.min(15, shakeAmount + amt);
         }
 
         function createExplosion(x, y, color) {
-            for(let i=0; i<15; i++) {
+            for(let i=0; i<20; i++) {
                 particles.push(new Particle(x, y, color));
             }
         }
@@ -520,14 +799,14 @@
             isGameOver = true;
             yt.engagement.sendScore({ value: score });
             document.getElementById('overlay').classList.remove('hidden');
-            document.querySelector('h1').innerText = "UNIVERSE ERASED";
-            document.querySelector('.instructions').innerHTML = `Final Archive Count: ${score}<br><br>The entropy was too great. Your shift has ended.`;
-            document.getElementById('start-btn').innerText = "Try Again";
+            document.querySelector('h1').innerText = "SYSTEM COLLAPSE";
+            document.querySelector('.instructions').innerHTML = `Final Archive: ${score}<br><br>The entropy has consumed the archive.<br>Your shift is terminated.`;
+            document.getElementById('start-btn').innerText = "Reboot Shift";
         }
 
         // --- Lifecycle ---
-        yt.system.onPause(() => isPaused = true);
-        yt.system.onResume(() => isPaused = false);
+        yt.system.onPause(() => { isPaused = true; document.getElementById('pause-menu').classList.remove('hidden'); });
+        yt.system.onResume(() => { isPaused = false; document.getElementById('pause-menu').classList.add('hidden'); });
 
         init();
     </script>

@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Atomic Merge (YT)</title>
+    <!-- YouTube Playables SDK -->
+    <script src="https://www.youtube.com/game_api/v1"></script>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #0f172a;
+            overflow: hidden;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            touch-action: none; /* Prevent scrolling on mobile */
+            color: white;
+        }
+        #game-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        canvas {
+            display: block;
+            max-width: 100%;
+            max-height: 100%;
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.2);
+            background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 10;
+            transition: opacity 0.4s ease;
+        }
+        .overlay-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: slideUpFade 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            width: 100%;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+        @keyframes slideUpFade {
+            0% { opacity: 0; transform: translateY(40px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        h1 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            margin-bottom: 10px;
+            text-align: center;
+            text-shadow: 0 0 20px rgba(59, 130, 246, 0.6);
+            background: -webkit-linear-gradient(135deg, #60a5fa, #d8b4fe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+            letter-spacing: 1px;
+            line-height: 1.1;
+        }
+        .hero-title {
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0px); }
+        }
+        p {
+            font-size: clamp(1rem, 4vw, 1.2rem);
+            margin-bottom: 30px;
+            color: #cbd5e1;
+            text-align: center;
+            max-width: 600px;
+            line-height: 1.6;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+        .how-to-play {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 40px;
+            background: rgba(0, 0, 0, 0.25);
+            padding: 20px 25px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.2);
+            width: 100%;
+            max-width: 320px;
+        }
+        .how-to-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.05rem;
+            color: #e2e8f0;
+            font-weight: 500;
+        }
+        .how-to-icon {
+            font-size: 1.4rem;
+            background: rgba(255, 255, 255, 0.1);
+            width: 36px;
+            height: 36px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            flex-shrink: 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+        .btn {
+            padding: 18px 50px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            border: none;
+            border-radius: 40px;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.6);
+            animation: pulse 2s infinite cubic-bezier(0.4, 0, 0.2, 1);
+            outline: none;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: transform 0.1s;
+        }
+        .btn:active {
+            transform: scale(0.95);
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 4px 20px rgba(59, 130, 246, 0.6); }
+            50% { transform: scale(1.05); box-shadow: 0 4px 30px rgba(139, 92, 246, 0.9); }
+            100% { transform: scale(1); box-shadow: 0 4px 20px rgba(59, 130, 246, 0.6); }
+        }
+        #hud {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            display: flex;
+            justify-content: space-between;
+            pointer-events: none;
+            z-index: 5;
+        }
+        .hud-box {
+            background: rgba(30, 41, 59, 0.85);
+            padding: 12px 24px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 1.4rem;
+            border: 1px solid rgba(255,255,255,0.15);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            backdrop-filter: blur(5px);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        #score-display {
+            color: #fbbf24;
+            text-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
+        }
+        #next-atom-preview {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+        }
+        #danger-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top, rgba(239, 68, 68, 0.3) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 4;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+        .danger-active {
+            animation: dangerPulse 0.8s infinite alternate;
+        }
+        @keyframes dangerPulse {
+            0% { opacity: 0.2; }
+            100% { opacity: 1; }
+        }
+        .stats-container {
+            background: rgba(30, 41, 59, 0.5);
+            padding: 20px 40px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+            margin: 10px 0;
+            font-size: 1.5rem;
+        }
+        .stat-label { color: #94a3b8; }
+        .stat-value { color: #fbbf24; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div id="game-container">
+        <canvas id="gameCanvas"></canvas>
+        <div id="danger-overlay"></div>
+        
+        <div id="hud" class="hidden">
+            <div class="hud-box">
+                <span>Score:</span>
+                <span id="score-display">0</span>
+            </div>
+            <div class="hud-box" style="flex-direction: column; align-items: flex-end; gap: 6px; padding: 10px 20px;">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <span>Next:</span>
+                    <div id="next-atom-preview"></div>
+                </div>
+                <span id="next-atom-name" style="font-size: 1.1rem; color: #cbd5e1; font-weight: normal; white-space: nowrap;"></span>
+            </div>
+        </div>
+
+        <!-- Start Screen -->
+        <div id="start-screen" class="overlay">
+            <div class="overlay-content">
+                <h1 class="hero-title">Atomic Merge</h1>
+                <p style="color: #94a3b8; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; font-size: 0.9rem; margin-bottom: 25px;">The Elemental Puzzle</p>
+                
+                <div class="how-to-play">
+                    <div class="how-to-item">
+                        <div class="how-to-icon">👇</div>
+                        <span>Drop atoms into the beaker</span>
+                    </div>
+                    <div class="how-to-item">
+                        <div class="how-to-icon">✨</div>
+                        <span>Match identicals to upgrade</span>
+                    </div>
+                    <div class="how-to-item">
+                        <div class="how-to-icon">⚠️</div>
+                        <span>Don't let it overflow!</span>
+                    </div>
+                </div>
+
+                <button id="start-btn" class="btn">PLAY NOW</button>
+            </div>
+        </div>
+
+        <!-- End Screen -->
+        <div id="end-screen" class="overlay hidden">
+            <div class="overlay-content">
+                <h1>Experiment Concluded</h1>
+                <p>The beaker overflowed! Great effort.</p>
+                <div class="stats-container">
+                    <div class="stat-row">
+                        <span class="stat-label">Score:</span>
+                        <span id="final-score" class="stat-value">0</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Best:</span>
+                        <span id="high-score" class="stat-value">0</span>
+                    </div>
+                </div>
+                <button id="replay-btn" class="btn">Play Again</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- YouTube SDK Integration ---
+        let isGameReady = false;
+        window.ytgame = window.ytgame || {};
+        
+        const initYouTubeSDK = () => {
+            if (window.ytgame && window.ytgame.game) {
+                // Notify YouTube that the first frame is ready
+                window.ytgame.game.firstFrameReady();
+                
+                // Handle lifecycle events
+                if (window.ytgame.system) {
+                    window.ytgame.system.onPause(() => {
+                        if (gameState === STATE_PLAYING) {
+                            isPaused = true;
+                        }
+                    });
+                    window.ytgame.system.onResume(() => {
+                        isPaused = false;
+                        lastTime = performance.now();
+                        requestAnimationFrame(gameLoop);
+                    });
+                }
+            }
+        };
+
+        const sendScoreToYouTube = (score) => {
+            if (window.ytgame && window.ytgame.engagement) {
+                window.ytgame.engagement.sendScore({ score: score });
+            }
+        };
+
+        // --- Game Constants & State ---
+        const STATE_START = 0;
+        const STATE_PLAYING = 1;
+        const STATE_GAMEOVER = 2;
+        let gameState = STATE_START;
+        let isPaused = false;
+
+        let score = 0;
+        let highScore = 0;
+        try {
+            highScore = window.localStorage ? (window.localStorage.getItem('atomicDropHighScore') || 0) : 0;
+        } catch (e) {
+            console.warn('localStorage not available');
+        }
+
+        // Elements: H to Zn (30 elements)
+        const SYMBOLS = [
+            'H', 'He', 'Li', 'Be', 'B', 'C', 'N', 'O', 'F', 'Ne',
+            'Na', 'Mg', 'Al', 'Si', 'P', 'S', 'Cl', 'Ar', 'K', 'Ca',
+            'Sc', 'Ti', 'V', 'Cr', 'Mn', 'Fe', 'Co', 'Ni', 'Cu', 'Zn'
+        ];
+        const NAMES = [
+            'Hydrogen', 'Helium', 'Lithium', 'Beryllium', 'Boron', 'Carbon', 'Nitrogen', 'Oxygen', 'Fluorine', 'Neon',
+            'Sodium', 'Magnesium', 'Aluminum', 'Silicon', 'Phosphorus', 'Sulfur', 'Chlorine', 'Argon', 'Potassium', 'Calcium',
+            'Scandium', 'Titanium', 'Vanadium', 'Chromium', 'Manganese', 'Iron', 'Cobalt', 'Nickel', 'Copper', 'Zinc'
+        ];
+        const COLORS = [
+            '#ef4444', '#f97316', '#eab308', '#22c55e', '#06b6d4', '#3b82f6', '#6366f1', '#a855f7', '#ec4899', '#f8fafc',
+            '#fca5a5', '#fdba74', '#fde047', '#86efac', '#67e8f9', '#93c5fd', '#a5b4fc', '#d8b4fe', '#f9a8d4', '#e2e8f0',
+            '#991b1b', '#9a3412', '#854d0e', '#166534', '#155e75', '#b45309', '#1e3a8a', '#4c1d95', '#831843', '#cbd5e1'
+        ];
+        const ELEMENTS = SYMBOLS.map((sym, i) => ({
+            symbol: sym,
+            name: NAMES[i],
+            color: COLORS[i],
+            radius: 18 + i * 4.8, // H is 18, Fe (25) is 138
+            mass: i + 1,
+            points: Math.pow(2, i + 1)
+        }));
+
+        // --- Physics Engine ---
+        const GRAVITY = 0.5;
+        const RESTITUTION = 0.15; // Bounciness
+        const FRICTION = 0.95;
+        const DROP_COOLDOWN = 300; // ms
+
+        let atoms = [];
+        let particles = [];
+        let nextAtomLevel = 0;
+        let lastDropTime = 0;
+        let dangerTimer = 0;
+        let highestUnlockedLevel = 0;
+        let shakeTime = 0;
+        let shakeMagnitude = 0;
+
+        // Canvas setup
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+        let width, height;
+        let beakerRect = { x: 0, y: 0, w: 0, h: 0 };
+        let scaleFactor = 1;
+
+        const resize = () => {
+            // Mobile first: try to keep 9:16 aspect ratio
+            const windowRatio = window.innerWidth / window.innerHeight;
+            const targetRatio = 9 / 16;
+            
+            if (windowRatio < targetRatio) {
+                width = window.innerWidth;
+                height = window.innerWidth / targetRatio;
+            } else {
+                height = window.innerHeight;
+                width = window.innerHeight * targetRatio;
+            }
+            
+            canvas.width = width;
+            canvas.height = height;
+            
+            // Base scale on a reference width of 400px
+            scaleFactor = width / 400;
+            
+            // Define beaker boundaries
+            const padding = width * 0.05;
+            beakerRect = {
+                x: padding,
+                y: height * 0.25, // Top of beaker
+                w: width - padding * 2,
+                h: height * 0.7
+            };
+        };
+        window.addEventListener('resize', resize);
+        resize();
+
+        // --- Audio System ---
+        let audioCtx = null;
+        const initAudio = () => {
+            if (!audioCtx) {
+                const AudioContext = window.AudioContext || window.webkitAudioContext;
+                if (AudioContext) {
+                    audioCtx = new AudioContext();
+                }
+            }
+            if (audioCtx && audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+        };
+
+        const playSound = (type, level = 0) => {
+            if (!audioCtx) return;
+            try {
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                
+                const now = audioCtx.currentTime;
+                
+                if (type === 'drop') {
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(800, now);
+                    osc.frequency.exponentialRampToValueAtTime(300, now + 0.1);
+                    gain.gain.setValueAtTime(0.2, now);
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.1);
+                    osc.start(now);
+                    osc.stop(now + 0.1);
+                } else if (type === 'merge') {
+                    osc.type = 'triangle';
+                    // C major pentatonic scale frequencies across multiple octaves
+                    const freqs = [
+                        261.63, 293.66, 329.63, 392.00, 440.00, // C4-A4
+                        523.25, 587.33, 659.25, 783.99, 880.00, // C5-A5
+                        1046.50, 1174.66, 1318.51, 1567.98, 1760.00, // C6-A6
+                        2093.00, 2349.32, 2637.02, 3135.96, 3520.00, // C7-A7
+                        4186.01, 4698.63, 5274.04, 6271.93, 7040.00, // C8-A8
+                        8372.02, 9397.27, 10548.08, 12543.85, 14080.00 // C9-A9
+                    ];
+                    const freq = freqs[Math.min(level, freqs.length - 1)];
+                    osc.frequency.setValueAtTime(freq, now);
+                    
+                    // Add a little pitch bend for juice
+                    osc.frequency.exponentialRampToValueAtTime(freq * 1.1, now + 0.1);
+                    
+                    gain.gain.setValueAtTime(0.4, now);
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.4);
+                    osc.start(now);
+                    osc.stop(now + 0.4);
+                } else if (type === 'gameover') {
+                    osc.type = 'sawtooth';
+                    osc.frequency.setValueAtTime(300, now);
+                    osc.frequency.exponentialRampToValueAtTime(50, now + 1.5);
+                    gain.gain.setValueAtTime(0.3, now);
+                    gain.gain.linearRampToValueAtTime(0, now + 1.5);
+                    osc.start(now);
+                    osc.stop(now + 1.5);
+                }
+            } catch (e) {
+                console.warn("Audio play failed", e);
+            }
+        };
+
+        // --- Game Objects ---
+        class Atom {
+            constructor(x, y, level) {
+                this.x = x;
+                this.y = y;
+                this.vx = 0;
+                this.vy = 0;
+                this.level = level;
+                this.baseRadius = ELEMENTS[level].radius;
+                this.mass = ELEMENTS[level].mass;
+                this.markedForMerge = false;
+                this.spawnScale = 0; // For spawn animation
+            }
+            
+            get radius() {
+                return this.baseRadius * scaleFactor;
+            }
+            
+            update() {
+                this.vy += GRAVITY * scaleFactor;
+                
+                // Terminal velocity
+                const maxV = 20 * scaleFactor;
+                if (this.vy > maxV) this.vy = maxV;
+                
+                this.x += this.vx;
+                this.y += this.vy;
+                
+                // Floor collision
+                if (this.y + this.radius > beakerRect.y + beakerRect.h) {
+                    this.y = beakerRect.y + beakerRect.h - this.radius;
+                    this.vy *= -RESTITUTION;
+                    this.vx *= FRICTION;
+                }
+                
+                // Wall collisions
+                if (this.x - this.radius < beakerRect.x) {
+                    this.x = beakerRect.x + this.radius;
+                    this.vx *= -RESTITUTION;
+                } else if (this.x + this.radius > beakerRect.x + beakerRect.w) {
+                    this.x = beakerRect.x + beakerRect.w - this.radius;
+                    this.vx *= -RESTITUTION;
+                }
+                
+                if (this.spawnScale < 1) {
+                    this.spawnScale += 0.15;
+                    if (this.spawnScale > 1) this.spawnScale = 1;
+                }
+            }
+            
+            draw(ctx) {
+                const el = ELEMENTS[this.level];
+                ctx.save();
+                ctx.translate(this.x, this.y);
+                ctx.scale(this.spawnScale, this.spawnScale);
+                
+                // Glow
+                ctx.shadowBlur = 15 * scaleFactor;
+                ctx.shadowColor = el.color;
+                
+                // Circle gradient
+                const grad = ctx.createRadialGradient(
+                    -this.radius * 0.3, -this.radius * 0.3, this.radius * 0.1, 
+                    0, 0, this.radius
+                );
+                grad.addColorStop(0, '#ffffff');
+                grad.addColorStop(0.4, el.color);
+                grad.addColorStop(1, '#000000');
+                
+                ctx.beginPath();
+                ctx.arc(0, 0, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = grad;
+                ctx.fill();
+                
+                // Inner highlight for glass effect
+                ctx.beginPath();
+                ctx.arc(-this.radius * 0.3, -this.radius * 0.3, this.radius * 0.2, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
+                ctx.fill();
+                
+                // Text
+                ctx.shadowBlur = 2;
+                ctx.shadowColor = 'rgba(0,0,0,0.8)';
+                ctx.fillStyle = 'white';
+                const fontSize = this.radius * (el.symbol.length > 1 ? 0.65 : 0.8);
+                ctx.font = `bold ${fontSize}px sans-serif`;
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText(el.symbol, 0, 0);
+                
+                ctx.restore();
+            }
+        }
+
+        class Particle {
+            constructor(x, y, color) {
+                this.x = x;
+                this.y = y;
+                const angle = Math.random() * Math.PI * 2;
+                const speed = (Math.random() * 8 + 2) * scaleFactor;
+                this.vx = Math.cos(angle) * speed;
+                this.vy = Math.sin(angle) * speed;
+                this.life = 1.0;
+                this.decay = Math.random() * 0.03 + 0.02;
+                this.color = color;
+                this.size = (Math.random() * 4 + 2) * scaleFactor;
+            }
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                this.life -= this.decay;
+            }
+            draw(ctx) {
+                ctx.globalAlpha = this.life;
+                ctx.fillStyle = this.color;
+                ctx.shadowBlur = 10;
+                ctx.shadowColor = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.globalAlpha = 1.0;
+                ctx.shadowBlur = 0;
+            }
+        }
+
+        // --- Physics & Logic ---
+        const resolveCollisions = () => {
+            for (let i = 0; i < atoms.length; i++) {
+                for (let j = i + 1; j < atoms.length; j++) {
+                    const a = atoms[i];
+                    const b = atoms[j];
+                    
+                    const dx = b.x - a.x;
+                    const dy = b.y - a.y;
+                    const distSq = dx * dx + dy * dy;
+                    const minDist = a.radius + b.radius;
+                    
+                    if (distSq < minDist * minDist) {
+                        const dist = Math.sqrt(distSq);
+                        
+                        // Merge check
+                        if (a.level === b.level && !a.markedForMerge && !b.markedForMerge) {
+                            a.markedForMerge = true;
+                            b.markedForMerge = true;
+                            continue;
+                        }
+                        
+                        // Resolution
+                        if (dist === 0) continue; // Avoid division by zero
+                        const overlap = minDist - dist;
+                        const nx = dx / dist;
+                        const ny = dy / dist;
+                        
+                        // Push apart based on mass ratio
+                        const totalMass = a.mass + b.mass;
+                        const aRatio = b.mass / totalMass;
+                        const bRatio = a.mass / totalMass;
+                        
+                        // Apply separation
+                        a.x -= nx * overlap * aRatio;
+                        a.y -= ny * overlap * aRatio;
+                        b.x += nx * overlap * bRatio;
+                        b.y += ny * overlap * bRatio;
+                        
+                        // Velocity response (simple inelastic)
+                        const rvx = b.vx - a.vx;
+                        const rvy = b.vy - a.vy;
+                        const velAlongNormal = rvx * nx + rvy * ny;
+                        
+                        if (velAlongNormal > 0) continue; // Moving apart
+                        
+                        const jImpulse = -(1 + RESTITUTION) * velAlongNormal / (1/a.mass + 1/b.mass);
+                        const impulseX = jImpulse * nx;
+                        const impulseY = jImpulse * ny;
+                        
+                        a.vx -= impulseX / a.mass;
+                        a.vy -= impulseY / a.mass;
+                        b.vx += impulseX / b.mass;
+                        b.vy += impulseY / b.mass;
+                    }
+                }
+            }
+        };
+
+        const processMerges = () => {
+            const newAtoms = [];
+            for (let i = atoms.length - 1; i >= 0; i--) {
+                if (atoms[i].markedForMerge) {
+                    // Find its pair
+                    for (let j = i - 1; j >= 0; j--) {
+                        if (atoms[j].markedForMerge && atoms[i].level === atoms[j].level) {
+                            const a = atoms[i];
+                            const b = atoms[j];
+                            
+                            // Midpoint
+                            const mx = (a.x + b.x) / 2;
+                            const my = (a.y + b.y) / 2;
+                            
+                            const nextLevel = Math.min(a.level + 1, ELEMENTS.length - 1);
+                            highestUnlockedLevel = Math.max(highestUnlockedLevel, nextLevel);
+                            
+                            // Score
+                            score += ELEMENTS[nextLevel].points;
+                            updateHUD();
+                            
+                            // Effects
+                            playSound('merge', nextLevel);
+                            for(let k=0; k<20; k++) {
+                                particles.push(new Particle(mx, my, ELEMENTS[nextLevel].color));
+                            }
+                            
+                            // Upward impulse to nearby atoms for juice
+                            atoms.forEach(other => {
+                                if (other !== a && other !== b) {
+                                    const dx = other.x - mx;
+                                    const dy = other.y - my;
+                                    const dist = Math.sqrt(dx*dx + dy*dy);
+                                    if (dist < 150 * scaleFactor) {
+                                        other.vy -= 8 * scaleFactor;
+                                        other.vx += (dx/dist) * 4 * scaleFactor;
+                                    }
+                                }
+                            });
+                            
+                            // Screen shake juice
+                            shakeMagnitude = Math.min(nextLevel * 1.5, 15) * scaleFactor;
+                            shakeTime = 12;
+                            
+                            newAtoms.push(new Atom(mx, my, nextLevel));
+                            
+                            // Remove both
+                            atoms.splice(i, 1);
+                            atoms.splice(j, 1);
+                            i--; // Adjust index
+                            break;
+                        }
+                    }
+                }
+            }
+            atoms.push(...newAtoms);
+        };
+
+        const checkGameOver = (dt) => {
+            let overflowing = false;
+            // Check if any settled atom is above the line
+            for (const atom of atoms) {
+                // Only consider atoms that are relatively still and above the line
+                if (atom.y - atom.radius < beakerRect.y && Math.abs(atom.vy) < 2 * scaleFactor) {
+                    overflowing = true;
+                    break;
+                }
+            }
+            
+            const dangerOverlay = document.getElementById('danger-overlay');
+            if (overflowing) {
+                dangerTimer += dt;
+                dangerOverlay.classList.add('danger-active');
+                if (dangerTimer > 2500) { // 2.5 seconds overflow
+                    endGame();
+                }
+            } else {
+                dangerTimer = 0;
+                dangerOverlay.classList.remove('danger-active');
+            }
+        };
+
+        const getNextAtomLevel = () => {
+            // 5% chance for higher elements if we have unlocked beyond level 3
+            if (highestUnlockedLevel > 3 && Math.random() < 0.05) {
+                const availableLevels = highestUnlockedLevel - 3; // e.g., if highest is 4 (B), available is 1.
+                let totalWeight = 0;
+                const weights = [];
+                for (let i = 0; i < availableLevels; i++) {
+                    const weight = availableLevels - i; // Reversed: lowest level gets highest weight
+                    weights.push(weight);
+                    totalWeight += weight;
+                }
+                
+                let r = Math.random() * totalWeight;
+                let sum = 0;
+                for (let i = 0; i < availableLevels; i++) {
+                    sum += weights[i];
+                    if (r <= sum) return 4 + i;
+                }
+            }
+
+            // 95% chance (or fallback): Random level 0 to 3 (H to Be)
+            const baseWeights = [0.5, 0.3, 0.15, 0.05];
+            const r = Math.random();
+            let sum = 0;
+            for (let i = 0; i < baseWeights.length; i++) {
+                sum += baseWeights[i];
+                if (r <= sum) return i;
+            }
+            return 0;
+        };
+
+        const updateHUD = () => {
+            document.getElementById('score-display').innerText = score;
+            const nextEl = ELEMENTS[nextAtomLevel];
+            const preview = document.getElementById('next-atom-preview');
+            
+            // Apply gradient to preview
+            preview.style.background = `radial-gradient(circle at 30% 30%, #fff 0%, ${nextEl.color} 40%, #000 100%)`;
+            preview.style.boxShadow = `0 0 15px ${nextEl.color}`;
+            preview.innerText = nextEl.symbol;
+            
+            document.getElementById('next-atom-name').innerText = nextEl.name;
+        };
+
+        // --- Game Loop ---
+        let lastTime = 0;
+        const gameLoop = (timestamp) => {
+            if (isPaused) {
+                requestAnimationFrame(gameLoop);
+                return;
+            }
+            
+            const dt = timestamp - lastTime;
+            lastTime = timestamp;
+            
+            // Clear
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            ctx.save();
+            
+            // Apply Screen Shake
+            if (shakeTime > 0) {
+                const dx = (Math.random() - 0.5) * shakeMagnitude;
+                const dy = (Math.random() - 0.5) * shakeMagnitude;
+                ctx.translate(dx, dy);
+                shakeTime--;
+                shakeMagnitude *= 0.9;
+            }
+            
+            // Draw Beaker
+            const drawBeakerPath = () => {
+                ctx.beginPath();
+                ctx.moveTo(beakerRect.x - 10 * scaleFactor, beakerRect.y);
+                ctx.lineTo(beakerRect.x, beakerRect.y);
+                ctx.lineTo(beakerRect.x, beakerRect.y + beakerRect.h);
+                ctx.lineTo(beakerRect.x + beakerRect.w, beakerRect.y + beakerRect.h);
+                ctx.lineTo(beakerRect.x + beakerRect.w, beakerRect.y);
+                ctx.lineTo(beakerRect.x + beakerRect.w + 10 * scaleFactor, beakerRect.y);
+            };
+            
+            // Beaker Outer Glow
+            ctx.strokeStyle = 'rgba(59, 130, 246, 0.2)';
+            ctx.lineWidth = 12 * scaleFactor;
+            ctx.lineCap = 'round';
+            ctx.lineJoin = 'round';
+            drawBeakerPath();
+            ctx.stroke();
+            
+            // Beaker Core
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.9)';
+            ctx.lineWidth = 4 * scaleFactor;
+            ctx.shadowBlur = 15;
+            ctx.shadowColor = '#3b82f6';
+            drawBeakerPath();
+            ctx.stroke();
+            ctx.shadowBlur = 0;
+            
+            // Draw Overflow Line
+            ctx.strokeStyle = 'rgba(239, 68, 68, 0.6)';
+            ctx.lineWidth = 2 * scaleFactor;
+            ctx.setLineDash([15 * scaleFactor, 15 * scaleFactor]);
+            ctx.beginPath();
+            ctx.moveTo(beakerRect.x, beakerRect.y);
+            ctx.lineTo(beakerRect.x + beakerRect.w, beakerRect.y);
+            ctx.stroke();
+            ctx.setLineDash([]);
+            
+            if (gameState === STATE_PLAYING) {
+                // Physics Steps (multiple for stability)
+                const steps = 4;
+                for (let s = 0; s < steps; s++) {
+                    atoms.forEach(a => a.update());
+                    resolveCollisions();
+                }
+                processMerges();
+                // Cap dt to prevent massive jumps if tab is backgrounded
+                checkGameOver(Math.min(dt, 100));
+            }
+            
+            // Draw Atoms
+            // Sort by level so larger atoms draw behind smaller ones, or vice versa.
+            // Let's draw normally.
+            atoms.forEach(a => a.draw(ctx));
+            
+            // Draw Particles
+            for (let i = particles.length - 1; i >= 0; i--) {
+                particles[i].update();
+                particles[i].draw(ctx);
+                if (particles[i].life <= 0) {
+                    particles.splice(i, 1);
+                }
+            }
+            
+            // Draw drop guide line
+            if (gameState === STATE_PLAYING) {
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.05)';
+                ctx.fillRect(beakerRect.x, 0, beakerRect.w, beakerRect.y);
+            }
+            
+            ctx.restore();
+            
+            requestAnimationFrame(gameLoop);
+        };
+
+        // --- Input Handling ---
+        const handleInput = (e) => {
+            if (gameState !== STATE_PLAYING) return;
+            e.preventDefault();
+            
+            const now = performance.now();
+            if (now - lastDropTime < DROP_COOLDOWN) return;
+            
+            let clientX;
+            if (e.touches && e.touches.length > 0) {
+                clientX = e.touches[0].clientX;
+            } else {
+                clientX = e.clientX;
+            }
+            
+            // Adjust for canvas position and scale
+            const rect = canvas.getBoundingClientRect();
+            const canvasScaleX = canvas.width / rect.width;
+            let x = (clientX - rect.left) * canvasScaleX;
+            
+            // Clamp to beaker
+            const radius = ELEMENTS[nextAtomLevel].radius * scaleFactor;
+            x = Math.max(beakerRect.x + radius, Math.min(x, beakerRect.x + beakerRect.w - radius));
+            
+            atoms.push(new Atom(x, beakerRect.y - radius * 2, nextAtomLevel));
+            playSound('drop');
+            
+            lastDropTime = now;
+            nextAtomLevel = getNextAtomLevel();
+            updateHUD();
+        };
+
+        canvas.addEventListener('mousedown', handleInput);
+        canvas.addEventListener('touchstart', handleInput, { passive: false });
+
+        // --- State Management ---
+        const startGame = () => {
+            initAudio();
+            document.getElementById('start-screen').classList.add('hidden');
+            document.getElementById('end-screen').classList.add('hidden');
+            document.getElementById('hud').classList.remove('hidden');
+            
+            atoms = [];
+            particles = [];
+            score = 0;
+            dangerTimer = 0;
+            highestUnlockedLevel = 0;
+            nextAtomLevel = getNextAtomLevel();
+            updateHUD();
+            
+            gameState = STATE_PLAYING;
+            
+            if (!isGameReady) {
+                if (window.ytgame && window.ytgame.game) {
+                    window.ytgame.game.gameReady();
+                }
+                isGameReady = true;
+            }
+        };
+
+        const endGame = () => {
+            gameState = STATE_GAMEOVER;
+            playSound('gameover');
+            
+            if (score > highScore) {
+                highScore = score;
+                try {
+                    if (window.localStorage) {
+                        window.localStorage.setItem('atomicDropHighScore', highScore);
+                    }
+                } catch (e) {
+                    console.warn('Could not save to localStorage');
+                }
+            }
+            
+            document.getElementById('final-score').innerText = score;
+            document.getElementById('high-score').innerText = highScore;
+            
+            document.getElementById('hud').classList.add('hidden');
+            document.getElementById('end-screen').classList.remove('hidden');
+            document.getElementById('danger-overlay').classList.remove('danger-active');
+            
+            sendScoreToYouTube(score);
+        };
+
+        document.getElementById('start-btn').addEventListener('click', startGame);
+        document.getElementById('replay-btn').addEventListener('click', startGame);
+
+        // Init
+        initYouTubeSDK();
+        requestAnimationFrame((t) => {
+            lastTime = t;
+            gameLoop(t);
+        });
+    </script>
+</body>
+</html>
