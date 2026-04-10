@@ -16,7 +16,7 @@ The social landscape of Waterfall Academy is defined by several key friendship g
 
 <a id="412-the-baking-buddies-tracy-kate-melissa"></a>
 
-*   **4.1.2 The Baking Buddies (Tracy, Kate, Melissa):** This friendship is centered on a balance of support, nurturing, and a shared love of fashion and social events. Tracy provides emotional support and a sense of calm, while Kate adds a layer of competitiveness and ambition. Martin's sister, Melissa, serves as a bridge, connecting them with other friend groups and with the rest of the student population.
+*   **4.1.2 The Baking Buddies (Tracy, Kate, Melissa):** This friendship group is centered on a foundation of support, nurturing, and a shared love for creativity, often anchored in the "Hearth" of the Mariposa Bakery. Tracy Baker acts as the group's empathetic heart and a mentor to the younger Melissa, a bond deepened by Tracy’s history as a senior gymnast at the Suarez family studio. Katelynn Silchenko provides a sense of drive and protection, finding in the group a rare sanctuary for genuine, non-performative laughter. Melissa Suarez, though younger and attending the R1 Primary Wing, has attached herself to the older girls as the sisters she never had, providing a bright, energetic counterpoint to their high-school pressures.
 
 <a id="413-the-jock-duo-martin-malcolm"></a>
 

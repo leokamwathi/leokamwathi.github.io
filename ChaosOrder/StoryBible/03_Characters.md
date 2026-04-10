@@ -491,3 +491,166 @@ Tertiary characters play variable roles in the main characters' lives. They driv
     *   **Lisa Mandela (Best Friend):** Her closest confidante and emotional anchor. Lisa's gentle nature softens Suzan's hard edges, and Suzan's practicality helps ground Lisa.
     *   **Joseph Suarez (Friend):** She cares for him deeply, both as her best friend's boyfriend and as a friend in his own right. She is frustrated by his injury on a practical level and admires his quiet perseverance.
     *   **June Lyu (Sister):** Her main source of familial frustration. She loves June but fundamentally disapproves of her choices, her style, and her attitude, leading to constant conflict.
+
+    ---
+    #### **Melissa Suarez (Martin's Sister)**
+
+*   **Age:** 11
+*   **Role:** 6th Grade Student (R1 Primary Wing) / Gymnast at "Isabella's Angels"
+*   **MBTI:** ESFJ (The Provider)
+*   **Appearance:** Bright, energetic, and expressive. She is often seen in gymnastics attire or comfortable clothes suitable for an active lifestyle. She has a high-energy "bounce" in her step and a frequent, genuine smile that makes her the Suarez family’s "bright spot."
+*   **Personality:** Naturally cheerful and optimistic. Melissa actively tries to cheer up her family when she senses tension between her father and brothers. While she is confident in her athletic skills, she has a typical pre-teen fear of being left out or embarrassing herself during a performance.
+*   **Backstory:** Raised in the high-pressure Suarez household, Melissa finds genuine joy in the supportive environment her mother, Isabella, fosters at the gymnastics studio. Growing up with two older brothers, Joseph and Martin, Melissa often felt the lack of a female sibling bond. She found this connection in Tracy Baker, who was a senior gymnast at "Isabella's Angels" when Melissa was starting out. Over time, she attached herself to Tracy and her best friend Kate, viewing them as the older sisters she never had.
+*   **Goal:** To master her floor routines in gymnastics and to be a stable, fun presence for the "Baking Buddies," serving as a bridge between the different student groups.
+*   **Key Relationships:**
+    *   **Isabella Suarez (Mother):** Her primary mentor and coach. They share a close, nurturing bond built on encouragement over pressure.
+    *   **Luciano Suarez (Father):** She loves him but is largely shielded from his intense athletic expectations, which are primarily focused on Martin.
+    *   **Martin Suarez (Brother):** A strong sibling bond; Martin is a supportive brother who often records her routines to share with the rest of the family.
+    *   **Joseph Suarez (Brother):** Devoted to his recovery; she provides much-needed energy and light in his quiet recovery space.
+    *   **Tracy Baker (Good Friend/Mentor):** Melissa’s primary connection to the older girls. Because Tracy was a gymnast at her mother’s studio, Melissa looks up to her as a mentor. She finds complete comfort and happiness in Tracy's nurturing presence.
+    *   **Kate Silchenko (Good Friend/Mentor):** Melissa provides Kate with a rare space for genuine, non-performative laughter. Kate is protective of Melissa and views her as a sweet, loyal friend.
+
+    ---
+
+    #### **Mr. Hiroshi Tanaka (Aki’s Father)**
+
+*   **Age:** Early to Mid-40s
+*   **Role:** Japanese Teacher at Waterfall Academy
+*   **MBTI:** ISTJ (The Logistician)
+*   **Appearance:** He maintains a quiet and balanced presence, often seen in the disciplined environment of his classroom. His demeanor reflects the harmony and order he teaches.
+*   **Personality:** Calm, disciplined, and methodical. He values harmony and balance above all else. He prefers order and predictability, processing sadness as a quiet disappointment and using anger only as a rare, controlled correction to restore classroom harmony.
+*   **Backstory:** As the father of Akihiko (Aki), Hiroshi has instilled a love for Japanese culture in his son, albeit expressed through Aki's more modern, relaxed surfer-artist style. He shares a close and respectful bond with Aki, supporting his son’s peaceful path while maintaining his own deep connection to tradition.
+*   **Goal:** To ensure the younger generation maintains a connection to culture and tradition in a fast-paced world, and to guide his students toward inner balance through discipline and respect.
+*   **Key Relationships:**
+    *   **Akihiko Tanaka (Son):** Shares a respectful bond; he finds happiness in seeing Aki live a life of mindful contentment.
+    *   **Students:** He trusts those who demonstrate patience and a willingness to learn, rewarding them with quiet, steady mentorship.
+
+    ---
+
+#### **Mrs. Samantha Lewis (Malcolm’s Mother)**
+
+*   **Age:** Early to Mid-40s
+*   **Role:** Biology Teacher at Waterfall Academy
+*   **MBTI:** ENFJ (The Protagonist)
+*   **Appearance:** She has an encouraging and nurturing presence, radiating a genuine joy for the natural world that she shares with her students.
+*   **Personality:** Warm, passionate, and deeply caring. She possesses a "mama bear" instinct when it comes to defending the vulnerable, whether it is a student being treated unfairly or an entire ecosystem under threat.
+*   **Backstory:** Married to the town’s Chief Doctor, Samantha has raised Malcolm in a household that values excellence and hard work. While she supports Malcolm’s athletic drive, she provides a nurturing counterpoint to his intense competitiveness, pushing him toward curiosity and empathy [4-6].
+*   **Goal:** To foster a profound appreciation for the natural world in her students, while helping her son find a healthy balance between his ambition and compassion.
+*   **Key Relationships:**
+    *   **Malcolm Lewis (Son):** She is his biggest supporter but acts as his moral conscience, worrying when his drive becomes overly competitive or risks injury.
+    *   **Students:** She provides an inquisitive environment, trusting in the inherent potential for good and curiosity in every student.
+
+    ---
+    
+#### **Dr. Emily Mikkonen (Jace’s Mother)**
+
+*   **Age:** Early to Mid-40s
+*   **Role:** Chemistry Teacher at Waterfall Academy
+*   **MBTI:** ENTJ (The Commander)
+*   **Appearance:** Brilliant and energetic, she is often energized by the "electric spark of discovery" in her lab.
+*   **Personality:** Innovative, intellectually adventurous, and supremely confident. She has little patience for rigid thinking or outdated methods and views failed experiments not as setbacks, but as new puzzles to be solved with better data.
+*   **Backstory:** Dr. Mikkonen navigates a high-achieving scientific world, having previously been married to Jensen Mikkonen (CEO of A.R.I.E.S.). She shares custody of Jace and, while she loves him, she sometimes worries his easygoing "go-with-the-flow" attitude lacks enough direction for the fast-paced modern world.
+*   **Goal:** To make chemistry exciting and relevant by pushing boundaries, encouraging experimentation, and ensuring her world—and Jace's—never stagnates.
+*   **Key Relationships:**
+    *   **Jace Mikkonen (Son):** Loves him deeply but is often baffled by his lack of academic drive; she tries to use her innovative energy to motivate him.
+    *   **Prita Singh (Step-daughter):** She respects intellectual allies and likely sees Prita’s logical mind as a strong academic asset within the family dynamic.
+
+    ---
+    
+#### **Mrs. Amelia Hayes (Mackenzie’s Mother)**
+
+*   **Age:** Early to Mid-40s
+*   **Role:** Drama Teacher at Waterfall Academy
+*   **MBTI:** ESFP (The Entertainer)
+*   **Appearance:** Expressive, theatrical, and infectious. She is known for "committing to the bit" in every aspect of her life.
+*   **Personality:** Theatrical and high-energy. She adores surprises and uses performative frustration to motivate her students. Her confidence is immense, built on an almost blind faith that everyone has a compelling performance inside them.
+*   **Backstory:** As the wife of Thomas Hayes, Amelia encourages her daughter Mackenzie’s performative and social leadership. She thrives on the applause of a crowd and the energy of a live performance, a passion she has successfully turned into a career at the Academy.
+*   **Goal:** To inspire creativity in her students and ensure they (and Mackenzie) choose bold, dramatic paths rather than safe, passionless ones.
+*   **Key Relationships:**
+    *   **Mackenzie Hayes (Daughter):** Encourages her daughter’s social leadership and performative perfection, though she may be blind to the deep-seated insecurities Mackenzie masks with her "Queen Bee" image.
+    *   **Students:** She trusts the creative process implicitly and seeks to unlock a dramatic breakthrough in every student she teaches.
+
+    ---
+    
+#### **Mrs. Monika Mandela (Nikole’s Mother)**
+
+*   **Age:** Early to Mid-40s
+*   **Role:** Philosophy Teacher at Waterfall Academy
+*   **MBTI:** INTJ (The Architect)
+*   **Appearance:** She has an air of cool, intellectual detachment and a supremely confident presence.
+*   **Personality:** Thoughtful, analytical, and intellectually intimidating. She views emotions as philosophical concepts to be analyzed rather than personal feelings. She is unapologetically confident in her ability to deconstruct any argument.
+*   **Backstory:** Married to the town’s Fire Captain, Monika provides the intellectual foundation for her household. She has raised two daughters—the confident Lisa and the shy, artistic Nikole—though she frequently worries that Nikole’s idealism isn't grounded in enough logic.
+*   **Goal:** To create a world where people never stop asking "why" and to push her students (and daughters) toward critical thinking and intellectual honesty.
+*   **Key Relationships:**
+    *   **Nikole Mandela (Daughter):** Loves her daughter’s compassionate nature but constantly challenges her to support her ideals with reasoned arguments.
+    *   **Students:** She trusts logic above all else and often appears aloof while waiting for a student to ask a truly deep, challenging philosophical question.
+
+---
+ 
+#### **Ms. Evelyn Carter (English)**
+
+*   **Role:** English Teacher at Waterfall Academy
+*   **MBTI:** ENFJ (The Protagonist - *Inferred from her nurturing, student-centered approach and focus on voice*)
+*   **Appearance:** An enthusiastic and creative presence that inspires her students.
+*   **Personality:** Warm, passionate, and deeply empathetic. She creates a safe space for emotional expression in her classroom and finds infectious joy in seeing a student's mind open to new ideas or difficult literature.
+*   **Backstory:** Ms. Carter is a dedicated educator who believes in the transformative power of storytelling. She has a deep trust in her students' potential for growth and pushes them to become their best selves.
+*   **Goal:** To instill a love of stories and help students find their own voice through literature.
+*   **Key Relationships:**
+    *   **Students:** She maintains a nurturing and encouraging interaction style, acting as a fierce advocate for their development.
+    *   **Stress Triggers:** She is frustrated by students who are cynical or dismissive of the power of storytelling.
+
+---
+ 
+#### **Mr. Thomas Ramirez (Mathematics)**
+
+*   **Role:** Mathematics Teacher at Waterfall Academy
+*   **MBTI:** ISTJ (The Logistician - *Inferred from his methodical and logical temperament*)
+*   **Appearance:** A logical and analytical teacher who projects an air of grounded stability.
+*   **Personality:** Methodical, patient, and grounded. He is emotionally reserved and processes success as the profound, quiet satisfaction of a complex problem solved. He possesses supreme confidence in his own intellect and the infallible nature of mathematics.
+*   **Backstory:** Mr. Ramirez is a traditionalist who trusts axioms, proofs, and data over emotional appeals. He is skeptical of those who challenge established logic and prefers the predictability of correct calculations.
+*   **Goal:** To demystify math and show its practical, logical beauty.
+*   **Key Relationships:**
+    *   **Students:** Acts as a calm, logical guide who breaks down complex problems into manageable steps.
+    *   **Stress Triggers:** He becomes frustrated when students give up without trying or when "math anxiety" blocks logical progress.
+
+---
+ 
+#### **Madame Elise Dubois (French)**
+
+*   **Role:** French Teacher at Waterfall Academy
+*   **MBTI:** ISFJ (The Defender - *Inferred from her traditionalism and focus on a welcoming community*)
+*   **Appearance:** Elegant and formal, with a hidden flair for the dramatic that surfaces during her lessons.
+*   **Personality:** Warm and traditional. She values creating a welcoming community within her classroom and actively works to resolve discord with kindness. While demanding and strict regarding the French language, her default is to trust her students' good intentions.
+*   **Backstory:** Madame Dubois takes fierce pride in French language and culture, demanding respect for it while fostering a nurturing and safe learning environment.
+*   **Goal:** To instill respect for the French language and culture while fostering a sense of belonging for all her students.
+*   **Key Relationships:**
+    *   **Students:** She is highly confident in her ability to create a sense of community, though she feels a motherly disappointment when faced with rudeness.
+    *   **Stress Triggers:** She has little patience for laziness in pronunciation or grammar, particularly when students "Americanize" the language.
+
+---
+ 
+#### **Señor Miguel Rodriguez (Spanish)**
+
+*   **Role:** Spanish Teacher at Waterfall Academy
+*   **MBTI:** ESFP (The Entertainer - *Inferred from his energetic, expressive, and immersive style*)
+*   **Appearance:** Energetic and passionate, often using vibrant gestures to communicate.
+*   **Personality:** Expressive and highly immersive. His happiness is loud and contagious, fueled by sharing his culture through music and food. He is unapologetically confident in his ability to make learning fun and believes cultural exchange can make the world better.
+*   **Backstory:** Señor Rodriguez views language as a vibrant, lived experience rather than a textbook exercise. He trusts anyone willing to learn with an open heart and sees the sharing of culture as a profound act of trust.
+*   **Goal:** To make language learning a vibrant, lived experience and to overcome student apathy toward foreign cultures.
+*   **Key Relationships:**
+    *   **Students:** He encourages active participation and conversation over technical perfection, inviting students into his cultural circle.
+    *   **Stress Triggers:** He feels he is failing if students are not engaged and is deeply unsettled by a silent or non-participatory classroom.
+
+---
+ 
+#### **Mr. Ben Thompson (Music)**
+
+*   **Role:** Music Teacher at Waterfall Academy
+*   **MBTI:** ISFP (The Adventurer - *Inferred from his laid-back, intuitive, and collaborative nature*)
+*   **Appearance:** A talented musician who maintains a genuinely "cool" and approachable aura.
+*   **Personality:** Laid-back, intuitive, and collaborative. He finds pure joy in shared music, particularly when a student band "clicks" for the first time. He is disharmonious by nature and prefers solving problems with creativity rather than confrontation.
+*   **Backstory:** Mr. Thompson is a mentorship-focused educator who believes everyone has a rhythm inside them. While he feels a quiet melancholy for his own unfulfilled "rock star" dreams, he channels that energy into nurturing his students.
+*   **Goal:** To help students connect with music both emotionally and technically, encouraging self-expression and experimentation.
+*   **Key Relationships:**
+    *   **Students:** He acts as a mentor and collaborator, encouraging students to find their unique musical voice.
+    *   **Stress Triggers:** He is frustrated by students who treat music as an "easy grade" or show a lack of genuine effort and passion.
