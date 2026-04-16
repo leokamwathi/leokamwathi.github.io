@@ -38,7 +38,7 @@ These six characters form the central band and the core of the story's focus.
 *   **Birthday:** February 21st (Pisces)
 *   **MBTI:** INTJ (The Architect)
 *   **Appearance:** Lean build; dark brown eyes; short, black hair (sometimes styled with braids); reserved demeanor; tends to wear hoodies.
-*   **Personality:** Intelligent, creative, loyal, protective, tech-savvy, shy, reserved, angry, resentful, withdrawn.
+*   **Personality:** Intelligent slacker, creative, loyal, protective, tech-savvy, shy, reserved, angry, resentful, withdrawn.
 *   **Backstory:** His parents divorced when he was 11, leaving him feeling abandoned and betrayed. He moves to Waterfall with his father at the start of the story. He struggles with anger issues and feels isolated from his family. He has a secret crush on Tracy. His social isolation is slightly pierced by an initially awkward blind date with Nikole Mandela, which unexpectedly blossoms into a close, confidential friendship.
 *   **Goal:** To heal from the pain of his past, to find a sense of belonging, and to create something meaningful with his technology skills.
 *   **Key Relationships:**
