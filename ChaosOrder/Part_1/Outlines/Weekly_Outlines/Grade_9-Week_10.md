@@ -58,8 +58,8 @@
 
 ### MS4 — Threshold, Not Answer
 
-- Day/Date: Sun 2023-11-05
-- Location: rooftop corner, phone notes, and short walk down the stairwell afterward
+- Day/Date: Sun 2023-11-05, morning
+- Location: rooftop corner in the morning chill, phone notes, and short walk down the stairwell afterward
 - Focus: Alex
 - Cast: June, Dex joining late, Gabriel by one earlier observation that reshapes the scene's framing
 - Hook: Alex has to keep the mystery structured during a week where the real work is waiting well, not solving fast.
@@ -109,13 +109,13 @@
 
 ### SS4 — Secret Location
 
-- Day/Date: Sun 2023-11-05
-- Location: shoreline turnout, narrow path below the bluff, and sheltered bench half-hidden from the road
+- Day/Date: Sun 2023-11-05, afternoon
+- Location: Waterfall amusement park boardwalk, bench beside the water fountain, and walkway just beyond the ride gates
 - Focus: Nikole
 - Cast: June
 - Hook: June follows the secret-location invitation and discovers that the person waiting is Nikole, who finally chooses direct honesty instead of artistic implication.
 - Stakes: Vulnerability, trust, and whether June and Nikole can let a long-building feeling become real without immediately forcing it into public definition.
-- Summary: This scene should stay quiet enough that it changes the story by changing two people, not by changing the whole ensemble at once. Nikole has been legible for weeks through sketches, presence, and careful offers. On Nov 5 she stops letting art do all the work. June, meanwhile, is not walking into the scene ready with a neat answer. She is walking into it ready to find out whether the emotional field she has been feeling has a human face. The scene works if the confession lands as relief, risk, and new secrecy all at once. They do not need to define everything. They do need to agree that what happened is real and stays private from Alex and Dex for now.
+- Summary: This scene should stay quiet enough that it changes the story by changing two people, not by changing the whole ensemble at once. Nikole has been legible for weeks through sketches, presence, and careful offers. On Nov 5 she stops letting art do all the work. Having her seated beside the amusement park's water fountain gives the meeting a public-but-sheltered feeling that fits the emotional risk: exposed enough to feel real, tucked away enough to let honesty happen. June, meanwhile, is not walking into the scene ready with a neat answer. She is walking into it ready to find out whether the emotional field she has been feeling has a human face. The scene works if the confession lands as relief, risk, and new secrecy all at once. They do not need to define everything. They do need to agree that what happened is real and stays private from Alex and Dex for now.
 - MemoryTag: +nikole-confession
 - Playtest Outcome: Success With Cost. Nikole confesses directly and June meets her with real care, but the new private bond immediately becomes a secret both of them now have to carry.
 
