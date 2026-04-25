@@ -16,6 +16,7 @@ Core Principles
 - MS: Drive MC growth; pose puzzles/choices that reward creativity and emotional truth.
 - SS: Spotlight NPCs and keep the town alive; these can seed MS complications.
 - Generation = Draft + Playtest: when generating a weekly outline, resolve the scenes in the same pass and write the playtest result directly into the weekly file instead of treating playtest as a separate later step.
+- Generation = Draft + Playtest + Fold: the same generation pass should also fold that week's resolved results into `Character_memories.md` before moving on to the next week.
 - Twist-Friendly: SM should add 1–2 unexpected twists per week to force MCs to improvise.
 - Safety & Consent: Avoid exploitative content; flag heavy topics and use content warnings.
 
@@ -40,6 +41,7 @@ Weekly outlines should be readable first and compact second. They are planning d
 - Group Scene: day/date, location, present characters, and cliffhanger/payoff summary.
 - Character memory updates: short lines to carry forward into `Character_memories.md`.
 - If Sparks are used that week, record who spent them and who goes on cooldown for the next week.
+- Generated weeks should be considered incomplete until the matching tracker fold has been written into `Character_memories.md`.
 
 The goal is not to recreate the old chapter outlines. The goal is to make each weekly outline readable like a session log: structured, skimmable, and rich enough to preserve continuity without becoming a chapter draft.
 
@@ -86,6 +88,7 @@ Resolution Mechanics (lightweight)
 - Weekly Spark cap: only 2 MCs total may spend Sparks in a given week.
 - Spark cooldown: if an MC spends any Sparks in a week, that MC cannot spend Sparks in the following week.
 - Playtest expectation: when drafting a week, the SM should decide whether either of the two Spark slots gets used and show that in the generated weekly file.
+- Folding expectation: after drafting and resolving the week, immediately update `Character_memories.md` with top-level Recent/Plans changes, the weekly log block, and the next-week cooldown state.
 
 Why this system?
 
@@ -147,7 +150,8 @@ How to Run a Session (practical)
 3. Run MS scenes in player order; let MCs spend Sparks to tilt stakes, but allow no more than 2 MC Spark users that week.
 4. Use the Twist table sparingly—twists should force choice, not punishment.
 5. Resolve the week during generation by writing `Playtest Outcome` lines directly into each scene that matters.
-6. End with a clear consequence and a small reward (XP is narrative: new ally, new clue, stronger trust), then note any Spark cooldowns for next week.
+6. Fold the resolved week into `Character_memories.md` before ending the generation pass.
+7. End with a clear consequence and a small reward (XP is narrative: new ally, new clue, stronger trust), then note any Spark cooldowns for next week.
 
 Safety, Tone, and Boundaries
 
@@ -167,6 +171,7 @@ Create and maintain `Part_1/Outlines/Weekly_Outlines/Character_memories.md` as t
 - Update the character's "Recent" and "Plans/Focus" lines.
 - Tag entries with the week id (e.g., `Grade_9-Week_01`) for quick lookup.
 - If Sparks were spent, note who used them and who is on cooldown for the next week.
+- Do this during weekly generation, not as a later cleanup step.
 
 Compact weekly outline templates and canon files
 
