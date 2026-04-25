@@ -23,42 +23,47 @@ Format
 - Recent: short bullet of recent beats (what they've done)
 - Plans/Focus: what they are likely to try next or what the SM should seed
 
+Current Cooldown State
+
+- Next week cooldown: Week 11 — Kate and Tracy cannot spend Sparks
+- Spark-eligible entering next week: June, Dex, Martin, and Alex
+
 Main Characters
 
 - Juniper "June" Lyu
   - Role: MC — artist/photographer; lighthouse sanctuary
   - Goal(s): build an authentic creative identity; understand her uncle's legacy and her place in the family story; become more open about love and selfhood without losing privacy
-  - Recent: supported Talent Show band formation; helped define the band's act concept and visual identity; formed the rooftop trio with Dex and Alex on Sept 9; followed the Founder's Day clue into local history; adapted band plans around Martin's game week; received the first secret admirer poem on Sept 22; left the W.E.I.R.D tour more fascinated and more uneasy than before; let Academic Pal's contact reframe Prita as a fuller person rather than just a school-system node; survived Midterm Week by narrowing her focus; defended one piece of self-definition at the Lyu family dinner; received the second admirer poem and now reads that thread as active escalation rather than coincidence; moved through the Cheese Festival week with more restraint than certainty and kept the admirer thread active without flattening it into one easy meaning
-  - Plans/Focus: investigate the poem and shoreline-pattern clues without making them public spectacle; take more deliberate leadership without becoming rigid; sort fascination from distrust around W.E.I.R.D and any overlapping symbol threads; continue slow trust-building with Nikole; carry the admirer-thread threshold forward without mistaking pattern for proof
+  - Recent: supported Talent Show band formation; helped define the band's act concept and visual identity; formed the rooftop trio with Dex and Alex on Sept 9; followed the Founder's Day clue into local history; adapted band plans around Martin's game week; received the first secret admirer poem on Sept 22; left the W.E.I.R.D tour more fascinated and more uneasy than before; let Academic Pal's contact reframe Prita as a fuller person rather than just a school-system node; survived Midterm Week by narrowing her focus; defended one piece of self-definition at the Lyu family dinner; received the second admirer poem and now reads that thread as active escalation rather than coincidence; moved through the Cheese Festival week with more restraint than certainty and kept the admirer thread active without flattening it into one easy meaning; used the quieter Week 10 to keep the mystery thread disciplined without forcing a false breakthrough
+  - Plans/Focus: investigate the poem and shoreline-pattern clues without making them public spectacle; take more deliberate leadership without becoming rigid; sort fascination from distrust around W.E.I.R.D and any overlapping symbol threads; continue slow trust-building with Nikole; carry the admirer-thread threshold forward without mistaking pattern for proof as the third-poem week approaches
 
 - Dexter "Dex" Maxwell
   - Role: MC — newcomer; tech (Echo AI)
   - Goal(s): learn to belong without reducing himself to usefulness; build technology that supports human connection instead of replacing it; grow emotionally brave enough for real intimacy
-  - Recent: contributed tech for rehearsals; revised Echo into something more human; formed the rooftop trio with June and Alex on Sept 9; hit resistance when trying to over-manage group schedules; deepened quiet trust with Tracy through work and logistics; visibly thrived during the W.E.I.R.D tour and was noticed by adults there; started recognizing the emotional cost of being everyone's easiest solution; built a more humane midterm support structure; then learned during Week 8 that support still counts even when he cannot rescue or optimize everything; Week 9 let him turn reciprocity into something warmer and less engineered
-  - Plans/Focus: simplify band systems so they feel supportive rather than controlling; decide what W.E.I.R.D-style validation means for his identity; keep building real belonging inside the trio and band; practice emotional availability toward Tracy without hiding behind competence; trust limited support instead of measuring himself only by how fully he can solve other people's problems; Week 10 Spark cooldown after spending 1 Spark in Week 9
+  - Recent: contributed tech for rehearsals; revised Echo into something more human; formed the rooftop trio with June and Alex on Sept 9; hit resistance when trying to over-manage group schedules; deepened quiet trust with Tracy through work and logistics; visibly thrived during the W.E.I.R.D tour and was noticed by adults there; started recognizing the emotional cost of being everyone's easiest solution; built a more humane midterm support structure; then learned during Week 8 that support still counts even when he cannot rescue or optimize everything; Week 9 let him turn reciprocity into something warmer and less engineered; Week 10 cooldown forced him to stay supportive without overclaiming emotional centrality
+  - Plans/Focus: simplify band systems so they feel supportive rather than controlling; decide what W.E.I.R.D-style validation means for his identity; keep building real belonging inside the trio and band; practice emotional availability toward Tracy without hiding behind competence; trust limited support instead of measuring himself only by how fully he can solve other people's problems; bring calmer, non-managerial steadiness into Week 11 now that cooldown has passed
 
 - Katelynn "Kate" Silchenko
   - Role: MC — tennis/fashion; social anchor
   - Goal(s): separate self-worth from image and status; build relationships that are honest instead of merely impressive; define success on her own terms over the four-year arc
-  - Recent: rumor fallout deepened across school; Founder's Day forced public poise under strain; School Picture Day exposed a visible crack in her image control; the first soccer game intensified her unresolved tension around Martin, Jayden, and public performance; the W.E.I.R.D visit sharpened her attraction to prestige while making her question whether that future is truly hers; the Bake-Off exposed how tiring it is to curate herself in looser town spaces where presence matters more than polish; Midterm Week let her trust earned competence more than image for a moment; the Halloween party cracked another layer of certainty around masks, desire, and jealousy; the Cheese Festival proved she can survive ordinary embarrassment better than before, while making the Jayden-versus-Martin contrast even harder to ignore
-  - Plans/Focus: preserve social control while quietly reassessing what image and prestige are costing her; test whether Tracy is becoming a safe witness; keep the Martin/Jayden tension contained until she understands it better; pay attention to why Martin feels more real to her outside formal performance spaces; treat the party and festival aftermath as evidence, not noise
+  - Recent: rumor fallout deepened across school; Founder's Day forced public poise under strain; School Picture Day exposed a visible crack in her image control; the first soccer game intensified her unresolved tension around Martin, Jayden, and public performance; the W.E.I.R.D visit sharpened her attraction to prestige while making her question whether that future is truly hers; the Bake-Off exposed how tiring it is to curate herself in looser town spaces where presence matters more than polish; Midterm Week let her trust earned competence more than image for a moment; the Halloween party cracked another layer of certainty around masks, desire, and jealousy; the Cheese Festival proved she can survive ordinary embarrassment better than before, while making the Jayden-versus-Martin contrast even harder to ignore; Gabriel's birthday week gave her a quieter honesty beat that made ordinary vulnerability feel more survivable than usual
+  - Plans/Focus: preserve social control while quietly reassessing what image and prestige are costing her; test whether Tracy is becoming a safe witness; keep the Martin/Jayden tension contained until she understands it better; pay attention to why Martin feels more real to her outside formal performance spaces; treat the party and festival aftermath as evidence, not noise; Week 11 Spark cooldown after spending 1 Spark in Week 10
 
 - Tracy "Trixy" Baker
   - Role: MC — bakery, poet, nurturer
   - Goal(s): claim a self beyond caretaker duty; protect family bonds without disappearing into them; grow toward a love life and artistic life that feel chosen, not just safe
-  - Recent: traded shifts around Founder's Day; became an emotional translator inside the band; School Picture Day and game week both highlighted how often she stabilizes other people; began noticing the cost of being the town-and-group caretaker; shared small practical intimacy with Dex; Aki's birthday made her notice the gap between safety and deeper longing; used the Bake-Off to claim visible authorship over her craft instead of only supporting the family role; Midterm Week exposed how little grace she has left when care runs on empty; Week 8 let her ask directly for help and experience reciprocity as relief instead of failure; Week 9 showed that even on cooldown she can stop herself from turning every kindness into debt
-  - Plans/Focus: ask for time and support more directly; protect her own energy without abandoning care; keep exploring what she wants from band life and from Dex beyond simple comfort; be honest with herself about what Aki does and does not fulfill; keep practicing receiving without immediate repayment now that Week 9 cooldown has passed
+  - Recent: traded shifts around Founder's Day; became an emotional translator inside the band; School Picture Day and game week both highlighted how often she stabilizes other people; began noticing the cost of being the town-and-group caretaker; shared small practical intimacy with Dex; Aki's birthday made her notice the gap between safety and deeper longing; used the Bake-Off to claim visible authorship over her craft instead of only supporting the family role; Midterm Week exposed how little grace she has left when care runs on empty; Week 8 let her ask directly for help and experience reciprocity as relief instead of failure; Week 9 showed that even on cooldown she can stop herself from turning every kindness into debt; Week 10 let her choose visible reciprocity again instead of retreating into automatic service
+  - Plans/Focus: ask for time and support more directly; protect her own energy without abandoning care; keep exploring what she wants from band life and from Dex beyond simple comfort; be honest with herself about what Aki does and does not fulfill; keep practicing receiving without immediate repayment; Week 11 Spark cooldown after spending 1 Spark in Week 10
 
 - Martin "Matt" Suarez
   - Role: MC — athlete under family pressure
   - Goal(s): decide what kind of future he actually wants; loosen the hold of inherited expectations; learn to choose desire over approval without losing the people he loves
-  - Recent: captain-pressure intensified before the first soccer game; praise from coaches and rivalry with Malcolm sharpened his uncertainty; game-week obligations strained band scheduling; the Sept 22 soccer game made him a public center of pressure rather than just an athlete in motion; had a quieter Week 5 that showed he can steady the group when he is not the event focus; Week 6 confirmed that he is calmer and more likable when he is useful without being turned into a symbol; Midterm Week revealed how similar academic and athletic pressure feel in his body; the Halloween aftermath again showed that his most legible self appears away from official performance spaces; the Cheese Festival confirmed that his truest public self shows up most clearly in lower-pressure communal spaces
-  - Plans/Focus: question whether approval and desire are the same thing; keep showing up for the band without pretending sport has no cost; track how Kate changes his self-awareness; notice what kind of support role actually fits him; compare who he is in ordinary settings versus performance-heavy ones and trust the answer more; Week 10 Spark cooldown after spending 1 Spark in Week 9
+  - Recent: captain-pressure intensified before the first soccer game; praise from coaches and rivalry with Malcolm sharpened his uncertainty; game-week obligations strained band scheduling; the Sept 22 soccer game made him a public center of pressure rather than just an athlete in motion; had a quieter Week 5 that showed he can steady the group when he is not the event focus; Week 6 confirmed that he is calmer and more likable when he is useful without being turned into a symbol; Midterm Week revealed how similar academic and athletic pressure feel in his body; the Halloween aftermath again showed that his most legible self appears away from official performance spaces; the Cheese Festival confirmed that his truest public self shows up most clearly in lower-pressure communal spaces; Week 10 cooldown left that quieter, more human self present but less forceful
+  - Plans/Focus: question whether approval and desire are the same thing; keep showing up for the band without pretending sport has no cost; track how Kate changes his self-awareness; notice what kind of support role actually fits him; compare who he is in ordinary settings versus performance-heavy ones and trust the answer more now that cooldown has passed
 
 - Alexander "Alex" Quin
   - Role: MC — musician, humor → guarded
   - Goal(s): heal enough to risk real vulnerability; turn music into connection rather than armor; eventually face his unresolved history with Jayden honestly
-  - Recent: protected and expanded the lighthouse clue thread; formed the rooftop trio with June and Dex on Sept 9; helped turn the mystery from isolated notes into a place-based pattern; kept using mood and music to soften group friction instead of deflecting from it entirely; helped June treat the admirer poem as a trackable thread rather than a runaway fantasy; kept the latest poem-pattern echo suggestive without letting the trio overread it into certainty; gave the trio a calmer method for holding clues after Midterms; then helped frame the second admirer poem as meaningful escalation rather than panic bait; Week 9 let him help the trio recognize the admirer thread as a real structured pattern rather than a string of suggestive coincidences
+  - Recent: protected and expanded the lighthouse clue thread; formed the rooftop trio with June and Dex on Sept 9; helped turn the mystery from isolated notes into a place-based pattern; kept using mood and music to soften group friction instead of deflecting from it entirely; helped June treat the admirer poem as a trackable thread rather than a runaway fantasy; kept the latest poem-pattern echo suggestive without letting the trio overread it into certainty; gave the trio a calmer method for holding clues after Midterms; then helped frame the second admirer poem as meaningful escalation rather than panic bait; Week 9 let him help the trio recognize the admirer thread as a real structured pattern rather than a string of suggestive coincidences; Week 10 let him protect that structure without rushing it into answer-language
   - Plans/Focus: keep following the shoreline/sketchbook pattern with June; help the trio track the admirer-poem thread carefully; stay emotionally present inside the trio; let music connect rather than merely shield when pressure rises around Jayden and the band; keep disciplining pattern-reading so the mysteries stay cumulative rather than chaotic as the admirer thread becomes more active and more obviously designed
 
 Supporting / Tertiary Characters (short)
@@ -100,8 +105,8 @@ Supporting / Tertiary Characters (short)
 
 - Gabriel Blackwell
   - Role: SC — reserved goth intellect; observant selective connector
-  - Recent: mostly off-center, but remains a believable future watcher of group contradictions
-  - Plans/Focus: enter when a sharper, quieter observer is needed around mystery or social tension
+  - Recent: mostly off-center until his birthday week, which let his dry steadiness and selective presence become more socially legible to the ensemble
+  - Plans/Focus: enter when a sharper, quieter observer is needed around mystery or social tension; remain a low-drama grounding presence rather than a spectacle beat
 
 History / Update Log
 
@@ -124,12 +129,12 @@ SS outcomes:
 
 Character_memories appended updates (short):
 
-- June: Recent +band-formation; Plans: refine arrangement; invite Nikole to co-design a visual motif.
-- Dex: Recent +echo-help(partial); Plans: revise demo; owe a small favor—SM seed for future complication.
-- Kate: Recent +rumor; Plans: defensive PR moves; possible softening with Martin if supported.
-- Alex: Recent +uncle-letter(found); Plans: discreetly research the note's source; protect June's privacy for now.
-- Tracy: Recent +bakery-conflict; Plans: negotiate shift trade; consider missing rehearsal consequences.
-- Martin: Recent +coach-conflict; Plans: talk to coach or risk team status; potential tension with band schedule.
+- June: Recent +band-formation; Plans: turn visibility into a real act concept instead of letting the opening collapse.
+- Dex: Recent +echo-help(partial); Plans: revise the tool so competence feels collaborative instead of cold.
+- Kate: Recent +rumor; Plans: contain image damage without fully withdrawing from group space.
+- Alex: Recent +uncle-letter(found); Plans: protect the clue and research it quietly before the group turns it into spectacle.
+- Tracy: Recent +bakery-conflict; Plans: negotiate time without pretending the cost is emotionally neutral.
+- Martin: Recent +coach-conflict; Plans: weigh team obedience against the band before resentment hardens.
 
 Log tag: Grade_9-Week_01 — playtest complete.
 
@@ -161,13 +166,13 @@ Group / calendar outcome:
 
 Character_memories appended updates (short):
 
-- June: Recent +act-concept; Plans: protect the band's identity without over-controlling it.
-- Dex: Recent +echo-revision; Plans: learn when support becomes management.
-- Kate: Recent +rumor-fallout; Plans: stay composed while reassessing who actually sees her.
-- Alex: Recent +founders-clue; Plans: keep the clue private and follow it with June.
-- Tracy: Recent +shift-trade; Plans: ask for room without apologizing so quickly.
-- Martin: Recent +captain-pressure; Plans: notice where praise becomes a trap.
-- Nikole: Recent +nikole-visibility; Plans: risk a little more artistic honesty around June.
+- June: Recent +act-concept; Plans: protect the band's early identity without turning leadership into rigidity.
+- Dex: Recent +echo-revision; Plans: keep learning when support crosses into management.
+- Kate: Recent +rumor-fallout; Plans: stay outwardly composed while reassessing who actually sees her.
+- Alex: Recent +founders-clue; Plans: keep the clue private and follow it with June instead of opening it to the whole group.
+- Tracy: Recent +shift-trade; Plans: ask for room more directly and stop apologizing for needing it.
+- Martin: Recent +captain-pressure; Plans: track where praise narrows his future instead of affirming it.
+- Nikole: Recent +nikole-visibility; Plans: risk a little more visible artistic honesty around June.
 
 Log tag: Grade_9-Week_02 — playtest complete.
 
@@ -199,13 +204,13 @@ Group / calendar outcome:
 
 Character_memories appended updates (short):
 
-- June: Recent +visual-identity; Plans: keep authenticity while accepting visible form.
-- Dex: Recent +schedule-friction; Plans: simplify support systems and build trust first.
-- Kate: Recent +picture-day-crack; Plans: hide less sloppily, even if she still hides.
-- Alex: Recent +shoreline-sketchbook; Plans: follow pattern, not just text.
-- Tracy: Recent +care-burden; Plans: notice when care turns into self-erasure.
-- Martin: Recent +malcolm-comparison; Plans: test whether his ambition is actually his.
-- Nikole: Recent +nikole-sketches; Plans: keep using art to risk visibility.
+- June: Recent +visual-identity; Plans: keep authenticity while accepting that visible form now matters.
+- Dex: Recent +schedule-friction; Plans: simplify support systems and build trust before structure.
+- Kate: Recent +picture-day-crack; Plans: hide less sloppily, even if she still chooses to hide.
+- Alex: Recent +shoreline-sketchbook; Plans: follow pattern, not only text, as the mystery deepens.
+- Tracy: Recent +care-burden; Plans: notice when care slides into self-erasure instead of choice.
+- Martin: Recent +malcolm-comparison; Plans: test whether the ambition he performs is actually his.
+- Nikole: Recent +nikole-sketches; Plans: keep using art as a riskier form of visibility around June.
 
 Log tag: Grade_9-Week_03 — playtest complete.
 
@@ -238,10 +243,10 @@ Group / calendar outcome:
 Character_memories appended updates (short):
 
 - June: Recent +schedule-adaptation, +first-poem; Plans: investigate the admirer poem carefully and compare it against the larger pattern of hidden messages in her life.
-- Dex: Recent +support-vs-control; Plans: learn how to help people after public-pressure nights without trying to run them.
-- Kate: Recent +sideline-tension; Plans: keep control outwardly while the inner contradictions sharpen.
+- Dex: Recent +support-vs-control; Plans: learn how to help after public-pressure nights without trying to govern people.
+- Kate: Recent +sideline-tension; Plans: keep control outwardly while the internal contradictions sharpen.
 - Alex: Recent +pattern-clue; Plans: help June distinguish between the admirer-poem thread and the shoreline thread.
-- Tracy: Recent +town-caretaker; Plans: let herself want care back, not just offer it.
+- Tracy: Recent +town-caretaker; Plans: let herself want care back, not only offer it.
 - Martin: Recent +game-pressure; Plans: survive the sports identity others keep reinforcing while testing what he actually wants.
 - Nikole: Recent +nikole-offer; Plans: stay brave enough to keep leaving visible traces around June.
 
@@ -278,8 +283,8 @@ Character_memories appended updates (short):
 - June: Recent +weird-unease; Plans: compare W.E.I.R.D symbols, admirer-poem language, and shoreline clues without forcing a false connection.
 - Dex: Recent +weird-fit; Plans: decide whether institutional validation helps him belong or tempts him to self-isolate into competence.
 - Kate: Recent +prestige-mirror; Plans: keep questioning whether prestige-based futures are chosen or inherited.
-- Alex: Recent +poem-tracking; Plans: help June observe before chasing.
-- Tracy: Recent +aki-birthday; Plans: admit that safety may not be enough.
+- Alex: Recent +poem-tracking; Plans: help June observe before chasing the admirer thread.
+- Tracy: Recent +aki-birthday; Plans: admit that safety may not be enough and keep the feeling visible.
 - Martin: Recent +off-center-support; Plans: notice how he functions when not trapped at the center of performance pressure.
 - Nikole: Recent +weird-observer; Plans: keep influencing June's emotional field from just outside the center.
 
@@ -457,6 +462,48 @@ Character_memories appended updates (short):
 - Kate: Recent +festival-embarrassment; Plans: keep reading ordinary embarrassment and attraction as evidence instead of threat.
 
 Log tag: Grade_9-Week_09 — playtest complete.
+
+---
+Playtest — Grade_9-Week_10 (2026-04-25)
+
+Calendar events included:
+
+- Oct 31: Gabriel's Birthday
+
+Results (summary):
+
+- MS1 "Quiet Before Naming" — June: PARTIAL SUCCESS. June keeps the admirer thread disciplined and alive without forcing it into a premature answer, but the restraint still costs her emotional ease. (MemoryTag: +quiet-discipline)
+- MS2 "Service That Leaves A Trace" — Tracy: SUCCESS. Tracy spends 1 Spark to choose visible reciprocity instead of disappearing into automatic service, and the choice lands as real connection instead of debt. (MemoryTag: +visible-reciprocity)
+- MS3 "Low-Light Honesty" — Kate: SUCCESS WITH COST. Kate spends 1 Spark to stay in a quieter honest conversation longer than she normally would, which gives her useful self-knowledge but leaves her feeling newly exposed. (MemoryTag: +low-light-honesty)
+- MS4 "Threshold, Not Answer" — Alex: SUCCESS. Alex helps keep the mystery structured and cumulative while the group waits for a clearer next movement. (MemoryTag: +held-threshold)
+
+SS outcomes:
+
+- SS1 "Cooldown Warmth" — Dex: PARTIAL SUCCESS. Dex stays supportive during cooldown, but has to accept being present without being the engine of the moment. (MemoryTag: +cooldown-presence)
+- SS2 "Not The Center" — Martin: PARTIAL. Martin's quieter, more legible self remains present, but cooldown means he cannot force that version of himself into clearer public shape. (MemoryTag: +cooldown-martin)
+- SS3 "Gabriel's Birthday" — Gabriel: SUCCESS AS TEXTURE. Gabriel's low-key birthday makes his steadiness more socially legible and gives the ensemble a calmer kind of gathering point. (MemoryTag: +gabriel-birthday)
+
+Group / calendar outcome:
+
+- Gabriel's Birthday: QUIET GRAVITY. The celebration stays small, but it gives the ensemble a steadier social center than the bigger public events did.
+
+Spark usage / cooldown:
+
+- Kate spent 1 Spark in Week 10 and is on Spark cooldown for Week 11.
+- Tracy spent 1 Spark in Week 10 and is on Spark cooldown for Week 11.
+- Dex and Martin completed their Week 10 cooldown from Week 9 and regained Spark access for Week 11.
+
+Character_memories appended updates (short):
+
+- June: Recent +quiet-discipline; Plans: hold the admirer threshold steady without converting tension into fantasy.
+- Tracy: Recent +visible-reciprocity; Plans: keep choosing reciprocal care without apologizing for it; Week 11 Spark cooldown.
+- Kate: Recent +low-light-honesty; Plans: treat new exposure as information rather than damage; Week 11 Spark cooldown.
+- Alex: Recent +held-threshold; Plans: keep the mystery structured until the next real escalation arrives.
+- Dex: Recent +cooldown-presence; Plans: stay warm and present now that cooldown has passed.
+- Martin: Recent +cooldown-martin; Plans: keep trusting the quieter, more human version of himself now that cooldown has passed.
+- Gabriel: Recent +gabriel-birthday; Plans: remain a low-drama grounding presence when the group needs steadier air.
+
+Log tag: Grade_9-Week_10 — playtest complete.
 
 
 (Use this file as the canonical, short-form memory. SM should add one-line week tags for each update: `Grade_9-Week_01 — Success: June secured rehearsal slot.`)
