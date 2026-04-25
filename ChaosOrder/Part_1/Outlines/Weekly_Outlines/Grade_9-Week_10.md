@@ -1,9 +1,9 @@
 # Grade_9 — Week_10
 
 - Dates: 2023-10-30 → 2023-11-05
-- Anchor: Gabriel's birthday gives the group a quieter center of gravity just before the story's next admirer-thread escalation, forcing them to sit with tension instead of hiding it inside spectacle.
-- Week Summary: Week 10 should feel quieter than the Halloween and Cheese Festival stretch, but not empty. The important pressure comes from waiting. The admirer thread now clearly behaves like a pattern, but has not yet crossed into open revelation. That makes restraint itself the challenge. Dex and Martin are on Spark cooldown this week, which matters because both of them have recently been learning how much more real they feel when they stop performing their old roles so hard. Their scenes should show presence without force. June gets a week where discipline matters more than discovery, and Alex's job is to keep the mystery alive without letting it curdle into obsession. Tracy, now off cooldown, has a chance to choose reciprocity in a visible way rather than only defending it in theory. Kate gets a quieter honesty beat that matters precisely because it is not staged as a big confrontation. Gabriel's birthday becomes the calendar anchor not because it is dramatic, but because his low-key steadiness gives the ensemble a different kind of social rhythm. By the end of the week, the story should feel held at a threshold: everyone senses that the next real shift is close.
-- Calendar beats in play: Oct 31 Gabriel's Birthday
+- Anchor: Gabriel's birthday gives the group a quieter center of gravity just before the story's next admirer-thread escalation, and the week ends with one private human turn that changes June's inner life without changing the group's outward tempo yet.
+- Week Summary: Week 10 should feel quieter than the Halloween and Cheese Festival stretch, but not empty. The important pressure comes from waiting. The admirer thread now clearly behaves like a pattern, but has not yet crossed into open revelation. That makes restraint itself the challenge. Dex and Martin are on Spark cooldown this week, which matters because both of them have recently been learning how much more real they feel when they stop performing their old roles so hard. Their scenes should show presence without force. June gets a week where discipline matters more than discovery, and Alex's job is to keep the mystery alive without letting it curdle into obsession. Tracy, now off cooldown, has a chance to choose reciprocity in a visible way rather than only defending it in theory. Kate gets a quieter honesty beat that matters precisely because it is not staged as a big confrontation. Gabriel's birthday becomes the calendar anchor not because it is dramatic, but because his low-key steadiness gives the ensemble a different kind of social rhythm. By the end of the week, the held threshold resolves into one quiet but major turn: on Nov 5 June goes to the secret location, meets Nikole, and receives a confession they agree to keep private for now. That lets the week stay socially quiet while June's inner life changes sharply.
+- Calendar beats in play: Oct 31 Gabriel's Birthday; Nov 5 June meets Nikole at the secret location and Nikole confesses her feelings
 
 ## Week Flow
 
@@ -13,7 +13,7 @@
 - Thursday: Tracy and Kate both encounter smaller opportunities for honesty that matter more than they look.
 - Friday: the week holds tension rather than releasing it, which is exactly what makes the atmosphere useful.
 - Saturday: Dex and Martin each feel the limits of being present while on cooldown.
-- Sunday: the group ends the week steadier on the surface, with more pressure quietly gathering underneath.
+- Sunday: June follows the secret-location thread into a private meeting with Nikole, and the week ends with more emotional reality than the group at large can yet see.
 
 ## Main Stories
 
@@ -107,6 +107,18 @@
 - MemoryTag: +gabriel-birthday
 - Playtest Outcome: Success As Texture. Gabriel's low-key birthday makes his steadiness more socially legible and gives the ensemble a calmer kind of gathering point.
 
+### SS4 — Secret Location
+
+- Day/Date: Sun 2023-11-05
+- Location: shoreline turnout, narrow path below the bluff, and sheltered bench half-hidden from the road
+- Focus: Nikole
+- Cast: June
+- Hook: June follows the secret-location invitation and discovers that the person waiting is Nikole, who finally chooses direct honesty instead of artistic implication.
+- Stakes: Vulnerability, trust, and whether June and Nikole can let a long-building feeling become real without immediately forcing it into public definition.
+- Summary: This scene should stay quiet enough that it changes the story by changing two people, not by changing the whole ensemble at once. Nikole has been legible for weeks through sketches, presence, and careful offers. On Nov 5 she stops letting art do all the work. June, meanwhile, is not walking into the scene ready with a neat answer. She is walking into it ready to find out whether the emotional field she has been feeling has a human face. The scene works if the confession lands as relief, risk, and new secrecy all at once. They do not need to define everything. They do need to agree that what happened is real and stays private from Alex and Dex for now.
+- MemoryTag: +nikole-confession
+- Playtest Outcome: Success With Cost. Nikole confesses directly and June meets her with real care, but the new private bond immediately becomes a secret both of them now have to carry.
+
 ## Group Scene
 
 - Day/Date: Tue 2023-10-31
@@ -118,7 +130,7 @@
 
 - Twist 1: A small birthday gift or offhand comment unexpectedly echoes imagery from the admirer thread without proving a direct connection.
 - Twist 2: Someone outside the core group reads the ensemble more accurately than they read themselves, creating subtle embarrassment.
-- Twist 3: Cooldown makes one character noticeably less buffered than usual, which changes the emotional temperature of an otherwise quiet scene.
+- Twist 3: The week's quietest scene turns out to be its biggest shift when the secret location resolves into a person instead of a clue.
 - Sparks pressure: Tracy may spend to choose reciprocity in public, Kate to stay inside low-drama honesty, June to hold mystery discipline without flattening herself, and Alex to protect the threshold from collapsing into overinterpretation.
 - Spark availability entering week: Dex and Martin are on cooldown from Week 9; June, Tracy, Kate, and Alex are eligible.
 - Spark use in playtest: Tracy spends 1 Spark in MS2; Kate spends 1 Spark in MS3.
@@ -127,23 +139,26 @@
 ## Character Memory Updates
 
 - June: +quiet-discipline. She keeps the admirer threshold alive without forcing it into a premature answer.
+- June: +nikole-confession. The secret-location thread resolves into Nikole's direct honesty, which June accepts as real but keeps private.
 - Tracy: +visible-reciprocity. She chooses visible reciprocity instead of automatic service.
 - Kate: +low-light-honesty. She survives a quieter, more honest exposure that leaves useful residue.
 - Alex: +held-threshold. He protects the mystery from rushing into false clarity.
 - Dex: +cooldown-presence. He learns to stay present without trying to become the whole engine of a scene.
 - Martin: +cooldown-martin. He lives inside the quieter version of himself without being able to intensify it.
 - Gabriel: +gabriel-birthday. His steadiness becomes more socially legible as a real ensemble asset.
+- Nikole: +nikole-confession. She chooses direct visible honesty instead of leaving everything inside implication.
 
 ## Tracker Notes
 
 - Fold Week 10 into `Character_memories.md` during generation, including Kate and Tracy on Spark cooldown for Week 11.
 - Remove the Week 10 cooldown note from Dex and Martin after their restriction has passed.
-- Carry the held-threshold feeling forward into the third-poem week.
+- Carry both the held-threshold feeling and the new private confession forward into the third-poem week.
 
 ## Notes For SM
 
 - Week 10 should feel like held breath, not filler. Quiet weeks are only flat if nobody is changing internally.
 - Dex and Martin being on cooldown should lower their force, not their relevance.
 - Gabriel's birthday matters because it changes tempo, not because it creates spectacle.
+- The Nov 5 confession should feel private enough that the week still reads as quiet from the outside.
 - Keep the admirer thread structured and present, but do not spend its next real escalation early.
 - This week should make the next letter feel imminent.

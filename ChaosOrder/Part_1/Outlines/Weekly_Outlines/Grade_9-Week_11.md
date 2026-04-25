@@ -1,9 +1,9 @@
 # Grade_9 — Week_11
 
 - Dates: 2023-11-06 → 2023-11-12
-- Anchor: The third admirer poem stops behaving like a mood and becomes a direct invitation, which means the mystery now asks for an answerable kind of courage.
-- Week Summary: Week 11 is the first admirer-thread week that cannot stay comfortably abstract. The third poem arrives with a letter that explicitly asks June to meet, ending the safety of treating the pattern as only atmosphere or interpretation. That change matters to everyone around her. June has to decide whether to meet the invitation as a real human risk instead of an aesthetic puzzle. Dex, newly off cooldown, gets a crucial test: can he support without converting the situation into a system he controls? Alex's job is to keep the thread coherent while returning agency to June rather than the mystery itself. Kate and Tracy are on cooldown this week, which lowers their force but makes their witness roles more valuable. Nikole's confession late in the week complicates June's emotional field even further, and the school play auditions make public performance a useful mirror for all the private choices happening underneath. By the end of the week, the admirer thread is no longer only a question of pattern. It is a question of whether June will walk toward being known.
-- Calendar beats in play: Nov 7 Third secret admirer poem + letter; Nov 10 Nikole confesses feelings to June; Nov 11 School Play Auditions
+- Anchor: The third admirer poem stops behaving like a mood and becomes a direct invitation only days after June's private meeting with Nikole, which means the mystery now asks for courage inside an already-altered emotional field.
+- Week Summary: Week 11 is the first admirer-thread week that cannot stay comfortably abstract. The third poem arrives with a letter that explicitly asks June to meet, ending the safety of treating the pattern as only atmosphere or interpretation. That change matters to everyone around her. June has to decide whether to meet the invitation as a real human risk instead of an aesthetic puzzle while already carrying Nikole's private confession from the end of Week 10. Dex, newly off cooldown, gets a crucial test: can he support without converting the situation into a system he controls? Alex's job is to keep the thread coherent while returning agency to June rather than the mystery itself. Kate and Tracy are on cooldown this week, which lowers their force but makes their witness roles more valuable. The new secrecy around June and Nikole makes the admirer letter feel more layered rather than less serious, and the school play auditions make public performance a useful mirror for all the private choices happening underneath. By the end of the week, the admirer thread is no longer only a question of pattern. It is a question of whether June will walk toward being known while already knowing that one real person has stepped toward her.
+- Calendar beats in play: Nov 7 Third secret admirer poem + letter; Nov 11 School Play Auditions
 
 ## Week Flow
 
@@ -11,7 +11,7 @@
 - Tuesday: the third admirer poem arrives with a letter and a concrete invitation, changing the mystery's emotional stakes immediately.
 - Wednesday: June, Dex, and Alex try to decide what support looks like when the question is no longer theoretical.
 - Thursday: quiet witness scenes matter more than interventions as Kate and Tracy feel the cost of cooldown in different ways.
-- Friday: Nikole confesses to June, turning the week's private pressure into a more layered emotional field.
+- Friday: June and Nikole try to keep their new closeness private, which makes the week's pressure denser instead of cleaner.
 - Saturday: school play auditions make performance, self-presentation, and courage newly visible across the ensemble.
 - Sunday: June ends the week with more clarity about what kind of risk is in front of her, but not yet with an answer simple enough to feel safe.
 
@@ -59,19 +59,19 @@
 - Playtest Outcome: Success. Alex keeps the mystery cumulative while explicitly returning the next move to June instead of the trio's analysis.
 - Carry Forward: The trio remains useful because it protects June's agency rather than replacing it.
 
-### MS4 — Secret That Cannot Stay Abstract
+### MS4 — Secret That Changes The Air
 
 - Day/Date: Fri 2023-11-10
 - Location: art-room back stair, shadowed courtyard bench, and phone screen glow after the conversation ends
 - Focus: June
 - Cast: Nikole, Alex by text afterward
-- Hook: Nikole confesses her feelings to June during the same week the admirer letter turns the hidden thread into a real invitation.
-- Stakes: Emotional honesty, kindness, and whether June can hold multiple truths without reducing one to make the other simpler.
-- Summary: Nikole's confession should not read like a twist inserted to complicate the plot. It is the emotional truth that has been approaching for weeks. That is exactly why it lands so hard now. June is already destabilized by the admirer letter because it asks her to move from interpretation into encounter. Nikole, meanwhile, offers something painfully opposite: not mystery, but direct legible care. The scene matters because June cannot honestly flatten either one. She does not need to answer Nikole cleanly this week, but she does need to witness the courage of what was offered and feel what it does to the admirer thread in her mind. Alex's later text matters because it gives June one line of steadying structure without intruding on the intimacy of the confession itself.
+- Hook: After meeting Nikole at the secret location days earlier, June has to figure out how to keep that new closeness real without either announcing it or pretending it changes nothing.
+- Stakes: Secrecy, emotional honesty, and whether June can hold the admirer invitation and Nikole's private confession in the same life without flattening either one.
+- Summary: The confession already happened. What lands this week is the afterlife of that fact. June and Nikole are now in a quieter, stranger space where direct honesty has occurred but public naming has not. The admirer letter makes that secrecy feel heavier, not because it cancels Nikole, but because it proves June's emotional life is now crowded with real asks. The scene matters because June and Nikole have to choose lived closeness over theoretical possibility while agreeing not to make Alex and Dex part of it yet. Alex's later text matters because it gives June one line of steadying structure without intruding on the private bond itself. The result should feel intimate, kind, and newly pressurized rather than melodramatic.
 - DC: Hard
-- MemoryTag: +nikole-confession
-- Playtest Outcome: Partial Success. June receives Nikole's confession with real care and keeps the trust intact, but the overlap with the admirer letter leaves her more emotionally divided than she wants to admit.
-- Carry Forward: June's next choices are now shaped by both the admirer invitation and a real visible confession.
+- MemoryTag: +secret-closeness
+- Playtest Outcome: Partial Success. June and Nikole keep the new closeness real without forcing public language onto it, but the secrecy makes the admirer invitation feel more pressurized instead of cleaner.
+- Carry Forward: June's next choices are shaped not just by the admirer invitation, but by a real private connection she is now actively keeping.
 
 ## Sub Stories
 
@@ -124,7 +124,7 @@
 ## Twists And Pressure
 
 - Twist 1: The red-ribbon instruction echoes a visual detail from an older shoreline sketch, which makes the admirer thread feel more intentionally designed than ever.
-- Twist 2: Nikole's confession lands in the same emotional space the admirer letter just opened, making June's private life suddenly crowded with real risk instead of projected longing.
+- Twist 2: The new secrecy around June and Nikole makes the admirer letter feel even riskier, because June's private life is now crowded with two real claims on her attention.
 - Twist 3: School play auditions expose how many characters are exhausted by versions of themselves they have learned to perform.
 - Sparks pressure: June may spend to treat the admirer invitation as a real human risk; Dex may spend to support without taking over; Alex may spend to protect June's agency inside the mystery; Martin may spend if the audition mirror becomes unexpectedly clarifying.
 - Spark availability entering week: Kate and Tracy are on cooldown from Week 10; June, Dex, Martin, and Alex are eligible.
@@ -134,24 +134,24 @@
 ## Character Memory Updates
 
 - June: +third-letter. The admirer thread becomes a direct invitation that she can no longer keep at aesthetic distance.
-- June: +nikole-confession. Nikole's visible honesty complicates June's emotional field in a way she cannot dismiss.
+- June: +secret-closeness. Nikole's private honesty now has to be carried in lived form rather than remembered as a single confession beat.
 - Dex: +live-support. He proves he can support intimacy without trying to engineer it into safety.
 - Alex: +agency-over-theory. He keeps the mystery coherent while explicitly returning choice to June.
 - Kate: +cooldown-witness. Cooldown makes her a sharper observer and a weaker curator, which is useful.
 - Tracy: +cooldown-care. She offers care without annexing the whole problem.
 - Martin: +audition-pressure. The school play hallway gives him a clearer language for performance-based exhaustion.
-- Nikole: +nikole-confession. She chooses direct visible honesty instead of staying safely interpretive.
+- Nikole: +secret-closeness. She lets the new connection stay real in private instead of forcing it into explanation.
 
 ## Tracker Notes
 
 - Fold Week 11 into `Character_memories.md` during generation, including June and Dex on Spark cooldown for Week 12.
 - Remove the Week 11 cooldown note from Kate and Tracy after their restriction has passed.
-- Carry both the admirer invitation and Nikole confession forward as simultaneous pressures, not competing plot devices.
+- Carry both the admirer invitation and the private Nikole connection forward as simultaneous pressures, not competing plot devices.
 
 ## Notes For SM
 
 - The admirer letter matters because it turns mystery into consent and choice, not because it gives more clues.
 - Kate and Tracy should still matter on cooldown, but through witness, restraint, and texture rather than force.
-- Nikole's confession should feel inevitable and brave, not like a complication inserted for drama.
+- Week 11 should be about the pressure of carrying secrecy after a brave confession, not about replaying the confession itself.
 - School play auditions are useful because they literalize self-performance across the ensemble.
 - End the week with pressure clarified, not resolved.

@@ -38,7 +38,7 @@ Main Characters
 - Juniper "June" Lyu
   - Role: MC — artist/photographer; lighthouse sanctuary
   - Goal(s): build an authentic creative identity; understand her uncle's legacy and her place in the family story; become more open about love and selfhood without losing privacy
-  - Recent: supported Talent Show band formation; helped define the band's act concept and visual identity; formed the rooftop trio with Dex and Alex on Sept 9; followed the Founder's Day clue into local history; adapted band plans around Martin's game week; received the first secret admirer poem on Sept 22; left the W.E.I.R.D tour more fascinated and more uneasy than before; let Academic Pal's contact reframe Prita as a fuller person rather than just a school-system node; survived Midterm Week by narrowing her focus; defended one piece of self-definition at the Lyu family dinner; received the second admirer poem and now reads that thread as active escalation rather than coincidence; moved through the Cheese Festival week with more restraint than certainty and kept the admirer thread active without flattening it into one easy meaning; used the quieter Week 10 to keep the mystery thread disciplined without forcing a false breakthrough; received the third admirer poem and letter, which turned the mystery into a direct invitation she has to treat as real; absorbed Nikole's confession without reducing either feeling into an easy answer; spent Week 12 on cooldown learning that unresolved feeling can be endured without becoming avoidance; used the Talent Show announcement to choose a real creative direction before her inner life was neat enough to make that easy
+  - Recent: supported Talent Show band formation; helped define the band's act concept and visual identity; formed the rooftop trio with Dex and Alex on Sept 9; followed the Founder's Day clue into local history; adapted band plans around Martin's game week; received the first secret admirer poem on Sept 22; left the W.E.I.R.D tour more fascinated and more uneasy than before; let Academic Pal's contact reframe Prita as a fuller person rather than just a school-system node; survived Midterm Week by narrowing her focus; defended one piece of self-definition at the Lyu family dinner; received the second admirer poem and now reads that thread as active escalation rather than coincidence; moved through the Cheese Festival week with more restraint than certainty and kept the admirer thread active without flattening it into one easy meaning; used the quieter Week 10 to keep the mystery thread disciplined without forcing a false breakthrough, then met Nikole at the secret location and received her confession in private; received the third admirer poem and letter, which turned the mystery into a direct invitation she has to treat as real while that private bond was still new; spent Week 12 on cooldown learning that unresolved feeling can be endured without becoming avoidance; used the Talent Show announcement to choose a real creative direction before her inner life was neat enough to make that easy
   - Plans/Focus: investigate the poem and shoreline-pattern clues without making them public spectacle; take more deliberate leadership without becoming rigid; sort fascination from distrust around W.E.I.R.D and any overlapping symbol threads; continue slow trust-building with Nikole; decide how to approach the admirer invitation without turning it into either fantasy or avoidance; enter Week 14 on Spark cooldown after spending 1 Spark in Week 13
 
 - Dexter "Dex" Maxwell
@@ -75,7 +75,7 @@ Supporting / Tertiary Characters (short)
 
 - Nikole Amara Mandela
   - Role: SC — artist; quiet emotional witness around June and the band
-  - Recent: Founder's Day visibility, more personal sketches, and a direct creative offer to June made her more emotionally legible; Week 11 turned that gradual visibility into an explicit confession, making her care impossible to mistake for subtext; Week 13 let that connection feel more lived-in and ordinary before becoming fully public language
+  - Recent: Founder's Day visibility, more personal sketches, and a direct creative offer to June made her more emotionally legible; the end of Week 10 turned that gradual visibility into an explicit confession, making her care impossible to mistake for subtext; Week 13 let that connection feel more lived-in and ordinary before becoming fully public language
   - Plans/Focus: let closeness with June keep densifying without forcing the timeline of disclosure; become part of the ensemble by lived presence, not announcement alone
 
 - Prita Singh
@@ -474,6 +474,7 @@ Playtest — Grade_9-Week_10 (2026-04-25)
 Calendar events included:
 
 - Oct 31: Gabriel's Birthday
+- Nov 5: June goes to the secret location and Nikole confesses her feelings
 
 Results (summary):
 
@@ -487,10 +488,12 @@ SS outcomes:
 - SS1 "Cooldown Warmth" — Dex: PARTIAL SUCCESS. Dex stays supportive during cooldown, but has to accept being present without being the engine of the moment. (MemoryTag: +cooldown-presence)
 - SS2 "Not The Center" — Martin: PARTIAL. Martin's quieter, more legible self remains present, but cooldown means he cannot force that version of himself into clearer public shape. (MemoryTag: +cooldown-martin)
 - SS3 "Gabriel's Birthday" — Gabriel: SUCCESS AS TEXTURE. Gabriel's low-key birthday makes his steadiness more socially legible and gives the ensemble a calmer kind of gathering point. (MemoryTag: +gabriel-birthday)
+- SS4 "Secret Location" — Nikole: SUCCESS WITH COST. Nikole confesses directly and June meets her with real care, but the new private bond immediately becomes a secret both of them now have to carry. (MemoryTag: +nikole-confession)
 
 Group / calendar outcome:
 
 - Gabriel's Birthday: QUIET GRAVITY. The celebration stays small, but it gives the ensemble a steadier social center than the bigger public events did.
+- Secret location meeting: PRIVATE TURN. June's inner life changes sharply when the long-building Nikole thread becomes direct honesty, even though the wider group does not feel the shift yet.
 
 Spark usage / cooldown:
 
@@ -501,12 +504,14 @@ Spark usage / cooldown:
 Character_memories appended updates (short):
 
 - June: Recent +quiet-discipline; Plans: hold the admirer threshold steady without converting tension into fantasy.
+- June: Recent +nikole-confession; Plans: carry the new private confession carefully without forcing it into public shape too fast.
 - Tracy: Recent +visible-reciprocity; Plans: keep choosing reciprocal care without apologizing for it; Week 11 Spark cooldown.
 - Kate: Recent +low-light-honesty; Plans: treat new exposure as information rather than damage; Week 11 Spark cooldown.
 - Alex: Recent +held-threshold; Plans: keep the mystery structured until the next real escalation arrives.
 - Dex: Recent +cooldown-presence; Plans: stay warm and present now that cooldown has passed.
 - Martin: Recent +cooldown-martin; Plans: keep trusting the quieter, more human version of himself now that cooldown has passed.
 - Gabriel: Recent +gabriel-birthday; Plans: remain a low-drama grounding presence when the group needs steadier air.
+- Nikole: Recent +nikole-confession; Plans: let direct honesty stay real without demanding instant public definition.
 
 Log tag: Grade_9-Week_10 — playtest complete.
 
@@ -516,7 +521,6 @@ Playtest — Grade_9-Week_11 (2026-04-25)
 Calendar events included:
 
 - Nov 7: Third secret admirer poem + letter
-- Nov 10: Nikole finally confesses her feelings for June
 - Nov 11: School Play Auditions
 
 Results (summary):
@@ -524,7 +528,7 @@ Results (summary):
 - MS1 "Third Paper, First Ask" — June: SUCCESS WITH COST. June spends 1 Spark to treat the admirer letter as a real invitation instead of a beautiful abstraction, which gives the thread emotional clarity but leaves her newly exposed to wanting an answer. (MemoryTag: +third-letter)
 - MS2 "Help Without A Script" — Dex: SUCCESS. Dex spends 1 Spark to support June relationally instead of turning the situation into a plan he can control. (MemoryTag: +live-support)
 - MS3 "Pattern, Then Permission" — Alex: SUCCESS. Alex keeps the admirer thread coherent while explicitly returning the next move to June instead of the trio's analysis. (MemoryTag: +agency-over-theory)
-- MS4 "Secret That Cannot Stay Abstract" — June: PARTIAL SUCCESS. Nikole's confession lands with real courage and trust, but June ends the week more emotionally divided because the admirer invitation and visible confession now occupy the same space. (MemoryTag: +nikole-confession)
+- MS4 "Secret That Changes The Air" — June: PARTIAL SUCCESS. June and Nikole keep their new closeness real without forcing public language onto it, but the secrecy makes the admirer invitation feel more pressurized instead of cleaner. (MemoryTag: +secret-closeness)
 
 SS outcomes:
 
@@ -535,7 +539,7 @@ SS outcomes:
 Group / calendar outcome:
 
 - Third admirer poem + letter: MAJOR ESCALATION. The admirer thread stops being safely atmospheric and becomes a direct invitation June must choose around.
-- Nikole confession: EMOTIONAL COMPLICATION. June's romantic field becomes more honest and more difficult at the exact moment mystery asks for action.
+- Private Nikole connection: SECRECY PRESSURE. The confession has already happened, so the week's added complication is carrying real closeness without public language while the admirer invitation escalates.
 - School Play Auditions: PERFORMANCE MIRROR. The public audition atmosphere exposes how many characters are tired of versions of themselves they know how to perform on command.
 
 Spark usage / cooldown:
@@ -546,13 +550,13 @@ Spark usage / cooldown:
 
 Character_memories appended updates (short):
 
-- June: Recent +third-letter, +nikole-confession; Plans: decide how to approach the admirer invitation without flattening Nikole's visible honesty into collateral complexity; Week 12 Spark cooldown.
+- June: Recent +third-letter, +secret-closeness; Plans: decide how to approach the admirer invitation without flattening her new private closeness with Nikole into collateral complexity; Week 12 Spark cooldown.
 - Dex: Recent +live-support; Plans: keep supporting intimacy without engineering it into safety; Week 12 Spark cooldown.
 - Alex: Recent +agency-over-theory; Plans: keep the trio useful by protecting June's agency instead of narrating over it.
 - Kate: Recent +cooldown-witness; Plans: treat perception as evidence before polishing it into strategy.
 - Tracy: Recent +cooldown-care; Plans: keep offering care that leaves room for herself and other people.
 - Martin: Recent +audition-pressure; Plans: notice faster when approval-based spaces are all asking him for the same sacrifice.
-- Nikole: Recent +nikole-confession; Plans: let direct honesty stand without managing June into a cleaner response.
+- Nikole: Recent +secret-closeness; Plans: let the new private bond stay real without rushing June into public explanation.
 
 Log tag: Grade_9-Week_11 — playtest complete.
 
