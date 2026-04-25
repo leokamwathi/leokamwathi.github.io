@@ -28,6 +28,7 @@
 - DC:
 - MemoryTag:
 - Playtest Outcome:
+- Carry Forward:
 
 ### MS2 — Title
 
@@ -41,6 +42,7 @@
 - DC:
 - MemoryTag:
 - Playtest Outcome:
+- Carry Forward:
 
 ### MS3 — Title
 
@@ -54,6 +56,7 @@
 - DC:
 - MemoryTag:
 - Playtest Outcome:
+- Carry Forward:
 
 ## Sub Stories
 
@@ -68,6 +71,7 @@
 - Summary:
 - MemoryTag: optional
 - Playtest Outcome:
+- Carry Forward:
 
 ### SS2 — Title
 
@@ -80,6 +84,7 @@
 - Summary:
 - MemoryTag: optional
 - Playtest Outcome:
+- Carry Forward:
 
 ## Group Scene
 
