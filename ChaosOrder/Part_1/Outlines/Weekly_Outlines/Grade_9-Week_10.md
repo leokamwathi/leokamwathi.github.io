@@ -58,8 +58,8 @@
 
 ### MS4 — Threshold, Not Answer
 
-- Day/Date: Sun 2023-11-05, morning
-- Location: rooftop corner in the morning chill, phone notes, and short walk down the stairwell afterward
+- Day/Date: Fri 2023-11-03, after school
+- Location: rooftop corner after classes, phone notes, and short walk down the stairwell afterward
 - Focus: Alex
 - Cast: June, Dex joining late, Gabriel by one earlier observation that reshapes the scene's framing
 - Hook: Alex has to keep the mystery structured during a week where the real work is waiting well, not solving fast.
