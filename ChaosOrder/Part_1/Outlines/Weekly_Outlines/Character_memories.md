@@ -63,34 +63,45 @@ Main Characters
 
 Supporting / Tertiary Characters (short)
 
-- Nikole Amara Mandela 
-    - artist; 
-    - growing feelings for June; (Not sure if replicated.) 
-    - reliable confidant
-- Prita Singh 
-  - logical, 
-  - Academic Pals; blind-date with Alex seeds
-  - Week 6 birthday + ensemble visibility; more relational presence beyond school usefulness
-- Akihiko "Aki" Tanaka 
-    - calm, supportive; 
-    - Tracy's safe person
-- Malcolm Lewis 
-    - athlete; 
-    - friendly rivalry threads with June
-- Jayden Flores 
-    - charismatic leader; 
-    - secret health/identity complexity
-- Finn O’Connell 
-    - mischief with care; 
-    - provokes scenes
-- Jace Mikkonen 
-    - loyal, 
-    - skate culture; 
-    - step-sibling support for Prita
-- Gabriel Blackwell 
-    - reserved goth intellect; 
-    - selective connection
-    - Trusted and very observent. 
+- Nikole Amara Mandela
+  - Role: SC — artist; quiet emotional witness around June and the band
+  - Recent: Founder's Day visibility, more personal sketches, and a direct creative offer to June made her more emotionally legible
+  - Plans/Focus: keep risking visible honesty around June without forcing confession too early
+
+- Prita Singh
+  - Role: SC — logical academic bridge; Academic Pal's pressure node
+  - Recent: helped humanize Dex's systems, became more central through Academic Pal's, and Week 6 made her feel socially specific beyond usefulness
+  - Plans/Focus: stay relationally present as one-on-one study contact deepens; keep blind-date-with-Alex energy available as a future seed
+
+- Akihiko "Aki" Tanaka
+  - Role: SC — calm, supportive safe harbor in Tracy's orbit
+  - Recent: his birthday week highlighted the difference between safety and deeper longing for Tracy
+  - Plans/Focus: remain kind and steady while Tracy's understanding of comfort becomes more complicated
+
+- Malcolm Lewis
+  - Role: SC — athlete rival-pressure mirror for Martin
+  - Recent: sharpened Martin's pregame tension and keeps functioning as a cleaner version of chosen ambition
+  - Plans/Focus: continue pressuring Martin without collapsing into one-note hostility
+
+- Jayden Flores
+  - Role: SC — charismatic leader; polished frame around Kate and unresolved tension around Alex
+  - Recent: kept reading as socially ideal while Kate grows less certain he is emotionally real to her
+  - Plans/Focus: remain a stable but increasingly questioned figure in Kate's image-and-desire conflict
+
+- Finn O’Connell
+  - Role: SC — mischief agent with real perception under the teasing
+  - Recent: kept poking at Dex's insecurity and social edges without fully derailing scenes
+  - Plans/Focus: provoke truth through annoyance, especially when competence starts hardening into armor
+
+- Jace Mikkonen
+  - Role: SC — loyal skate-culture support; family-adjacent anchor for Prita
+  - Recent: stayed mostly peripheral but remains part of Prita's broader support texture
+  - Plans/Focus: be available when Prita's social world expands beyond school utility
+
+- Gabriel Blackwell
+  - Role: SC — reserved goth intellect; observant selective connector
+  - Recent: mostly off-center, but remains a believable future watcher of group contradictions
+  - Plans/Focus: enter when a sharper, quieter observer is needed around mystery or social tension
 
 History / Update Log
 
