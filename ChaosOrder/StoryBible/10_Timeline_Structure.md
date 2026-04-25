@@ -51,8 +51,8 @@ The story is divided into four parts, each corresponding to a pivotal year of hi
 *   **Oct 31st:** Gabriel’s Birthday (Scorpio)
 
 **November:**
+*   **Nov 5th:** June goes to the secret location and meets Nikole. Who finally Confesses Her Feelings for June; (They agree to keep it a secret. even from the other trio (Alex and Dex).)
 *   **Nov 7th:** Third secret admirer poem + letter. (Heartfelt with i will not write more, i want to meet no more secrets. I want to meet. come to xxxx place on xxx day and I will be there. I will have a read ribbon so aproach me if you are interested. If you dont I understand.)
-*   **Nov 10th:** Nikole finally Confesses Her Feelings for June; (They agree to keep it a secret. even from the other trio (Alex and Dex).)
 *   **Nov 11th:** School Play Auditions
 *   **Nov 15th:** Finn's Birthday (Scorpio)
 *   **Nov 17th:** Thanksgiving Break Begins
