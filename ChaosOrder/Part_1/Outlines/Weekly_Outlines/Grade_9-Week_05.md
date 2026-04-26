@@ -4,6 +4,20 @@
 - Anchor: W.E.I.R.D Tour Day turns curiosity into exposure, while Aki's birthday quietly tests comfort, affection, and who still feels safe.
 - Week Summary: Week 5 moves the story into a more explicit technology-and-feelings overlap. The admirer poem from Sept 22 is still fresh enough to color how June reads attention, but the week does not let her hide inside that mystery alone. W.E.I.R.D Tour Day places the cast inside the town's most futuristic institution and turns questions of usefulness, ambition, secrecy, and belonging into something physical and public. Dex gets a week where his strengths are clearly legible, which is good for him and also risky. June has to navigate both curiosity and unease as the world around her starts feeling more designed than natural. Kate confronts what it means to perform poise in a space built around excellence and status. Tracy's thread stays grounded in care, but Aki's birthday makes that care more relational and quietly revealing. The result should be a week where the cast feels pulled toward future versions of themselves they are not yet ready to name.
 
+## Operational Snapshot
+
+- Main Pressure: W.E.I.R.D publicly sorts people by future-fit while Aki's birthday quietly tests what safety and belonging actually mean in private life.
+- Who Changes This Week: Dex, June, Kate, Alex, and Tracy move most materially, while Prita and Nikole deepen surrounding pressure and texture.
+- Who Is Restricted This Week: no Spark cooldowns are active; the week is constrained by institutional prestige pressure, emerging admirer-thread ambiguity, and ordinary social comparison.
+- What Advances: Dex's W.E.I.R.D fit, June's unease with optimized systems, Kate's prestige mirror, the admirer-poem tracking method, Tracy's safety-versus-longing contrast, and Academic Pal's becoming real.
+- What Stays Unresolved: what W.E.I.R.D means for the group's future sorting, who sent the poem, and whether safety, status, and belonging can coexist cleanly.
+
+## Continuity Guardrails
+
+- Entering Week: the first admirer poem is active, the band exists but remains fragile, the lighthouse and shoreline mystery thread is still private, and Martin's public-pressure arc is already live.
+- Cannot Contradict: W.E.I.R.D Tour Day happens on Sept 28; Aki's birthday happens on Sept 30; the admirer thread remains unresolved; no Spark cooldowns are active.
+- Newly True By End: Dex is visibly legible inside W.E.I.R.D, June becomes more uneasy about systems that observe and optimize, Kate starts questioning prestige as a self, the trio chooses to track the poem rather than chase it, and Tracy realizes safety may not be enough.
+
 ## Week Flow
 
 - Monday: the group is still carrying soccer-game and admirer-poem fallout, but school routines force them to keep moving.
@@ -118,6 +132,13 @@
 - Twist 2: June notices a phrase or symbol during the tour that faintly echoes either the shoreline pattern thread or the admirer-poem cadence, without confirming a direct connection.
 - Sparks pressure: Dex may spend to shine inside W.E.I.R.D without alienating people, June to protect her internal compass in a hyper-designed space, Kate to maintain poise while reassessing ambition, and Tracy to keep a safe night from turning emotionally flat.
 
+## Spark Ledger
+
+- Entering Cooldown: none.
+- Spark-Eligible This Week: June, Dex, Kate, Tracy, Martin, and Alex.
+- Sparks Spent This Week: none recorded.
+- Cooldown Next Week: none.
+
 ## Character Memory Updates
 
 - June: +weird-unease. She learns that fascination and distrust can coexist, especially in spaces built to observe and optimize.
@@ -127,6 +148,21 @@
 - Tracy: +aki-birthday. Aki's birthday makes her confront the difference between safety and deeper longing.
 - Martin: +off-center-support. He has a quieter week, which reveals how useful he can be when he is not under direct performance pressure.
 - Nikole: +weird-observer. She remains just outside the center this week, but her presence keeps shaping June's emotional field.
+
+## Tracker Notes
+
+- Fold Week 5 into `Character_memories.md` during generation.
+- Carry forward W.E.I.R.D as a live prestige-and-observation pressure node, along with the trio's decision to track the admirer poem instead of chasing it.
+- No Spark cooldowns carry into Week 6.
+
+## Finalization Checklist
+
+- Timeline/date check: complete.
+- Location access check: complete.
+- Cast availability check: complete.
+- Spark legality check: complete; no Spark use recorded.
+- Fold check: this week is intended to fold into `Character_memories.md` in the same pass.
+- Open-loop check: complete; W.E.I.R.D, the admirer thread, and Tracy's relational axis all advance without resolution.
 
 ## Notes For SM
 

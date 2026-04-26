@@ -5,6 +5,20 @@
 - Week Summary: Week 8 should feel sharper and more socially volatile than Midterm Week, but the volatility comes from emotional exposure rather than pure event energy. The cast is coming out of institutional pressure with less patience for pretense, which makes family systems, attraction, and secrecy harder to manage cleanly. June gets hit from both directions at once: the Lyu family turns dinner into a pressure chamber around obedience, privacy, and identity, and then the second admirer poem arrives before she has fully stabilized from that. Dex and Kate are on Spark cooldown, which matters because both of them enter the week in situations where they would usually use extra force to preserve composure or usefulness. Tracy regains access to Spark use and has a chance to show care as a choice rather than a reflex. Martin keeps discovering that he is more honest when he is off the main public stage. Alex becomes increasingly important as the keeper of tone and method around the mystery. The Halloween party should not resolve anything. It should dramatize which masks are social tools, which are armor, and which are now starting to crack.
 - Calendar beats in play: Oct 17 Family Dinner From Hell at the Lyu Household; Oct 18 second secret admirer poem; Oct 20 Halloween Costume Party
 
+## Operational Snapshot
+
+- Main Pressure: family control, admirer-thread escalation, and costume-party theatricality force private instability into visible social form.
+- Who Changes This Week: June, Kate, Tracy, Alex, and Martin all move materially, with Dex and Prita affecting the ensemble even while one is on cooldown and the other is consolidating social weight.
+- Who Is Restricted This Week: Dex and Kate are on Spark cooldown.
+- What Advances: June's self-definition under family pressure, the second admirer poem, Kate's mask crack, Tracy's first direct ask for help, Martin's quieter afterparty legibility, and Prita's socially useful observational role.
+- What Stays Unresolved: who sent the admirer thread, what June owes to desire versus caution, how Kate will act on what she now knows, and whether Tracy's safety line can satisfy her deeper longing.
+
+## Continuity Guardrails
+
+- Entering Week: Week 7 put Dex and Kate on Spark cooldown, the admirer thread is now being held methodically, and the group is coming out of midterm compression with less patience for performance.
+- Cannot Contradict: the Lyu family dinner happens on Oct 17; the second admirer poem arrives on Oct 18; the Halloween party happens on Oct 20; Dex and Kate are on cooldown all week.
+- Newly True By End: June defends one piece of self-definition at home, the second poem escalates the admirer thread, Kate's party mask cracks under pressure, Tracy learns relief can come through direct asking, Martin again reads truer after the main public stage, and Prita becomes more native to the ensemble.
+
 ## Week Flow
 
 - Monday: the post-midterm lull does not last, because everyone starts shifting back into social performance before they have actually recovered.
@@ -120,9 +134,13 @@
 - Twist 2: The second poem contains a phrase or symbol that seems to point toward the party, but could still be bait rather than invitation.
 - Twist 3: A family comment from the Lyu dinner echoes in June's head at exactly the wrong party moment, turning social play into emotional vertigo.
 - Sparks pressure: June may spend to hold self-definition under family pressure, Tracy to make care reciprocal instead of automatic, Alex to keep the poem thread disciplined, and Martin to stay emotionally honest if the party starts turning him back into a role.
-- Spark availability entering week: Dex and Kate are on cooldown from Week 7; June, Tracy, Martin, and Alex are eligible.
-- Spark use in playtest: June spends 1 Spark in MS1; Tracy spends 1 Spark in SS1.
-- Next-week Spark cooldown: June and Tracy cannot spend Sparks in Week 9.
+
+## Spark Ledger
+
+- Entering Cooldown: Dex and Kate.
+- Spark-Eligible This Week: June, Tracy, Martin, and Alex.
+- Sparks Spent This Week: June in MS1; Tracy in SS1.
+- Cooldown Next Week: June and Tracy cannot spend Sparks in Week 9.
 
 ## Character Memory Updates
 
@@ -139,6 +157,15 @@
 - Fold Week 8 results into `Character_memories.md`, including June and Tracy on Spark cooldown for Week 9.
 - Remove the Week 8 cooldown note from Dex and Kate after their restriction has passed.
 - Carry forward the party fallout and second-poem escalation into the next week without forcing immediate revelation.
+
+## Finalization Checklist
+
+- Timeline/date check: complete.
+- Location access check: complete.
+- Cast availability check: complete.
+- Spark legality check: complete.
+- Fold check: this week is intended to fold into `Character_memories.md` in the same pass.
+- Open-loop check: complete; family pressure, admirer escalation, and party fallout all advance without premature payoff.
 
 ## Notes For SM
 

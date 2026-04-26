@@ -5,6 +5,20 @@
 - Week Summary: Week 6 should feel more grounded than the W.E.I.R.D week, but not smaller. The pressure comes from ordinary structures becoming emotionally revealing. Academic Pal's is no longer just an announcement. It starts creating repeated contact, obligation, and low-level intimacy. Prita's birthday adds a softer lens through which several characters can see her as more than a clean academic archetype. Then the Great Waterfall Bake-Off gives Waterfall one of its classic community stages, which matters because public town events always blur family identity, school reputation, and private feeling. Tracy's caretaker axis should be especially alive here because baking, service, and public warmth all overlap. Dex keeps dealing with what it means to be useful in a way people now actively seek out. June continues sorting real clues from projected meaning, while Kate and Martin both get a week where they are less trapped by their usual performance arenas and therefore a little more exposed as people.
 - Calendar beats in play: Oct 2 Prita's Birthday; Oct 6 The Great Waterfall Bake-Off
 
+## Operational Snapshot
+
+- Main Pressure: ordinary systems and town rituals expose usefulness, authorship, and social warmth more clearly than louder event weeks did.
+- Who Changes This Week: June, Dex, Tracy, and Kate move most materially, with Prita and Martin gaining important new definition.
+- Who Is Restricted This Week: no entering Spark cooldowns; the week is constrained by repeated Academic Pal contact, town-family overlap, and the live admirer-poem thread.
+- What Advances: June's reframe of Prita, Dex's usefulness boundary, Tracy's public authorship, Kate's fatigue with curation, Martin's quieter ordinary self, and the admirer-poem visual echo.
+- What Stays Unresolved: whether usefulness can become identity, whether Tracy can keep authorship once the event ends, and whether the poem echo is pattern or projection.
+
+## Continuity Guardrails
+
+- Entering Week: W.E.I.R.D has sharpened future pressure, the admirer poem is being tracked rather than chased, the band is active but emotionally uneven, and Academic Pal's is now live.
+- Cannot Contradict: Prita's birthday happens on Oct 2; the Great Waterfall Bake-Off happens on Oct 6; the admirer thread remains unresolved; no Spark cooldowns enter the week.
+- Newly True By End: June sees Prita as fuller and more human, Dex starts noticing the extraction-risk inside usefulness, Tracy publicly claims craft authorship, Kate feels how tiring curation has become, Martin becomes more legible away from athlete pressure, and the admirer thread gains a suggestive visual echo.
+
 ## Week Flow
 
 - Monday: Prita's birthday creates a small but meaningful social beat inside an otherwise normal school day.
@@ -120,7 +134,13 @@
 - Twist 2: Someone casually compares Tracy to her family role instead of recognizing her personal skill, sharpening the authorship question.
 - Twist 3: A visual rhyme between poem imagery and town-event design appears convincing enough to tempt June into overreading.
 - Sparks pressure: June may spend to trust a structured social space long enough to learn from it, Dex to set a boundary without feeling cruel, Tracy to claim ownership of her craft in public, and Kate to stay present when polish is no longer a full shield.
-- Spark use in playtest: June spends 1 Spark in MS1; Tracy spends 1 Spark in MS3. Both enter a one-week Spark cooldown for Week 7.
+
+## Spark Ledger
+
+- Entering Cooldown: none.
+- Spark-Eligible This Week: June, Dex, Kate, Tracy, Martin, and Alex.
+- Sparks Spent This Week: June in MS1; Tracy in MS3.
+- Cooldown Next Week: June and Tracy cannot spend Sparks in Week 7.
 
 ## Character Memory Updates
 
@@ -131,6 +151,21 @@
 - Prita: +prita-birthday. Her quieter birthday week makes her feel more central and more relational in the ensemble.
 - Martin: +civilian-martin. He gets a glimpse of himself outside athlete-pressure and seems more like a person than a role.
 - Alex: +poem-pattern-echo. He keeps the admirer-poem thread alive without letting it turn into fantasy logic.
+
+## Tracker Notes
+
+- Fold Week 6 into `Character_memories.md` during generation.
+- Record June and Tracy on Spark cooldown for Week 7.
+- Carry forward Prita's increased relational centrality, Tracy's authorship shift, and the new poem-pattern echo.
+
+## Finalization Checklist
+
+- Timeline/date check: complete.
+- Location access check: complete.
+- Cast availability check: complete.
+- Spark legality check: complete.
+- Fold check: this week is intended to fold into `Character_memories.md` in the same pass.
+- Open-loop check: complete; Academic Pal's, Tracy's authorship, and the admirer thread all move forward.
 
 ## Notes For SM
 

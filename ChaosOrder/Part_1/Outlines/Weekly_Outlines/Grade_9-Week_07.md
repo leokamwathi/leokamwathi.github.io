@@ -5,6 +5,20 @@
 - Week Summary: Week 7 should feel tighter, quieter, and more internal than the Bake-Off week. Midterms compress everybody into school logic, but the interesting pressure is not just grades. It is what exam pressure reveals about each character's coping style. June is on Spark cooldown, which matters because this is exactly the kind of week where she would usually spend emotional energy to keep herself open and composed. Tracy is also on cooldown, making her more vulnerable to slipping back into silent over-functioning when nobody explicitly asks how she is doing. Dex gets a chance to prove that support can be human without becoming ownership. Kate's relationship to achievement gets tested outside pure image. Martin has to confront the difference between academic performance pressure and athletic pressure, while Alex helps keep the mystery threads coherent without letting the week turn into clue-chasing when everyone is already overloaded. The result should be a week where competence, care, and composure all look more fragile and therefore more honest.
 - Calendar beats in play: Oct 13 Midterm Exams
 
+## Operational Snapshot
+
+- Main Pressure: midterm compression exposes coping styles and makes competence, care, and composure harder to fake.
+- Who Changes This Week: June, Dex, Kate, and Alex move most materially, with Tracy, Martin, and Prita deepening the ensemble's stress logic.
+- Who Is Restricted This Week: June and Tracy are on Spark cooldown.
+- What Advances: Dex's humane support, Kate's earned-composure beat, Alex's clue method, Martin's pressure-architecture insight, and Prita's PAL centrality.
+- What Stays Unresolved: June's admirer and shoreline threads remain active but unsolved, Tracy's care limits remain difficult, and Martin still lacks a stable answer to performance pressure.
+
+## Continuity Guardrails
+
+- Entering Week: Week 6 put June and Tracy on Spark cooldown, the admirer-poem thread now has a suggestive pattern echo, and Prita is more relationally central than before.
+- Cannot Contradict: Midterm Exams happen on Oct 13; June and Tracy are on cooldown all week; the mystery remains structured but unresolved.
+- Newly True By End: June survives by narrowing focus, Dex proves he can build humane structure, Kate trusts earned substance more than image for a moment, Alex gives the trio a calmer method, and Martin realizes academic pressure uses the same approval architecture as sports.
+
 ## Week Flow
 
 - Monday: study pressure becomes social pressure as Academic Pal's and rehearsal time start competing directly.
@@ -120,9 +134,13 @@
 - Twist 2: A scribbled phrase in June's notes faintly echoes poem language, but only because stress is altering how she reads patterns.
 - Twist 3: One exam question unexpectedly links to W.E.I.R.D or town history in a way that makes Dex or June over-notice it.
 - Sparks pressure: Dex may spend to keep support humane under heavy demand, Kate to preserve interior steadiness during institutional evaluation, Alex to keep the mystery disciplined after the week, and Martin to avoid reading every measured space as a verdict.
-- Spark availability entering week: June and Tracy are on cooldown from Week 6; Dex, Kate, Martin, and Alex are eligible.
-- Spark use in playtest: Dex spends 1 Spark in MS2; Kate spends 1 Spark in MS3.
-- Next-week Spark cooldown: Dex and Kate cannot spend Sparks in Week 8.
+
+## Spark Ledger
+
+- Entering Cooldown: June and Tracy.
+- Spark-Eligible This Week: Dex, Kate, Martin, and Alex.
+- Sparks Spent This Week: Dex in MS2; Kate in MS3.
+- Cooldown Next Week: Dex and Kate cannot spend Sparks in Week 8.
 
 ## Character Memory Updates
 
@@ -139,6 +157,15 @@
 - Fold Week 7 results into `Character_memories.md`, including Dex and Kate on Spark cooldown for Week 8.
 - Remove the Week 7 cooldown note from June and Tracy after their restriction has passed.
 - Keep Prita's ensemble-centrality active going into the Oct 17 family-pressure run-up.
+
+## Finalization Checklist
+
+- Timeline/date check: complete.
+- Location access check: complete.
+- Cast availability check: complete.
+- Spark legality check: complete.
+- Fold check: this week is intended to fold into `Character_memories.md` in the same pass.
+- Open-loop check: complete; midterm stress, PAL pressure, and the admirer thread all move forward without false resolution.
 
 ## Notes For SM
 
