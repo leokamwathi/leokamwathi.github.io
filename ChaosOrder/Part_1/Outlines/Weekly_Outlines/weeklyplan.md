@@ -11,7 +11,7 @@ Last updated: 2026-04-27
 ## Use Rules
 
 - Keep the next 4-8 weeks active here.
-- After a weekly file is drafted and folded, mark that week complete here and add one new future week at the bottom.
+- After a weekly file is drafted and folded, mark that week complete here and add one new future week at the bottom when the active horizon would otherwise drop below 8 weeks.
 - Keep this at beat-map level only. Do not turn it into a second weekly outline.
 - If a week is structurally light, note whether it should be drafted lightly, compacted, or merged at the planning stage.
 - Past deep history lives in the weekly files and 4-week summaries, not here.
@@ -29,22 +29,9 @@ Last updated: 2026-04-27
 
 - Weeks 01-16 are already covered by the weekly files and `Week_1-4_summary.md`, `Week_5-8_summary.md`, `Week_9-12_summary.md`, and `Week_13-16_summary.md`.
 - Week 17 is now drafted: the cookie-rush and bookshop beats proved break continuity can survive in family-facing spaces without school structure.
+- Week 18 is now drafted: family interiors and year-end drift turned late break into a changed-defaults week instead of dead air.
 
 ## Active Planning Horizon
-
-### Grade_9 — Week_18
-
-- Dates: 2023-12-25 → 2023-12-31
-- Anchor: holiday interiors and year-end drift isolate people into family scripts just before January forces everyone back under school light.
-- Calendar beats: no fixed canon event; use holiday family gatherings, gift-exchange aftermath, and year-end drift as ambient structure rather than spectacle.
-- Week Job: deepen consequences privately so Jan 5 school re-entry lands on changed defaults instead of a clean reset.
-- Main Drivers: June, Kate, Martin, Alex, with Tracy as a quieter continuity pressure.
-- Forced Interactions: family gatherings, unsent or low-stakes messages, one optional year-end band contact, and the continued absence of school scripts should keep people facing what feels real without public excuses.
-- Must Advance: June carrying Week 17's quieter public visibility while on cooldown; family-pressure texture around June and Alex; Kate/Martin/Jayden contrast through presence versus polish; Martin's lower-pressure self staying real outside team rhythm; Tracy and Dex carrying the cookie-rush aftermath quietly forward.
-- Hold For Later: formal romantic decisions, large ensemble reset scenes.
-- Payoff Setup: makes Jan 5 and Jan 8 feel like institutional pressure arriving on top of already-shifted relationships.
-- Spark Watch: June and Alex are on cooldown; Dex, Kate, Tracy, and Martin are eligible.
-- Draft Note: draft this as an interior pressure week unless pacing later proves it truly belongs as a compact bridge.
 
 ### Grade_9 — Week_19
 
@@ -54,10 +41,10 @@ Last updated: 2026-04-27
 - Week Job: show who the characters became during break before the institution starts trying to sort them back into roles.
 - Main Drivers: June, Dex, Alex, Nikole, Kate
 - Forced Interactions: first corridors back, first lunch decisions, first visible re-entry into shared school air.
-- Must Advance: June/Nikole visibility under school light; Dex proving he can be relational without taking over; Alex preserving continuity without becoming social management; Kate discovering whether her break clarity survives public scripts.
+- Must Advance: June/Nikole visibility under school light after holiday family pressure; Dex proving he can be relational without taking over; Alex returning from cooldown without becoming social management; Kate discovering whether her break clarity survives public scripts; Tracy and Martin carrying late-break interior change while on cooldown.
 - Hold For Later: big public confrontation, triangle payoff, admirer reveal.
 - Payoff Setup: loads Jan 8 pairings and Jan 12 birthday week with more pressure.
-- Spark Watch: depends on Week 17-18 outcomes.
+- Spark Watch: Tracy and Martin are on cooldown; June, Dex, Kate, and Alex are eligible.
 
 ### Grade_9 — Week_20
 
