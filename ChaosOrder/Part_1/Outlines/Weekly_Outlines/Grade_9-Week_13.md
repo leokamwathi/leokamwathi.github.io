@@ -5,6 +5,20 @@
 - Week Summary: Week 13 is the week where private feeling starts re-entering public structure. Thanksgiving break is still running, so family texture, chosen-company rituals, and loosely planned hangs keep everybody in a softer but less protected emotional state. Then the Talent Show announcement arrives and reintroduces deadline, shape, and audience. That matters because the band has changed internally since its first formation. June is now carrying the admirer invitation and Nikole's confession in the same emotional field, and a public performance goal makes selfhood feel less theoretical again. Tracy and Alex are on cooldown this week, which lowers two stabilizing forces at exactly the moment the ensemble has to decide what kind of act it is becoming. Dex gets a chance to re-enter actively without lapsing into management. Kate benefits from having to turn her recent private evidence into some kind of outward posture. Martin's easier, lower-pressure self is now real enough that any return to performance structure becomes revealing. By the end of the week, the Talent Show is no longer just a school event. It is the next public container for several private arcs that are beginning to converge.
 - Calendar beats in play: Nov 24 Talent Show Announcement; Thanksgiving Break aftermath still active through the week
 
+## Operational Snapshot
+
+- Main Pressure: private feeling has to start taking public form again as the Talent Show turns changed people back toward performance.
+- Who Changes This Week: June, Dex, Kate, and Martin move most materially, while Tracy, Alex, and Nikole reshape the week through cooldown restraint and quiet closeness.
+- Who Is Restricted This Week: Tracy and Alex are on Spark cooldown.
+- What Advances: June's Talent Show direction, Dex's inviting structure, Kate's first outward use of evidence, Martin's birthday approach, Alex's cooldown tone work, and June/Nikole's lived private closeness.
+- What Stays Unresolved: how the band's new public form will hold the group's private changes, whether Kate's evidence becomes a pattern, and how soon June's private reality will have to become shared truth.
+
+## Continuity Guardrails
+
+- Entering Week: Week 12 put Tracy and Alex on Spark cooldown, the admirer thread is a direct invitation, and June/Nikole closeness is real but still private.
+- Cannot Contradict: Thanksgiving Break aftermath remains active through the week; the Talent Show Announcement happens on Nov 24; Tracy and Alex are on cooldown all week.
+- Newly True By End: June names a real creative direction for the changed band, Dex proves structure can feel spacious, Kate lets one outward act reflect inward evidence, Martin feels his birthday approaching as a question of recognition, and Nikole/June closeness becomes dense enough that future disclosure feels inevitable.
+
 ## Week Flow
 
 - Monday: break-week drift continues, and the group is still learning what it feels like to be together without school momentum doing the work.
@@ -127,9 +141,13 @@
 - Twist 2: Thanksgiving break ends without actually resolving any of the family or romance pressure it intensified.
 - Twist 3: Someone notices that Nikole is no longer only adjacent to the group, even if nobody says it plainly.
 - Sparks pressure: June may spend to choose direction under emotional ambiguity; Dex may spend to support without overtaking; Kate may spend if evidence forces behavior; Martin may spend if the approach of his birthday makes recognition feel newly vulnerable.
-- Spark availability entering week: Tracy and Alex are on cooldown from Week 12; June, Dex, Kate, and Martin are eligible.
-- Spark use in playtest: June spends 1 Spark in MS1; Dex spends 1 Spark in MS2.
-- Next-week Spark cooldown: June and Dex cannot spend Sparks in Week 14.
+
+## Spark Ledger
+
+- Entering Cooldown: Tracy and Alex.
+- Spark-Eligible This Week: June, Dex, Kate, and Martin.
+- Sparks Spent This Week: June in MS1; Dex in MS2.
+- Cooldown Next Week: June and Dex cannot spend Sparks in Week 14.
 
 ## Character Memory Updates
 
@@ -146,6 +164,15 @@
 - Fold Week 13 into `Character_memories.md` during generation, including June and Dex on Spark cooldown for Week 14.
 - Remove the Week 13 cooldown note from Tracy and Alex after their restriction has passed.
 - Carry the band into Week 14 as a changed ensemble, not a reset one.
+
+## Finalization Checklist
+
+- Timeline/date check: complete.
+- Location access check: complete.
+- Cast availability check: complete.
+- Spark legality check: complete.
+- Fold check: this week is intended to fold into `Character_memories.md` in the same pass.
+- Open-loop check: complete; the band, June/Nikole closeness, and Kate's evidence-to-action arc all move forward.
 
 ## Notes For SM
 

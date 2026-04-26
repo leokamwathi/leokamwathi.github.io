@@ -5,6 +5,20 @@
 - Week Summary: Week 14 is the week where the band's emotional reality finally catches up to its calendar. Martin's birthday sharpens the question of whether he wants to be celebrated or actually known. Band rehearsals beginning on Dec 1 pull the whole group back into collective form, which matters because the ensemble is not the same ensemble that first formed in September. June and Dex are on cooldown this week, so the two people most likely to push clarity or structure by force have to work with less leverage. That makes the week more honest. June's biggest movement is not romance in private but disclosure in public: she finally tells the trio about Nikole on Dec 3, and the point is not shock but integration. Tracy and Kate both have room to act from restored agency. Alex, off cooldown again, has to decide whether his usefulness this week lies in support, revelation, or restraint. By the end of the week, the trio and the wider band feel newly configured. The important win is not that everything becomes simpler. It is that more of it becomes real in the open.
 - Calendar beats in play: Nov 29 Martin's Birthday; Dec 1 Band Rehearsals Begin; Dec 3 June tells the trio about Nikole
 
+## Operational Snapshot
+
+- Main Pressure: changed private truths now have to survive shared space as birthday attention, rehearsals, and disclosure force the ensemble into a more public form.
+- Who Changes This Week: Martin, Tracy, June, and Alex move most materially, while Kate and Nikole deepen the changed social map.
+- Who Is Restricted This Week: June and Dex are on Spark cooldown.
+- What Advances: Martin's distinction between centering and recognition, Tracy's rehearsal authorship, June's disclosure to the trio, Alex's active restraint, Kate's pattern of choice, and Nikole's approach to practical band space.
+- What Stays Unresolved: how the group will absorb Nikole's changed place over time, whether Martin can keep trusting his more human self, and how the band will sound now that more of its truths are spoken.
+
+## Continuity Guardrails
+
+- Entering Week: Week 13 put June and Dex on Spark cooldown, the Talent Show is now active public structure, and June/Nikole closeness is real but not yet spoken to the trio.
+- Cannot Contradict: Martin's birthday happens on Nov 29; band rehearsals begin on Dec 1; June tells the trio about Nikole on Dec 3; June and Dex are on cooldown all week.
+- Newly True By End: Martin understands recognition more clearly, Tracy asserts authorship inside rehearsal, June brings Nikole into shared trio truth, Alex proves restraint can be active leadership, and Nikole becomes more naturally present around the band's practical world.
+
 ## Week Flow
 
 - Monday: school routines return, but the break's emotional aftermath is still visible in how everybody occupies ordinary space.
@@ -127,9 +141,13 @@
 - Twist 2: The first rehearsal exposes emotional imbalance faster than private conversation ever could.
 - Twist 3: June telling the trio about Nikole changes the social map more by trust than by drama.
 - Sparks pressure: Martin may spend to stay present inside real recognition; Tracy may spend to claim authorship in rehearsal; Kate may spend if repeated honesty becomes action; Alex may spend to intervene without taking over.
-- Spark availability entering week: June and Dex are on cooldown from Week 13; Kate, Tracy, Martin, and Alex are eligible.
-- Spark use in playtest: Martin spends 1 Spark in MS1; Tracy spends 1 Spark in MS2.
-- Next-week Spark cooldown: Martin and Tracy cannot spend Sparks in Week 15.
+
+## Spark Ledger
+
+- Entering Cooldown: June and Dex.
+- Spark-Eligible This Week: Kate, Tracy, Martin, and Alex.
+- Sparks Spent This Week: Martin in MS1; Tracy in MS2.
+- Cooldown Next Week: Martin and Tracy cannot spend Sparks in Week 15.
 
 ## Character Memory Updates
 
@@ -146,6 +164,15 @@
 - Fold Week 14 into `Character_memories.md` during generation, including Martin and Tracy on Spark cooldown for Week 15.
 - Remove the Week 14 cooldown note from June and Dex after their restriction has passed.
 - Carry forward that the trio now explicitly knows about Nikole.
+
+## Finalization Checklist
+
+- Timeline/date check: complete.
+- Location access check: complete.
+- Cast availability check: complete.
+- Spark legality check: complete.
+- Fold check: this week is intended to fold into `Character_memories.md` in the same pass.
+- Open-loop check: complete; rehearsal reality, Martin's recognition arc, and the Nikole disclosure all advance.
 
 ## Notes For SM
 

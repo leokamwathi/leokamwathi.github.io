@@ -5,6 +5,20 @@
 - Week Summary: Week 15 is a visibility week disguised as seasonal comfort. The Holiday Bazaar looks gentle on the surface, but it is exactly the kind of public, value-coded event that makes private change impossible to keep abstract. Martin and Tracy are on cooldown, which matters because both of them would normally steady the group through embodiment and care. Without that extra force, the week exposes different kinds of initiative. June is no longer alone in knowing about Nikole, which changes the social pressure around every shared scene. Dex is off cooldown again and has to decide what useful support looks like in a softer, more emotionally symbolic environment. Kate now has enough repeated evidence that she can no longer pretend her choices are accidental. Alex gets a week where mood, music, and truth all overlap inside one public event that invites sincerity while also rewarding performance. By the end of the week, the bazaar should leave the ensemble warmer on the surface but more rearranged underneath. The important movement is not a twist. It is that several characters start acting like their new realities will persist.
 - Calendar beats in play: Dec 8 The Church of L.O.V.E. Holiday Bazaar
 
+## Operational Snapshot
+
+- Main Pressure: the Holiday Bazaar forces a newly more honest ensemble to exist in soft public space where truth becomes atmosphere before anyone can control it.
+- Who Changes This Week: June, Dex, Kate, and Alex move most materially, while Martin, Tracy, and Nikole reshape the room through cooldown witness and public legibility.
+- Who Is Restricted This Week: Martin and Tracy are on Spark cooldown.
+- What Advances: June's public tenderness, Dex's targeted help, Kate's choice-pattern, Alex's honest-sound instinct, Martin's cooldown recognition, Tracy's care-without-overreach, and Nikole's multi-room visibility.
+- What Stays Unresolved: how public June/Nikole visibility will keep being read, whether Kate's pattern will harden into action, and how the group will carry warmer surface with sharper truth into the next phase.
+
+## Continuity Guardrails
+
+- Entering Week: Week 14 put Martin and Tracy on Spark cooldown, rehearsals are active, and the trio now explicitly knows about Nikole.
+- Cannot Contradict: the Holiday Bazaar happens on Dec 8; Martin and Tracy are on cooldown all week; Nikole is socially more present than before but not formally integrated into every group space.
+- Newly True By End: June lets tenderness stay visible in public, Dex proves usefulness can remain bounded, Kate's newer honesty feels chosen, Alex uses art to disclose truth, and Nikole becomes more legible across overlapping public rooms.
+
 ## Week Flow
 
 - Monday: the aftereffects of June telling the trio about Nikole settle into the room as a new normal rather than a fresh shock.
@@ -127,9 +141,13 @@
 - Twist 2: Seasonal warmth gives people permission to notice truths they were previously too defended to name.
 - Twist 3: Someone outside the core group registers the June-Nikole shift before the group formally discusses what it means.
 - Sparks pressure: June may spend to let public tenderness remain visible; Dex may spend to solve one useful problem without overtaking; Kate may spend to make repeated honesty feel chosen; Alex may spend if one musical adjustment can tell the truth better than speech.
-- Spark availability entering week: Martin and Tracy are on cooldown from Week 14; June, Dex, Kate, and Alex are eligible.
-- Spark use in playtest: June spends 1 Spark in MS1; Dex spends 1 Spark in MS2; Kate spends 1 Spark in MS3.
-- Next-week Spark cooldown: June, Dex, and Kate cannot spend Sparks in Week 16.
+
+## Spark Ledger
+
+- Entering Cooldown: Martin and Tracy.
+- Spark-Eligible This Week: June, Dex, Kate, and Alex.
+- Sparks Spent This Week: June in MS1; Dex in MS2; Kate in MS3. Preserved from the existing week during refactor.
+- Cooldown Next Week: June, Dex, and Kate cannot spend Sparks in Week 16. Preserved from the existing week during refactor.
 
 ## Character Memory Updates
 
@@ -146,6 +164,15 @@
 - Fold Week 15 into `Character_memories.md` during generation, including June, Dex, and Kate on Spark cooldown for Week 16.
 - Remove the Week 15 cooldown note from Martin and Tracy after their restriction has passed.
 - Carry forward that the Holiday Bazaar made multiple private truths publicly legible without forcing full resolution.
+
+## Finalization Checklist
+
+- Timeline/date check: complete.
+- Location access check: complete.
+- Cast availability check: complete.
+- Spark legality check: preserved as recorded in the existing week; legacy review needed if strict two-MC Spark-cap enforcement is required.
+- Fold check: this week is intended to fold into `Character_memories.md` in the same pass.
+- Open-loop check: complete; public tenderness, group visibility, and pattern-becoming-choice all advance.
 
 ## Notes For SM
 
