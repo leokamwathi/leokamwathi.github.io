@@ -34,30 +34,30 @@ Last updated: 2026-04-27
 ### Grade_9 — Week_17
 
 - Dates: 2023-12-18 → 2023-12-24
-- Anchor: break continues in family and town spaces, so chosen company matters more than school structure.
+- Anchor: the first full break week moves pressure into family-owned rooms and quiet town spaces, where presence feels more chosen and harder to fake.
 - Calendar beats: Dec 20 Baker Family Cookie Tin Rush; Dec 22 Mandela Bookshop Holiday Late Night
-- Week Job: preserve continuity after Week 16 by showing that the group's new truths still exist off-campus and under family pressure.
-- Main Drivers: Tracy, June, Nikole, Dex, Alex
-- Forced Interactions: bakery labor pulls Tracy, Dex, and Aki into the same practical space; the bookshop late night gives June, Nikole, and the wider orbit a quieter public room; Alex should help keep ensemble continuity without manufacturing it.
-- Must Advance: Tracy's care/authorship balance under family labor; June/Nikole chosen time; admirer pressure staying human and unresolved; band continuity surviving the first full break week.
+- Week Job: prove the ensemble still chooses itself when contact depends on invitations, errands, and family businesses rather than school overlap.
+- Main Drivers: Tracy under cooldown pressure, June, Nikole, Dex, and Alex.
+- Forced Interactions: bakery labor should trap Tracy, Dex, Aki, and family rhythm in one practical room; the bookshop late night should place June and Nikole in a quieter but more public family-facing space; one low-volume band-contact beat should connect those two rooms without turning into a full group event.
+- Must Advance: Tracy's care/authorship balance without Spark access; June/Nikole chosen time becoming gently visible; Dex helping without optimizing people into systems; admirer pressure staying human and unresolved; Alex preserving band continuity at low volume.
 - Hold For Later: hard public declaration, triangle resolution, full mystery exposition.
-- Payoff Setup: makes January school re-entry feel like continuation instead of reset.
+- Payoff Setup: makes January school re-entry feel like continuation instead of reset and lets Week 18 stay interior instead of repetitive.
 - Spark Watch: entering known cooldown from Week 16 is Tracy and Martin; June, Dex, Kate, and Alex are eligible.
-- Draft Note: this can be a lighter week, but its relational function should not be skipped.
+- Draft Note: target a lighter but fully drafted week; 3 main stories is enough if each one clearly carries a separate pressure lane.
 
 ### Grade_9 — Week_18
 
 - Dates: 2023-12-25 → 2023-12-31
-- Anchor: low-structure holiday interiors, family rooms, and private time make emotional patterns harder to hide behind routine.
-- Calendar beats: no fixed canon event; use as a pressure-carry week rather than a spectacle week.
-- Week Job: keep break from reading like dead air by letting family context and quieter one-on-one contact deepen what December already exposed.
-- Main Drivers: June, Kate, Martin, Alex
-- Forced Interactions: family gatherings, errand spillover, and optional low-key band contact; Kate/Martin/Jayden contrast should sharpen through absence of school framing.
-- Must Advance: family pressure texture; Alex/Jayden tension staying live; Kate's evidence pattern; Martin's lower-pressure self staying real outside the school/team loop.
+- Anchor: holiday interiors and year-end drift isolate people into family scripts just before January forces everyone back under school light.
+- Calendar beats: no fixed canon event; use holiday family gatherings, gift-exchange aftermath, and year-end drift as ambient structure rather than spectacle.
+- Week Job: deepen consequences privately so Jan 5 school re-entry lands on changed defaults instead of a clean reset.
+- Main Drivers: June, Kate, Martin, Alex, with Tracy as a quieter continuity pressure.
+- Forced Interactions: family gatherings, unsent or low-stakes messages, one optional year-end band contact, and the continued absence of school scripts should keep people facing what feels real without public excuses.
+- Must Advance: family-pressure texture around June and Alex; Kate/Martin/Jayden contrast through presence versus polish; Martin's lower-pressure self staying real outside team rhythm; Alex/Jayden tension remaining alive; Tracy and Dex carrying Week 17's care/reciprocity aftereffects quietly forward.
 - Hold For Later: formal romantic decisions, large ensemble reset scenes.
-- Payoff Setup: prevents the January return from feeling emotionally artificial.
+- Payoff Setup: makes Jan 5 and Jan 8 feel like institutional pressure arriving on top of already-shifted relationships.
 - Spark Watch: depends on Week 17 outcomes.
-- Draft Note: if pacing needs compression, this is the cleanest week to draft lightly or merge functionally into Week 19.
+- Draft Note: draft this as an interior pressure week unless pacing later proves it truly belongs as a compact bridge.
 
 ### Grade_9 — Week_19
 
