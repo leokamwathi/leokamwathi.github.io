@@ -12,6 +12,7 @@
 *   **Sept 1st:** First Day of School
 *   **Sept 8th:** Founder's Day Festival
 *   **Sept 9th:** The trio is formed. (Dexter finds new friendship in June and Alex on the school's roof top)
+*   **Sept 14th:** Curriculum Night and Family Open House (parents, teachers, and friend groups keep interrupting each other's versions of the kids)
 *   **Sept 15th:** School Picture Day
 *   **Sept 17th:** Academic Pal's Announcement (Peer-Assisted Learning)
 *   **Sept 22nd:** First Soccer Game of the Season
@@ -35,6 +36,7 @@
 *   **Nov 7th:** Third secret admirer poem + letter. (Heartfelt: I will not write more. No more secrets. I want to meet. Come to xxxx place on xxx day and I will be there. I will have a red ribbon, so approach me if you are interested. If you don't, I understand.)
 *   **Nov 11th:** School Play Auditions
 *   **Nov 15th:** Finn's Birthday (Scorpio)
+*   **Nov 16th:** School Food Drive Sorting Night (students and parents get pushed into the same donation tables and awkward teamwork)
 *   **Nov 17th:** Thanksgiving Break Begins
 *   **Nov 24th:** Talent Show Announcement
 *   **Nov 29th:** Martin's Birthday (Sagittarius)
@@ -93,6 +95,7 @@
 *   **May 1st:** Malcolm’s Birthday (Taurus)
 *   **May 3rd:** Spring Pep Rally and Club Booth Day
 *   **May 5th:** Science Fair
+*   **May 10th:** Arts and Athletics Booster Dinner (families, teachers, performers, and athletes all have to share one fundraiser room)
 *   **May 12th:** Mother's Day Family Dinners Across Waterfall
 *   **May 17th:** Yearbook Signing Picnic
 *   **May 18th:** Waterfall Charity Tennis Doubles
