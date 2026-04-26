@@ -38,29 +38,30 @@ Last updated: 2026-04-27
 ### Grade_9 — Week_20
 
 - Dates: 2024-01-08 → 2024-01-14
-- Anchor: school systems and birthday visibility converge on June just as re-entry proves private truth is getting harder to compartmentalize.
+- Anchor: assigned school contact and birthday visibility collapse into the same pressure lane, making June newly legible in both institutional and personal space at once.
 - Calendar beats: Jan 8 New Semester Seating Shuffle and Group Project Pairings; Jan 12 June's Birthday
-- Week Job: force new school contact patterns while June absorbs birthday visibility and the whole ensemble adjusts to post-break social rearrangement.
-- Main Drivers: June, Dex, Prita, Nikole, and Alex, with Kate as a secondary pressure carrier.
-- Forced Interactions: group project pairings, classroom reshuffles, birthday attention, the trio having to react to June in more public space again, and Prita/Dex system pressure becoming relational instead of merely logistical.
-- Must Advance: school-system collisions for Dex and Prita; June's privacy versus visibility tension under fresh school visibility; Nikole's place in June's life becoming more legible; Alex resisting orchestration; Kate carrying her clarified contrast back into an active school field while on cooldown.
+- Week Job: force assigned contact and social visibility into the same week so nobody can treat Jan 8 logistics and Jan 12 birthday attention as separate emotional problems.
+- Main Drivers: June, Dex, Prita, Nikole, and Alex, with Kate on cooldown as a secondary pressure carrier and Tracy/Martin re-entering active space.
+- Forced Interactions: group project pairings, classroom reshuffles, birthday attention, the trio reacting to June in more public space again, Prita/Dex system pressure becoming relational instead of merely logistical, and school peers reading June's changed social geometry in plain sight.
+- Must Advance: school-system collisions for Dex and Prita; June's privacy versus visibility tension under fresh school visibility; Nikole's place in June's life becoming more legible; Alex resisting orchestration; Kate carrying her clarified contrast back into active school field while on cooldown.
 - Hold For Later: full family blowout, full admirer answer.
 - Payoff Setup: prepares the photo walk and family dinner as a double-pressure follow-through instead of isolated events.
 - Spark Watch: Kate is on cooldown; June, Dex, Tracy, Martin, and Alex are eligible.
-- Draft Note: make Jan 8 and Jan 12 feel like one pressure lane, not two disconnected beats.
+- Draft Note: make Jan 8 and Jan 12 feel like one pressure lane; a June-heavy week is correct if the school-system and birthday beats are functionally the same stress test.
 
 ### Grade_9 — Week_21
 
 - Dates: 2024-01-15 → 2024-01-21
-- Anchor: creative visibility and family scrutiny collapse into the same lane.
+- Anchor: birthday-afterglow hardens into creative and family scrutiny, so June's visibility has to survive rooms that read her more intimately than school does.
 - Calendar beats: Jan 19 Winter Lighthouse Photo Walk; Jan 20 Lyu Family Birthday Dinner
-- Week Job: make June's creative/public self and family self impossible to keep cleanly separated.
-- Main Drivers: June, Nikole, Alex
-- Forced Interactions: photo-walk visibility, family dinner pressure, and whoever crosses between those two worlds.
-- Must Advance: June's artistic identity, Nikole's quietly visible closeness, and the family line around privacy, expectation, and self-definition.
+- Week Job: cash in whatever Week 20 makes public by forcing June's artistic/public self and family self into the same follow-through window.
+- Main Drivers: June, Nikole, and Alex, with the Lyu family acting as the week's decisive pressure surface.
+- Forced Interactions: photo-walk visibility, family dinner pressure, artistic attention after the birthday week, and whoever crosses between June's creative world and her family world.
+- Must Advance: June's artistic identity, Nikole's quietly visible closeness, the family line around privacy, expectation, and self-definition, and Alex's ability to support that lane without curating it.
 - Hold For Later: any total resolution of June's family arc.
-- Payoff Setup: deepens June's lane before the late-January school-collision cluster.
+- Payoff Setup: deepens June's lane before the late-January school-collision cluster and ensures the birthday week has actual aftermath instead of evaporating.
 - Spark Watch: depends on Week 20 outcomes.
+- Draft Note: treat this as aftermath with pressure, not a fresh thematic lane.
 
 ### Grade_9 — Week_22
 
