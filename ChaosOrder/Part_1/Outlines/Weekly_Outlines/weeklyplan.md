@@ -37,28 +37,30 @@ Last updated: 2026-04-27
 ### Grade_9 — Week_19
 
 - Dates: 2024-01-01 → 2024-01-07
-- Anchor: break starts closing, and the return of school structure threatens to flatten or expose everything that felt clearer over the holidays.
+- Anchor: late-break changed defaults hit the hard edge of school return, and the first day back tests which holiday truths can survive fluorescent light and public routine.
 - Calendar beats: Jan 5 Winter Break Ends
-- Week Job: show who the characters became during break before the institution starts trying to sort them back into roles.
-- Main Drivers: June, Dex, Alex, Nikole, Kate
-- Forced Interactions: first corridors back, first lunch decisions, first visible re-entry into shared school air.
+- Week Job: show what break actually changed before school scripts try to relabel everyone back into the old version of the ensemble.
+- Main Drivers: June, Dex, Kate, Alex, and Nikole, with Tracy and Martin shaping the week through cooldown texture.
+- Forced Interactions: first corridors back, first lunch-table decisions, first visible trio/band overlap in public school air, and the first moments where June and Nikole have to exist under normal student visibility instead of chosen holiday rooms.
 - Must Advance: June/Nikole visibility under school light after holiday family pressure; Dex proving he can be relational without taking over; Alex returning from cooldown without becoming social management; Kate discovering whether her break clarity survives public scripts; Tracy and Martin carrying late-break interior change while on cooldown.
 - Hold For Later: big public confrontation, triangle payoff, admirer reveal.
 - Payoff Setup: loads Jan 8 pairings and Jan 12 birthday week with more pressure.
 - Spark Watch: Tracy and Martin are on cooldown; June, Dex, Kate, and Alex are eligible.
+- Draft Note: give this week one strong re-entry day at school and let the rest of the week measure fallout, not spectacle.
 
 ### Grade_9 — Week_20
 
 - Dates: 2024-01-08 → 2024-01-14
-- Anchor: school systems and family attention converge on June at the exact moment private truth is becoming harder to keep compartmentalized.
+- Anchor: school systems and birthday visibility converge on June just as re-entry proves private truth is getting harder to compartmentalize.
 - Calendar beats: Jan 8 New Semester Seating Shuffle and Group Project Pairings; Jan 12 June's Birthday
-- Week Job: force new school contact patterns while June absorbs birthday visibility and family pressure.
-- Main Drivers: June, Dex, Prita, Nikole, Alex
-- Forced Interactions: group project pairings, classroom reshuffles, birthday attention, and the trio having to react to June in more public space again.
-- Must Advance: school-system collisions for Dex and Prita; June's privacy versus visibility tension; Nikole's place in June's life becoming more legible; Alex resisting orchestration.
+- Week Job: force new school contact patterns while June absorbs birthday visibility and the whole ensemble adjusts to post-break social rearrangement.
+- Main Drivers: June, Dex, Prita, Nikole, and Alex, with Kate as a secondary pressure carrier.
+- Forced Interactions: group project pairings, classroom reshuffles, birthday attention, the trio having to react to June in more public space again, and Prita/Dex system pressure becoming relational instead of merely logistical.
+- Must Advance: school-system collisions for Dex and Prita; June's privacy versus visibility tension; Nikole's place in June's life becoming more legible; Alex resisting orchestration; Kate carrying her clarified contrast back into an active school field.
 - Hold For Later: full family blowout, full admirer answer.
 - Payoff Setup: prepares the photo walk and family dinner as a double-pressure follow-through instead of isolated events.
 - Spark Watch: depends on Week 19 outcomes.
+- Draft Note: make Jan 8 and Jan 12 feel like one pressure lane, not two disconnected beats.
 
 ### Grade_9 — Week_21
 
