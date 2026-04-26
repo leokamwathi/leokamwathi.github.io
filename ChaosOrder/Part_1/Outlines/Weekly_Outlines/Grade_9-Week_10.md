@@ -5,6 +5,20 @@
 - Week Summary: Week 10 should feel quieter than the Halloween and Cheese Festival stretch, but not empty. The important pressure comes from waiting. The admirer thread now clearly behaves like a pattern, but has not yet crossed into open revelation. That makes restraint itself the challenge. Dex and Martin are on Spark cooldown this week, which matters because both of them have recently been learning how much more real they feel when they stop performing their old roles so hard. Their scenes should show presence without force. June gets a week where discipline matters more than discovery, and Alex's job is to keep the mystery alive without letting it curdle into obsession. Tracy, now off cooldown, has a chance to choose reciprocity in a visible way rather than only defending it in theory. Kate gets a quieter honesty beat that matters precisely because it is not staged as a big confrontation. Gabriel's birthday becomes the calendar anchor not because it is dramatic, but because his low-key steadiness gives the ensemble a different kind of social rhythm. By the end of the week, the held threshold resolves into one quiet but major turn: on Nov 5 June goes to the secret location, meets Nikole, and receives a confession they agree to keep private for now. That lets the week stay socially quiet while June's inner life changes sharply.
 - Calendar beats in play: Oct 31 Gabriel's Birthday; Nov 5 June meets Nikole at the secret location and Nikole confesses her feelings
 
+## Operational Snapshot
+
+- Main Pressure: the week tests whether the group can wait well, hold threshold energy without forcing answers, and survive a major inner shift inside outward quiet.
+- Who Changes This Week: June, Tracy, Kate, Alex, and Nikole move most materially, while Gabriel changes group tempo and Dex/Martin matter through cooldown presence.
+- Who Is Restricted This Week: Dex and Martin are on Spark cooldown.
+- What Advances: June's quiet discipline, Tracy's visible reciprocity, Kate's smaller honesty, Alex's held-threshold method, Gabriel's stabilizing social texture, and Nikole's direct confession.
+- What Stays Unresolved: June's admirer thread remains unclaimed, Nikole's new private bond remains secret, and the group at large still cannot see how much June's inner life has shifted.
+
+## Continuity Guardrails
+
+- Entering Week: Week 9 put Dex and Martin on Spark cooldown and confirmed the admirer thread as real structure rather than vague pattern.
+- Cannot Contradict: Gabriel's birthday happens on Oct 31; the secret-location meeting and Nikole confession happen on Nov 5; Dex and Martin are on cooldown all week; the admirer thread remains unresolved by week end.
+- Newly True By End: Tracy chooses visible reciprocity, Kate survives a quieter honesty beat, Gabriel becomes more socially legible as stabilizing texture, and June/Nikole now share a private, real confession bond.
+
 ## Week Flow
 
 - Monday: the group drifts out of the Cheese Festival's daytime cohesion and back into smaller, sharper private rhythms.
@@ -132,9 +146,13 @@
 - Twist 2: Someone outside the core group reads the ensemble more accurately than they read themselves, creating subtle embarrassment.
 - Twist 3: The week's quietest scene turns out to be its biggest shift when the secret location resolves into a person instead of a clue.
 - Sparks pressure: Tracy may spend to choose reciprocity in public, Kate to stay inside low-drama honesty, June to hold mystery discipline without flattening herself, and Alex to protect the threshold from collapsing into overinterpretation.
-- Spark availability entering week: Dex and Martin are on cooldown from Week 9; June, Tracy, Kate, and Alex are eligible.
-- Spark use in playtest: Tracy spends 1 Spark in MS2; Kate spends 1 Spark in MS3.
-- Next-week Spark cooldown: Kate and Tracy cannot spend Sparks in Week 11.
+
+## Spark Ledger
+
+- Entering Cooldown: Dex and Martin.
+- Spark-Eligible This Week: June, Tracy, Kate, and Alex.
+- Sparks Spent This Week: Tracy in MS2; Kate in MS3.
+- Cooldown Next Week: Kate and Tracy cannot spend Sparks in Week 11.
 
 ## Character Memory Updates
 
@@ -153,6 +171,15 @@
 - Fold Week 10 into `Character_memories.md` during generation, including Kate and Tracy on Spark cooldown for Week 11.
 - Remove the Week 10 cooldown note from Dex and Martin after their restriction has passed.
 - Carry both the held-threshold feeling and the new private confession forward into the third-poem week.
+
+## Finalization Checklist
+
+- Timeline/date check: complete.
+- Location access check: complete.
+- Cast availability check: complete.
+- Spark legality check: complete.
+- Fold check: this week is intended to fold into `Character_memories.md` in the same pass.
+- Open-loop check: complete; the admirer threshold, quieter ensemble rhythm, and Nikole confession all advance.
 
 ## Notes For SM
 

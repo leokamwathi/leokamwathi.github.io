@@ -5,6 +5,20 @@
 - Week Summary: Week 12 is a contraction week. School pressure loosens, but that does not make anyone calmer. It gives them fewer distractions. June and Dex are on cooldown, which matters because both of them would normally help organize uncertainty into something more manageable. Without that extra force, the week becomes more observational, more domestic, and more emotionally revealing. Finn's birthday introduces mischief and social compression rather than pure comedy; he has a way of making people admit truths by making them slightly too visible. Thanksgiving break then strips away the daily school frame that has been buffering everyone, forcing private family structures, chosen friendships, and half-formed romantic threads into closer proximity. Tracy gets a strong week because care, hospitality, and self-protection all become harder to separate once home and town rhythms take over. Alex has room to become the steadiest active interpreter in the ensemble. Martin and Kate both benefit from the lower-volume social space, where image and performance read less cleanly. By the end of the week, nobody has solved the admirer situation, but several relationships become harder to keep theoretical.
 - Calendar beats in play: Nov 15 Finn's Birthday; Nov 17 Thanksgiving Break Begins
 
+## Operational Snapshot
+
+- Main Pressure: school pressure loosens, which makes unresolved feeling more intimate, domestic, and difficult to hide behind routine.
+- Who Changes This Week: Tracy, Alex, June, Martin, and Kate move most materially, while Dex and Finn shape the week through restraint and mischief.
+- Who Is Restricted This Week: June and Dex are on Spark cooldown.
+- What Advances: Tracy's holiday boundary, Alex's atmosphere leadership, June's capacity to endure ambiguity, Martin's small-room self, Kate's use of evidence, and Finn's role as truth irritant.
+- What Stays Unresolved: the admirer invitation, June/Nikole emotional complexity, Tracy's family-care tension, and how private feeling will re-enter public structure after break.
+
+## Continuity Guardrails
+
+- Entering Week: Week 11 put June and Dex on Spark cooldown, the admirer thread is now a direct invitation, and June is already carrying Nikole's private closeness alongside it.
+- Cannot Contradict: Finn's birthday happens on Nov 15; Thanksgiving Break begins on Nov 17; June and Dex are on cooldown all week; the admirer thread remains unresolved by week end.
+- Newly True By End: Tracy proves she can hold a real holiday boundary, Alex can manage honesty through atmosphere, June learns ambiguity can be endured without denial, Martin's ordinary self becomes harder to dismiss, Kate treats tenderness and embarrassment as evidence, and Finn's mischief becomes clearly functional social pressure.
+
 ## Week Flow
 
 - Monday: school feels looser after auditions, but the lack of urgency only makes private tensions more noticeable.
@@ -127,9 +141,13 @@
 - Twist 2: Thanksgiving break makes several characters realize how much school structure has been buffering private uncertainty.
 - Twist 3: One small act of ordinary help reads more intimate than a bigger dramatic gesture would have.
 - Sparks pressure: Tracy may spend to set a holiday-care boundary; Alex may spend to keep Finn's birthday chaos emotionally useful; Martin may need plain courage without Spark reinforcement to remain present in a more intimate low-pressure version of himself; Kate may spend if self-knowledge sharpens into action.
-- Spark availability entering week: June and Dex are on cooldown from Week 11; Kate, Tracy, Martin, and Alex are eligible.
-- Spark use in playtest: Tracy spends 1 Spark in MS1; Alex spends 1 Spark in MS2.
-- Next-week Spark cooldown: Tracy and Alex cannot spend Sparks in Week 13.
+
+## Spark Ledger
+
+- Entering Cooldown: June and Dex.
+- Spark-Eligible This Week: Kate, Tracy, Martin, and Alex.
+- Sparks Spent This Week: Tracy in MS1; Alex in MS2.
+- Cooldown Next Week: Tracy and Alex cannot spend Sparks in Week 13.
 
 ## Character Memory Updates
 
@@ -146,6 +164,15 @@
 - Fold Week 12 into `Character_memories.md` during generation, including Tracy and Alex on Spark cooldown for Week 13.
 - Remove the Week 12 cooldown note from June and Dex after their restriction has passed.
 - Keep the admirer thread active through break without forcing the meeting before the right calendar beat.
+
+## Finalization Checklist
+
+- Timeline/date check: complete.
+- Location access check: complete.
+- Cast availability check: complete.
+- Spark legality check: complete.
+- Fold check: this week is intended to fold into `Character_memories.md` in the same pass.
+- Open-loop check: complete; break intimacy, admirer ambiguity, and ensemble clarification all advance.
 
 ## Notes For SM
 

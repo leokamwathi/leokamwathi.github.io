@@ -5,6 +5,20 @@
 - Week Summary: Week 9 should feel like the morning-after version of Week 8, but not calmer in any simple sense. The Halloween party has intensified several unstable dynamics, and the Cheese Festival now tests what survives when those dynamics are dragged into an ordinary, crowded town event. June and Tracy are on Spark cooldown, which matters because both are carrying fresh emotional strain and cannot rely on an extra push to stabilize themselves. June has to move through family-pressure residue and second-poem escalation without romanticizing the thread or collapsing under it. Tracy has to live inside reciprocity she finally asked for without instantly converting it back into duty. Dex is off cooldown and has a chance to act from warmth rather than recovery. Kate is left dealing with the social and emotional aftertaste of the party, while Martin keeps becoming most legible in the lower-pressure spaces around public events rather than at their centers. Alex remains the mystery stabilizer, and Prita now occupies enough emotional ground in the ensemble to affect group tone rather than merely annotate it. The Cheese Festival should work as a daytime amplifier: sillier on the surface than the party, but better at revealing what people do once the dramatic lighting is gone.
 - Calendar beats in play: Oct 27 Waterfall Annual Cheese Festival
 
+## Operational Snapshot
+
+- Main Pressure: the Halloween aftershock has to survive daylight, ordinariness, and public town space instead of costume-party intensity.
+- Who Changes This Week: June, Dex, Martin, and Alex move most materially, while Tracy, Prita, and Kate continue consolidating recent shifts.
+- Who Is Restricted This Week: June and Tracy are on Spark cooldown.
+- What Advances: June's afterparty discipline, Dex's warmer reciprocity, Martin's more humane public self, Alex's threshold clarity, Prita's interpretive force, and Kate's ability to survive ordinary embarrassment.
+- What Stays Unresolved: who sent the admirer thread, how June will metabolize wanting without overreading, whether Tracy can truly receive care, and how Kate will act on the Martin/Jayden split.
+
+## Continuity Guardrails
+
+- Entering Week: Week 8 put June and Tracy on Spark cooldown, escalated the admirer thread to a second poem, and left the ensemble socially rearranged after the Halloween party.
+- Cannot Contradict: the Cheese Festival happens on Oct 27; June and Tracy are on cooldown all week; the admirer thread is more designed than before but still unsolved.
+- Newly True By End: Dex proves warmth can feel mutual instead of engineered, Martin again feels truer in a lower-pressure public space, the admirer thread crosses into a real structural threshold, and the ensemble begins cohering in daylight rather than only under crisis or spectacle.
+
 ## Week Flow
 
 - Monday: party aftertaste lingers in group chats, half-finished conversations, and private second-guessing.
@@ -120,9 +134,13 @@
 - Twist 2: One detail from the Cheese Festival unexpectedly matches prior admirer-poem imagery closely enough to push the mystery out of pure abstraction.
 - Twist 3: A family or school adult casually says something that reinforces how differently each character is seen in public versus how they experience themselves.
 - Sparks pressure: Dex may spend to keep reciprocity warm rather than technical, Martin to trust the more human public self that appears away from formal competition, Alex to hold the mystery at the edge of revelation without forcing it, and Kate to survive ordinary embarrassment without overcorrecting.
-- Spark availability entering week: June and Tracy are on cooldown from Week 8; Dex, Kate, Martin, and Alex are eligible.
-- Spark use in playtest: Dex spends 1 Spark in MS2; Martin spends 1 Spark in MS3.
-- Next-week Spark cooldown: Dex and Martin cannot spend Sparks in Week 10.
+
+## Spark Ledger
+
+- Entering Cooldown: June and Tracy.
+- Spark-Eligible This Week: Dex, Kate, Martin, and Alex.
+- Sparks Spent This Week: Dex in MS2; Martin in MS3.
+- Cooldown Next Week: Dex and Martin cannot spend Sparks in Week 10.
 
 ## Character Memory Updates
 
@@ -139,6 +157,15 @@
 - Fold Week 9 into `Character_memories.md` during generation, including Dex and Martin on Spark cooldown for Week 10.
 - Remove the Week 9 cooldown note from June and Tracy after their restriction has passed.
 - Carry the admirer-thread threshold and Cheese Festival daytime cohesion into the next week.
+
+## Finalization Checklist
+
+- Timeline/date check: complete.
+- Location access check: complete.
+- Cast availability check: complete.
+- Spark legality check: complete.
+- Fold check: this week is intended to fold into `Character_memories.md` in the same pass.
+- Open-loop check: complete; party fallout, admirer structure, and daytime ensemble cohesion all advance.
 
 ## Notes For SM
 

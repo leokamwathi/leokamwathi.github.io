@@ -5,6 +5,20 @@
 - Week Summary: Week 11 is the first admirer-thread week that cannot stay comfortably abstract. The third poem arrives with a letter that explicitly asks June to meet, ending the safety of treating the pattern as only atmosphere or interpretation. That change matters to everyone around her. June has to decide whether to meet the invitation as a real human risk instead of an aesthetic puzzle while already carrying Nikole's private confession from the end of Week 10. Dex, newly off cooldown, gets a crucial test: can he support without converting the situation into a system he controls? Alex's job is to keep the thread coherent while returning agency to June rather than the mystery itself. Kate and Tracy are on cooldown this week, which lowers their force but makes their witness roles more valuable. The new secrecy around June and Nikole makes the admirer letter feel more layered rather than less serious, and the school play auditions make public performance a useful mirror for all the private choices happening underneath. By the end of the week, the admirer thread is no longer only a question of pattern. It is a question of whether June will walk toward being known while already knowing that one real person has stepped toward her.
 - Calendar beats in play: Nov 7 Third secret admirer poem + letter; Nov 11 School Play Auditions
 
+## Operational Snapshot
+
+- Main Pressure: the admirer thread stops being only atmospheric and becomes a direct human ask inside an already-complicated private emotional field.
+- Who Changes This Week: June, Dex, and Alex move most materially, while Kate, Tracy, Martin, and Nikole all deepen the pressure through witness, restraint, and secrecy.
+- Who Is Restricted This Week: Kate and Tracy are on Spark cooldown.
+- What Advances: the third admirer letter, Dex's live-support growth, Alex's return of agency to June, June/Nikole's lived private closeness, and Martin's clearer language for performance exhaustion.
+- What Stays Unresolved: whether June will meet the invitation, how long the Nikole connection can remain private, and how much of the ensemble can continue carrying truth through restraint.
+
+## Continuity Guardrails
+
+- Entering Week: Week 10 put Kate and Tracy on Spark cooldown and ended with Nikole's private confession to June.
+- Cannot Contradict: the third admirer poem and letter arrive on Nov 7; school play auditions happen on Nov 11; Kate and Tracy are on cooldown all week; the Nikole bond remains private.
+- Newly True By End: the admirer thread becomes a direct invitation, Dex proves he can support without taking over, Alex explicitly returns choice to June, and June/Nikole's closeness becomes a lived private fact rather than a single-scene event.
+
 ## Week Flow
 
 - Monday: the held-breath calm from Gabriel's birthday week breaks as everyone feels something impending before they can name it.
@@ -127,9 +141,13 @@
 - Twist 2: The new secrecy around June and Nikole makes the admirer letter feel even riskier, because June's private life is now crowded with two real claims on her attention.
 - Twist 3: School play auditions expose how many characters are exhausted by versions of themselves they have learned to perform.
 - Sparks pressure: June may spend to treat the admirer invitation as a real human risk; Dex may spend to support without taking over; Alex may spend to protect June's agency inside the mystery; Martin may spend if the audition mirror becomes unexpectedly clarifying.
-- Spark availability entering week: Kate and Tracy are on cooldown from Week 10; June, Dex, Martin, and Alex are eligible.
-- Spark use in playtest: June spends 1 Spark in MS1; Dex spends 1 Spark in MS2.
-- Next-week Spark cooldown: June and Dex cannot spend Sparks in Week 12.
+
+## Spark Ledger
+
+- Entering Cooldown: Kate and Tracy.
+- Spark-Eligible This Week: June, Dex, Martin, and Alex.
+- Sparks Spent This Week: June in MS1; Dex in MS2.
+- Cooldown Next Week: June and Dex cannot spend Sparks in Week 12.
 
 ## Character Memory Updates
 
@@ -147,6 +165,15 @@
 - Fold Week 11 into `Character_memories.md` during generation, including June and Dex on Spark cooldown for Week 12.
 - Remove the Week 11 cooldown note from Kate and Tracy after their restriction has passed.
 - Carry both the admirer invitation and the private Nikole connection forward as simultaneous pressures, not competing plot devices.
+
+## Finalization Checklist
+
+- Timeline/date check: complete.
+- Location access check: complete.
+- Cast availability check: complete.
+- Spark legality check: complete.
+- Fold check: this week is intended to fold into `Character_memories.md` in the same pass.
+- Open-loop check: complete; the admirer invitation, Nikole secrecy, and performance-pressure mirror all advance.
 
 ## Notes For SM
 
