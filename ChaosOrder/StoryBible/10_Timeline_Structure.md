@@ -25,7 +25,7 @@ The story is divided into four parts, each corresponding to a pivotal year of hi
 ## 10.2 Part 1: 9th Grade - "The Unfolding"
 
 ### 10.2.1 Calendar of Events (9th Grade)
-
+**(Moved to the part1/Grade_9_Calendar.md)
 
 
 ### 10.2.2 Chapter Snapshots Part 1 (9th Grade)
