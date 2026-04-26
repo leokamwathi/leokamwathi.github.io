@@ -148,6 +148,7 @@
 - Update `Current Cooldown State` and `Next Calendar Beats`
 - Update `Open Loops` if any active thread changed temperature or status
 - Update rolling `Recent` and `Plans/Focus` entries for affected characters
+- Update `weeklyplan.md` by marking the drafted week complete and extending the forward planning horizon
 - If this is Week 04, 08, 12, 16, and so on, create the 4-week review file and compact the live tracker
 
 ## Finalization Checklist
