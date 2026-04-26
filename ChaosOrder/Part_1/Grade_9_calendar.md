@@ -1,5 +1,6 @@
  **August:**
 *   **Aug 27th:** The Movie Night Under the Stars (Town event)
+*   **Aug 30th:** Back-to-School Orientation and Activities Fair
 
 **September:**
 *   **Sept 1st:** First Day of School
@@ -39,26 +40,32 @@
 
 **January:**
 *   **Jan 12th:** June's Birthday (Capricorn)
+*   **Jan 19th:** Winter Lighthouse Photo Walk (Arts Newsletter feature day)
 *   **Jan 26th:** Chess Tournament
 *   **Jan 26th:** Snow Day
 
 **February:**
+*   **Feb 3rd:** Mariposa Poetry & Pastry Night
+*   **Feb 9th:** W.E.I.R.D. Junior Innovators Challenge
 *   **Feb 14th:** Nikole’s Birthday (Aquarius)
 *   **Feb 16th:** School Dance / Winter Ball
 *   **Feb 21st:** Dexter's Birthday (Pisces)
 
 **March:**
+*   **Mar 2nd:** Student Open Mic at Mariposa Cafe
 *   **Mar 16th:** Talent Show Auditions
 *   **Mar 21st:** Jace's Birthday (Aries)
 *   **Mar 23rd:** Band Practices Intensify
 
 **April:**
 *   **April 6th:** The Talent Show
+*   **April 13th:** Spring Style Showcase
 *   **April 29th:** Tracy’s Birthday (Taurus)
 
 **May:**
 *   **May 1st:** Malcolm’s Birthday (Taurus)
 *   **May 5th:** Science Fair
+*   **May 18th:** Waterfall Charity Tennis Doubles
 *   **May 27th:** Alex’s Birthday (Gemini)
 
 **June:**
