@@ -57,8 +57,8 @@
 *   **Jan 12th:** June's Birthday (Capricorn)
 *   **Jan 19th:** Winter Lighthouse Photo Walk (Arts Newsletter feature day)
 *   **Jan 20th:** Lyu Family Birthday Dinner for June
-*   **Jan 26th:** Chess Tournament
 *   **Jan 26th:** Snow Day
+*   **Jan 27th:** Chess Tournament (rescheduled after the snow day)
 *   **Jan 31st:** Academic Pals Midyear Check-In
 
 **February:**
@@ -76,9 +76,9 @@
 *   **Mar 8th:** Parent-Teacher Conference Night
 *   **Mar 9th:** Suarez Family Cookout and Backyard Scrimmage
 *   **Mar 14th:** Pi Day Math and Games Fair
-*   **Mar 16th:** Talent Show Auditions
+*   **Mar 15th:** Talent Show Auditions
 *   **Mar 21st:** Jace's Birthday (Aries)
-*   **Mar 23rd:** Band Practices Intensify
+*   **Mar 22nd:** Band Practices Intensify
 *   **Mar 29th:** Spring Break Begins
 
 **April:**
@@ -94,7 +94,7 @@
 **May:**
 *   **May 1st:** Malcolm’s Birthday (Taurus)
 *   **May 3rd:** Spring Pep Rally and Club Booth Day
-*   **May 5th:** Science Fair
+*   **May 4th:** Science Fair
 *   **May 10th:** Arts and Athletics Booster Dinner (families, teachers, performers, and athletes all have to share one fundraiser room)
 *   **May 12th:** Mother's Day Family Dinners Across Waterfall
 *   **May 17th:** Yearbook Signing Picnic
@@ -104,10 +104,10 @@
 
 **June:**
 *   **June 5th:** Final Study Jam at the Library
-*   **June 8th:** Final Exams
-*   **June 9th:** Post-Exams Beach Bonfire
+*   **June 10th:** Final Exams Begin
 *   **June 12th:** Jayden’s Birthday (Gemini)
-*   **June 14th:** Awards Night and Parent Reception
-*   **June 15th:** The Last Day of School
+*   **June 13th:** Awards Night and Parent Reception
+*   **June 14th:** The Last Day of School
+*   **June 15th:** Post-Exams Beach Bonfire
 *   **June 16th:** Father's Day Family Dinners
 *   **June 29th:** Mackenzie’s Birthday (Cancer)

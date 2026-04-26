@@ -10,7 +10,7 @@
 
 # Character Memories — Weekly Tracker
 
-Last updated: 2026-04-26
+Last updated: 2026-04-27
 
 Purpose
 
@@ -33,8 +33,15 @@ Current Cooldown State
 
 Next Calendar Beats
 
-- Next active beats: Jan 12 June's Birthday
-- On deck: Jan 26 Chess Tournament and Snow Day; Feb 14 Nikole's Birthday
+- Next active beats: Jan 5 Winter Break Ends; Jan 8 New Semester Seating Shuffle and Group Project Pairings
+- On deck: Jan 12 June's Birthday; Jan 19 Winter Lighthouse Photo Walk; Jan 20 Lyu Family Birthday Dinner; Jan 26 Snow Day; Jan 27 Chess Tournament; Jan 31 Academic Pals Midyear Check-In; Feb 2 Winter Ball Decorating Committee
+
+Near-Term Planning Seeds
+
+- School re-entry cluster: Jan 5 and Jan 8 should test whether break-time chosen closeness survives institutional light; prioritize June/Nikole visibility, Dex/Prita school-contact pressure, and Alex resisting the urge to socially manage reentry.
+- June visibility cluster: Jan 12, Jan 19, and Jan 20 now form a usable three-beat run around birthday attention, family scrutiny, and creative/public identity.
+- Late-January collision cluster: Jan 26 Snow Day, Jan 27 Chess Tournament, and Jan 31 Academic Pals Midyear Check-In create forced cross-cast contact through weather disruption, rescheduling, and school systems.
+- Early-February pressure cluster: Feb 2 Winter Ball Decorating Committee, Feb 3 Poetry & Pastry Night, Feb 9 W.E.I.R.D. Junior Innovators Challenge, and Feb 12 Valentine Gram Delivery should feed directly into Kate/Martin/Jayden, Tracy/Dex/Aki, June/Nikole, and Prita-linked school pressure.
 
 Open Loops
 
@@ -60,54 +67,54 @@ Main Characters
   - Goal(s): build an authentic creative identity; understand her uncle's legacy and her place in the family story; become more open about love and selfhood without losing privacy
   - Long-Arc Pattern: learning to let private truth become lived form without surrendering privacy, agency, or creative identity.
   - Recent: met Nikole at the secret location and accepted her confession as real; received the third admirer poem and letter and treated the invitation as a real human risk; told Alex and Dex about Nikole and made that truth part of the trio's shared map; let that connection remain quietly visible in public at the Holiday Bazaar; then learned at break's start to let chosen ordinary time with Nikole matter without forcing the admirer invitation into answer-language.
-  - Plans/Focus: investigate the poem and shoreline-pattern clues without making them public spectacle; keep building slow trust with Nikole; decide how to approach the admirer invitation during break without turning it into either fantasy or avoidance; use leadership without overcurating every emotional beat; re-enter Week 17 with Spark access restored
+  - Plans/Focus: investigate the poem and shoreline-pattern clues without making them public spectacle; keep building slow trust with Nikole; let Jan 12, Jan 19, and Jan 20 pressure privacy, family identity, and visibility without forcing premature declaration; use leadership without overcurating every emotional beat; re-enter Week 17 with Spark access restored
 
 - Dexter "Dex" Maxwell
   - Role: MC — newcomer; tech (Echo AI)
   - Goal(s): learn to belong without reducing himself to usefulness; build technology that supports human connection instead of replacing it; grow emotionally brave enough for real intimacy
   - Long-Arc Pattern: learning to make usefulness relational instead of turning it into identity, control, or self-erasure.
   - Recent: supported June through the admirer invitation without engineering the situation into a system he controlled; built spacious structure around the Talent Show instead of colonizing the room; stayed useful from the edges during rehearsal cooldown; used targeted help at the Holiday Bazaar without taking over the whole event; then spent Week 16 cooldown proving smaller support still counts.
-  - Plans/Focus: keep support warm and limited; practice emotional availability toward Tracy without hiding behind competence; decide what W.E.I.R.D-style validation means for his identity; keep building real belonging inside the trio and band; re-enter Week 17 with Spark access restored and stronger tolerance for low-volume usefulness
+  - Plans/Focus: keep support warm and limited; use Jan 8 group pairings, Jan 31 Academic Pals Midyear Check-In, and Feb 9 W.E.I.R.D. Junior Innovators Challenge as chances to be relational instead of managerial; practice emotional availability toward Tracy without hiding behind competence; keep building real belonging inside the trio and band; re-enter Week 17 with Spark access restored and stronger tolerance for low-volume usefulness
 
 - Katelynn "Kate" Silchenko
   - Role: MC — tennis/fashion; social anchor
   - Goal(s): separate self-worth from image and status; build relationships that are honest instead of merely impressive; define success on her own terms over the four-year arc
   - Long-Arc Pattern: moving from polished self-management toward choices that actually reflect what she knows and wants.
   - Recent: became a sharper witness during cooldown while June's emotional geometry changed; used break-week tenderness, attraction, and embarrassment as evidence instead of noise; repeated honesty until it felt chosen rather than incidental at the Holiday Bazaar; then spent Week 16 cooldown discovering the same evidence still holds even when break removes the usual school frames.
-  - Plans/Focus: keep testing whether action can keep up with evidence; track what Martin means to her versus what Jayden represents; preserve dignity without hiding inside polish; keep letting repeated choice build a real pattern; re-enter Week 17 with Spark access restored
+  - Plans/Focus: keep testing whether action can keep up with evidence; let the run toward Winter Ball, especially Feb 2 decorating teams and Feb 16 public social pressure, test what Martin means versus what Jayden represents; preserve dignity without hiding inside polish; keep letting repeated choice build a real pattern; re-enter Week 17 with Spark access restored
 
 - Tracy "Trixy" Baker
   - Role: MC — bakery, poet, nurturer
   - Goal(s): claim a self beyond caretaker duty; protect family bonds without disappearing into them; grow toward a love life and artistic life that feel chosen, not just safe
   - Long-Arc Pattern: learning to turn care from compulsory self-erasure into chosen reciprocity, visible authorship, and sustainable tenderness.
   - Recent: set a visible holiday boundary during Thanksgiving break; remained present during Talent Show reactivation without becoming the whole emotional stabilizer; asserted authorship in rehearsal; practiced partial care again during the Holiday Bazaar cooldown; then set holiday care on chosen terms instead of dissolving into service once winter break began.
-  - Plans/Focus: protect energy without abandoning care; keep building artistic presence inside the band; stay honest with herself about Dex, Aki, and what safety does or does not satisfy; keep practicing receiving without immediate repayment; enter Week 17 on Spark cooldown after spending 1 Spark in Week 16
+  - Plans/Focus: protect energy without abandoning care; use Feb 3 Poetry & Pastry Night as a chance to make authorship visible instead of only supportive; keep building artistic presence inside the band; stay honest with herself about Dex, Aki, and what safety does or does not satisfy; keep practicing receiving without immediate repayment; enter Week 17 on Spark cooldown after spending 1 Spark in Week 16
 
 - Martin "Matt" Suarez
   - Role: MC — athlete under family pressure
   - Goal(s): decide what kind of future he actually wants; loosen the hold of inherited expectations; learn to choose desire over approval without losing the people he loves
   - Long-Arc Pattern: learning that his truest self appears away from performance systems and that recognition is not the same thing as approval or centering.
   - Recent: break week made his smaller, more intimate self too real to dismiss as temporary; the approach of his birthday sharpened the difference between visibility and recognition; his birthday clarified that being known lands differently from being centered; Week 15 cooldown made him hold that insight without turning it into outward performance; Week 16 let him choose the more ordinary, unperformed self on purpose.
-  - Plans/Focus: keep trusting the lower-pressure version of himself; track what Kate's repeated attention is revealing; keep comparing desire with approval rather than assuming they match; stay available to the band without pretending sport has no cost; enter Week 17 on Spark cooldown after spending 1 Spark in Week 16
+  - Plans/Focus: keep trusting the lower-pressure version of himself; let late-January weather disruption and rescheduled school contact test who he is outside team rhythm; track what Kate's repeated attention is revealing; keep comparing desire with approval rather than assuming they match; stay available to the band without pretending sport has no cost; enter Week 17 on Spark cooldown after spending 1 Spark in Week 16
 
 - Alexander "Alex" Quin
   - Role: MC — musician, humor → guarded
   - Goal(s): heal enough to risk real vulnerability; turn music into connection rather than armor; eventually face his unresolved history with Jayden honestly
   - Long-Arc Pattern: learning to use tone, method, and art to reveal truth without taking over other people's choices.
   - Recent: returned agency to June during the third-letter week instead of claiming interpretive center; protected tone during cooldown as the Talent Show returned; used active restraint during the first changed rehearsal week; let music itself reveal truth at the Holiday Bazaar instead of relying on explanation alone; then carried the band's changed continuity into break through tone instead of control.
-  - Plans/Focus: keep the admirer and shoreline patterns disciplined without flattening them into theory; support June without narrating her choices for her; let music connect rather than shield when pressure rises around Jayden and the band; keep trusting precise intervention over orchestration; remain Spark-eligible entering Week 17
+  - Plans/Focus: keep the admirer and shoreline patterns disciplined without flattening them into theory; use school re-entry and Jan 8 pairings to hold band continuity without becoming the room's manager; support June without narrating her choices for her; let music connect rather than shield when pressure rises around Jayden and the band; keep trusting precise intervention over orchestration; remain Spark-eligible entering Week 17
 
 Supporting / Tertiary Characters (short)
 
 - Nikole Amara Mandela
   - Role: SC — artist; quiet emotional witness around June and the band
   - Recent: confessed directly to June at the secret location; moved nearer the band's practical space during rehearsal week; became more legible across overlapping public rooms at the Holiday Bazaar; then made break-time closeness with June feel more obviously chosen without becoming larger or louder than herself.
-  - Plans/Focus: let closeness with June keep densifying without forcing the disclosure timeline; become part of the ensemble by lived presence rather than announcement; keep her scale intact even as more people start reading her clearly
+  - Plans/Focus: let closeness with June keep densifying without forcing the disclosure timeline; use Jan 19 photo walk and Feb 24 family zine/sketch night to let creative proximity become more visible without overstatement; become part of the ensemble by lived presence rather than announcement; keep her scale intact even as more people start reading her clearly
 
 - Prita Singh
   - Role: SC — logical academic bridge; Academic Pal's pressure node
   - Recent: moved from school-system bridge into a real interpretive force inside the ensemble; now helps shape how other people read social and mystery patterns.
-  - Plans/Focus: stay relationally present as study contact deepens; keep observational clarity functioning as an active social skill; keep future Alex-crosscurrent energy available as a seed if needed
+  - Plans/Focus: stay relationally present as study contact deepens; let Jan 27 Chess Tournament and Jan 31 Academic Pals Midyear Check-In keep observational clarity functioning as an active social skill; keep future Alex-crosscurrent energy available as a seed if needed
 
 - Akihiko "Aki" Tanaka
   - Role: SC — calm, supportive safe harbor in Tracy's orbit
