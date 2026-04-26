@@ -10,21 +10,21 @@
 *   **Sept 22nd:** First Soccer Game of the Season
 *   **Sept 22nd:** First Secret admirer poem appears in June’s locker. (The investigations start)
 *   **Sept 29th:** W.E.I.R.D Tour Day (The class gets to visit the facility, learn and get a tour.)
-*   **Sept 30th:** Akihiko's Birthday (Virgo)
+*   **Sept 30th:** Akihiko's Birthday (Libra)
 
 **October:**
 *   **Oct 2nd:** Prita's Birthday (Libra)
 *   **Oct 6th:** The Great Waterfall Bake-Off
 *   **Oct 13th:** Midterm Exams
 *   **Oct 17th:** Family Dinner From Hell at the Lyu Household
-*   **Oct 18nd:** Second secret admirer poem. (leads to something happening in the halloween party)
+*   **Oct 18th:** Second secret admirer poem. (Leads to something happening at the Halloween party.)
 *   **Oct 20th:** Halloween Costume Party
 *   **Oct 27th:** Waterfall Annual Cheese Festival
 *   **Oct 31st:** Gabriel’s Birthday (Scorpio)
 
 **November:**
 *   **Nov 5th:** June goes to the secret location and meets Nikole. Who finally Confesses Her Feelings for June; (They agree to keep it a secret. even from the other trio (Alex and Dex).)
-*   **Nov 7th:** Third secret admirer poem + letter. (Heartfelt with i will not write more, i want to meet no more secrets. I want to meet. come to xxxx place on xxx day and I will be there. I will have a read ribbon so aproach me if you are interested. If you dont I understand.)
+*   **Nov 7th:** Third secret admirer poem + letter. (Heartfelt: I will not write more. No more secrets. I want to meet. Come to xxxx place on xxx day and I will be there. I will have a red ribbon, so approach me if you are interested. If you don't, I understand.)
 *   **Nov 11th:** School Play Auditions
 *   **Nov 15th:** Finn's Birthday (Scorpio)
 *   **Nov 17th:** Thanksgiving Break Begins
@@ -33,7 +33,7 @@
 
 **December:**
 *   **Dec 1st:** Band Rehearsals Begin
-*   **Dec 3rd:** June Tells the trio of her relationship with Nikole. The agree to keep it to themselves. Nikole will start hanging out with the trio. Alex might also come clean about jayden and the kiss.
+*   **Dec 3rd:** June tells the trio about her relationship with Nikole. They agree to keep it to themselves. Nikole will start hanging out with the trio. Alex might also come clean about Jayden and the kiss.
 *   **Dec 8th:** The Church of L.O.V.E. Holiday Bazaar
 *   **Dec 15th:** Winter Break Begins
 
@@ -49,7 +49,7 @@
 
 **March:**
 *   **Mar 16th:** Talent Show Auditions
-*   **Mar 21st:** Jace's Birthday (Pisces)
+*   **Mar 21st:** Jace's Birthday (Aries)
 *   **Mar 23rd:** Band Practices Intensify
 
 **April:**
@@ -58,7 +58,7 @@
 
 **May:**
 *   **May 1st:** Malcolm’s Birthday (Taurus)
-*   **May 5st:** Science Fair
+*   **May 5th:** Science Fair
 *   **May 27th:** Alex’s Birthday (Gemini)
 
 **June:**
