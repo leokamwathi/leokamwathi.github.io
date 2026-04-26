@@ -2,66 +2,39 @@
 
 Last updated: 2026-04-27
 
-## Purpose
+Purpose
 
 - Rolling forward-planning surface for upcoming Grade 9 weekly outlines.
 - Bridges the calendar, the live tracker, and the actual weekly files.
 - Keeps bigger-picture pressure, setup, and payoff lanes visible before drafting.
 
 ## Use Rules
-
-- Keep the next 4-8 weeks active here.
-- After a weekly file is drafted and folded, mark that week complete here and add one new future week at the bottom when the active horizon would otherwise drop below 8 weeks.
-- When asked for the next numbered week, tighten that requested week and the immediately following week here before drafting so pacing and payoff stay aligned across a two-week runway.
-- Keep this at beat-map level only. Do not turn it into a second weekly outline.
-- If a week is structurally light, note whether it should be drafted lightly, compacted, or merged at the planning stage.
-- Past deep history lives in the weekly files and 4-week summaries, not here.
-
-## Core Payoff Lanes
-
-- Admirer invitation / shoreline pattern / W.E.I.R.D overlap should keep reading as both human choice and mystery pressure.
+- When asked to draft the next numbered week, first tighten that week and the following week, then draft the requested week, then fold actual outcomes back into this file and `Character_memories.md`.
 - June/Nikole should keep moving from chosen secrecy toward lived visibility without jumping too early to formal declaration.
 - The band's second-phase identity should survive winter break and school re-entry as a real social/artistic structure.
 - Kate/Martin/Jayden should keep progressing by repeated choice and public contrast, not abrupt confession.
-- Tracy/Dex/Aki should stay grounded in authorship, reciprocity, and the difference between care and safety.
-- Alex should keep functioning as tonal continuity without becoming the manager of everyone else's feelings.
 
 ## Completed Frontier
 
-- Weeks 01-16 are already covered by the weekly files and `Week_1-4_summary.md`, `Week_5-8_summary.md`, `Week_9-12_summary.md`, and `Week_13-16_summary.md`.
-- Week 17 is now drafted: the cookie-rush and bookshop beats proved break continuity can survive in family-facing spaces without school structure.
-- Week 18 is now drafted: family interiors and year-end drift turned late break into a changed-defaults week instead of dead air.
+- Week 17 is now drafted: Dec 18-24 turned holiday space into a test of chosen closeness, bounded care, and quieter truth.
+- Week 18 is now drafted: Dec 25-31 kept year-end family pressure and receiving-versus-caretaking active without resetting break intimacy.
 - Week 19 is now drafted: Jan 5 proved school return pressures the changed ensemble, but does not reset it.
+- Week 20 is now drafted: Jan 8 pairings and Jan 12 birthday attention compounded the visibility pressure around June instead of functioning as separate beats.
 
 ## Active Planning Horizon
-
-### Grade_9 — Week_20
-
-- Dates: 2024-01-08 → 2024-01-14
-- Anchor: assigned school contact and birthday visibility collapse into the same pressure lane, making June newly legible in both institutional and personal space at once.
-- Calendar beats: Jan 8 New Semester Seating Shuffle and Group Project Pairings; Jan 12 June's Birthday
-- Week Job: force assigned contact and social visibility into the same week so nobody can treat Jan 8 logistics and Jan 12 birthday attention as separate emotional problems.
-- Main Drivers: June, Dex, Prita, Nikole, and Alex, with Kate on cooldown as a secondary pressure carrier and Tracy/Martin re-entering active space.
-- Forced Interactions: group project pairings, classroom reshuffles, birthday attention, the trio reacting to June in more public space again, Prita/Dex system pressure becoming relational instead of merely logistical, and school peers reading June's changed social geometry in plain sight.
-- Must Advance: school-system collisions for Dex and Prita; June's privacy versus visibility tension under fresh school visibility; Nikole's place in June's life becoming more legible; Alex resisting orchestration; Kate carrying her clarified contrast back into active school field while on cooldown.
-- Hold For Later: full family blowout, full admirer answer.
-- Payoff Setup: prepares the photo walk and family dinner as a double-pressure follow-through instead of isolated events.
-- Spark Watch: Kate is on cooldown; June, Dex, Tracy, Martin, and Alex are eligible.
-- Draft Note: make Jan 8 and Jan 12 feel like one pressure lane; a June-heavy week is correct if the school-system and birthday beats are functionally the same stress test.
 
 ### Grade_9 — Week_21
 
 - Dates: 2024-01-15 → 2024-01-21
-- Anchor: birthday-afterglow hardens into creative and family scrutiny, so June's visibility has to survive rooms that read her more intimately than school does.
+- Anchor: birthday aftermath, artistic/public visibility, and family-facing scrutiny all press on June at once while June and Dex are on cooldown.
 - Calendar beats: Jan 19 Winter Lighthouse Photo Walk; Jan 20 Lyu Family Birthday Dinner
-- Week Job: cash in whatever Week 20 makes public by forcing June's artistic/public self and family self into the same follow-through window.
-- Main Drivers: June, Nikole, and Alex, with the Lyu family acting as the week's decisive pressure surface.
-- Forced Interactions: photo-walk visibility, family dinner pressure, artistic attention after the birthday week, and whoever crosses between June's creative world and her family world.
-- Must Advance: June's artistic identity, Nikole's quietly visible closeness, the family line around privacy, expectation, and self-definition, and Alex's ability to support that lane without curating it.
-- Hold For Later: any total resolution of June's family arc.
-- Payoff Setup: deepens June's lane before the late-January school-collision cluster and ensures the birthday week has actual aftermath instead of evaporating.
-- Spark Watch: depends on Week 20 outcomes.
-- Draft Note: treat this as aftermath with pressure, not a fresh thematic lane.
+- Week Job: cash in Week 20's visibility gains through quieter public and family rooms without turning the week into a confession sprint.
+- Main Drivers: June, Nikole, Alex, Kate
+- Forced Interactions: photo-walk proximity, birthday aftermath, family dinner scrutiny, and ensemble response to a connection that is easier to read than before.
+- Must Advance: June's artistic identity under public gaze; Nikole's place in June's life under visible conditions; family scrutiny after birthday week; Alex supporting without curating; Kate continuing to read public truth without forcing it.
+- Hold For Later: admirer answer, explicit label scene, full family reckoning, and deeper mystery resolution.
+- Payoff Setup: positions the snow-day, chess, and Academic Pals cluster on top of already-heightened social legibility.
+- Spark Watch: June and Dex are on cooldown; Kate, Tracy, Martin, and Alex are eligible.
 
 ### Grade_9 — Week_22
 
@@ -140,6 +113,19 @@ Last updated: 2026-04-27
 - Hold For Later: spring-break resets, any endgame pairings, and the full payoff of spring performance arcs.
 - Payoff Setup: feeds directly into March's parent conferences, family cookout pressure, Pi Day, and Talent Show audition acceleration.
 - Spark Watch: depends on Week 26 outcomes.
+
+### Grade_9 — Week_28
+
+- Dates: 2024-03-04 → 2024-03-10
+- Anchor: adult-facing school and family rooms test whether recent public and self-authored changes can survive outside peer-only space.
+- Calendar beats: Mar 8 Parent-Teacher Conference Night; Mar 9 Suarez Family Cookout and Backyard Scrimmage
+- Week Job: push private changes into parent and family visibility without forcing final decisions too early.
+- Main Drivers: Martin, Kate, June, Tracy
+- Forced Interactions: conference fallout, parent perception, family cookout cross-pressure, and how peers behave when adults set the room.
+- Must Advance: Martin's approval-versus-desire conflict; Kate's split between polish and truth in adult-facing space; June's art and lighthouse identity under family reading; Tracy's role inside family and community care rooms.
+- Hold For Later: March audition payoff and spring-level resolution.
+- Payoff Setup: feeds Pi Day, talent auditions, and intensified band pressure with stronger adult-context stakes.
+- Spark Watch: depends on Week 27 outcomes.
 
 ## Maintenance Note
 
