@@ -31,22 +31,9 @@ Last updated: 2026-04-27
 - Weeks 01-16 are already covered by the weekly files and `Week_1-4_summary.md`, `Week_5-8_summary.md`, `Week_9-12_summary.md`, and `Week_13-16_summary.md`.
 - Week 17 is now drafted: the cookie-rush and bookshop beats proved break continuity can survive in family-facing spaces without school structure.
 - Week 18 is now drafted: family interiors and year-end drift turned late break into a changed-defaults week instead of dead air.
+- Week 19 is now drafted: Jan 5 proved school return pressures the changed ensemble, but does not reset it.
 
 ## Active Planning Horizon
-
-### Grade_9 — Week_19
-
-- Dates: 2024-01-01 → 2024-01-07
-- Anchor: late-break changed defaults hit the hard edge of school return, and the first day back tests which holiday truths can survive fluorescent light and public routine.
-- Calendar beats: Jan 5 Winter Break Ends
-- Week Job: show what break actually changed before school scripts try to relabel everyone back into the old version of the ensemble.
-- Main Drivers: June, Dex, Kate, Alex, and Nikole, with Tracy and Martin shaping the week through cooldown texture.
-- Forced Interactions: first corridors back, first lunch-table decisions, first visible trio/band overlap in public school air, and the first moments where June and Nikole have to exist under normal student visibility instead of chosen holiday rooms.
-- Must Advance: June/Nikole visibility under school light after holiday family pressure; Dex proving he can be relational without taking over; Alex returning from cooldown without becoming social management; Kate discovering whether her break clarity survives public scripts; Tracy and Martin carrying late-break interior change while on cooldown.
-- Hold For Later: big public confrontation, triangle payoff, admirer reveal.
-- Payoff Setup: loads Jan 8 pairings and Jan 12 birthday week with more pressure.
-- Spark Watch: Tracy and Martin are on cooldown; June, Dex, Kate, and Alex are eligible.
-- Draft Note: give this week one strong re-entry day at school and let the rest of the week measure fallout, not spectacle.
 
 ### Grade_9 — Week_20
 
@@ -56,10 +43,10 @@ Last updated: 2026-04-27
 - Week Job: force new school contact patterns while June absorbs birthday visibility and the whole ensemble adjusts to post-break social rearrangement.
 - Main Drivers: June, Dex, Prita, Nikole, and Alex, with Kate as a secondary pressure carrier.
 - Forced Interactions: group project pairings, classroom reshuffles, birthday attention, the trio having to react to June in more public space again, and Prita/Dex system pressure becoming relational instead of merely logistical.
-- Must Advance: school-system collisions for Dex and Prita; June's privacy versus visibility tension; Nikole's place in June's life becoming more legible; Alex resisting orchestration; Kate carrying her clarified contrast back into an active school field.
+- Must Advance: school-system collisions for Dex and Prita; June's privacy versus visibility tension under fresh school visibility; Nikole's place in June's life becoming more legible; Alex resisting orchestration; Kate carrying her clarified contrast back into an active school field while on cooldown.
 - Hold For Later: full family blowout, full admirer answer.
 - Payoff Setup: prepares the photo walk and family dinner as a double-pressure follow-through instead of isolated events.
-- Spark Watch: depends on Week 19 outcomes.
+- Spark Watch: Kate is on cooldown; June, Dex, Tracy, Martin, and Alex are eligible.
 - Draft Note: make Jan 8 and Jan 12 feel like one pressure lane, not two disconnected beats.
 
 ### Grade_9 — Week_21
@@ -139,6 +126,19 @@ Last updated: 2026-04-27
 - Hold For Later: spring-level resolution beats.
 - Payoff Setup: gives March open-mic, Pi Day, auditions, and band-intensification weeks a more stable emotional base.
 - Spark Watch: depends on Week 25 outcomes.
+
+### Grade_9 — Week_27
+
+- Dates: 2024-02-26 → 2024-03-03
+- Anchor: winter social fallout starts turning into public creative expression as a smaller town room asks people to show themselves without the grand theater of a dance or school ritual.
+- Calendar beats: Mar 2 Student Open Mic at Mariposa Cafe
+- Week Job: convert post-Winter Ball and late-February emotional change into visible authorship, performance, and audience reaction without treating the mic as final resolution.
+- Main Drivers: Tracy, Alex, June, Dex, and Nikole
+- Forced Interactions: open-mic signups, cafe prep, audience overlap, who chooses to perform, and who chooses to be present for someone else's risk.
+- Must Advance: Tracy's authorship in a more public room, Alex's music as connection rather than armor, June/Nikole visible support in town space, Dex's emotional bravery after the February cluster, and the ensemble's ability to witness one another without school forcing the overlap.
+- Hold For Later: spring-break resets, any endgame pairings, and the full payoff of spring performance arcs.
+- Payoff Setup: feeds directly into March's parent conferences, family cookout pressure, Pi Day, and Talent Show audition acceleration.
+- Spark Watch: depends on Week 26 outcomes.
 
 ## Maintenance Note
 
