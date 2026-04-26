@@ -5,6 +5,20 @@
 - Week Summary: School starts with everybody trying to control how they are seen, and that makes even ordinary school beats feel charged. The Talent Show announcement becomes the first real engine pulling the MCs together, not because they trust each other yet, but because each of them needs something from the space it creates. June ends the week more visible than she planned, Dex proves he can be useful but not yet easy to work with, Kate takes a reputational hit at exactly the wrong moment, and Alex quietly steps into the edge of June's deeper mystery. Tracy and Martin do not dominate the week, but their side pressures matter because they establish the practical friction that will keep every future group plan from being simple.
 - Calendar beats in play: Sept 1 First Day of School.
 
+## Operational Snapshot
+
+- Main Pressure: first-week visibility turns six separate pressures into the first rough shape of a band while rumor, obligation, and mystery start moving at the same time.
+- Who Changes This Week: June, Dex, Kate, and Alex move most materially, with Tracy and Martin establishing practical friction that will matter immediately afterward.
+- Who Is Restricted This Week: no Spark cooldowns yet; Tracy is restricted by bakery labor and Martin by coach-driven team expectations.
+- What Advances: the band's first public opening, Kate's rumor fallout, and June's deeper mystery through Alex's protection of the lighthouse note.
+- What Stays Unresolved: trust inside the group, how the band will actually function, and what the note means.
+
+## Continuity Guardrails
+
+- Entering Week: school has just started, the band does not yet exist as a real unit, and June's deeper mystery is still private and unformed in group space.
+- Cannot Contradict: Sept 1 is the first day of school; the group is still socially unaligned; no rooftop trio exists yet; no Spark cooldowns are active.
+- Newly True By End: June publicly creates the opening for the band, Dex proves useful but emotionally distant, Kate's rumor becomes active damage, Alex protects the lighthouse clue, and Tracy/Martin's outside obligations become real story pressure.
+
 ## Week Flow
 
 - Friday: school starts, the Talent Show is announced, and June and Dex both step into the early shape of the band for different reasons.
@@ -104,6 +118,13 @@
 - Twist 2: Ms. Vale offers the group a better rehearsal slot, but only if they can pitch a clear act concept by Monday morning.
 - Sparks pressure: June is most likely to spend Sparks to protect fragile momentum, Dex to salvage competence, Kate to avoid reputational damage, and Alex to preserve privacy around the note.
 
+## Spark Ledger
+
+- Entering Cooldown: none.
+- Spark-Eligible This Week: June, Dex, Kate, Tracy, Martin, and Alex.
+- Sparks Spent This Week: none recorded.
+- Cooldown Next Week: none.
+
 ## Character Memory Updates
 
 - June: +band-formation. She claims a visible role and unintentionally becomes one of the first public centers of the future band.
@@ -112,6 +133,21 @@
 - Alex: +uncle-letter. He protects a clue instead of weaponizing it, which deepens trust potential with June.
 - Tracy: +bakery-conflict. Family duty costs her rehearsal time and shapes how others will read her reliability.
 - Martin: +coach-conflict. Authority wins this round, but not without leaving resentment behind.
+
+## Tracker Notes
+
+- Fold Week 1 into `Character_memories.md` during generation.
+- Record the first active band-state, rumor fallout, lighthouse clue, and outside-obligation pressure as live continuity.
+- No Spark cooldowns carry into Week 2.
+
+## Finalization Checklist
+
+- Timeline/date check: complete.
+- Location access check: complete.
+- Cast availability check: complete.
+- Spark legality check: complete; no Spark use recorded.
+- Fold check: this week is intended to fold into `Character_memories.md` in the same pass.
+- Open-loop check: complete; the band, rumor, and mystery threads all advance without resolving.
 
 ## Notes For SM
 

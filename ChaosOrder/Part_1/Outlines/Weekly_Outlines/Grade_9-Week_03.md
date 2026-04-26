@@ -5,6 +5,20 @@
 - Week Summary: Week 3 shifts the pressure from public introduction to public definition. After the shaky but real Founder's Day showcase, classmates and teachers begin treating the group like a thing with a shape, which makes questions of image, hierarchy, and ownership harder to avoid. June tries to hold onto authenticity without letting the band's look get decided by other people. Dex faces the limits of solving social problems with smart systems. Kate is forced into an event that turns image into a literal product, which sharpens her ongoing rumor fallout. Alex and June keep pulling at the lighthouse thread, but the mystery moves slowly enough to stay intimate rather than explosive. Tracy, Martin, and Nikole each contribute a quieter pressure that keeps the week grounded in real life rather than letting it turn into pure performance drama.
 - Calendar beats in play: Sept 15 School Picture Day; Sept 17 Academic Pal's Announcement (Peer-Assisted Learning).
 
+## Operational Snapshot
+
+- Main Pressure: the group now has to survive being seen as a real thing, which turns image, scheduling, and ownership into sharper conflicts than simple formation did.
+- Who Changes This Week: June, Dex, Kate, and Alex move most materially, while Tracy, Martin, Nikole, and Prita all gain quieter but important definition.
+- Who Is Restricted This Week: no Spark cooldowns yet; Kate is socially restricted by rumor pressure and the group is constrained by new public visibility.
+- What Advances: the band's visual identity conversation, Dex's reduced planning system, the shoreline sketchbook clue, Nikole's art visibility, and Academic Pal's as real forward pressure.
+- What Stays Unresolved: whether the band can agree on a shared identity, how Kate will live with visible fracture, and how the mystery fits inside June's larger life.
+
+## Continuity Guardrails
+
+- Entering Week: the band survived Founder's Day, the rooftop trio exists, Kate's rumor is still active, and the local-history thread now sits alongside June's private lighthouse mystery.
+- Cannot Contradict: School Picture Day happens on Sept 15; Academic Pal's Announcement happens on Sept 17; the group is visible but still fragile; no Spark cooldowns are active.
+- Newly True By End: the band accepts the need for a visual identity, Dex learns structure can alienate without trust, Kate's image-control visibly cracks, the shoreline sketchbook becomes a real artifact thread, and Academic Pal's becomes a future system-pressure node.
+
 ## Week Flow
 
 - Monday: Founder's Day fallout spreads through school, and the band has to deal with being recognized instead of ignored.
@@ -131,6 +145,13 @@
 - Twist 2: Someone at the library recognizes June's family name and offers a half-remembered comment that raises more questions than it answers.
 - Sparks pressure: Kate may spend to preserve dignity under institutional pressure, June to protect the band's identity from flattening, Dex to keep control without alienating people further, and Alex to hold the mystery thread inside a manageable emotional frame.
 
+## Spark Ledger
+
+- Entering Cooldown: none.
+- Spark-Eligible This Week: June, Dex, Kate, Tracy, Martin, and Alex.
+- Sparks Spent This Week: none recorded.
+- Cooldown Next Week: none.
+
 ## Character Memory Updates
 
 - June: +visual-identity. She starts accepting that the band needs a visible language as well as an emotional one.
@@ -140,6 +161,21 @@
 - Tracy: +care-burden. She recognizes that being the gentle center of a group has a cost.
 - Martin: +malcolm-comparison. He becomes more aware of the gap between success and desire.
 - Nikole: +nikole-sketches. Her art becomes a more active way of shaping June's emotional world.
+
+## Tracker Notes
+
+- Fold Week 3 into `Character_memories.md` during generation.
+- Record the band's image/identity split, the shoreline sketchbook thread, Nikole's more active art language, and Academic Pal's as live continuity.
+- No Spark cooldowns carry into Week 4.
+
+## Finalization Checklist
+
+- Timeline/date check: complete.
+- Location access check: complete.
+- Cast availability check: complete.
+- Spark legality check: complete; no Spark use recorded.
+- Fold check: this week is intended to fold into `Character_memories.md` in the same pass.
+- Open-loop check: complete; band identity, rumor pressure, and the mystery all deepen without resolution.
 
 ## Notes For SM
 

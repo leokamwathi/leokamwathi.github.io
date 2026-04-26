@@ -5,6 +5,20 @@
 - Week Summary: Week 4 shifts the spotlight from image to allegiance. After Picture Day, the band has a clearer identity, but the group still has not learned how to survive moments when one member's outside life becomes everybody else's logistical and emotional problem. The first soccer game puts Martin at the center of school attention and forces the rest of the cast to decide what support actually looks like when schedules, pride, and hidden feelings all collide. June and Dex keep trying to move the band forward, but both are forced to confront that momentum is not the same as unity. Kate has to navigate a public event where she knows exactly how to perform social poise and no longer fully trusts it. Alex and June continue the lighthouse thread in smaller beats, letting the mystery deepen through atmosphere instead of plot spikes. Tracy and Nikole carry the gentler emotional stabilizers of the week, which keeps the story rooted in care even while competitiveness rises.
 - Calendar beats in play: Sept 22 First Soccer Game of the Season; Sept 22 first secret admirer poem in June's locker.
 
+## Operational Snapshot
+
+- Main Pressure: public allegiance and performance pressure force the group to test whether it can stay a band when one member's outside life changes the whole week's center of gravity.
+- Who Changes This Week: June, Martin, Kate, and Alex move most materially, while Tracy and Nikole stabilize the week in ways that deepen future arcs.
+- Who Is Restricted This Week: no Spark cooldowns yet; Martin is restricted by game-week obligations and the group is constrained by public-event visibility.
+- What Advances: June's leadership through adaptation, Martin's pressure as public center, Kate's sideline contradiction, the lighthouse pattern method, and the first admirer poem.
+- What Stays Unresolved: how the band will survive competing commitments, what the admirer poem means, and whether public performance spaces can ever feel truthful for Martin or Kate.
+
+## Continuity Guardrails
+
+- Entering Week: the band has a clearer identity after Picture Day, the rooftop trio and lighthouse clue thread are active, Kate's rumor strain remains alive, and the group is still fragile under practical pressure.
+- Cannot Contradict: Sept 22 is both the first soccer game and the first admirer poem; the band is not yet stable; no Spark cooldowns are active.
+- Newly True By End: June learns to adapt around other people's burdens, Martin's game pressure becomes more institutional, Kate's contradiction around image and feeling sharpens, Alex and June turn the clue thread into a pattern-reading method, and the admirer-poem mystery becomes a real second message thread in June's life.
+
 ## Week Flow
 
 - Monday: the group tries to build on Picture Day momentum, but Martin's game schedule immediately changes the week's center of gravity.
@@ -130,6 +144,13 @@
 - Twist 2: A candid sideline photo spreads after the game and creates a new round of low-level interpretation among classmates.
 - Sparks pressure: Martin may spend to keep composure under performance pressure, Kate to hold social control, June to keep the group emotionally connected after the game, and Dex to resist over-correcting with systems when people need softness.
 
+## Spark Ledger
+
+- Entering Cooldown: none.
+- Spark-Eligible This Week: June, Dex, Kate, Tracy, Martin, and Alex.
+- Sparks Spent This Week: none recorded.
+- Cooldown Next Week: none.
+
 ## Character Memory Updates
 
 - June: +schedule-adaptation. She learns that leadership means building around other people's lives, not just protecting momentum.
@@ -139,6 +160,21 @@
 - Tracy: +town-caretaker. She sees more clearly how often she nourishes other people before herself.
 - Martin: +game-pressure. Public expectation around sport intensifies and becomes harder to separate from identity.
 - Nikole: +nikole-offer. She takes a more direct creative risk in June's orbit.
+
+## Tracker Notes
+
+- Fold Week 4 into `Character_memories.md` during generation.
+- Record the first soccer-game pressure, the first admirer poem, Martin's deepening approval conflict, and the group's growing capacity to function as refuge.
+- No Spark cooldowns carry into Week 5.
+
+## Finalization Checklist
+
+- Timeline/date check: complete.
+- Location access check: complete.
+- Cast availability check: complete.
+- Spark legality check: complete; no Spark use recorded.
+- Fold check: this week is intended to fold into `Character_memories.md` in the same pass.
+- Open-loop check: complete; the band, admirer thread, and pressure around Martin/Kate all advance.
 
 ## Notes For SM
 

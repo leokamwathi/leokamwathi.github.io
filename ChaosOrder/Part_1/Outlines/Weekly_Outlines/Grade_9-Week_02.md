@@ -5,6 +5,20 @@
 - Week Summary: Week 2 is about early momentum meeting real-world friction. The six are no longer just a possible group in theory; teachers, classmates, schedules, and the town itself start treating them like something that either exists or fails. June has to translate instinct into a real concept, Dex has to make his usefulness feel human instead of clinical, Kate has to decide whether public embarrassment means retreat or reinvention, and Alex quietly pulls the lighthouse mystery one step deeper. Tracy and Martin continue to absorb the cost of obligations that look small from the outside but have major consequences for trust and timing. Founder's Day gives the whole week a public stage, which means every personal crack becomes more visible.
 - Calendar beats in play: Sept 8 Founder's Day Festival; Sept 9 rooftop trio formation for June, Dex, and Alex.
 
+## Operational Snapshot
+
+- Main Pressure: early band momentum has to survive public visibility, act-definition pressure, and ordinary obligations faster than the group is emotionally ready for.
+- Who Changes This Week: June, Dex, Kate, and Alex move most materially, while Tracy, Martin, and Nikole each deepen the group's actual shape.
+- Who Is Restricted This Week: no Spark cooldowns yet; Tracy is restricted by family work and Martin by sports expectations.
+- What Advances: the band's act concept, the lighthouse clue into local history, Nikole's emotional visibility, and the rooftop trio.
+- What Stays Unresolved: whether the band can cohere under real pressure, how Kate's rumor damage will settle, and what the widening clue thread actually means.
+
+## Continuity Guardrails
+
+- Entering Week: Week 1 created the band's first public opening, Kate's rumor is active, and Alex is quietly holding the lighthouse note with June.
+- Cannot Contradict: Founder's Day happens on Sept 8; the rooftop trio forms on Sept 9; the band is still emotionally messy; no Spark cooldowns are active.
+- Newly True By End: the band has a usable act concept, Dex's tools are more humanized, the clue expands into local history, Nikole becomes more visible to June, and the rooftop trio becomes a real emotional unit.
+
 ## Week Flow
 
 - Monday: the group has to pitch an act concept to keep the better rehearsal slot, which forces June and Dex into leadership before anyone has agreed on hierarchy.
@@ -131,6 +145,13 @@
 - Twist 2: Someone in the crowd recognizes the phrase from Alex's note and reacts just enough to suggest the mystery is not as private as it seemed.
 - Sparks pressure: June may spend to hold identity together under public pressure, Kate to avoid disappearing from the group at the worst moment, Dex to keep the showcase from falling apart, and Tracy to bridge a personal conflict without escalating it.
 
+## Spark Ledger
+
+- Entering Cooldown: none.
+- Spark-Eligible This Week: June, Dex, Kate, Tracy, Martin, and Alex.
+- Sparks Spent This Week: none recorded.
+- Cooldown Next Week: none.
+
 ## Character Memory Updates
 
 - June: +act-concept. She stops treating the band as an accident and starts defining what it is supposed to mean.
@@ -140,6 +161,21 @@
 - Tracy: +shift-trade. She begins asking for space instead of only making herself useful.
 - Martin: +captain-pressure. External praise starts to feel like a narrowing path rather than pure validation.
 - Nikole: +nikole-visibility. She steps out of passive observation and becomes more emotionally present in June's orbit.
+
+## Tracker Notes
+
+- Fold Week 2 into `Character_memories.md` during generation.
+- Record the band's act concept, the Founder's Day public test, the widened lighthouse clue, and the Sept 9 rooftop trio as live continuity.
+- No Spark cooldowns carry into Week 3.
+
+## Finalization Checklist
+
+- Timeline/date check: complete.
+- Location access check: complete.
+- Cast availability check: complete.
+- Spark legality check: complete; no Spark use recorded.
+- Fold check: this week is intended to fold into `Character_memories.md` in the same pass.
+- Open-loop check: complete; band identity, rumor fallout, and mystery all move forward.
 
 ## Notes For SM
 
