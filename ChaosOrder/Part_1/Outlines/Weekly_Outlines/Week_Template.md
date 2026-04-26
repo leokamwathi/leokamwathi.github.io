@@ -144,6 +144,7 @@
 
 ## Tracker Notes
 
+- If asked to draft the next numbered week, first tighten that week and the immediately following week in `weeklyplan.md` before drafting.
 - Append this week's results to `Character_memories.md`
 - Update `Current Cooldown State` and `Next Calendar Beats`
 - Update `Open Loops` if any active thread changed temperature or status
@@ -158,6 +159,7 @@
 - Cast availability check: confirm the listed characters can realistically be present
 - Spark legality check: confirm cooldowns and weekly Spark cap are valid
 - Fold check: confirm `Character_memories.md` was updated in the same pass
+- Rolling-plan check: confirm `weeklyplan.md` was tightened first when applicable and updated after playtest outcomes
 - Open-loop check: confirm major active threads were advanced, intentionally held, or intentionally cooled
 
 ## Notes For SM

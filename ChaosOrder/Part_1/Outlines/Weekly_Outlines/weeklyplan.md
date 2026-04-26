@@ -12,6 +12,7 @@ Last updated: 2026-04-27
 
 - Keep the next 4-8 weeks active here.
 - After a weekly file is drafted and folded, mark that week complete here and add one new future week at the bottom when the active horizon would otherwise drop below 8 weeks.
+- When asked for the next numbered week, tighten that requested week and the immediately following week here before drafting so pacing and payoff stay aligned across a two-week runway.
 - Keep this at beat-map level only. Do not turn it into a second weekly outline.
 - If a week is structurally light, note whether it should be drafted lightly, compacted, or merged at the planning stage.
 - Past deep history lives in the weekly files and 4-week summaries, not here.

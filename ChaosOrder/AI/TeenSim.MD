@@ -17,6 +17,7 @@ Core Principles
 - SS: Spotlight NPCs and keep the town alive; these can seed MS complications.
 - Generation = Draft + Playtest: when generating a weekly outline, resolve the scenes in the same pass and write the playtest result directly into the weekly file instead of treating playtest as a separate later step.
 - Generation = Draft + Playtest + Fold: the same generation pass should also fold that week's resolved results into `Character_memories.md` before moving on to the next week.
+- Next-Week Request Logic: when asked to do the next numbered week, first tighten the beat-map entries for that requested week and the immediately following week in `weeklyplan.md`, then draft the requested week from that refreshed two-week runway.
 - Operational Clarity: weekly files should expose hard continuity facts, active pressure, and Spark state without hiding them only inside long prose.
 - Maintenance Cadence: after every 4 completed weeks, run a short review-and-compaction pass so the live tracker stays readable.
 - Twist-Friendly: SM should add 1–2 unexpected twists per week to force MCs to improvise.
@@ -173,15 +174,16 @@ For brevity, the mini example below omits the full `Operational Snapshot`, `Cont
 
 How to Run a Session (practical)
 
-1. Prep 1–2 hours max: draft the Anchor, active open loops, continuity guardrails, MS hooks, 2 SS, and 6 twist lines.
+1. Prep 1–2 hours max: if generating the next numbered week, tighten that week and the immediately following week in `weeklyplan.md` first; then draft the Anchor, active open loops, continuity guardrails, MS hooks, 2 SS, and 6 twist lines.
 2. Start with Anchor and define the week's Operational Snapshot.
 3. Run MS scenes in player order; let MCs spend Sparks to tilt stakes, but allow no more than 2 MC Spark users that week.
 4. Use the Twist table sparingly—twists should force choice, not punishment.
 5. Resolve the week during generation by writing `Playtest Outcome` lines directly into each scene that matters.
 6. Record the Spark Ledger in the weekly file before finishing the week.
 7. Fold the resolved week into `Character_memories.md` before ending the generation pass.
-8. Run the Finalization Checklist so dates, locations, cast availability, Spark legality, and tracker fold are all confirmed.
-9. End with a clear consequence and a small reward (XP is narrative: new ally, new clue, stronger trust), then note any Spark cooldowns for next week.
+8. Update `weeklyplan.md` from actual outcomes: mark the drafted week complete and retune the following week's Spark watch or pressure notes if the playtest changed them.
+9. Run the Finalization Checklist so dates, locations, cast availability, Spark legality, tracker fold, and rolling-plan update are all confirmed.
+10. End with a clear consequence and a small reward (XP is narrative: new ally, new clue, stronger trust), then note any Spark cooldowns for next week.
 
 Week Finalization Checklist
 
@@ -192,6 +194,7 @@ Treat a generated week as incomplete until all of the following are true:
 - Cast availability check: listed characters can realistically be present.
 - Spark legality check: weekly cap and cooldown state are valid.
 - Fold check: `Character_memories.md` was updated in the same pass.
+- Rolling-plan check: `weeklyplan.md` was tightened before drafting when applicable and updated after outcomes were known.
 - Open-loop check: major active threads were advanced, intentionally held, or intentionally cooled.
 
 Safety, Tone, and Boundaries
