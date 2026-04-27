@@ -434,6 +434,12 @@ These six characters form the central band and the core of the story's focus.
 *   **Appearance:** Short, often dyed hair (blue, red, or green); hazel eyes; a mix of Korean and Italian features; rebellious style; often wears Anthony's old lighthouse key on a cord around her neck and a worn silicone bracelet stamped with "Live with love and truth."
 *   **Personality:** Charming, funny, creative, musical, loyal, optimistic, but can be impulsive and use humor to deflect from past trauma.
 *   **Backstory:** Feels like an outsider, struggling to fit in with her peers and clashing with her parents' expectations. She's drawn to the lighthouse, a place connected to her late uncle, Anthony Donatelli, who inspired her love for photography and philosophy. After his death, his old camera and the key to the now mostly symbolic family-held lighthouse became the concrete things she clings to when she wants to feel close to him.
+*   **School Reputation:** Often treated as the principal's daughter before she gets to be herself, which makes school feel like a place where she is interpreted before she is known.
+*   **Before The Armor:** She used to be more openly earnest and easier to read, but grief, family pressure, and repeated misreadings taught her to become sharper and more controlled.
+*   **Lie:** If people see what she really feels, they will shrink it, judge it, or take ownership of it.
+*   **Protective Rule:** Stay fragmentary, stay deniable, and let art speak first.
+*   **Anthony's Lasting Impact:** Anthony remains her model for a freer, more truthful self, and his key, camera, and bracelet function as private anchors rather than plot-device clues.
+*   **How It Shows Up:** She curates access, redirects vulnerability into wit or aesthetic choices, and lets different people know different versions of her.
 *   **Goal:** To have fun, make friends, become a successful musician, and find a partner who understands him as he overcomes his past.
 *   **Key Relationships:**
     *   Close friends with June and Dexter.
