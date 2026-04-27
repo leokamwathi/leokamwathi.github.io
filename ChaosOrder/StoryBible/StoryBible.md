@@ -431,9 +431,9 @@ These six characters form the central band and the core of the story's focus.
 *   **Age:** 14.5
 *   **Birthday:** May 27th (Gemini)
 *   **MBTI:** ENFP (The Campaigner)
-*   **Appearance:** Average build; hazel eyes; dark brown hair with a slight wave; warm smile; sometimes wears a beanie.
+*   **Appearance:** Short, often dyed hair (blue, red, or green); hazel eyes; a mix of Korean and Italian features; rebellious style; often wears Anthony's old lighthouse key on a cord around her neck and a worn silicone bracelet stamped with "Live with love and truth."
 *   **Personality:** Charming, funny, creative, musical, loyal, optimistic, but can be impulsive and use humor to deflect from past trauma.
-*   **Backstory:** His experience with his abusive biological father has shaped his views on relationships. He has a loving and supportive home with his two mothers. Music is his primary outlet for connection and healing.
+*   **Backstory:** Feels like an outsider, struggling to fit in with her peers and clashing with her parents' expectations. She's drawn to the lighthouse, a place connected to her late uncle, Anthony Donatelli, who inspired her love for photography and philosophy. After his death, his old camera and the key to the now mostly symbolic family-held lighthouse became the concrete things she clings to when she wants to feel close to him.
 *   **Goal:** To have fun, make friends, become a successful musician, and find a partner who understands him as he overcomes his past.
 *   **Key Relationships:**
     *   Close friends with June and Dexter.
