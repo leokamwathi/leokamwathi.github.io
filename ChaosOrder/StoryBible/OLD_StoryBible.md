@@ -1,3 +1,7 @@
+******************************************************************************************************
+AI note: this is an old story bible. Its here just for reference. Dont edit this document.
+******************************************************************************************************
+
 # Chaos Order Story Bible: Version 3
 
 ## Table of Contents
