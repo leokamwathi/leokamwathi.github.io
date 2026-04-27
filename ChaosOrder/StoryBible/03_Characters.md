@@ -8,7 +8,7 @@ This section provides detailed profiles for all major and minor characters in "C
 
 <a id="31-main-characters"></a>
 
-These six characters form the central band and the core of the story's focus.
+These six characters form the central band and the core of the story's focus. This subsection is the primary writer-facing reference for the MCs and should carry their active Part 1 engine: wound, lie, want, bad pattern, and pressure relationships.
 
 ---
 
@@ -18,15 +18,21 @@ These six characters form the central band and the core of the story's focus.
 *   **Birthday:** January 12th (Capricorn)
 *   **MBTI:** INTP (The Logician)
 *   **Appearance:** Short, often dyed hair (blue, red, or green); hazel eyes; a mix of Korean and Italian features; rebellious style; tattoo on her arm that says "Live with love and truth."
-*   **Personality:** Independent, creative, passionate, intellectual, loyal, rebellious, stubborn, secretive, impatient, prone to trouble.
-*   **Backstory:** Feels like an outsider, struggling to fit in with her peers and clashing with her parents' expectations. She's drawn to the lighthouse, a place connected to her late uncle, Anthony Donatelli, who inspired her love for photography and philosophy. Adding to her complex social history is an amicable but awkward 8th-grade dating experience with Malcolm Lewis, which now colors their interactions with a layer of polite distance.
-*   **Goal:** To find her place, express herself authentically, and connect with people who understand her.
-*   **Key Relationships:**
-    *   Close friends with Dexter and Alex.
-    *   Secretly attracted to Nikole Mandela.
-    *   Strained relationship with her mother, Sofia Donatelli Lyu, the pastor of the Church of L.O.V.E.
-    *   Distant relationship with her father, Matthew Kim Lyu, the principal and physics teacher at Waterfall Academy.
-    *   Complicated relationship with her older sister, Suzan Liang Lyu.
+*   **Personality:** Independent, creative, intellectually intense, loyal, rebellious, stubborn, secretive, impatient, and prone to turning vulnerability into argument, irony, or withdrawal before anyone can pin her down.
+*   **Backstory:** June has long felt like an outsider inside her own family and town. She is drawn to the lighthouse and to photography partly because both let her hold meaning at a controlled distance. Her late uncle, Anthony Donatelli, became the patron saint of the self she wants to protect, which means her grief is mixed with idealization. Her brief 8th-grade relationship with Malcolm still lingers as proof that she can perform "normal" connection without actually being known.
+*   **Surface Goal (Part 1):** Carve out a physical, artistic, and emotional space where she can live authentically without being flattened by family, school, or popularity systems.
+*   **Deeper Need:** Learn that being known is not the same thing as being trapped, and that privacy without honesty can become its own kind of control.
+*   **Core Wound:** June fears that if her full self becomes legible, especially her queerness, her art, and her inner life, the people whose approval should matter least will still have the power to define or reject her.
+*   **Lie She Tells Herself:** If I keep my real feelings compartmentalized, I stay free and in control.
+*   **Bad Pattern Under Stress:** She withholds partial truths, intellectualizes pain, tests people instead of trusting them, and can turn tenderness into ambiguity so no one gets enough access to hurt her first.
+*   **Emotional Processing:** Journal/scrapbook, darkroom work, photography, and long solitary time at the lighthouse. She processes feeling by turning it into image, pattern, and thought before admitting it as need.
+*   **Safe People / Space:** Dexter and Alex are her safest people; the lighthouse is her safest place.
+*   **Key Pressure Relationships:**
+    *   **Dexter and Alex:** The core trio is the first place June feels both intellectually matched and emotionally tolerated. They anchor her, but they also make it harder for her to pretend she needs no one.
+    *   **Nikole Mandela:** June is genuinely drawn to Nikole's artistic sensitivity and calm presence, but the relationship becomes dangerous to June the moment it requires clarity instead of beautifully managed ambiguity.
+    *   **Sofia Donatelli Lyu:** June's conflict with her mother is not simple rebellion. Sofia represents love mixed with judgment, grief mixed with faith, and the possibility that being understood might still come with conditions.
+    *   **Matthew Kim Lyu:** Matthew is the pressure of institution made personal: authority, control, rules, and disappointment. June experiences him less as a parent than as a system she cannot relax inside.
+    *   **Suzan Liang Lyu:** Suzan embodies the version of daughterhood that looks legible, useful, and successful to the family, which makes every interaction a quiet values fight.
 
 ---
 
@@ -38,14 +44,21 @@ These six characters form the central band and the core of the story's focus.
 *   **Birthday:** February 21st (Pisces)
 *   **MBTI:** INTJ (The Architect)
 *   **Appearance:** Lean build; dark brown eyes; short, black hair (sometimes styled with braids); reserved demeanor; tends to wear hoodies.
-*   **Personality:** Intelligent slacker, creative, loyal, protective, tech-savvy, shy, reserved, angry, resentful, withdrawn.
-*   **Backstory:** His parents divorced when he was 11, leaving him feeling abandoned and betrayed. He moves to Waterfall with his father at the start of the story. He struggles with anger issues and feels isolated from his family. He has a secret crush on Tracy. His social isolation is slightly pierced by an initially awkward blind date with Nikole Mandela, which unexpectedly blossoms into a close, confidential friendship.
-*   **Goal:** To heal from the pain of his past, to find a sense of belonging, and to create something meaningful with his technology skills.
-*   **Key Relationships:**
-    *   Close friends with June and Alex.
-    *   Developing feelings for Tracy Baker.
-    *   Strained relationship with his mother, Jane Kyoko Maxwell.
-    *   Close relationship with his father, Marcus Maxwell.
+*   **Personality:** Intelligent, observant, tech-savvy, protective, funny in a dry way, shy, resentful, angry, and more emotionally rigid than he wants anyone to see. He can become cold, sharp, and punishing when he feels exposed or unwanted.
+*   **Backstory:** His parents' divorce left him with a worldview built around abandonment, not adjustment. Moving to Waterfall with his father gives him stability but not peace. He uses competence as both shelter and weapon, building systems he can trust because people have proven harder to read. His bond with June and Alex becomes his first credible social foothold, while Tracy and later Prita force him into forms of connection that his usual control strategies cannot fully handle.
+*   **Surface Goal (Part 1):** Regain control, establish belonging in Waterfall, and prove his skills matter in a way no one can take away.
+*   **Deeper Need:** Accept that being needed is not the same thing as being known, and that real closeness cannot be engineered through usefulness alone.
+*   **Core Wound:** His mother's departure taught him that attachment is unstable and that trust is an irrational risk.
+*   **Lie He Tells Himself:** If I am useful enough, people will keep me.
+*   **Bad Pattern Under Stress:** He overdesigns, overcontrols, retreats into tech, dismisses emotional mess as inefficiency, and can lash out or withdraw the moment closeness starts feeling like vulnerability instead of structure.
+*   **Emotional Processing:** Echo, coding, systems-building, and obsessive problem-solving. Dex tries to convert emotion into analyzable data so he never has to sit helplessly inside it.
+*   **Safe People / Space:** June and Alex are his safest peers; his coding environment and Echo are the spaces where he feels most in command.
+*   **Key Pressure Relationships:**
+    *   **June and Alex:** The trio gives Dex the first group where intellect is not a social liability. They humanize him, but they also remove his excuse for total isolation.
+    *   **Tracy Baker:** Tracy is emotionally legible in ways that both attract and destabilize him. She invites warmth he cannot control, which is why he risks turning feeling into awkward overhelp or distance.
+    *   **Prita Singh:** Prita can meet Dex inside structure without disappearing into it. That makes her a particularly dangerous connection because she challenges his belief that control is the safest version of intimacy.
+    *   **Jane Kyoko Maxwell:** His mother remains the emotional math problem he cannot solve cleanly, which keeps his anger alive even when he would rather call it logic.
+    *   **Marcus Maxwell:** Marcus is his emotional baseline for safety and reliability, which also means Dex can use that safety to avoid dealing with harder relational growth elsewhere.
 
 ---
 
@@ -56,14 +69,21 @@ These six characters form the central band and the core of the story's focus.
 *   **Birthday:** August 10th (Leo)
 *   **MBTI:** ESTJ (The Executive)
 *   **Appearance:** Athletic build; blue eyes; long, black hair; attractive, confident, stylish, often wears a tennis bracelet.
-*   **Personality:** Confident, outgoing, determined, athletic, fashion-conscious, driven, competitive, bossy, defensive, impatient.
-*   **Backstory:** Her father, David Silchenko, passed away when she was 8. Her mother, Grace Silchenko, is a scientist who works at W.E.I.R.D. and is often emotionally distant. Kate seeks validation through her achievements in tennis and fashion. This drive for perfection is also a reaction against a brief, disastrous dating relationship she had with Finn O'Connell in 8th grade, which has fueled their ongoing animosity.
-*   **Goal:** To impress people, to win at tennis, to be recognized for her fashion sense, and to be seen as successful.
-*   **Key Relationships:**
-    *   Best friends with Tracy Baker and Melissa Suarez.
-    *   Rivals/Enemies with Martin Suarez (secretly has a crush on him).
-    *   Long-standing rivalry with Mackenzie Hayes.
-    *   Strained relationship with her mother, Grace Silchenko.
+*   **Personality:** Confident, stylish, strategic, funny when unguarded, driven, competitive, bossy, defensive, and highly capable of turning hurt into control, polish, or a cutting remark before anyone sees the wound beneath it.
+*   **Backstory:** Kate lost her father young and learned fast that visible excellence could function like emotional armor. Tennis, fashion, and image control became the places where she could manufacture certainty and admiration. Her mother's emotional distance reinforced the idea that feelings make people less reliable, while the public embarrassment of earlier romantic misfires taught her to prefer control over openness.
+*   **Surface Goal (Part 1):** Protect her status, keep winning, and remain the kind of girl nobody can easily dismiss, embarrass, or pity.
+*   **Deeper Need:** Discover that intimacy cannot be built from admiration, polish, or being impressive enough to outrun grief.
+*   **Core Wound:** Kate's father died, and the surviving parent she most needs has become emotionally difficult to reach. She experiences that gap as evidence that weakness, grief, and dependency make people disappear.
+*   **Lie She Tells Herself:** If I stay polished, desirable, and impressive, I cannot be diminished.
+*   **Bad Pattern Under Stress:** She performs competence, cuts first, doubles down on status behavior, and may humiliate or distance others before they can see how unsure or hurt she actually feels.
+*   **Emotional Processing:** Curated vlogs, obsessive refinement, athletic training, and visual self-management. The truth often lives in the moment after she stops performing.
+*   **Safe People / Space:** Tracy is her safest person; tennis is her safest activity because it turns emotion into skill, structure, and victory.
+*   **Key Pressure Relationships:**
+    *   **Tracy Baker:** Tracy is one of the few people Kate trusts without needing to win. That also means Tracy can see cracks Kate would rather manage privately.
+    *   **Martin Suarez:** Martin is dangerous because he sees both her competitiveness and her loneliness, and because rivalry gives her a socially acceptable way to stay emotionally entangled.
+    *   **Mackenzie Hayes:** Mackenzie externalizes Kate's fear that image is a competition with no bottom and no stable reward.
+    *   **Jayden Flores:** Jayden represents the socially correct version of desire, which makes him useful but also exposes how little image-approved intimacy actually satisfies her.
+    *   **Grace Silchenko:** Kate keeps chasing proof that her mother can see her as a daughter instead of a high-performing extension of family competence.
 
 ---
 
@@ -74,14 +94,20 @@ These six characters form the central band and the core of the story's focus.
 *   **Birthday:** April 29th (Taurus)
 *   **MBTI:** INFJ (The Advocate)
 *   **Appearance:** Curvy build; warm brown eyes; short, TWA Afro; freckles; often wears colorful aprons.
-*   **Personality:** Kind, compassionate, creative, and deeply empathetic. Tracy is the group's nurturing heart, always seeking harmony. **However, this kindness is both genuine and a defense mechanism. Beneath her warm, optimistic exterior lies a deep-seated fear of rejection and a quiet struggle with low self-esteem and body image. She avoids conflict to maintain her role as the "peacemaker," believing her value comes from being liked and useful to others.** She is sensitive, responsible, and prone to overthinking.
-*   **Backstory:** Comes from a loving family with a strong bond with her parents, who own the Mariposa Bakery & Cafe. **She pours her energy into baking and poetry, creative outlets where she feels competent and valued, and where she can produce something "perfect."** She later developes a crush on Dexter but is dating Akihiko Tanaka, a relationship she values for its safety and lack of conflict.
-*   **Goal:** To maintain her friendships, to find a sense of purpose, to explore her creative side, and to find love and happiness.
-*   **Key Relationships:**
-    *   Best friends with Kate Silchenko and Melissa Suarez.
-    *   Dating Akihiko Tanaka.
-    *   Developing feelings for Dexter Maxwell.
-    *   Close and loving relationship with her parents, Arthur and Diana Baker.
+*   **Personality:** Kind, imaginative, creative, responsible, deeply empathetic, conflict-averse, and better at reading other people's needs than naming her own. Her warmth is genuine, but so is her tendency to make herself useful before she makes herself visible.
+*   **Backstory:** Tracy grew up in a loving family and inside a business built on hospitality, which taught her to equate care with service very early. Baking and poetry became places where she could be emotionally honest without directly asking anyone for anything. She values her relationship with Aki because it feels safe and low-drama, but her feelings for Dex expose how much desire, risk, and authorship she has been quietly smoothing over.
+*   **Surface Goal (Part 1):** Keep her relationships intact, deepen her creative identity, and build a life where care, love, and purpose all feel stable.
+*   **Deeper Need:** Learn that being chosen is different from being needed, and that love offered in exchange for comfort or usefulness is not the same thing as being fully seen.
+*   **Core Wound:** Tracy fears that if she is too needy, too inconvenient, too angry, or too much, people will quietly stop choosing her.
+*   **Lie She Tells Herself:** If I stay kind, low-maintenance, and useful, people will love me.
+*   **Bad Pattern Under Stress:** She over-functions, absorbs other people's feelings, avoids direct conflict, moralizes her own passivity as kindness, and can use caretaking to dodge the harder work of wanting something for herself.
+*   **Emotional Processing:** Poetry, baking, ritual acts of care, and sensory comfort. Tracy often turns desire into service because service feels safer than asking.
+*   **Safe People / Space:** Her parents, Kate, and Melissa are her safest people; the Mariposa Bakery is her emotional hearth.
+*   **Key Pressure Relationships:**
+    *   **Kate Silchenko:** Kate gives Tracy a relationship where caretaking is not the whole bond, which is why Tracy can be warmer and bolder there than elsewhere.
+    *   **Akihiko Tanaka:** Aki offers safety, gentleness, and low conflict, which makes him emotionally real but also exposes Tracy's habit of mistaking peace for full satisfaction.
+    *   **Dexter Maxwell:** Dex pulls Tracy toward a messier, riskier form of connection that she cannot manage through niceness alone.
+    *   **Arthur and Diana Baker:** Their love grounds Tracy, but it also reinforces her identity as a dependable emotional center, which can make it harder for her to admit when she wants to be cared for too.
 
 ---
 
@@ -91,13 +117,21 @@ These six characters form the central band and the core of the story's focus.
 *   **Birthday:** November 29th (Sagittarius)
 *   **MBTI:** ESFP (The Entertainer)
 *   **Appearance:** Muscular build; dark brown eyes; blonde hair that he swears is natural; charming smile; athletic build; confident swagger.
-*   **Personality:** Charming, confident, athletic, popular, competitive, funny, arrogant, insensitive, superficial, sometimes manipulative.
-*   **Backstory:** His father, Luciano, is the school's soccer coach and a former player who pressures Martin to follow in his footsteps. Martin secretly loves tennis more but hides it to live up to his father's legacy.
-*   **Goal:** To win at soccer, be popular, get Kate's attention, and eventually find a girl who will love him for who he is, not just his status.
-*   **Key Relationships:**
-    *   Rivals/Enemies with Kate Silchenko (secretly has a crush on her).
-    *   Strong sibling bond with his older brother, Joseph, and younger sister, Melissa.
-    *   Strained relationship with his father, Luciano, but finds comfort with his mother, Isabella.
+*   **Personality:** Charming, funny, athletic, socially fluent, competitive, impulsive, status-aware, and more emotionally avoidant than his swagger suggests. He can be insensitive, performative, or manipulative when he feels cornered, ignored, or less impressive than he wants to seem.
+*   **Backstory:** Martin has been raised inside a family sports legacy that treats success as identity. His father pushes soccer as destiny, while Martin's quieter, more personal love for tennis feels like disloyalty. He also carries the kind of family-and-status consciousness that makes it easy to play the confident golden boy and much harder to say what he actually wants.
+*   **Surface Goal (Part 1):** Keep his status, win where he is expected to win, and stay desirable, admired, and safely inside the identity everybody already rewards.
+*   **Deeper Need:** Understand that approval is not the same thing as belonging, and that the self he likes best may be the one that costs him applause.
+*   **Core Wound:** Martin has been taught that love, admiration, and family pride are all conditional on performance.
+*   **Lie He Tells Himself:** If I keep being the version of me that gets approval, I will not lose belonging.
+*   **Bad Pattern Under Stress:** He performs charm instead of honesty, chooses status over vulnerability, treats relationships like competitions he can win, and delays hard truth until the lie starts costing too much.
+*   **Emotional Processing:** Secret tennis, physical exertion, and one-sided heart-to-heart talks with Joseph. Martin can feel deeply, but he only trusts those feelings in spaces that do not demand immediate public consequence.
+*   **Safe People / Space:** Isabella and Joseph are his safest people; tennis is the activity that brings him closest to the self he is trying not to lose.
+*   **Key Pressure Relationships:**
+    *   **Kate Silchenko:** Kate matters because she is one of the few people who can match him competitively and still make him feel less fake, which is exactly why he keeps hiding inside rivalry.
+    *   **Luciano Suarez:** Luciano is admiration mixed with suffocation. Martin wants his father's approval even while needing to resist the future that approval is trying to lock in.
+    *   **Isabella and Joseph Suarez:** They are his emotional permission structure, the family members most likely to make honesty feel survivable.
+    *   **Mackenzie Hayes:** Mackenzie represents the status-affirming path: attractive, legible, socially correct, and emotionally thinner than what Martin actually wants.
+    *   **Malcolm Lewis:** Malcolm is both camaraderie and pressure, a mirror for the version of masculinity Martin can perform easily even when it no longer fits cleanly.
 
 ---
 
@@ -107,13 +141,20 @@ These six characters form the central band and the core of the story's focus.
 *   **Birthday:** May 27th (Gemini)
 *   **MBTI:** ENFP (The Campaigner)
 *   **Appearance:** Average build; hazel eyes; dark brown/red hair with a slight wave; warm smile; sometimes wears a beanie.
-*   **Personality:** Charming, funny, creative, musical, loyal, optimistic, but can be impulsive and use humor to deflect from past trauma.
-*   **Backstory:** His experience with his abusive biological father has shaped his views on relationships. He has a loving and supportive home with his two mothers. Music is his primary outlet for connection and healing. His already complicated feelings for Jayden are further tangled by a surprising connection he forms with Prita Singh after they are set up on a blind date.
-*   **Goal:** To have fun, make friends, become a successful musician, and find a partner who understands him as he overcomes his past.
-*   **Key Relationships:**
-    *   Close friends with June and Dexter.
-    *   Confused and unresolved relationship with his ex-best friend, Jayden Flores.
-    *   A loving relationship with his two mothers, Hellen Quin and Taylor Iona.
+*   **Personality:** Charming, funny, musical, emotionally perceptive, loyal, optimistic on the surface, impulsive when scared, and highly skilled at using humor, rhythm, and tone to keep other people comfortable before they notice what he is avoiding.
+*   **Backstory:** Alex grew up loved by his mothers but marked by earlier abuse that taught him intimacy can turn dangerous fast. Music became both his outlet and his camouflage: a way to say things indirectly, beautifully, and at partial risk. His unresolved history with Jayden keeps one of his deepest wants permanently electrified, while later connections like Prita test whether he can be present with someone without turning the whole exchange into vibe, wit, or graceful deflection.
+*   **Surface Goal (Part 1):** Build connection, keep the trio alive, use music to matter, and find a version of love that does not feel like a trap.
+*   **Deeper Need:** Accept that being emotionally useful is not the same thing as being emotionally known, and that vulnerability has to be risked directly, not only stylized.
+*   **Core Wound:** Alex's past taught him that closeness can become humiliation, abandonment, or violence, so he tries to stay one beat ahead of real exposure.
+*   **Lie He Tells Himself:** If I stay funny, useful, and good at managing the tone, I never have to risk being fully seen.
+*   **Bad Pattern Under Stress:** He deflects with humor, curates atmosphere, supports other people's emotional scenes instead of naming his own need, and may sabotage intimacy the moment it starts feeling too specific or irreversible.
+*   **Emotional Processing:** Song lyrics, performance energy, private drafts, and emotionally coded humor. He often says his truest things in art first because art lets him remain deniable.
+*   **Safe People / Space:** His mothers, June, and Dex are his safest people; Hellen's Harmony is the space where he feels most permitted to be soft, strange, and unfinished.
+*   **Key Pressure Relationships:**
+    *   **June and Dex:** The trio gives Alex belonging without demanding conventional self-explanation, which is why he will protect it hard, sometimes harder than he protects his own individual needs.
+    *   **Jayden Flores:** Jayden is the unresolved wound-line where desire, abandonment, shame, and hope all overlap. It is the relationship most capable of forcing Alex out of tone-management and into actual truth.
+    *   **Prita Singh:** Prita is useful because she responds to him without being fully seduced by charm. That creates an opening for honesty and a threat to his usual methods.
+    *   **Hellen Quin and Taylor Iona:** His mothers are evidence that love can be stable, which makes them both a comfort and a challenge to the self-protective worldview he still carries from earlier trauma.
 
 ## 3.2 Supporting Characters
 
