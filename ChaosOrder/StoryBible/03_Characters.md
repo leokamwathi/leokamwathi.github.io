@@ -50,7 +50,7 @@ These six characters form the central band and the core of the story's focus. Th
 *   **Birthday:** February 21st (Pisces)
 *   **MBTI:** INTJ (The Architect)
 *   **Appearance:** Lean build; dark brown eyes; short, black hair (sometimes styled with braids); reserved demeanor; tends to wear hoodies.
-*   **Personality:** Intelligent, observant, tech-savvy, protective, funny in a dry way, shy, resentful, angry, and more emotionally rigid than he wants anyone to see. He can become cold, sharp, and punishing when he feels exposed or unwanted.
+*   **Personality:** Intelligent slacker, observant, tech-savvy, protective, funny in a dry way, shy, resentful, angry, and more emotionally rigid than he wants anyone to see. He can become cold, sharp, and punishing when he feels exposed or unwanted.
 *   **Backstory:** His parents' divorce left him with a worldview built around abandonment, not adjustment. Moving to Waterfall with his father gives him stability but not peace. He uses competence as both shelter and weapon, building systems he can trust because people have proven harder to read. His bond with June and Alex becomes his first credible social foothold, while Tracy and later Prita force him into forms of connection that his usual control strategies cannot fully handle.
 *   **Surface Goal (Part 1):** Regain control, establish belonging in Waterfall, and prove his skills matter in a way no one can take away.
 *   **Deeper Need:** Accept that being needed is not the same thing as being known, and that real closeness cannot be engineered through usefulness alone.
